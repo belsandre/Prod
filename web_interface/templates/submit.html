@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}{% if parent_job %}Reply to Job #{{ parent_job.id }}{% else %}Submit Job{% endif %} - Claude Code Job Queue{% endblock %}
+
+{% block content %}
+{% if parent_job %}
+<div class="card" style="background: #e7f3ff; border-left: 4px solid #007bff;">
+    <h2>Replying to Conversation</h2>
+    <p><strong>Parent Job:</strong> #{{ parent_job.id }} - {{ parent_job.job_type }}</p>
+    {% if parent_job.prompt %}
+    <p><strong>Original Prompt:</strong></p>
+    <div style="padding: 0.5rem; background: white; border-radius: 4px; margin-top: 0.5rem;">
+        {{ parent_job.prompt[:200] }}{% if parent_job.prompt|length > 200 %}...{% endif %}
+    </div>
+    {% endif %}
+    <p style="margin-top: 1rem; color: #0056b3;">
+        Your reply will continue this conversation. Claude Code will have access to the full conversation history.
+    </p>
+</div>
+{% endif %}
+
+<div class="card">
+    <h2>{% if parent_job %}Reply to Job #{{ parent_job.id }}{% else %}Submit New Job{% endif %}</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% if parent_job %}
+        <input type="hidden" name="parent_job_id" value="{{ parent_job.id }}">
+        {% endif %}
+        <div class="form-group">
+            <label for="job_type">Job Type</label>
+            <select id="job_type" name="job_type">
+                <option value="general">General Task</option>
+                <option value="code_review">Code Review</option>
+                <option value="file_processing">File Processing</option>
+                <option value="data_analysis">Data Analysis</option>
+                <option value="document_generation">Document Generation</option>
+                <option value="custom">Custom</option>
+            </select>
+            <div class="form-help">Select the type of job you're submitting</div>
+        </div>
+
+        <div class="form-group">
+            <label for="prompt">Instructions / Prompt</label>
+            <textarea id="prompt" name="prompt" placeholder="Describe what you want Claude Code to do..."></textarea>
+            <div class="form-help">Provide clear instructions for your job. Be as specific as possible.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="files">Upload Files (Optional)</label>
+            <input type="file" id="files" name="files" multiple>
+            <div class="form-help">
+                Upload files for Claude Code to process. Supported formats: txt, pdf, png, jpg, gif, csv, json, xml, md, py, js, html, css, zip, tar, gz (max 50MB per file)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <select id="priority" name="priority">
+                <option value="0">Normal</option>
+                <option value="5">High</option>
+                <option value="10">Urgent</option>
+                <option value="-5">Low</option>
+            </select>
+            <div class="form-help">Higher priority jobs are processed first</div>
+        </div>
+
+        <div style="display: flex; gap: 1rem;">
+            <button type="submit" class="btn btn-success">Submit Job</button>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<div class="card">
+    <h2>How It Works</h2>
+    <ol style="padding-left: 1.5rem; line-height: 2;">
+        <li>Submit your job with instructions and/or files</li>
+        {% if processing_mode == 'manual' %}
+        <li>Your job will be added to the pending queue</li>
+        <li>You or an admin must approve the job before processing</li>
+        <li>Once approved, the job enters the processing queue</li>
+        {% else %}
+        <li>Your job will be automatically approved and queued</li>
+        {% endif %}
+        <li>Claude Code will pick up the job and process it</li>
+        <li>You can view the output once the job completes</li>
+    </ol>
+</div>
+{% endblock %}

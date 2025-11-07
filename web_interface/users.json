@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password_hash": "pbkdf2:sha256:1000000$8zwZdpVFJVkpeNaE$9c4b77a9976bd3f3bf1f688939578a038c91d74b16eb364c4c5499c0204408ba",
+      "role": "admin",
+      "folder": null,
+      "created_at": "2025-11-06T00:00:00"
+    },
+    {
+      "username": "tam",
+      "password_hash": "pbkdf2:sha256:1000000$75Td90592dvwDWpJ$5d8049cd854d99f522f51efbfa6e9a4b3275c4c09567b6aa45246c585d9cdfea",
+      "role": "user",
+      "folder": "users/tam",
+      "created_at": "2025-11-06T00:00:00"
+    }
+  ]
+}

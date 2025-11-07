@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Output - Job #{{ job.id }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Job #{{ job.id }} - Text Output</h2>
+    <pre>{{ job.output_text }}</pre>
+</div>
+
+<div class="card">
+    <a href="{{ url_for('view_job', job_id=job.id) }}" class="btn btn-secondary">Back to Job</a>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary" style="margin-left: 1rem;">Dashboard</a>
+</div>
+{% endblock %}

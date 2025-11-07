@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Claude Code Job Queue{% endblock %}
+
+{% block content %}
+<h1 style="margin-bottom: 2rem;">Dashboard</h1>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">{{ stats.pending }}</div>
+        <div class="label">Pending Approval</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">{{ stats.approved }}</div>
+        <div class="label">Approved</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">{{ stats.processing }}</div>
+        <div class="label">Processing</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">{{ stats.completed }}</div>
+        <div class="label">Completed</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">{{ stats.failed }}</div>
+        <div class="label">Failed</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">{{ stats.rejected }}</div>
+        <div class="label">Rejected</div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>Quick Actions</h2>
+    <a href="{{ url_for('submit_job') }}" class="btn btn-success">Submit New Job</a>
+    {% if processing_mode == 'manual' and stats.pending > 0 %}
+        <a href="{{ url_for('pending_queue') }}" class="btn" style="margin-left: 1rem;">Review Pending Jobs ({{ stats.pending }})</a>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>Recent Jobs</h2>
+    {% if recent_jobs %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Created</th>
+                    <th>User</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in recent_jobs %}
+                <tr>
+                    <td>#{{ job.id }}</td>
+                    <td>{{ job.job_type }}</td>
+                    <td><span class="badge badge-{{ job.status }}">{{ job.status }}</span></td>
+                    <td>{{ job.created_at|datetime }}</td>
+                    <td>{{ job.username }}</td>
+                    <td>
+                        <a href="{{ url_for('view_job', job_id=job.id) }}" class="btn btn-small">View</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No jobs yet. <a href="{{ url_for('submit_job') }}">Submit your first job</a>.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>System Information</h2>
+    <table class="info-table">
+        <tr>
+            <th>Processing Mode:</th>
+            <td>
+                {{ processing_mode|upper }}
+                {% if processing_mode == 'auto' %}
+                    <span style="color: #28a745;">(Jobs auto-approved)</span>
+                {% else %}
+                    <span style="color: #ffc107;">(Jobs require manual approval)</span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Jobs in Queue:</th>
+            <td>{{ stats.approved + stats.pending }}</td>
+        </tr>
+        <tr>
+            <th>Currently Processing:</th>
+            <td>{{ stats.processing }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

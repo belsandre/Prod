@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}All Jobs - Claude Code Job Queue{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>All Jobs</h2>
+
+    <div style="margin-bottom: 1rem;">
+        <strong>Filter by status:</strong>
+        <a href="{{ url_for('list_jobs') }}" class="btn btn-small {% if not current_status %}btn-secondary{% endif %}">All</a>
+        <a href="{{ url_for('list_jobs', status='pending') }}" class="btn btn-small {% if current_status == 'pending' %}btn-secondary{% endif %}">Pending</a>
+        <a href="{{ url_for('list_jobs', status='approved') }}" class="btn btn-small {% if current_status == 'approved' %}btn-secondary{% endif %}">Approved</a>
+        <a href="{{ url_for('list_jobs', status='processing') }}" class="btn btn-small {% if current_status == 'processing' %}btn-secondary{% endif %}">Processing</a>
+        <a href="{{ url_for('list_jobs', status='completed') }}" class="btn btn-small {% if current_status == 'completed' %}btn-secondary{% endif %}">Completed</a>
+        <a href="{{ url_for('list_jobs', status='failed') }}" class="btn btn-small {% if current_status == 'failed' %}btn-secondary{% endif %}">Failed</a>
+        <a href="{{ url_for('list_jobs', status='rejected') }}" class="btn btn-small {% if current_status == 'rejected' %}btn-secondary{% endif %}">Rejected</a>
+    </div>
+
+    {% if jobs %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Created</th>
+                    <th>Completed</th>
+                    <th>User</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                <tr>
+                    <td>#{{ job.id }}</td>
+                    <td>{{ job.job_type }}</td>
+                    <td><span class="badge badge-{{ job.status }}">{{ job.status }}</span></td>
+                    <td>{{ job.priority }}</td>
+                    <td>{{ job.created_at|datetime }}</td>
+                    <td>{{ job.completed_at|datetime }}</td>
+                    <td>{{ job.username }}</td>
+                    <td>
+                        <a href="{{ url_for('view_job', job_id=job.id) }}" class="btn btn-small">View</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div style="margin-top: 1rem;">
+            {% if page > 1 %}
+                <a href="{{ url_for('list_jobs', status=current_status, page=page-1) }}" class="btn btn-small">← Previous</a>
+            {% endif %}
+            <span style="margin: 0 1rem;">Page {{ page }}</span>
+            {% if jobs|length == 50 %}
+                <a href="{{ url_for('list_jobs', status=current_status, page=page+1) }}" class="btn btn-small">Next →</a>
+            {% endif %}
+        </div>
+    {% else %}
+        <p>No jobs found{% if current_status %} with status "{{ current_status }}"{% endif %}.</p>
+    {% endif %}
+</div>
+{% endblock %}
