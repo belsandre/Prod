@@ -19,6 +19,64 @@ os.makedirs(Config.UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(Config.OUTPUT_FOLDER, exist_ok=True)
 os.makedirs(Config.SHARED_FOLDER, exist_ok=True)
 os.makedirs(Config.USERS_FOLDER, exist_ok=True)
+os.makedirs(os.path.join(Config.SHARED_FOLDER, 'workflows'), exist_ok=True)
+
+
+def _list_workflow_files(directory):
+    """Return display/value pairs for workflows in a directory"""
+    if not directory or not os.path.isdir(directory):
+        return []
+
+    workflows = []
+    for entry in sorted(os.listdir(directory)):
+        full_path = os.path.join(directory, entry)
+        if os.path.isfile(full_path) and entry.lower().endswith('.md'):
+            workflows.append({
+                'label': entry,
+                'value': os.path.relpath(full_path, Config.PROJECT_ROOT)
+            })
+    return workflows
+
+
+def get_workflow_groups(username: str, user_folder: str, is_admin: bool):
+    """Build workflow option groups and the allowed values set"""
+    groups = []
+    allowed_values = set()
+
+    shared_dir = os.path.join(Config.SHARED_FOLDER, 'workflows')
+    shared_workflows = _list_workflow_files(shared_dir)
+    if shared_workflows:
+        groups.append({
+            'label': 'Shared workflows',
+            'options': shared_workflows
+        })
+        allowed_values.update([wf['value'] for wf in shared_workflows])
+
+    if is_admin:
+        # Admins can see every user's workflows
+        for user in user_manager.list_users():
+            folder = user.get('folder')
+            if not folder:
+                continue
+            workflow_dir = os.path.join(Config.PROJECT_ROOT, folder, 'workflows')
+            user_workflows = _list_workflow_files(workflow_dir)
+            if user_workflows:
+                groups.append({
+                    'label': f"{user['username']} workflows",
+                    'options': user_workflows
+                })
+                allowed_values.update([wf['value'] for wf in user_workflows])
+    else:
+        workflow_dir = Config.get_user_workflow_folder(user_folder)
+        user_workflows = _list_workflow_files(workflow_dir)
+        if user_workflows:
+            groups.append({
+                'label': 'Your workflows',
+                'options': user_workflows
+            })
+            allowed_values.update([wf['value'] for wf in user_workflows])
+
+    return groups, allowed_values
 
 
 def login_required(f):
@@ -91,7 +149,7 @@ def dashboard():
     is_admin = session.get('role') == 'admin'
 
     # Get stats (all for admin, user-specific for users)
-    stats = queue_manager.get_stats()
+    stats = queue_manager.get_stats(username=None if is_admin else username)
 
     # Get recent jobs (filtered by user unless admin)
     if is_admin:
@@ -115,22 +173,41 @@ def submit_job():
     """Submit a new job"""
     parent_job_id = request.args.get('parent_id', type=int)
     parent_job = None
+    username = session.get('username')
+    user_folder = session.get('user_folder')
+    is_admin = session.get('role') == 'admin'
+    workflow_groups, allowed_workflows = get_workflow_groups(
+        username=username,
+        user_folder=user_folder,
+        is_admin=is_admin
+    )
 
     if parent_job_id:
         parent_job = queue_manager.get_job(parent_job_id)
         # Verify user owns parent job or is admin
-        if parent_job and parent_job['username'] != session['username'] and session.get('role') != 'admin':
+        if parent_job and parent_job['username'] != username and not is_admin:
             flash('You cannot reply to jobs you do not own', 'error')
             return redirect(url_for('dashboard'))
 
     if request.method == 'POST':
-        job_type = request.form.get('job_type', 'general')
-        prompt = request.form.get('prompt', '').strip()
-        priority = int(request.form.get('priority', 0))
         parent_id = request.form.get('parent_job_id', type=int)
+        if parent_id and (not parent_job or parent_job['id'] != parent_id):
+            parent_job = queue_manager.get_job(parent_id)
+
+        if parent_job and parent_job['username'] != username and not is_admin:
+            flash('You cannot reply to jobs you do not own', 'error')
+            return redirect(url_for('dashboard'))
+
+        job_type = request.form.get('job_type') or (parent_job['job_type'] if parent_job else 'general')
+        custom_instructions = request.form.get('custom_instructions', '').strip()
+        priority = int(request.form.get('priority', 0))
+        input_urls = request.form.get('input_urls', '').strip()
+        selected_workflows = [
+            workflow for workflow in request.form.getlist('workflows')
+            if workflow in allowed_workflows
+        ]
 
         # Get user's input folder
-        user_folder = session.get('user_folder')
         upload_folder = Config.get_user_input_folder(user_folder)
         os.makedirs(upload_folder, exist_ok=True)
 
@@ -153,21 +230,27 @@ def submit_job():
                     return redirect(url_for('submit_job'))
 
         # Validate submission
-        if not prompt and not file_paths:
-            flash('Please provide either a prompt or upload files', 'error')
+        if not custom_instructions and not file_paths and not input_urls:
+            flash('Please add custom instructions, share URLs, or upload files', 'error')
             return redirect(url_for('submit_job', parent_id=parent_id) if parent_id else url_for('submit_job'))
+
+        metadata = {
+            'submitted_from': request.remote_addr,
+            'user_agent': request.headers.get('User-Agent')
+        }
+        if input_urls:
+            metadata['input_urls'] = input_urls
+        if selected_workflows:
+            metadata['selected_workflows'] = selected_workflows
 
         # Create job
         job_id = queue_manager.create_job(
-            username=session['username'],
+            username=username,
             job_type=job_type,
-            prompt=prompt if prompt else None,
+            prompt=custom_instructions if custom_instructions else None,
             file_paths=file_paths if file_paths else None,
             priority=priority,
-            metadata={
-                'submitted_from': request.remote_addr,
-                'user_agent': request.headers.get('User-Agent')
-            },
+            metadata=metadata,
             parent_job_id=parent_id
         )
 
@@ -180,7 +263,12 @@ def submit_job():
 
         return redirect(url_for('view_job', job_id=job_id))
 
-    return render_template('submit.html', parent_job=parent_job)
+    return render_template(
+        'submit.html',
+        parent_job=parent_job,
+        workflow_groups=workflow_groups,
+        processing_mode=Config.PROCESSING_MODE
+    )
 
 
 @app.route('/jobs')
@@ -230,13 +318,17 @@ def view_job(job_id):
     # Get thread context if job is part of a thread
     thread = queue_manager.get_thread_for_job(job_id)
     can_reply = queue_manager.can_reply_to_job(job_id)
+    can_edit = session.get('role') == 'admin' or (
+        job['username'] == session.get('username') and job['status'] == 'pending'
+    )
 
     return render_template(
         'job_detail.html',
         job=job,
         thread=thread,
         can_reply=can_reply,
-        is_admin=session.get('role') == 'admin'
+        is_admin=session.get('role') == 'admin',
+        can_edit=can_edit
     )
 
 
@@ -252,6 +344,157 @@ def approve_job(job_id):
     return redirect(url_for('view_job', job_id=job_id))
 
 
+@app.route('/job/<int:job_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_job(job_id):
+    """Edit an existing job"""
+    job = queue_manager.get_job(job_id)
+
+    if not job:
+        flash(f'Job #{job_id} not found', 'error')
+        return redirect(url_for('dashboard'))
+
+    username = session.get('username')
+    is_admin = session.get('role') == 'admin'
+
+    if not is_admin and job['username'] != username:
+        flash('You can only edit jobs you submitted', 'error')
+        return redirect(url_for('view_job', job_id=job_id))
+
+    if not is_admin and job['status'] != 'pending':
+        flash('Only pending jobs can be edited', 'error')
+        return redirect(url_for('view_job', job_id=job_id))
+
+    workflow_groups, allowed_workflows = get_workflow_groups(
+        username=username,
+        user_folder=session.get('user_folder'),
+        is_admin=is_admin
+    )
+
+    job_metadata = job.get('metadata') or {}
+    existing_files = list(job.get('file_paths') or [])
+
+    def render_edit(form_data, selected_workflows):
+        return render_template(
+            'edit_job.html',
+            job=job,
+            form_data=form_data,
+            selected_workflows=selected_workflows,
+            workflow_groups=workflow_groups,
+            existing_files=existing_files,
+            is_admin=is_admin
+        )
+
+    if request.method == 'POST':
+        form_custom_instructions = request.form.get('custom_instructions', '').strip()
+        form_input_urls = request.form.get('input_urls', '').strip()
+        form_priority_raw = request.form.get('priority', job.get('priority', 0))
+        selected_workflows = [
+            value for value in request.form.getlist('workflows')
+            if value in allowed_workflows
+        ]
+
+        try:
+            form_priority = int(form_priority_raw)
+        except ValueError:
+            flash('Priority must be a number', 'error')
+            form_data = {
+                'custom_instructions': form_custom_instructions,
+                'input_urls': form_input_urls,
+                'priority': form_priority_raw
+            }
+            return render_edit(form_data, selected_workflows)
+
+        owner_folder = user_manager.get_user_folder(job['username'])
+        upload_folder = Config.get_user_input_folder(owner_folder)
+        os.makedirs(upload_folder, exist_ok=True)
+
+        file_paths = list(existing_files)
+        newly_saved = []
+        files = request.files.getlist('files')
+        for file in files:
+            if file and file.filename:
+                if Config.allowed_file(file.filename):
+                    filename = secure_filename(file.filename)
+                    timestamp = datetime.utcnow().strftime('%Y%m%d_%H%M%S')
+                    filename = f"{timestamp}_{filename}"
+                    filepath = os.path.join(upload_folder, filename)
+                    file.save(filepath)
+                    newly_saved.append(filepath)
+                    file_paths.append(filepath)
+                else:
+                    flash(f'File type not allowed: {file.filename}', 'error')
+                    for path in newly_saved:
+                        if os.path.exists(path):
+                            os.remove(path)
+                    form_data = {
+                        'custom_instructions': form_custom_instructions,
+                        'input_urls': form_input_urls,
+                        'priority': form_priority_raw
+                    }
+                    return render_edit(form_data, selected_workflows)
+
+        if not form_custom_instructions and not form_input_urls and not file_paths:
+            flash('Please provide instructions, URLs, or upload files', 'error')
+            for path in newly_saved:
+                if os.path.exists(path):
+                    os.remove(path)
+            form_data = {
+                'custom_instructions': form_custom_instructions,
+                'input_urls': form_input_urls,
+                'priority': form_priority_raw
+            }
+            return render_edit(form_data, selected_workflows)
+
+        updated_metadata = dict(job_metadata)
+        if form_input_urls:
+            updated_metadata['input_urls'] = form_input_urls
+        else:
+            updated_metadata.pop('input_urls', None)
+
+        if selected_workflows:
+            updated_metadata['selected_workflows'] = selected_workflows
+        else:
+            updated_metadata.pop('selected_workflows', None)
+
+        # Preserve submission metadata fields
+        for key in ['submitted_from', 'user_agent']:
+            if key in job_metadata and key not in updated_metadata:
+                updated_metadata[key] = job_metadata[key]
+
+        success = queue_manager.update_job(
+            job_id,
+            prompt=form_custom_instructions if form_custom_instructions else None,
+            file_paths=file_paths if file_paths else None,
+            priority=form_priority,
+            metadata=updated_metadata if updated_metadata else None
+        )
+
+        if not success:
+            flash(f'Could not update job #{job_id}', 'error')
+            for path in newly_saved:
+                if os.path.exists(path):
+                    os.remove(path)
+            form_data = {
+                'custom_instructions': form_custom_instructions,
+                'input_urls': form_input_urls,
+                'priority': form_priority_raw
+            }
+            return render_edit(form_data, selected_workflows)
+
+        flash(f'Job #{job_id} updated successfully', 'success')
+        return redirect(url_for('view_job', job_id=job_id))
+
+    form_data = {
+        'custom_instructions': job.get('prompt') or '',
+        'input_urls': job_metadata.get('input_urls', ''),
+        'priority': job.get('priority', 0)
+    }
+    selected_workflows = job_metadata.get('selected_workflows', [])
+
+    return render_edit(form_data, selected_workflows)
+
+
 @app.route('/job/<int:job_id>/reject', methods=['POST'])
 @admin_required
 def reject_job(job_id):
@@ -262,6 +505,67 @@ def reject_job(job_id):
         flash(f'Job #{job_id} rejected', 'info')
     else:
         flash(f'Could not reject job #{job_id}', 'error')
+
+    return redirect(url_for('view_job', job_id=job_id))
+
+
+@app.route('/job/<int:job_id>/start_processing', methods=['POST'])
+@admin_required
+def admin_start_job(job_id):
+    """Mark an approved job as processing"""
+    job = queue_manager.get_job(job_id)
+
+    if not job:
+        flash(f'Job #{job_id} not found', 'error')
+    elif job['status'] != 'approved':
+        flash('Only approved jobs can be moved to processing', 'error')
+    elif queue_manager.start_job(job_id):
+        flash(f'Job #{job_id} marked as processing', 'success')
+    else:
+        flash(f'Could not update job #{job_id}', 'error')
+
+    return redirect(url_for('view_job', job_id=job_id))
+
+
+@app.route('/job/<int:job_id>/complete', methods=['POST'])
+@admin_required
+def admin_complete_job(job_id):
+    """Mark a processing job as completed with output"""
+    job = queue_manager.get_job(job_id)
+
+    if not job:
+        flash(f'Job #{job_id} not found', 'error')
+        return redirect(url_for('dashboard'))
+
+    if job['status'] != 'processing':
+        flash('Only processing jobs can be completed', 'error')
+        return redirect(url_for('view_job', job_id=job_id))
+
+    output_type = request.form.get('output_type')
+    output_text = request.form.get('output_text', '').strip()
+    output_path = request.form.get('output_path', '').strip()
+
+    if output_type not in {'text', 'file'}:
+        flash('Select an output type (text or file)', 'error')
+        return redirect(url_for('view_job', job_id=job_id))
+
+    if output_type == 'text' and not output_text:
+        flash('Provide the output text', 'error')
+        return redirect(url_for('view_job', job_id=job_id))
+
+    if output_type == 'file' and not output_path:
+        flash('Provide the output file path', 'error')
+        return redirect(url_for('view_job', job_id=job_id))
+
+    if queue_manager.complete_job(
+        job_id,
+        output_type=output_type,
+        output_path=output_path if output_type == 'file' else None,
+        output_text=output_text if output_type == 'text' else None
+    ):
+        flash(f'Job #{job_id} marked as completed', 'success')
+    else:
+        flash(f'Could not complete job #{job_id}', 'error')
 
     return redirect(url_for('view_job', job_id=job_id))
 

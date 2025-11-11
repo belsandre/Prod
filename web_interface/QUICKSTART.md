@@ -49,7 +49,7 @@ Open a new terminal and run:
 
 ```bash
 cd web_interface
-python queue_watcher.py
+python3 queue_watcher.py
 ```
 
 You'll see:
@@ -76,7 +76,7 @@ Here's how you'd process it:
 
 **1. Start the job:**
 ```bash
-python queue_watcher.py --start 1
+python3 queue_watcher.py --start 1
 ```
 
 **2. Create the output file:**
@@ -89,7 +89,7 @@ print("Hello, World!")
 
 **3. Mark as complete:**
 ```bash
-python queue_watcher.py --complete 1 --output-file "outputs/hello.py"
+python3 queue_watcher.py --complete 1 --output-file "outputs/hello.py"
 ```
 
 **4. User can now download it from the web interface!**
@@ -123,32 +123,32 @@ Follow the detailed Cloudflare Tunnel instructions in README.md for a permanent 
 
 ### Check queue status
 ```bash
-python queue_watcher.py --stats
+python3 queue_watcher.py --stats
 ```
 
 ### Watch for new jobs
 ```bash
-python queue_watcher.py --watch
+python3 queue_watcher.py --watch
 ```
 
 ### View specific job
 ```bash
-python queue_watcher.py --job 5
+python3 queue_watcher.py --job 5
 ```
 
 ### Complete job with text output
 ```bash
-python queue_watcher.py --complete 5 --output-text "Task completed!"
+python3 queue_watcher.py --complete 5 --output-text "Task completed!"
 ```
 
 ### Complete job with file output
 ```bash
-python queue_watcher.py --complete 5 --output-file "outputs/result.pdf"
+python3 queue_watcher.py --complete 5 --output-file "outputs/result.pdf"
 ```
 
 ### Mark job as failed
 ```bash
-python queue_watcher.py --fail 5 --error "Could not process file"
+python3 queue_watcher.py --fail 5 --error "Could not process file"
 ```
 
 ## Switching Between Manual and Auto Mode
@@ -156,13 +156,13 @@ python queue_watcher.py --fail 5 --error "Could not process file"
 ### Manual Mode (Default - Requires Approval)
 ```bash
 export PROCESSING_MODE=manual
-python app.py
+python3 app.py
 ```
 
 ### Auto Mode (Jobs Auto-Approved)
 ```bash
 export PROCESSING_MODE=auto
-python app.py
+python3 app.py
 ```
 
 Or edit `.env`:
@@ -172,7 +172,7 @@ PROCESSING_MODE=auto
 
 ## Tips for Using with Claude Code
 
-1. **Check queue regularly**: Run `python queue_watcher.py` to see pending jobs
+1. **Check queue regularly**: Run `python3 queue_watcher.py` to see pending jobs
 
 2. **Read uploaded files**: Jobs may include file uploads in the `uploads/` directory
 

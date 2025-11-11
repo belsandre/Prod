@@ -76,7 +76,7 @@ Prod/
 
 ```bash
 cd web_interface
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Step 2: Create Tam User

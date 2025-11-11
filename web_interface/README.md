@@ -36,7 +36,7 @@ Output Storage
 
 ```bash
 cd web_interface
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### 2. Configure Authentication
@@ -66,7 +66,7 @@ MAX_CONCURRENT_JOBS=1
 ### 3. Start the Web Server
 
 ```bash
-python app.py
+python3 app.py
 ```
 
 The server will start on `http://localhost:5001` (port 5001 is used because macOS reserves 5000 for AirPlay)
@@ -152,7 +152,7 @@ Now your web interface will be accessible at `https://your-subdomain.example.com
 Run the queue watcher in interactive mode:
 
 ```bash
-python queue_watcher.py
+python3 queue_watcher.py
 ```
 
 This will:
@@ -165,7 +165,7 @@ This will:
 Continuously monitor for new jobs:
 
 ```bash
-python queue_watcher.py --watch
+python3 queue_watcher.py --watch
 ```
 
 This will check for new approved jobs every 10 seconds and display them when found.
@@ -174,32 +174,32 @@ This will check for new approved jobs every 10 seconds and display them when fou
 
 Check queue stats:
 ```bash
-python queue_watcher.py --stats
+python3 queue_watcher.py --stats
 ```
 
 View specific job:
 ```bash
-python queue_watcher.py --job 5
+python3 queue_watcher.py --job 5
 ```
 
 Start processing a job:
 ```bash
-python queue_watcher.py --start 5
+python3 queue_watcher.py --start 5
 ```
 
 Mark job as completed with text output:
 ```bash
-python queue_watcher.py --complete 5 --output-text "Job completed successfully!"
+python3 queue_watcher.py --complete 5 --output-text "Job completed successfully!"
 ```
 
 Mark job as completed with file output:
 ```bash
-python queue_watcher.py --complete 5 --output-file "/path/to/output.txt"
+python3 queue_watcher.py --complete 5 --output-file "/path/to/output.txt"
 ```
 
 Mark job as failed:
 ```bash
-python queue_watcher.py --fail 5 --error "Something went wrong"
+python3 queue_watcher.py --fail 5 --error "Something went wrong"
 ```
 
 ## Processing Workflow
@@ -211,7 +211,7 @@ python queue_watcher.py --fail 5 --error "Something went wrong"
 3. You (or admin) review the job in the web interface
 4. Approve or reject the job
 5. If approved, job moves to "approved" queue
-6. Run `python queue_watcher.py` to see next job
+6. Run `python3 queue_watcher.py` to see next job
 7. Process the job with Claude Code
 8. Mark job as complete with output
 
@@ -219,7 +219,7 @@ python queue_watcher.py --fail 5 --error "Something went wrong"
 
 1. User submits a job via web interface
 2. Job is automatically approved and enters queue
-3. Run `python queue_watcher.py` to see next job
+3. Run `python3 queue_watcher.py` to see next job
 4. Process the job with Claude Code
 5. Mark job as complete with output
 
@@ -229,7 +229,7 @@ Here's how you would typically process jobs with Claude Code:
 
 1. **Check for jobs**:
    ```bash
-   python queue_watcher.py
+   python3 queue_watcher.py
    ```
 
 2. **When a job appears**, you'll see details like:
@@ -246,7 +246,7 @@ Here's how you would typically process jobs with Claude Code:
 
 3. **Start the job**:
    ```bash
-   python queue_watcher.py --start 5
+   python3 queue_watcher.py --start 5
    ```
 
 4. **Process with Claude Code**:
@@ -257,10 +257,10 @@ Here's how you would typically process jobs with Claude Code:
 5. **Mark as complete**:
    ```bash
    # If you generated a file
-   python queue_watcher.py --complete 5 --output-file "outputs/report.pdf"
+   python3 queue_watcher.py --complete 5 --output-file "outputs/report.pdf"
 
    # If you have text output
-   python queue_watcher.py --complete 5 --output-text "Analysis complete. Found 3 anomalies..."
+   python3 queue_watcher.py --complete 5 --output-text "Analysis complete. Found 3 anomalies..."
    ```
 
 ## File Locations
@@ -300,7 +300,7 @@ All configuration is in `config.py` or via environment variables:
 1. Check if server is running: `ps aux | grep app.py`
 2. Check if port 5001 is in use: `lsof -i :5001`
 3. Try accessing: `http://localhost:5001`
-4. If port 5001 is blocked, set PORT env var: `export PORT=5002 && python app.py`
+4. If port 5001 is blocked, set PORT env var: `export PORT=5002 && python3 app.py`
 
 ### Cloudflare Tunnel not working
 
@@ -310,7 +310,7 @@ All configuration is in `config.py` or via environment variables:
 
 ### Jobs not appearing
 
-1. Check queue stats: `python queue_watcher.py --stats`
+1. Check queue stats: `python3 queue_watcher.py --stats`
 2. Check if job was approved (manual mode)
 3. Check database: `sqlite3 jobs.db "SELECT * FROM jobs;"`
 
@@ -328,10 +328,10 @@ You can run multiple instances of the queue watcher to process jobs in parallel:
 
 ```bash
 # Terminal 1
-python queue_watcher.py --watch
+python3 queue_watcher.py --watch
 
 # Terminal 2
-python queue_watcher.py --watch
+python3 queue_watcher.py --watch
 ```
 
 ### Custom Job Types

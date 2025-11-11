@@ -32,6 +32,7 @@
     </div>
 </div>
 
+{% if is_admin %}
 <div class="card">
     <h2>Quick Actions</h2>
     <a href="{{ url_for('submit_job') }}" class="btn btn-success">Submit New Job</a>
@@ -39,6 +40,7 @@
         <a href="{{ url_for('pending_queue') }}" class="btn" style="margin-left: 1rem;">Review Pending Jobs ({{ stats.pending }})</a>
     {% endif %}
 </div>
+{% endif %}
 
 <div class="card">
     <h2>Recent Jobs</h2>
@@ -74,6 +76,7 @@
     {% endif %}
 </div>
 
+{% if is_admin %}
 <div class="card">
     <h2>System Information</h2>
     <table class="info-table">
@@ -98,4 +101,5 @@
         </tr>
     </table>
 </div>
+{% endif %}
 {% endblock %}

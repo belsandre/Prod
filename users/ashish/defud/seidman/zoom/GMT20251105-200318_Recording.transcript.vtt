@@ -1,0 +1,1066 @@
+WEBVTT
+
+1
+00:00:00.220 --> 00:00:01.010
+Ashish Popli: Okay.
+
+2
+00:00:03.890 --> 00:00:17.140
+Ashish Popli: Hello, and welcome to this episode of the DFUD Podcast. Today, we have the privilege of having David Sidman, who has had a very illustrious career in cybersecurity, 20 years long.
+
+3
+00:00:17.200 --> 00:00:30.060
+Ashish Popli: Almost similar to mine, in that sense. And I think we also share two companies that we have worked at, Microsoft and Google, and David also has worked at Salesforce, Robinhood, and now at Plaid.
+
+4
+00:00:30.280 --> 00:00:32.929
+Ashish Popli: Where he's heading platform security.
+
+5
+00:00:33.320 --> 00:00:42.949
+Ashish Popli: Experience spans a bunch of things, with a high concentration in detection and response, software engineering, security operations, and currently is a people manager.
+
+6
+00:00:43.140 --> 00:00:49.480
+Ashish Popli: David, welcome to the show. Please tell us more about yourself, maybe a little bit, and then we'll dive into the main topics.
+
+7
+00:00:49.880 --> 00:00:54.630
+David Seidman: Sure, thanks, yep. So, I think you covered my professional background,
+
+8
+00:00:54.990 --> 00:01:09.230
+David Seidman: Here at Plaid, I manage the platform security team, which covers most of what you would traditionally think of as information security, so we do everything from laptops to production infrastructure to detection and incident response, which my own personal background really
+
+9
+00:01:09.230 --> 00:01:15.939
+David Seidman: Heavily emphasizes detection and response. That's been the majority of my career, but over the last few years.
+
+10
+00:01:15.940 --> 00:01:21.640
+David Seidman: I've broadened my perspective and taken on some other functions, all still in the general,
+
+11
+00:01:21.660 --> 00:01:27.810
+David Seidman: security operations infosec space. Just really excited to be here.
+
+12
+00:01:28.590 --> 00:01:29.100
+Chang Xu: Awesome.
+
+13
+00:01:29.100 --> 00:01:29.780
+Ashish Popli: Likewise.
+
+14
+00:01:30.790 --> 00:01:42.239
+Chang Xu: So you've had this fascinating 20-year journey through some big companies and newer tech companies, Microsoft, Google, Salesforce, Robinhood, and now Plaid. How have these roles incrementally shaped your perspective?
+
+15
+00:01:42.980 --> 00:02:02.899
+David Seidman: It was really interesting to see, in particular, the difference between the giant companies and the much smaller companies, so Microsoft, Google, Salesforce, all well over 100,000 employees, tens of thousands of engineers, Robinhood is about 3,000 employees, about 1,000 engineers, and Plaid is about a third of that. So.
+
+16
+00:02:02.930 --> 00:02:09.379
+David Seidman: the larger companies had many things in common. The smaller companies
+
+17
+00:02:10.229 --> 00:02:14.139
+David Seidman: Are really quite different, as you'd expect, but,
+
+18
+00:02:14.480 --> 00:02:35.400
+David Seidman: I could spend a whole hour just talking about this, but ultimately, the biggest thing I saw is that at the large companies, you tend to have to build almost everything for yourself, because your needs are weird, your scale is immense, and you have the engineers and the budget to go do it. Whereas at a company like Plaid.
+
+19
+00:02:35.400 --> 00:02:43.990
+David Seidman: We have many, many fewer engineers, but also our needs are much simpler. We have much less legacy, our technical infrastructure is much more modern.
+
+20
+00:02:43.990 --> 00:02:52.399
+David Seidman: And our organization is much smaller, so it's much easier for us to bring in a vendor, so at Microsoft, Google, Salesforce, you wind up
+
+21
+00:02:52.400 --> 00:03:10.650
+David Seidman: basically reinventing the wheel because you need a funny-shaped wheel to fit your organization, whereas at both Robinhood and Plaid, we're able to do a lot more business with vendors who can give us off-the-shelf solutions, and in many cases, we're able to get more advanced technology because we don't have to build it ourselves.
+
+22
+00:03:10.850 --> 00:03:23.459
+David Seidman: The other really interesting thing, I think, comparing large to small organizations, is that at the large organizations, investment decisions were made purely on the basis of ROI, like, for the amount of money that this will cost.
+
+23
+00:03:24.350 --> 00:03:45.730
+David Seidman: what will we get back? Whereas at smaller organizations, there's a hard limit on the amount of money you can get, even if the investment is good. So Google, Microsoft, Salesforce, they can invest essentially arbitrarily large amounts of money if the opportunities are there. Whereas a company like Robinhood or Plaid, that has much less cash on hand and very early in their company life cycle.
+
+24
+00:03:45.730 --> 00:03:57.559
+David Seidman: has to pick between good opportunities and good investments. So, Google tries to do everything all at once, Robinhood, Plaid, we had to sequence things a bit more and work through things over time, so…
+
+25
+00:03:57.560 --> 00:04:05.089
+David Seidman: I enjoy that as a manager. To me, it's just another form of constraint. You know, you always have constraints as an engineer, and…
+
+26
+00:04:05.580 --> 00:04:09.190
+David Seidman: Not having all the money in the world is just another constraint.
+
+27
+00:04:10.670 --> 00:04:28.790
+Chang Xu: Love to talk about one area that is near and dear to our hearts, and also, it must be impacting every aspect of your role. We love your thought leadership on how generative AI applies to many areas of security. You published an excellent thought piece on LinkedIn earlier this summer.
+
+28
+00:04:28.790 --> 00:04:39.290
+Chang Xu: So let's start with detection and response, and security operations, which you have a ton of experience in, before we dive into the other areas. How does generative AI change threat detection and response?
+
+29
+00:04:39.990 --> 00:04:47.210
+David Seidman: I think it's going to be a complete change, and in 3 to 5 years, we will almost not recognize the way things look.
+
+30
+00:04:47.250 --> 00:04:54.760
+David Seidman: So, AI socks, that it is either coming or it is here, depending on your perspective, but…
+
+31
+00:04:54.760 --> 00:05:19.600
+David Seidman: there are, like, 20 companies in the field. We're currently doing POCs, and at least some of the companies that we have evaluated have a really solid product. Like, the technology today can look at a security alert, perform a bunch of queries, perform effective analysis, and give you a summary of what happened that is accurate the vast majority of the time. We saw essentially no instances
+
+32
+00:05:19.600 --> 00:05:23.069
+David Seidman: Where the tool came to the wrong conclusion.
+
+33
+00:05:23.080 --> 00:05:38.150
+David Seidman: Sometimes it was not firm enough in its conclusion. It had a tentative hypothesis that was correct, but it was not confident in that hypothesis. But we saw essentially no instances where a tool came to completely the wrong conclusion.
+
+34
+00:05:39.300 --> 00:05:52.879
+David Seidman: So, depending on how you classify that, the AI SOC is either coming or it's already here, and it's going to tremendously change the way that we do alert triage. Like, humans are presented
+
+35
+00:05:53.040 --> 00:06:10.320
+David Seidman: if you're using these tools today, humans are presented with a concise, generally accurate summary, and just need to validate, one, that the AI's conclusion is correct. Sometimes it will flag something as a threat, like, for example, we had a person copying data from a… an internal
+
+36
+00:06:10.320 --> 00:06:13.229
+David Seidman: Pre-release blog post draft into…
+
+37
+00:06:13.230 --> 00:06:19.779
+David Seidman: social media sites, and the tool flagged, like, hey, this looks like a data leak. Turns out it's actually the official spokesperson who's supposed to be
+
+38
+00:06:19.780 --> 00:06:28.369
+David Seidman: blog post on behalf of the company. So, you know, sometimes it lacks that kind of context, or is not comfortable making those calls.
+
+39
+00:06:29.530 --> 00:06:37.910
+David Seidman: But it… it is taking a task that might perform a human 30 to 60… or it might take a human 30 to 60 minutes to perform.
+
+40
+00:06:38.210 --> 00:06:39.250
+David Seidman: And…
+
+41
+00:06:39.730 --> 00:06:46.289
+David Seidman: shrinking it down to a 30-second review of what the AI investigated, and it's already run all the queries you might think to run.
+
+42
+00:06:46.310 --> 00:07:00.099
+David Seidman: And it doesn't really matter very much if it makes a mistake here or there, because it's overall pretty robust. So that technology is, like, basically here today. If you're more cautious, it will be here soon. In fact, in many of our trials.
+
+43
+00:07:00.100 --> 00:07:18.959
+David Seidman: we saw the greatest limitations were around things other than the AI itself. They were around deployment, management, configuration, log ingestion, and things like that. They were technical engineering matters rather than AI problems. So, those things will get better over time. Like, we know how to do that kind of engineering, so these tools
+
+44
+00:07:18.960 --> 00:07:31.439
+David Seidman: even if you aren't happy with where they're at today, they're getting better and better. So, I think we're going to see almost a complete elimination of the alert triage function, and it's going to become much more of an investigation function.
+
+45
+00:07:31.800 --> 00:07:45.060
+David Seidman: AI Threat Intelligence is also here. At Robinhood, we had an intern who came in, and using just foundational ChatGPT APIs from a couple of years ago, was able to
+
+46
+00:07:45.130 --> 00:07:58.229
+David Seidman: take incoming open source threat intelligence feeds, identify attacker groups of interest, identify posts and IOCs of interest, and generate a summary and a curated list of threat intelligence.
+
+47
+00:07:58.230 --> 00:08:11.559
+David Seidman: And it took him, like, 3 weeks. He was a good intern, you know? But still, this is… this is another thing that is here. The task of finding applicable threat intelligence from open source feeds is automated as of today.
+
+48
+00:08:11.660 --> 00:08:16.020
+David Seidman: I also see AI rule generation coming soon.
+
+49
+00:08:16.030 --> 00:08:35.400
+David Seidman: The companies that we've been working with on AI rule generation are in earlier stages, and we haven't seen any significant public blog posts or announcements by companies who say that they will write your detection for you, but that is coming. We are working with companies on this, and it, like, it is very much in progress. It's clearly a harder problem.
+
+50
+00:08:35.490 --> 00:08:39.049
+David Seidman: But… Similarly.
+
+51
+00:08:39.330 --> 00:08:50.699
+David Seidman: to, similarly to alert triage, it's okay to have some failures. Like, if you… if your AI creates a rule that produces a lot of false positives, just turn it off, or tune it.
+
+52
+00:08:51.000 --> 00:08:58.339
+David Seidman: You know, there's a… it's not disastrous for the AI to misfire and rule generation as long as somebody is sort of reviewing its output.
+
+53
+00:08:58.460 --> 00:09:03.410
+David Seidman: But you combine those two things, AI rule generation and AI SOC,
+
+54
+00:09:03.410 --> 00:09:27.299
+David Seidman: And it's a complete game changer, because, like, in the past, we've spent a lot of attention in detection figuring out which attacks we should create detection for. Like, there's no organization on the planet today that has coverage for every attack that might impact them. In fact, like, nobody, nobody's even close. There are just so many, thousands, tens of thousands of different variations on attacks
+
+55
+00:09:27.300 --> 00:09:30.819
+David Seidman: That could affect an organization, and no one has coverage for that.
+
+56
+00:09:30.820 --> 00:09:38.079
+David Seidman: But with AI, we might be able to do that. We might be able to auto-generate, like, 10,000 detection rules to cover everything.
+
+57
+00:09:38.080 --> 00:09:56.259
+David Seidman: And will that produce a lot of false positives? Absolutely. And we can send those to our AI SOC, and it will eliminate virtually all of them. So we might be able to auto-generate a bunch of rules, which will auto-generate a bunch of false positives, which will be ruled out by AI. So the end result for the humans is that we have fantastic detection coverage.
+
+58
+00:09:56.480 --> 00:10:09.070
+David Seidman: with a low rate of false positives actually reaching humans, which is really what we care about. Now, all that's gonna be really expensive, we're gonna have to write a big check to several providers, but we can work on that, or just write the check.
+
+59
+00:10:09.350 --> 00:10:16.700
+David Seidman: So, I think it is going to be completely transformative, and to be clear, we're not in that world yet. The AI rule generation is not here yet.
+
+60
+00:10:16.700 --> 00:10:29.469
+David Seidman: But we are moving in that direction quickly. The technology is very promising. Many of the limitations on the technology are not science limitations, they're just basic engineering that somebody needs to go write the code for.
+
+61
+00:10:29.470 --> 00:10:53.209
+David Seidman: And so, I think that our field is going to be completely transformed and will be nearly unrecognizable in a few years, and much more effective than it is today. And I think the open secret of detection today is that it's just really not very good. Even very mature organizations frequently fail to detect their red team. They never detect all the techniques the red team uses. They rarely detect all the techniques a real attacker uses if they detect even one of them.
+
+62
+00:10:53.210 --> 00:11:00.350
+David Seidman: So, we're not very good at detection and responses in industry, and I think that AI could potentially change that at a very fundamental level.
+
+63
+00:11:01.050 --> 00:11:02.250
+Chang Xu: Thanks.
+
+64
+00:11:03.130 --> 00:11:10.059
+Ashish Popli: Building on a little bit, on this issue, I think,
+
+65
+00:11:10.980 --> 00:11:18.389
+Ashish Popli: most of what you said, I sort of see the world the same way in terms of the power of AI on rule generation and…
+
+66
+00:11:18.540 --> 00:11:21.680
+Ashish Popli: alert elimination or initial alert triage, I think.
+
+67
+00:11:22.230 --> 00:11:31.110
+Ashish Popli: there's a clear symmetry between what AI can do and what these problems require to be done, so there's a good match, and hence AI is a great target.
+
+68
+00:11:31.510 --> 00:11:36.500
+Ashish Popli: But I sometimes often also wonder, this very fundamental question of.
+
+69
+00:11:38.670 --> 00:11:47.349
+Ashish Popli: You know, we came into this issue of alert volume because we were hungry for knowing everything about everything.
+
+70
+00:11:47.830 --> 00:11:54.100
+Ashish Popli: Right? And then we solved that problem by putting humans, giving humans tools.
+
+71
+00:11:54.450 --> 00:11:59.679
+Ashish Popli: And now AI is sort of consuming that queue of alert volume, right?
+
+72
+00:12:00.420 --> 00:12:04.970
+Ashish Popli: So it begs the question, why were we so hungry about knowing about everything?
+
+73
+00:12:05.290 --> 00:12:12.870
+Ashish Popli: Right? Did we just over-index on that? Like, if you're… if you're… if you reduce the size of things that you generate.
+
+74
+00:12:13.190 --> 00:12:22.729
+Ashish Popli: then you'd reduce the problem of eliminating alert triage with AI, to some extent, or reduce the dependence on AI for alert triage.
+
+75
+00:12:22.920 --> 00:12:28.920
+Ashish Popli: So, it's not squarely in the detection space that we have the potential for
+
+76
+00:12:29.650 --> 00:12:33.459
+Ashish Popli: Eliminating human toil and achieving higher coverage.
+
+77
+00:12:33.810 --> 00:12:50.150
+Ashish Popli: there is a potential use of AI to the left of this equation, where we actually qualify what we care about ahead of time, in terms of your attack surface, so you can build the right detections, and then from those detections, when the alerts come in.
+
+78
+00:12:50.150 --> 00:13:01.380
+Ashish Popli: they are naturally low noise, high signal, right? So, have you started to sort of feel that, yes, it's great to go faster at something that was very long, versus cutting the thing
+
+79
+00:13:01.850 --> 00:13:05.830
+Ashish Popli: Shot in the beginning, and then, you know, apply both approaches.
+
+80
+00:13:06.900 --> 00:13:15.900
+David Seidman: I think that that is a harder problem to solve. Understanding the impact of an attack
+
+81
+00:13:16.090 --> 00:13:30.029
+David Seidman: or a sub-attack signal on a particular system in a complex IT environment is very difficult to do, and I do not think that we have good tooling for that today to understand
+
+82
+00:13:30.320 --> 00:13:37.479
+David Seidman: If an attacker is able to elevate privilege from a low privilege to a high-privilege role on some particular system.
+
+83
+00:13:37.480 --> 00:13:50.369
+David Seidman: What exactly does that mean? How easy is it for someone to get access to that system in the first place? What can they do with the elevated permissions? How can they leverage that to pivot to some other mission and objective they might have?
+
+84
+00:13:50.410 --> 00:13:57.180
+David Seidman: I don't think that we're very good at that today in general, and I don't think that AI is tremendously helpful with that yet.
+
+85
+00:13:59.250 --> 00:14:10.080
+David Seidman: you look at a tool like Wiz, which we use, and I'm a big fan of Wiz, and it's very good at helping you trace the set of connections, but playing out
+
+86
+00:14:10.130 --> 00:14:28.990
+David Seidman: hypotheticals that span multiple systems is still beyond what even a tool like Wiz can accomplish. So I think it's very difficult for us to rule out attacks as interesting in early stages, beyond things like attacks that only work on Windows, and we don't have any Windows. Those are easy. But…
+
+87
+00:14:29.430 --> 00:14:35.100
+David Seidman: So I generally think that we're going to go in the direction of having lots of alerts
+
+88
+00:14:35.340 --> 00:14:48.560
+David Seidman: internal to the machines, and fewer of them make it to humans. I think that shifting left in the alerting pipeline is quite difficult, so I don't think that that's going to happen before we get a
+
+89
+00:14:48.560 --> 00:15:00.070
+David Seidman: a better closed loop within the AIs on the alerting pipeline. So, I think it's a reasonable hypothesis, but I think in practice that that's a harder problem to solve than solving the false positive problem.
+
+90
+00:15:01.260 --> 00:15:12.870
+Ashish Popli: Cool. Awesome. Love to hear that perspective. I think I also concur on the left problem being much harder than the right problem, in terms of modeling. Okay.
+
+91
+00:15:13.870 --> 00:15:15.560
+Ashish Popli: Awesome, let's continue, yeah.
+
+92
+00:15:16.820 --> 00:15:32.619
+Chang Xu: I think how you talked about how the SOC will be transformed is really, really fascinating, and you've listed, a few dimensions where AI is here, or readily, readily will be soon, soon to be here. What are the things that you write off in your mind because it's hype?
+
+93
+00:15:33.050 --> 00:15:33.730
+David Seidman: Ha ha ha.
+
+94
+00:15:33.980 --> 00:15:45.279
+David Seidman: So far, the… so, I think anything you see somebody publishing about AI is… is overhyped, and it's just, like, every single marketing claim you have to deflate a little bit.
+
+95
+00:15:45.480 --> 00:15:56.720
+David Seidman: I have also seen a number of vendors who market their AI really heavily, but when you look between the lines, it's basically just helping you translate from English into a query.
+
+96
+00:15:57.040 --> 00:16:09.349
+David Seidman: So, I think we tend to see particularly legacy vendors slapping some AI on, and it's not really adding much value, and it's particularly not adding much value over what a foundational model can do.
+
+97
+00:16:10.730 --> 00:16:14.460
+David Seidman: But, in general, I think that the tech
+
+98
+00:16:14.650 --> 00:16:31.229
+David Seidman: the AI, the science part of it, is very good and generally does what you want it to do, and many of the problems that remain are classical engineering problems, you know, the APIs and the documentation, and the deployment and maintenance and permission management and that kind of thing.
+
+99
+00:16:31.980 --> 00:16:33.869
+David Seidman: I think also that…
+
+100
+00:16:34.150 --> 00:16:49.910
+David Seidman: everyone is very well aware that this technology has significant security problems. Prompt injection is an unsolved problem. Managing non-human identities has been a long-standing problem that is particularly important with agentic AI in particular.
+
+101
+00:16:51.150 --> 00:17:04.170
+David Seidman: We basically haven't solved those problems yet, but we're running ahead and deploying AIs anyway. You know, OpenAI's browser launched and immediately had prompt injection attacks, because it just is not a solved problem yet. So…
+
+102
+00:17:04.640 --> 00:17:08.440
+David Seidman: I think that we're…
+
+103
+00:17:08.569 --> 00:17:27.120
+David Seidman: while the technology itself can deliver good results, I think that despite the fact that the security problems are getting a lot of attention, I think they're still not getting enough emphasis. Like, we're going to cause some really significant security issues if we continue rolling out AI without being careful about security. Now, to be fair.
+
+104
+00:17:27.630 --> 00:17:28.540
+David Seidman: that…
+
+105
+00:17:28.680 --> 00:17:38.499
+David Seidman: overly aggressive push is mostly coming from the companies selling AI. Everyone I know who is deploying this stuff is really quite concerned about the security issues, and companies have generally put…
+
+106
+00:17:38.500 --> 00:18:01.960
+David Seidman: good policies in place to prevent usage of potentially dangerous AI, so there's a lot of stuff out there where the AI works, but it's dangerous, and therefore is not getting deployed. So I think that is a real open issue that the folks who are making purchasing decisions are well aware of, the folks who are trying to influence them to make a purchase are well aware of it, but as an industry, I don't think we're talking enough about
+
+107
+00:18:02.150 --> 00:18:08.110
+David Seidman: how these unsolved security problems are actually preventing deployment and usage of the most beneficial kinds of AI.
+
+108
+00:18:08.370 --> 00:18:12.079
+David Seidman: The other thing, I think, is AGI.
+
+109
+00:18:12.540 --> 00:18:20.789
+David Seidman: you know, we have people saying AGI's coming next year, the year after. You don't have many people saying that who are not selling that product.
+
+110
+00:18:21.740 --> 00:18:39.310
+David Seidman: That said, I still think even… we're at the point where even conservative projections of when we can expect to see AGI are on the order of about 10 years. That's still plenty material for career plans. You know, if you're an entry-level person and you're planning to be a CISO 25 years from now.
+
+111
+00:18:39.310 --> 00:18:48.889
+David Seidman: That may not happen, because there may not be CISOs 25 years from now, there may not be jobs 25 years from now. You know, I have children saving for college, like.
+
+112
+00:18:49.000 --> 00:18:52.670
+David Seidman: Are they gonna have careers? Is college going to be a good investment for them?
+
+113
+00:18:53.450 --> 00:19:08.149
+David Seidman: even though I think that AGI is more likely on the 5-10 year time span, I still think it's actually relevant for our consideration today. So in one sense, I think it's overhyped. In another, I think people are not paying enough attention to it in the right places.
+
+114
+00:19:08.150 --> 00:19:20.669
+David Seidman: But in general, I think the scientific evidence so far shows that AI has consistently, for at least the past 15 years, progressed faster than even the optimists have projected.
+
+115
+00:19:20.700 --> 00:19:26.619
+David Seidman: You know, you look back to projections for when the game of Go would be beaten by computers, and people said.
+
+116
+00:19:26.780 --> 00:19:45.870
+David Seidman: back in the 2000s, they were saying 20 to 30 years, maybe never. And it was beaten about a decade ago. And people are making, made projections. When will the touring test be passed? That won't happen until the 2050s, and that happened… I mean, modern LLMs can pass the touring test. Of course, we've moved the goalposts now.
+
+117
+00:19:46.040 --> 00:19:52.850
+David Seidman: Turing test was never a very good test of AGI. But, we continue to hit these milestones early.
+
+118
+00:19:52.850 --> 00:19:59.790
+David Seidman: And so that's a sign that probably these things are coming soon. And in general, humans are really bad at understanding
+
+119
+00:19:59.790 --> 00:20:20.670
+David Seidman: exponential growth. Like, when things are in a rapidly growing exponential phase, we tend to underestimate how fast they'll move. All that said, I still think that the practical barriers to getting AGI implemented in the next two to three years are significant. You know, you have to build data centers and put cooling units and generators and stuff in them, and you can only build those parts at so fast.
+
+120
+00:20:20.710 --> 00:20:32.140
+David Seidman: you know, I've heard that generator techs, lack of people to maintain generators in data centers is a limiting factor in the build-out of AI, so I think that's interesting as well.
+
+121
+00:20:34.390 --> 00:20:44.870
+Chang Xu: So looking at AI in the… in the detection and response world, why is AI going to be any different than a human? Is it getting smarter, or is it just doing dumb jobs faster?
+
+122
+00:20:44.980 --> 00:20:48.409
+Chang Xu: And how are you enabling humans to deal with the more important things?
+
+123
+00:20:48.950 --> 00:20:58.000
+David Seidman: Yeah, I think one way you can think of SOC AI is, like, having all of the SOAR automation that you could ever want.
+
+124
+00:20:58.200 --> 00:21:18.039
+David Seidman: working right out of the box, plus the ability to produce nice text summaries of what's happened. So, in many cases, it's doing routine, what you could call dumb work that could have been automated, and in many organizations, it was automated through SOAR, but anyone who's tried to do a full SOAR build-out can tell you that
+
+125
+00:21:18.090 --> 00:21:32.719
+David Seidman: getting a full automation corpus is extremely expensive. It's just a lot of development work. And so AI spares you from that effort, because it comes in knowing what queries it should run for different kinds of alerts, particularly if you have playbooks for it.
+
+126
+00:21:32.720 --> 00:21:42.390
+David Seidman: And then on top of that, it can produce nice text summaries, which is something that in the past would have been smart work, or maybe would have been accomplished through some fancy UI.
+
+127
+00:21:42.960 --> 00:21:46.819
+David Seidman: So, it's not doing the hardest parts of the job.
+
+128
+00:21:46.980 --> 00:22:03.089
+David Seidman: When we have a real breach, the AI is still going to hand off to humans who are mostly going to look through things on their own. They might use AI to speed up their work, but the really hard-thinking parts fall to humans, and there are all sorts of judgment calls around
+
+129
+00:22:03.090 --> 00:22:22.250
+David Seidman: like, what is the impact of having this system breach? What is the impact of an attacker stealing this data? Those are not calls that an AI can make. What should we do about it? Should we notify customers? Should we reformat users' machines, lock users out of the company, take down our public-facing services? Those are calls that AIs are nowhere close to being able to make. So…
+
+130
+00:22:22.570 --> 00:22:28.760
+David Seidman: For now, we mostly see the AIs doing relatively dumb things.
+
+131
+00:22:28.890 --> 00:22:32.830
+David Seidman: That said, in aggregate, it solves the problem, and so…
+
+132
+00:22:32.990 --> 00:22:40.360
+David Seidman: I think that even though it's mostly doing dumb things that you could have automated already if you'd had the time to do it.
+
+133
+00:22:40.710 --> 00:22:59.710
+David Seidman: when you put it all together, it's taking a lot of that dumb work off of people's plates, and it's letting people focus on the interesting things. Even where the AI socket fails, it often fails in interesting ways. You know, it surfaces interesting patterns of behavior that don't really make any sense to anyone, and a human has to go figure out whether
+
+134
+00:22:59.940 --> 00:23:03.020
+David Seidman: it's actually a problem or not.
+
+135
+00:23:03.270 --> 00:23:10.580
+David Seidman: So, I see potentially elimination of a lot of the work that humans don't like to do.
+
+136
+00:23:10.650 --> 00:23:24.279
+David Seidman: And I think that's going to be great for the people who are able to remain in this field. It will… I think it will eliminate a large number of jobs. I mean, right now, if this was 2015, I would probably have had to hire some
+
+137
+00:23:24.590 --> 00:23:33.629
+David Seidman: SOC analysts for Plaid, but because there is an AI option now, I have not hired those people, and it doesn't look like we're going to need to. So,
+
+138
+00:23:34.000 --> 00:23:37.239
+David Seidman: I think there are already jobs being eliminated in the SOC
+
+139
+00:23:37.500 --> 00:23:45.339
+David Seidman: vertical, and I think that that is going to accelerate and potentially wipe out almost all of those jobs in the future, unfortunately, for the folks impacted.
+
+140
+00:23:45.460 --> 00:23:56.839
+David Seidman: But for the folks who are able to keep their jobs, they'll be up the value chain working on incident response, dealing with the hard cases. I think it's going to become a much more interesting job.
+
+141
+00:23:59.890 --> 00:24:05.500
+Ashish Popli: Yeah, I think it's an interesting pattern where human workflow and knowledge has been codified.
+
+142
+00:24:06.220 --> 00:24:13.930
+Ashish Popli: AI can replicate it. Where it's not yet codified, AI is… Not necessarily ready.
+
+143
+00:24:14.590 --> 00:24:20.940
+Ashish Popli: Because the truth is in the grounding of the context and in codification of the rules, in the end.
+
+144
+00:24:22.600 --> 00:24:35.089
+Ashish Popli: So that pattern definitely applies to Level 2, Level 3 analysts in a SOC. That's why Level 1 is getting all the heat, because Level 1 is just following a playbook, and playbook is already written, no brain is required.
+
+145
+00:24:35.270 --> 00:24:40.510
+Ashish Popli: In that sense, the same concept applies towards,
+
+146
+00:24:41.080 --> 00:24:44.400
+Ashish Popli: Because there is no playbook to write a detection rule.
+
+147
+00:24:44.760 --> 00:24:50.759
+Ashish Popli: Because it requires a lot of context on what should go into the rule, and keeping the rule
+
+148
+00:24:50.890 --> 00:25:03.369
+Ashish Popli: resilient across changing infrastructure, because at what level do you model a behavior? Is that dependent upon the machine or the actor? The more it's dependent on the actor, the easier it is to, sort of.
+
+149
+00:25:03.720 --> 00:25:13.329
+Ashish Popli: Have one rule that survive long period of times, and if the actor changes techniques, if its technique is not grounded for the rule, then, you know, you have churn and detections at that point.
+
+150
+00:25:13.450 --> 00:25:21.759
+Ashish Popli: So, it's… the pattern is very common, like, if your knowledge is not codifiable, AI can't help you.
+
+151
+00:25:21.970 --> 00:25:27.770
+Ashish Popli: So, I… the reason I bring up this argument, or this conversation point, is that
+
+152
+00:25:28.350 --> 00:25:41.109
+Ashish Popli: I almost disagree with the fact that people are being displaced. They're being displaced for their current jobs, but they are the same humans who will help codify the next layer and make AI go faster for them.
+
+153
+00:25:41.220 --> 00:25:48.400
+Ashish Popli: That's generally my glass-half-full picture on that issue, in that sense.
+
+154
+00:25:49.170 --> 00:25:51.050
+David Seidman: Yeah, I think,
+
+155
+00:25:52.040 --> 00:26:03.109
+David Seidman: I think that that is optimistic. I think that the numbers don't work out. You know, if you think about the number of Tier 1 analysts who are needed to triage
+
+156
+00:26:03.160 --> 00:26:16.760
+David Seidman: very basic alerts, you know, let's say you have… a larger organization might have thousands of alerts coming in every day, hundreds or thousands of alerts, and you might… you might have a couple dozen people on staff to deal with that.
+
+157
+00:26:16.850 --> 00:26:29.519
+David Seidman: Now imagine that you put an AI in front of that, and so the number that the AI can't make a conclusive determination on is reduced to, say, 20 alerts per day, or 50. You might need
+
+158
+00:26:29.710 --> 00:26:33.659
+David Seidman: 2 or 3 people instead of 20 or 30 people to handle that.
+
+159
+00:26:33.840 --> 00:26:37.170
+Ashish Popli: Yeah, and you take the remaining 17, and you have the option of…
+
+160
+00:26:37.350 --> 00:26:56.260
+Ashish Popli: not having them do any work, or have them codify things that the upper layers were doing by hand. That's the trade you can have, so that ultimately you're making AI win, but not at the cost of humans. Humans are still doing some other work that makes AI go even better for the next layer of the job, in that sense.
+
+161
+00:26:56.260 --> 00:27:02.060
+David Seidman: You know, I… Are you going to find 17 people worth of work to…
+
+162
+00:27:02.060 --> 00:27:19.769
+Ashish Popli: No, no, but there's definitely, definitely not, because that job was skilled to their knowledge. Even for them to do the next level of job, they will have to reskill, right? It's not a one-to-one replacement in that sense. For sure, there is, there is, there is, task loss.
+
+163
+00:27:20.110 --> 00:27:21.759
+Ashish Popli: For the human, yes.
+
+164
+00:27:23.320 --> 00:27:42.809
+David Seidman: Yeah, I think also we're increasingly seeing AIs that are capable of doing even, like, a Tier 3 level of work, and are capable of writing their own playbooks. So, I think that the main factor that's going to save people's jobs is actually going to be the slow corporate deployment cycle, rather than the capability of the technology.
+
+165
+00:27:44.220 --> 00:27:49.560
+David Seidman: you know, what I'm seeing today, this is… the AI is just able to do
+
+166
+00:27:49.560 --> 00:28:00.970
+David Seidman: what people do, and it does it well enough that you just don't need to have that job anymore, and the number of new jobs that are created directly by that work are limited.
+
+167
+00:28:00.970 --> 00:28:12.990
+David Seidman: you know, all that said, like, there… I don't want to make a broader statement about what AI will do for jobs, because I know, I mean, OpenAI, Anthropic, I see their job postings all the time, they're hiring tons and tons of people.
+
+168
+00:28:13.070 --> 00:28:25.889
+David Seidman: But I can say that when it comes specifically to the SOC, there's no way we're going to continue to have 30-plus people involved in the alert triage process, that there's just not going to be the volume.
+
+169
+00:28:25.890 --> 00:28:31.420
+Ashish Popli: Definitely true. I think Layer 1 is codified, already ready to go. Agree.
+
+170
+00:28:31.650 --> 00:28:32.460
+Ashish Popli: Yeah.
+
+171
+00:28:34.970 --> 00:28:38.990
+Ashish Popli: All right, so, moving on a little bit, I guess,
+
+172
+00:28:40.030 --> 00:28:48.959
+Ashish Popli: some of the questions or thoughts that we had are kind of already covered, so I'm going to change a little bit of the gears here in terms of topics. I think we kind of have,
+
+173
+00:28:49.260 --> 00:28:52.599
+Ashish Popli: concentrated on detection and response and AI SOC a little bit.
+
+174
+00:28:52.900 --> 00:28:59.929
+Ashish Popli: I mean, generally, we are… you and I both belong to the security space, and we have touched security in different parts, right? So…
+
+175
+00:29:00.390 --> 00:29:07.749
+Ashish Popli: On the product security side, you know, when you're talking about, Getting secure infrastructure in place.
+
+176
+00:29:07.870 --> 00:29:22.519
+Ashish Popli: By default, when you're talking about building secure applications by default. I think even this space is sort of evolving very fast with respect to how it's created, how's code created? How is infrastructure created?
+
+177
+00:29:23.530 --> 00:29:32.339
+Ashish Popli: You know, it's going from a transition of humans used to do it by hand, now machines are doing it, and that has a definitive impact on
+
+178
+00:29:32.820 --> 00:29:51.009
+Ashish Popli: what does secure by default look like in that sense? So, old school thinking around running code scans and code reviews and having deployment gates, and having, you know, guardrails in deployments, they served well for the pipeline of human creating the outcome.
+
+179
+00:29:51.630 --> 00:29:59.930
+Ashish Popli: In the case of humans not creating the code and humans not creating the infrastructure, how do you think that space evolves, given
+
+180
+00:30:00.040 --> 00:30:04.599
+Ashish Popli: The number of issues they produce, and how we counter those issues.
+
+181
+00:30:04.770 --> 00:30:12.240
+Ashish Popli: there's a role of AI everywhere here, so I'm kind of opening a big can of worms to see where your thoughts go. What are you seeing, patterns-wise?
+
+182
+00:30:12.490 --> 00:30:20.910
+David Seidman: Yes, so, I… I think that we are… we are not seeing evidence that AIs generate
+
+183
+00:30:21.400 --> 00:30:33.490
+David Seidman: substantially more buggy or insecure code in the hands of skilled developers. I'm not talking about a non-technical person spinning up a Vibe coding app and shipping something to production, but
+
+184
+00:30:33.650 --> 00:30:53.519
+David Seidman: something like, clawed code being used by a senior software engineer. I don't think any data… I've seen any data that shows that that code is… has a higher defect rate, whether security or non-security. So, I think we initially feared that there would be a lot more security vulnerabilities created by Vibe coding, but it looks like
+
+185
+00:30:54.230 --> 00:31:02.910
+David Seidman: when engineers are using AI tools, that's not turned out to be an issue in practice. I think on the flip side.
+
+186
+00:31:03.410 --> 00:31:08.289
+David Seidman: I think there's a lot of value in AI tooling, being able to scale up
+
+187
+00:31:08.580 --> 00:31:20.549
+David Seidman: product security evaluations, so most organizations are not able to have a human perform a deep security review on every single piece of code they ship, or even every single product they ship.
+
+188
+00:31:20.550 --> 00:31:32.490
+David Seidman: Most organizations are very high velocity product delivery, and they emphasize product delivery over security review, and security review tends to be focused on the most important launches, the riskiest launches.
+
+189
+00:31:32.670 --> 00:31:40.680
+David Seidman: But, you know, you don't have a security person reviewing every single check-in. That's just completely infeasible, does not scale.
+
+190
+00:31:40.970 --> 00:31:56.580
+David Seidman: But AI can scale to that, so I am really optimistic about the ability of AI to perform even mediocre security reviews on things that are currently not getting security review at all. So I think that AI will be totally transformative
+
+191
+00:31:56.580 --> 00:32:11.230
+David Seidman: for product security, not because it's substantially better than humans, I'm not seeing the evidence that it's better than a good human reviewer. In fact, it seems pretty clear that the state of the art right now, humans still do a better job at security review.
+
+192
+00:32:11.230 --> 00:32:12.020
+David Seidman: But…
+
+193
+00:32:12.230 --> 00:32:26.070
+David Seidman: But it can do it much more comprehensively, and it can also do it earlier in the process. It's very rare for an organization to make a security engineer available to a product team during the initial development of a product and have that person
+
+194
+00:32:26.070 --> 00:32:42.009
+David Seidman: engaged with all aspects of product development. Some of the best organizations are able to do that, but generally, most companies wait until the thing is basically done, and then they have the security person come in. Maybe security engages in some architecture reviews or specific design decisions with security impact.
+
+195
+00:32:42.010 --> 00:32:50.569
+David Seidman: But an AI tool can literally be performing a security code review every time a developer builds some code from the very first day they start work on the project.
+
+196
+00:32:50.720 --> 00:32:53.659
+David Seidman: And to the extent that those tools miss things.
+
+197
+00:32:53.910 --> 00:33:10.760
+David Seidman: Humans miss things too, but if they're catching some things, previously they were catching nothing, because there was no review at all. So I think that's a huge improvement, even if the tools aren't very good. And what we're seeing now is the tools are pretty good. They're not better than a human in my experience, but they're not substantially worse.
+
+198
+00:33:10.760 --> 00:33:18.170
+David Seidman: And the other interesting thing we're seeing is that there are a number of tools that seem to be better at humans
+
+199
+00:33:18.170 --> 00:33:32.480
+David Seidman: I should say, better than existing, like, SaaS tools, where we're already using automated tooling to find vulnerabilities. The AI tooling seems to be dramatically better in some cases. The issue we're seeing is that
+
+200
+00:33:32.700 --> 00:33:34.490
+David Seidman: The…
+
+201
+00:33:34.690 --> 00:33:45.929
+David Seidman: there are a number of vendors, and they're all good in a fairly narrow slice. They handle only specific kinds of code, specific kinds of security problems.
+
+202
+00:33:45.930 --> 00:33:55.709
+David Seidman: And, so if you want to have all of the nice things, you have to buy a bunch of tools, and it's too expensive for even a relatively well-resourced organization.
+
+203
+00:33:55.760 --> 00:34:07.489
+David Seidman: So, but over time, that will… that will get fixed. The… you know, for example, we looked at a prominent vulnerability discovery vendor, and it turned out that their tool was just incompatible with our style of monorepo.
+
+204
+00:34:07.500 --> 00:34:13.549
+David Seidman: nothing intrinsic about the AI makes that the case, it's just that they haven't built that integration feature yet.
+
+205
+00:34:13.550 --> 00:34:31.619
+David Seidman: But they'll build it. So, I think over time, we'll start to close those very basic functional gaps, and we'll have a reasonably good security review integrated into 100% of the process, where today, we might have a very good security review integrated into, like, 20% of
+
+206
+00:34:31.639 --> 00:34:46.080
+David Seidman: software development. So I think that it's going to be totally transformative to product security, even without major improvements to the AI. It might annoy developers a little bit with some false positive findings, but they're usually pretty easy to dismiss. So, in general, I think that
+
+207
+00:34:46.239 --> 00:35:02.600
+David Seidman: Today, in any application where a false positive finding can be easily identified by a human reviewer, the AI is already good enough. Like, in cases where it needs to be totally perfect, like medical diagnosis.
+
+208
+00:35:02.600 --> 00:35:14.600
+David Seidman: Maybe that's a little bit more of a problem, but for software engineering, you know, if we tell a developer they have 5 security bugs, and it turns out 2 of them are not really security bugs, but 3 of them are, that's a win.
+
+209
+00:35:14.630 --> 00:35:15.840
+David Seidman: So…
+
+210
+00:35:16.180 --> 00:35:25.430
+David Seidman: This is… it's going to be a huge change, mostly because we'll get security review of things that we're not currently performing security review on at all.
+
+211
+00:35:25.770 --> 00:35:38.279
+David Seidman: I think there's a chance, I don't know if you all are familiar with the whole vulnerability cataclysm theory, but this is something that Gotti Everon, Heather Adkins, Bruce Schneier have been talking a lot about, and others have been echoing.
+
+212
+00:35:38.280 --> 00:36:01.900
+David Seidman: Which is that the publicly available vulnerability discovery, vulnerability exploitation, and attack orchestration tooling is improving very rapidly, and there's quite a bit of evidence developing that AIs are very able to find new vulnerabilities, turn them into exploits, turn exploits into attack campaigns with relatively low skill on the person running the tools.
+
+213
+00:36:02.300 --> 00:36:11.540
+David Seidman: And those folks I mentioned have predicted that this will eventually lead to widespread exploitation of new zero-day vulnerabilities.
+
+214
+00:36:11.900 --> 00:36:25.800
+David Seidman: and potentially catastrophic consequences for the industry. Unfortunately, I think there's a very real chance that they're right. This is not a case of attackers going out and searching for these tools. Attackers are already very effective with their current techniques, but
+
+215
+00:36:25.990 --> 00:36:27.560
+David Seidman: When the community
+
+216
+00:36:27.780 --> 00:36:49.239
+David Seidman: figures out that AI can do these things, it'll be a freebie for the attackers, and they will pick up publicly available zero-day exploits if other people discover them using AI. So I think that that will potentially be totally transformative for product security. Like, if we get to a place where AI can discover all the vulnerabilities and exploit them very quickly.
+
+217
+00:36:49.240 --> 00:36:59.599
+David Seidman: We're going to have a fire drill on an industry-wide scale, and everyone is going to have to scramble to fix all of these vulnerabilities. And then after that, we'll have many fewer vulnerabilities.
+
+218
+00:36:59.600 --> 00:37:06.430
+David Seidman: and product security will be totally transformed because vulnerabilities will become a thing that is very rare and hard to find.
+
+219
+00:37:06.720 --> 00:37:07.950
+David Seidman: So…
+
+220
+00:37:08.190 --> 00:37:15.170
+David Seidman: if that comes to play, if the technology develops along that path, I think product security will be totally transformed for that reason.
+
+221
+00:37:15.320 --> 00:37:16.629
+David Seidman: I'm not…
+
+222
+00:37:16.710 --> 00:37:22.379
+David Seidman: convinced that that's going to happen, but I think it is a reasonably high probability that folks should be aware of, so…
+
+223
+00:37:22.410 --> 00:37:42.210
+David Seidman: To kind of sum all of that up, I think product security is going to be totally transformed by AI without really needing much in the way of new science. Just the tools that we already have and minor improvements on existing AI will enable us to transform our capabilities to discover vulnerabilities, both early in the process and in production.
+
+224
+00:37:42.210 --> 00:37:48.139
+David Seidman: Discovery and production is going to be really painful for all of us, but it's going to be a totally different thing.
+
+225
+00:37:49.280 --> 00:38:02.850
+David Seidman: And this is… these are things that AI can already do pretty well today. Like, if you ask Claude for a security code review, it will do a particularly good job. Not Claude specifically, but I just mean, like, just a tool that a lot of people have that's available on your machine.
+
+226
+00:38:03.030 --> 00:38:17.009
+David Seidman: it already does a pretty good job of this. The specialized tools are a little bit better, and they're going to get even more better over time, so it's… even if you take a relatively pessimistic approach, a pessimistic perspective.
+
+227
+00:38:17.490 --> 00:38:34.820
+David Seidman: The… the ability to comprehensively perform decent security reviews is transformative, and if vulnerability discovery hits that inflection point where vulnerability discovery becomes very easy, then that will be completely transformative and probably catastrophic for the industry.
+
+228
+00:38:36.750 --> 00:38:45.650
+Ashish Popli: Interesting. So I think, the two… the two net summaries from… from your narrative, we can get higher coverage
+
+229
+00:38:45.760 --> 00:38:48.769
+Ashish Popli: at much low cost with the help of AI on…
+
+230
+00:38:49.280 --> 00:39:05.260
+Ashish Popli: conducting reviews and finding issues, right? That's a plus for the defenders. And the plus for offenders is their cost of generating new exploits is significantly going down because of AI. So, both parties are going to compete in that regard, right?
+
+231
+00:39:05.640 --> 00:39:20.110
+David Seidman: I will say, the good news is, right now, vulnerability code review tools are widely available, and AI vulnerability discovery tools are not widely available.
+
+232
+00:39:20.110 --> 00:39:30.890
+David Seidman: I should say, tools that make it easy for anyone to find and exploit a vulnerability are not widely available, so we have a little bit of lead time as defenders.
+
+233
+00:39:31.020 --> 00:39:35.149
+David Seidman: I don't know how long we have. Could be years, could be months, could be days.
+
+234
+00:39:35.150 --> 00:39:52.280
+Ashish Popli: I mean, the fact is that, you know, there are certain AI companies who are very responsible in detecting abuse of their AI for the purpose of exploit generation, aka Anthropic, and there are certain other companies who do not give a crap about this, aka I would not name them right now, right?
+
+235
+00:39:52.280 --> 00:39:54.399
+David Seidman: It's also, I mean, there's open source models.
+
+236
+00:39:54.400 --> 00:39:55.430
+Ashish Popli: Yeah.
+
+237
+00:39:55.430 --> 00:40:13.599
+David Seidman: the research, to the extent that companies… there's an interesting facet of our whole AI industry, is that it's both extremely competitive and very much open source oriented. So, it's really impossible for any company to keep the genie in the bottle, because even if
+
+238
+00:40:14.250 --> 00:40:27.340
+David Seidman: pick your favorite company, decide that they're going to… and figures out a way to completely lock down Exploit Generation. There are 5 other companies, and one of them, they may try and fail to lock down Exploit Generation, or they might not try.
+
+239
+00:40:27.420 --> 00:40:39.929
+David Seidman: And even if all the companies are successful, there's still a bunch of open source models, and researchers are going to innovate on those. So I don't really think that it is within any organization's power to stop this runaway train.
+
+240
+00:40:39.990 --> 00:40:50.790
+David Seidman: I think that applies more generally than security, but it also applies to exploit generation. Like, nobody's going to be able to stop it because there's open source, and there's so many companies tried that all you need to find is one weak link.
+
+241
+00:40:51.240 --> 00:41:08.140
+David Seidman: I mean, I actually had this… I had this experience personally. I was trying to write a script to help managers download documents that were shared by their direct reports in order to do AI summarization of their activities, so basically tell me what my team has been working on this week. And, two…
+
+242
+00:41:08.140 --> 00:41:16.740
+David Seidman: major AI providers refused to help me create that script. They said, this is too much of a security risk, you're downloading a bunch of sensitive data, we're not gonna do it.
+
+243
+00:41:16.980 --> 00:41:23.569
+David Seidman: Third one, perfectly happy. So, I think that that's just the state that things are always going to be in.
+
+244
+00:41:23.720 --> 00:41:33.350
+Ashish Popli: there's a reason Apple is winning the war on privacy-aware marketing compared to others, and I think it's going to be similar battles for AI model providers and hosters.
+
+245
+00:41:33.980 --> 00:41:34.600
+Ashish Popli: Yeah.
+
+246
+00:41:34.600 --> 00:41:46.980
+Chang Xu: Well, thank you so much. We've covered a ton of ground. This has been super, super interesting. One last question for you to leave for our audience. What are your favorite security resources that you can recommend for our audience?
+
+247
+00:41:47.550 --> 00:41:52.989
+Ashish Popli: Well, my LinkedIn feed, of course. Best answer ever, yes.
+
+248
+00:41:52.990 --> 00:41:57.720
+David Seidman: You know,
+
+249
+00:41:59.000 --> 00:42:11.880
+David Seidman: I don't have… to be honest, I don't actually have a favorite place to go. I really… I kind of just doomscroll LinkedIn all the time, and it actually works really well. You know, you have to be selective in what you read, but…
+
+250
+00:42:11.960 --> 00:42:17.260
+David Seidman: I actually get a lot of really good insight and good discussion there, and I think a lot of the time…
+
+251
+00:42:17.260 --> 00:42:32.659
+David Seidman: you get the best insight from the comments. LinkedIn is, like, the only place in the entire internet where reading the comments is actually a good use of time. But when you can see the debates between practitioners, you can often get really valuable insight into
+
+252
+00:42:32.660 --> 00:42:36.309
+David Seidman: Seeing the… the… the real…
+
+253
+00:42:36.430 --> 00:42:45.270
+David Seidman: story that people are talking about, but you know, unfortunately, I've never found a resource that I just absolutely loved and consumed religiously.
+
+254
+00:42:47.360 --> 00:43:02.640
+Ashish Popli: Yeah, I think a similar question was asked, and I thought the TLDR newsletter was a pretty good compilation of resources, so I'll plug that in again, besides LinkedIn comments. I think you're… I do echo the LinkedIn comments side.
+
+255
+00:43:02.830 --> 00:43:12.950
+Ashish Popli: when you said I doom scroll, I think my wife tells me there's no other application that you use as much as you use LinkedIn, so that I'm also a doomscroller on LinkedIn.
+
+256
+00:43:12.950 --> 00:43:20.280
+David Seidman: Yeah, I'm not on Facebook, I'm not on Instagram, I don't do, like, personal social media. I do Strava for athletics.
+
+257
+00:43:21.640 --> 00:43:35.880
+David Seidman: LinkedIn, it's actually, you know, once you get past all of the people who are promoting their products, there's a lot of thoughtful pieces that people put out there, and I've learned a lot from what people have to say, particularly when it's just a post, not even an article that they wrote.
+
+258
+00:43:35.880 --> 00:43:37.919
+Ashish Popli: Yeah, yeah, yeah.
+
+259
+00:43:38.740 --> 00:43:47.720
+David Seidman: Yeah, I think one other thing I found is that there are so many good newsletters out there that are targeted at a particular vertical that
+
+260
+00:43:47.720 --> 00:44:01.500
+David Seidman: you know, you can subscribe to a threat intelligence feed, or a malware reversing feed, or fraud and abuse feeds, and there's lots of these different options, and so it's… I think it's also very personal which one you find valuable.
+
+261
+00:44:03.790 --> 00:44:04.480
+Ashish Popli: Agree.
+
+262
+00:44:05.120 --> 00:44:20.839
+Ashish Popli: All right. Awesome. I really want to thank you for taking the time, David. It was a pleasure having you. I think it's great to listen from people who are practicing currently, and are dealing with the offense and the defense side, and how AI shapes both, so…
+
+263
+00:44:21.400 --> 00:44:23.289
+Ashish Popli: Very refreshing. Thank you.
+
+264
+00:44:23.290 --> 00:44:25.130
+David Seidman: Pat, you're welcome, thank you for having me on.
+
+265
+00:44:25.910 --> 00:44:26.950
+Chang Xu: Thank you, David.
+
+266
+00:44:27.250 --> 00:44:27.840
+Ashish Popli: Take care.
+

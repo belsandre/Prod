@@ -33,7 +33,7 @@ echo ""
 
 # Install dependencies
 echo "Installing dependencies..."
-pip install -q -r requirements.txt
+pip3 install -q -r requirements.txt
 echo "✓ Dependencies installed"
 echo ""
 
@@ -60,4 +60,4 @@ echo "Press Ctrl+C to stop the server"
 echo ""
 
 # Start the Flask app
-python app.py
+python3 app.py

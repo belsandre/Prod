@@ -4,7 +4,12 @@
 
 {% block content %}
 <div class="card">
-    <h2>Job #{{ job.id }} <span class="badge badge-{{ job.status }}">{{ job.status }}</span></h2>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Job #{{ job.id }} <span class="badge badge-{{ job.status }}">{{ job.status }}</span></h2>
+        {% if can_edit %}
+        <a href="{{ url_for('edit_job', job_id=job.id) }}" class="btn btn-primary">Edit Job</a>
+        {% endif %}
+    </div>
 
     <table class="info-table">
         <tr>
@@ -56,6 +61,8 @@
         {% endif %}
     </table>
 </div>
+
+{% set job_metadata = job.metadata or {} %}
 
 {% if thread and thread|length > 1 %}
 <div class="card">
@@ -109,8 +116,26 @@
 
 {% if job.prompt %}
 <div class="card">
-    <h2>Instructions / Prompt</h2>
+    <h2>Custom Instructions</h2>
     <pre>{{ job.prompt }}</pre>
+</div>
+{% endif %}
+
+{% if job_metadata.input_urls %}
+<div class="card">
+    <h2>Input URLs & Access Notes</h2>
+    <pre>{{ job_metadata.input_urls }}</pre>
+</div>
+{% endif %}
+
+{% if job_metadata.selected_workflows %}
+<div class="card">
+    <h2>Selected Workflows</h2>
+    <ul>
+        {% for workflow in job_metadata.selected_workflows %}
+        <li><code>{{ workflow }}</code></li>
+        {% endfor %}
+    </ul>
 </div>
 {% endif %}
 
@@ -157,6 +182,57 @@
         }
     </script>
 </div>
+{% endif %}
+
+{% if job.status == 'approved' and is_admin %}
+<div class="card">
+    <h2>Admin Processing Controls</h2>
+    <p style="color: #7f8c8d;">Move this job into processing once an operator is actively working on it.</p>
+    <form method="POST" action="{{ url_for('admin_start_job', job_id=job.id) }}">
+        <button type="submit" class="btn btn-primary">Mark as Processing</button>
+    </form>
+</div>
+{% endif %}
+
+{% if job.status == 'processing' and is_admin %}
+<div class="card">
+    <h2>Complete Job</h2>
+    <form method="POST" action="{{ url_for('admin_complete_job', job_id=job.id) }}">
+        <div class="form-group">
+            <label for="output_type">Output Type</label>
+            <select id="output_type" name="output_type" onchange="toggleOutputFields(this.value)">
+                <option value="text">Text</option>
+                <option value="file">File</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="output-text-group">
+            <label for="output_text">Output Text</label>
+            <textarea id="output_text" name="output_text" rows="6" placeholder="Paste Claude's response here..."></textarea>
+        </div>
+
+        <div class="form-group" id="output-file-group" style="display: none;">
+            <label for="output_path">Output File Path</label>
+            <input type="text" id="output_path" name="output_path" placeholder="shared/outputs/result.md">
+            <div class="form-help">Provide the absolute or project-relative path to the generated file.</div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Mark as Completed</button>
+    </form>
+</div>
+<script>
+function toggleOutputFields(value) {
+    var textGroup = document.getElementById('output-text-group');
+    var fileGroup = document.getElementById('output-file-group');
+    if (value === 'file') {
+        textGroup.style.display = 'none';
+        fileGroup.style.display = 'block';
+    } else {
+        textGroup.style.display = 'block';
+        fileGroup.style.display = 'none';
+    }
+}
+</script>
 {% endif %}
 
 {% if job.status == 'completed' %}

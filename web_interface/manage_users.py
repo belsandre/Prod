@@ -5,11 +5,11 @@ User Management CLI Tool
 Manage users for the Claude Code Job Queue system.
 
 Usage:
-    python manage_users.py list                           # List all users
-    python manage_users.py add <username> <password>      # Add a user
-    python manage_users.py add <username> <password> --admin  # Add an admin user
-    python manage_users.py delete <username>              # Delete a user
-    python manage_users.py password <username> <new_password>  # Change password
+    python3 manage_users.py list                           # List all users
+    python3 manage_users.py add <username> <password>      # Add a user
+    python3 manage_users.py add <username> <password> --admin  # Add an admin user
+    python3 manage_users.py delete <username>              # Delete a user
+    python3 manage_users.py password <username> <new_password>  # Change password
 """
 
 import argparse

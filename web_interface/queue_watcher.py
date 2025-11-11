@@ -5,10 +5,10 @@ Queue Watcher - Monitor and process jobs from the Claude Code job queue
 This script helps you (or Claude Code) monitor the job queue and process jobs.
 
 Usage:
-    python queue_watcher.py                 # Interactive mode - shows next job
-    python queue_watcher.py --watch         # Watch mode - continuously check for jobs
-    python queue_watcher.py --job <id>      # Process specific job
-    python queue_watcher.py --stats         # Show queue statistics
+    python3 queue_watcher.py                 # Interactive mode - shows next job
+    python3 queue_watcher.py --watch         # Watch mode - continuously check for jobs
+    python3 queue_watcher.py --job <id>      # Process specific job
+    python3 queue_watcher.py --stats         # Show queue statistics
 """
 
 import argparse
@@ -50,6 +50,10 @@ class QueueWatcher:
         print(f"User:        {job['username']}")
         print(f"Created:     {job['created_at']}")
 
+        metadata = job.get('metadata')
+        if not isinstance(metadata, dict):
+            metadata = {}
+
         # Show thread info if part of a thread
         if show_thread and job.get('thread_id'):
             thread = self.queue.get_thread(job['thread_id'])
@@ -62,6 +66,19 @@ class QueueWatcher:
             print("-" * 60)
             print(job['prompt'])
             print("-" * 60)
+
+        input_urls = metadata.get('input_urls')
+        if input_urls:
+            print(f"\nINPUT URLS & ACCESS NOTES:")
+            print("-" * 60)
+            print(input_urls)
+            print("-" * 60)
+
+        selected_workflows = metadata.get('selected_workflows') or []
+        if selected_workflows:
+            print(f"\nSELECTED WORKFLOWS:")
+            for workflow in selected_workflows:
+                print(f"  - {workflow}")
 
         if job.get('file_paths'):
             print(f"\nUPLOADED FILES:")

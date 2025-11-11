@@ -1,0 +1,1030 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.990
+Ashish Popli: Okay…
+
+2
+00:00:04.420 --> 00:00:14.259
+Chang Xu: Welcome to the Default Podcast, where we cut through hype and fear in cybersecurity, AI, and infrastructure. I have with me my co-host, Ashish, and our guest, Sandesh.
+
+3
+00:00:14.540 --> 00:00:32.889
+Chang Xu: Sandesh is the co-founder and CEO of CISO, a company that helps customers automate security design reviews. Before starting CISO, Sandesh spent 12 years in various AppSec roles in companies like Cigital and Razorpay. Sandesh is also the author of the Boring AppSec newsletter and co-host of the Boring AppSec podcast.
+
+4
+00:00:34.100 --> 00:00:36.259
+Chang Xu: Why did you choose to start a company?
+
+5
+00:00:37.980 --> 00:00:53.319
+sandesh Mysore Anand: Yeah, thanks for having me on the pod, and I must say, I love the name of the podcast, right? I think we talk a lot about FUD, so it's good to see that, you know, we're deferding things. So, why did I choose to start a company? Like you mentioned, Chang, I kind of spent close to
+
+6
+00:00:53.320 --> 00:01:18.169
+sandesh Mysore Anand: over a decade in AppSec in various different roles. The first nine of that was in consulting, and the next three was as a head of security at a fintech company, right? So I kind of felt like I'd seen security from various angles. I'd worked with a lot of customers, and I was also part of the in-house security team. And, you know, there was just an itch to say, hey, you know, I would have a lot of feedback for vendors, I would have a lot of conversations with vendors, and I always felt like, hey, you know, if you could start a company, maybe
+
+7
+00:01:18.170 --> 00:01:20.439
+sandesh Mysore Anand: maybe some of the problems I face, I can actually go ahead and solve.
+
+8
+00:01:20.440 --> 00:01:39.560
+sandesh Mysore Anand: So instead of complaining about vendors, I thought, maybe we should become one and see how it is, right? So that was kind of the starting point of thinking about starting a company. I mean, I'll be honest, it took a couple of years from the time we decided to start a company to actually start a company, right? But that journey was fascinating as well. It kind of helped us kind of
+
+9
+00:01:39.560 --> 00:01:52.559
+sandesh Mysore Anand: think a lot more about what we want to build, who we want to build with. And, you know, finding the right co-founder is very helpful. So, you know, so Dr. Shita and I had spoken multiple times about starting up, and around the time when I decided, she was ready too, and it kind of made sense to start up.
+
+10
+00:01:53.680 --> 00:01:54.500
+Chang Xu: Awesome.
+
+11
+00:01:54.500 --> 00:01:57.019
+sandesh Mysore Anand: And what about the security design review process?
+
+12
+00:01:57.020 --> 00:02:03.559
+Chang Xu: that makes it fruitful for GenTech AI, and also talk about threat modeling process as well, since that's a big part of what you're working on.
+
+13
+00:02:04.230 --> 00:02:12.369
+sandesh Mysore Anand: Yeah, I mean, look, you know, ever since I started in application security, we've been doing threat modeling and security design reviews manually.
+
+14
+00:02:12.370 --> 00:02:29.579
+sandesh Mysore Anand: Right? And this is not a new problem, right? So this problem has existed for a really long time. The problem in most companies, including, you know, when I led the security team, is that, you know, security design reviews are great. They're actually kind of help… they're very helpful when you can do it, but the reality is that they're so manual, it's really hard to scale.
+
+15
+00:02:29.610 --> 00:02:42.460
+sandesh Mysore Anand: And in most companies, you know, for every hundred engineers, there are 2 or 3 security engineers who can actually do threat modeling or security design reviews. So there's no way you can actually do a design review for every change that your developers make.
+
+16
+00:02:42.460 --> 00:02:54.459
+sandesh Mysore Anand: Think about how code reviews were 10 years ago, right? You know, you had SaaS tools like Fortify, IBM AppScan, etc, and you didn't really scan every chain. You ran SAS assessments once every 2 months, or once every 3 months.
+
+17
+00:02:54.460 --> 00:02:58.720
+sandesh Mysore Anand: And then… or maybe you did it when something critical changed, like authentication changed, etc.
+
+18
+00:02:58.720 --> 00:03:21.270
+sandesh Mysore Anand: But all that changed in the last 7 or 8 years, with, like, CICD pipelines coming in, and tools like Snyk and SemGrab coming in board as well, where every pull request automatically gets scanned, right? So there's no decision to be made on, hey, when do I run a code scan? You just run it every time there's a code change, right? So that moment never happened for security design reviews, right? Most companies who did security design reviews still had to pick and choose when to do it.
+
+19
+00:03:21.270 --> 00:03:34.260
+sandesh Mysore Anand: And this was a real problem for me, right? Because, you know, when you have 10% coverage of a security activity, I mean, are you really doing it, is the question, right? So what we really wanted to do was saying, hey, how can we kind of get to 100% coverage on security design reviews?
+
+20
+00:03:34.260 --> 00:03:41.949
+sandesh Mysore Anand: And, you know, most of the answers revolved around process, you know, training people, and so on and so forth, but there was no technology solution to that.
+
+21
+00:03:41.950 --> 00:04:06.189
+sandesh Mysore Anand: All that kind of changed with LLMs, right? With LLMs, the advantage you had was that you could actually analyze unstructured data, extract context, and answer questions without having a human embodiment on day one, right? So that kind of got us really excited, because we kind of felt like, hey, for the first time, you can actually automate security design reviews, and then still have kind of the human in the loop to kind of look at the results, make the results better, etc.
+
+22
+00:04:06.190 --> 00:04:16.820
+sandesh Mysore Anand: But at least the first pass, you know, where you want to get 100% coverage is now possible. So that's kind of why we picked that, because we kind of felt like it was, you know, after a really long time, we have an opportunity to kind of solve this problem.
+
+23
+00:04:17.620 --> 00:04:29.649
+Chang Xu: Super, super interesting. And I want to press further on this feature that you see. Why do I care about threat modeling and security design reviews today when I have other ways, many other ways, of securing my environment?
+
+24
+00:04:30.520 --> 00:04:33.049
+sandesh Mysore Anand: Yeah, that's a great question, right? I mean, I think…
+
+25
+00:04:33.250 --> 00:04:53.109
+sandesh Mysore Anand: Look, you know, we always talk about security programs as being like Swiss cheese. You need to have holes in different places, right? So there's no one strategy to secure, you know, technology, right? And no matter how many strategies you use, it's not going to be 100% secure anyway, right? So I think the goal is to kind of, you know, figure out what works for your program the best.
+
+26
+00:04:53.110 --> 00:04:54.930
+sandesh Mysore Anand: In general,
+
+27
+00:04:54.930 --> 00:05:06.859
+sandesh Mysore Anand: change management IT is a critical part of IT, and every time there's change, you want to think about security, and the earliest you can think about security is in the design phase, right? So it kind of just makes sense to kind of start at that point.
+
+28
+00:05:06.860 --> 00:05:25.680
+sandesh Mysore Anand: And the other advantage is, if you can think about application security, right? Most application security products are related to either scanning code or configuration of some kind. Now, the problem is, if you're building software where your developers are writing the code, that works very well, because, you know, you can scan the source code, you can scan the dependencies, and get some feedback.
+
+29
+00:05:25.680 --> 00:05:49.060
+sandesh Mysore Anand: But what if you're actually assembling most of your code? Like, what if you're making calls to a third party, and all you're really seeing is, you know, you're making, like, architectural decisions on what to do, but you don't really have… you're not really writing a whole lot of code. You don't have a lot of developers in your company. And a lot of companies have, you know, write software, but don't have a lot of developers. And in enterprises, you have all kinds of software, where you write a lot of the code, and, you know, you also assemble code written by other companies.
+
+30
+00:05:49.060 --> 00:05:52.210
+sandesh Mysore Anand: And in that scenario, it's really hard to find
+
+31
+00:05:52.210 --> 00:06:14.889
+sandesh Mysore Anand: AppSec tools that can make a difference, right? So the beauty of design reviews is that whether the feature that you're building or the feature you're reviewing is written by developers in-house, written by outsourced developers, you're actually buying a SaaS product, it's a third-party API, it doesn't matter. You can actually use this technique to analyze all kinds of software change. And that is why I think, you know, this is a tool that should be in every security team's Ashdna.
+
+32
+00:06:17.600 --> 00:06:19.530
+Ashish Popli: Very cool.
+
+33
+00:06:19.860 --> 00:06:31.429
+Ashish Popli: I mean, I'm gonna bring back some historical perspective, and listening to your narrative, Sandesh, I think things have evolved quite a bit in terms of what people mean by threat modeling and security design reviews.
+
+34
+00:06:31.670 --> 00:06:44.250
+Ashish Popli: It's fascinating to hear from someone like you to sort of expand the scope of threat modeling and make it central to the secure SDLC mindset and secure software adoption mindset in that sense.
+
+35
+00:06:44.800 --> 00:06:46.990
+Ashish Popli: Yeah. Back in the day,
+
+36
+00:06:47.340 --> 00:06:51.940
+Ashish Popli: early, early days of box products at Microsoft, SDL became a thing.
+
+37
+00:06:51.940 --> 00:06:52.550
+sandesh Mysore Anand: Hmm.
+
+38
+00:06:52.870 --> 00:07:09.150
+Ashish Popli: And I was fortunate to be part of that team, Trustworthy Computing, back then. And, you know, first threat modeling tool that was written out of that team went through multiple iterations. I happened to, sort of, be the owner of 4.0.
+
+39
+00:07:09.150 --> 00:07:09.920
+sandesh Mysore Anand: Nice.
+
+40
+00:07:09.920 --> 00:07:22.809
+Ashish Popli: It was still in the… in the context of box products, and then the evolution of, you know, we went from box products to cloud, and now cloud to more, like, agentic in this era, right?
+
+41
+00:07:23.300 --> 00:07:35.190
+Ashish Popli: I mean, the meaning of threat modeling has evolved. And so, from your vantage point, where we are today as a world, and where we are going, given the scope of threat modeling that you described.
+
+42
+00:07:35.520 --> 00:07:46.550
+Ashish Popli: what do you feel is the limiting function in solving this problem, from a technology standpoint, not from a people and process standpoint? What is the limiting function that you see that makes it hard to scale?
+
+43
+00:07:47.530 --> 00:08:11.199
+sandesh Mysore Anand: Yeah, no, that's a good question, right? I think, let's just take a step back. I think you made some really good points. If you kind of want to think about what threat modeling is, and by the way, one of the problems we have in this industry is that we have, like, re-interchangeable names, security design reviews, threat modeling. They're all kind of similar, but they're, like, overlapping. So, but let's talk about threat modeling first, right? I mean, the way I think about threat modeling is that when you… if you do a pen test, you're not… you're analyzing a system.
+
+44
+00:08:11.200 --> 00:08:14.879
+sandesh Mysore Anand: for vulnerabilities. If you do a red team, you're analyzing a system for vulnerabilities.
+
+45
+00:08:14.880 --> 00:08:21.110
+sandesh Mysore Anand: When you do a threat model, what you're doing is you're analyzing a version of the system, a representation of the system.
+
+46
+00:08:21.120 --> 00:08:44.550
+sandesh Mysore Anand: to think about vulnerabilities, right? So you're not actually testing an application, you're looking at the design, you're looking at the architecture, you're talking to developers and trying to understand what's going on, and then coming up with what can go wrong, right? And that becomes input to developers as requirements, that becomes input to pen testers to go ahead and actually test if it's wrong, and so on and so forth, okay? So that's kind of the baseline definition of what we're talking about.
+
+47
+00:08:44.550 --> 00:09:08.029
+sandesh Mysore Anand: Now, the reason it's really hard to scale is because unlike, let's say, a pen test or a code review, the input to a threat model or a security design review is unstructured data. Everybody writes it differently. You know, some folks can document what they write in Jira tickets, some folks can document what they write in a Word document, some folks can represent it on a diagram, and in most cases, it's in tribal knowledge in people's heads.
+
+48
+00:09:08.030 --> 00:09:14.060
+sandesh Mysore Anand: Right? So when you… when you're… so the only way to extract this information is to talk to people and get all this data in one place.
+
+49
+00:09:14.170 --> 00:09:16.620
+sandesh Mysore Anand: And traditionally, when you have
+
+50
+00:09:16.820 --> 00:09:26.520
+sandesh Mysore Anand: information in documentation, or in the English language, there's no way to scan it, right? To scan it, you need, like, structured data, you need code, you need traffic data, you need logs, and so on and so forth.
+
+51
+00:09:26.520 --> 00:09:44.000
+sandesh Mysore Anand: So that's kind of been a historical problem, and the solution has always been saying, hey, can we take all this unstructured data, have a security architect or a human translate that to secure structured data, and then we can do some automated analysis, right? So a lot of the methodologies where you draw a diagram, like a threat modeling diagram, was based off that.
+
+52
+00:09:44.000 --> 00:09:56.570
+sandesh Mysore Anand: It says, hey, you talk to the developers, you understand the documents, you do everything, and then draw a diagram in a proprietary diagramming technology, and then you can scan the diagram to get a threat modeling outcome, a list of threats, a list of controls, and so on and so forth.
+
+53
+00:09:56.840 --> 00:10:00.600
+sandesh Mysore Anand: And that's going to be the limiting function, because you can't really scan unstructured data.
+
+54
+00:10:00.600 --> 00:10:18.320
+sandesh Mysore Anand: Right? That kind of changes with LLMs, because LLMs, as I mentioned, can extract context from unstructured data, and then you can apply rules on top of that unstructured data, and then generate results, right? And we're seeing this not just in threat modeling or design reviews, but across the enterprise, right? In anywhere where data is hidden in PDF,
+
+55
+00:10:18.320 --> 00:10:37.960
+sandesh Mysore Anand: files, and you want to extract context from it, whether it's, like, invoices, third-party risk management, vendor onboarding, all of these problems have a similar kind of, like, workflow, which is a lot of really useful data is in unstructured format, and you want to extract context out of it, and then you want to analyze the context, right? And the security design reviews fall right in that bucket.
+
+56
+00:10:38.840 --> 00:10:41.130
+Ashish Popli: Yeah, so…
+
+57
+00:10:41.690 --> 00:10:54.509
+Ashish Popli: I think I'm hearing a lot in your narrative about the need to process unstructured data, because that's the reality of the input side of the house on how to do a model, how to do a review, right?
+
+58
+00:10:54.660 --> 00:11:02.819
+Ashish Popli: But I think what I'm not, fully grokking right now is this middle layer before the output. So you've got the input figured out, which can help you with that.
+
+59
+00:11:02.970 --> 00:11:16.290
+Ashish Popli: The middle layer is all about, how do I structure this unstructured data in a way that reasoning engine can be applied on it, or a Q&A engine can be applied on it? And I suspect, and I really, really suspect, and you can correct me, and you can enlighten the audience here, is…
+
+60
+00:11:16.320 --> 00:11:27.420
+Ashish Popli: the hard problem is in that reasoning engine and the structure of the data, because LLN site can be prompted and tuned to get something in the structure, right? Because you found a great entry point, now what about the middle? Because there's.
+
+61
+00:11:27.420 --> 00:11:28.160
+sandesh Mysore Anand: Yeah.
+
+62
+00:11:28.160 --> 00:11:32.790
+Ashish Popli: Too many methodologies of threat modding to begin with. What are you doing about it?
+
+63
+00:11:32.790 --> 00:11:46.949
+sandesh Mysore Anand: That's a great question. Okay, so now you get to the meat, right? So, the answer I gave was the hard part until 2023, or until 2022, until GPT-4 came out, right? GPT 3.5 still couldn't do much, right? From GPD4 onwards, that problem is kind of solved.
+
+64
+00:11:46.950 --> 00:11:51.439
+sandesh Mysore Anand: Right? So now, the problem comes in saying, hey, how do we make the results useful?
+
+65
+00:11:51.440 --> 00:12:15.230
+sandesh Mysore Anand: Right? So there are a few problems, right? LLM tools very often feel like a black box, right? You know it gives you some output, but you don't know why it gave it that output, you don't have any control over it. And the other problem which is specific to threat modeling, is that every company's risk profile is different, so the kind of things you want to output is also different, right? So you can't give the same model, the same prompt, to multiple different inputs from multiple different companies, and expect the same output to be okay with it.
+
+66
+00:12:15.330 --> 00:12:39.190
+sandesh Mysore Anand: Right? So SQL injection is a SQL injection no matter where you are, but if you're using an API gateway, the way you architect an API gateway may be different in different companies, right? So there's a lot of customization that needs to be done, and that's a hard problem, and LLMs don't understand that. So I think, in my opinion, the hardest technology problem in kind of scaling threat modeling, or in, you know, that we've faced in the last couple of years, is, one, how do we make the results explainable? Because, you know.
+
+67
+00:12:39.760 --> 00:12:58.930
+sandesh Mysore Anand: I'm a security person, you're a security person, we'd love to say that our products have zero false positives, have nothing wrong, but we all know that's not true, right? It can be helpful, it can be useful, but there will be things that can sometimes go wrong. And when things go wrong, what's really important is the ability to triage, right? The ability to dig deeper and understand what went wrong. In a lot of LLM-powered tools.
+
+68
+00:12:58.940 --> 00:13:10.799
+sandesh Mysore Anand: there is… that layer does not exist. It's really hard to triage and find out what happened, right? So the first challenge for us was to make results explainable, so that the reviewer can actually understand why this was called out as a problem.
+
+69
+00:13:10.820 --> 00:13:30.030
+sandesh Mysore Anand: The second problem we faced was how do we customize this for every company? I'll give you an example. One of our customers has a microservice called Stark, okay? And Stark is their notification service. Now, the LLM does not know what Stark is, right? So every time we see Stark in an architecture document, it has no idea what the hell's going on, right? Now, but we've got to somehow
+
+70
+00:13:30.030 --> 00:13:54.379
+sandesh Mysore Anand: tell that stock is notification service. So unless we can do that at scale for every company, it becomes really hard to kind of give relevant results and avoid LLM slop, AI slop, right? So I think those are the two hardest problems, in my opinion. One is how do we kind of make results explainable, and two is how do we customize the results for every company, especially given we are dealing with, like, design documents, artifacts of design documents. There's a lot of product jargon
+
+71
+00:13:54.380 --> 00:14:00.000
+sandesh Mysore Anand: Industry jargon, internal company jargon, which we need to understand before we can give valuable desserts.
+
+72
+00:14:00.260 --> 00:14:06.779
+Ashish Popli: Yeah, so this is amazing. I think the second part of the problem that you just described around being able to
+
+73
+00:14:07.130 --> 00:14:09.860
+Ashish Popli: Understand the… the… the.
+
+74
+00:14:09.860 --> 00:14:10.370
+sandesh Mysore Anand: context.
+
+75
+00:14:11.180 --> 00:14:30.100
+Ashish Popli: And obviously, that requires some kind of a structural representation, entity extraction, relationship modeling, and I'm sure you guys will do great on that end, building out the underlying technology. Then the next sort of evolution of any AI-based solution in my mind, is there's something good enough and something that is not ready for prime time, right?
+
+76
+00:14:30.100 --> 00:14:30.590
+sandesh Mysore Anand: Yeah.
+
+77
+00:14:30.590 --> 00:14:39.840
+Ashish Popli: and this idea of we'll have a perfect system does not kind of exist. So, somewhere in the spectrum of what is good enough before humans can
+
+78
+00:14:39.860 --> 00:14:51.689
+Ashish Popli: take the outcome. In your previous example, you said, all of this is about pre-code right. You're providing design requirements for the developers, and then you're going to use the same requirements for pen testing.
+
+79
+00:14:51.900 --> 00:15:00.489
+Ashish Popli: What does good enough look like in your mind, or if not literally, abstractly, what must be true for the output of this
+
+80
+00:15:00.670 --> 00:15:04.680
+Ashish Popli: black box, plus Sandesh's special salt on it.
+
+81
+00:15:04.680 --> 00:15:09.150
+sandesh Mysore Anand: That it can be called good enough, before we can get into the human judgment part of it.
+
+82
+00:15:09.150 --> 00:15:11.460
+Ashish Popli: Let's describe good enough in this case.
+
+83
+00:15:11.710 --> 00:15:19.280
+sandesh Mysore Anand: Yeah, no, that's a tough question, right? So I think, I think there are 3 different metrics you can track to figure out if the results are good enough.
+
+84
+00:15:19.380 --> 00:15:24.370
+sandesh Mysore Anand: And some of these are very hard to measure, but I'll walk you through them anyway, right? So the simplest one
+
+85
+00:15:24.370 --> 00:15:48.630
+sandesh Mysore Anand: You know, is just usage. Are more people using it? Are more people consuming the results? So I call that, like, an input metric. So if you did, like, 10 security design reviews in a quarter before, but after all this automation, you're doing 100, then, you know, somebody's doing it for a reason, somebody's looking at it, so somebody's investing time in it, so it must be working. So that's an input metric, okay? That's the most basic metric, very easy to measure, because you have all the data. Somebody's using your product, right? The second metric is what I call the output metric.
+
+86
+00:15:48.630 --> 00:16:03.389
+sandesh Mysore Anand: which essentially says that, hey, is the output that's generated, is that used somewhere, and does that have an impact? So I'll give you an example. So if you're doing an SDR before code is written, and sending the developers some security requirements, and then you're seeing a steady drop in the number of
+
+87
+00:16:03.410 --> 00:16:12.680
+sandesh Mysore Anand: code review results, static analysis findings. Or if you're finding that, you know, the number of findings in a pen test is going down over time, then that gives you an indication that it's working.
+
+88
+00:16:12.680 --> 00:16:37.520
+sandesh Mysore Anand: Because a lot of the mistakes that would have been made in the coding stage is now avoided, because you gave fantastic requirements, and the developers met those requirements, right? So that's a really… that's another way of measuring it. We call that kind of drift analysis internally. So if I generate five requirements, and then all those five requirements are implemented in code, that means the drift is zero. But if I gave five requirements, but only three of them were implemented, then the drift is a little higher, and that's something you have to work on, right? This is a little harder to measure.
+
+89
+00:16:37.520 --> 00:16:51.099
+sandesh Mysore Anand: because the number of SaaS findings may go wrong for other reasons, right? You might start doing crappy SAS, for example, and then you can't attribute that to SDR, right? So it's a little hard to attribute this, but over enough data, you can actually find out if this is working.
+
+90
+00:16:51.160 --> 00:16:55.949
+sandesh Mysore Anand: The third metric, which I think is probably the most important metric, and something that every AppSec
+
+91
+00:16:56.440 --> 00:17:00.200
+sandesh Mysore Anand: team should track, including companies like us, is
+
+92
+00:17:00.230 --> 00:17:25.170
+sandesh Mysore Anand: whether, you know, what is the impact on software development lifecycle, right? What's the impact on code velocity? Because in the end, what you really want to do is, you want to be secured, but you also don't want to slow down developers, right? So you want to find out if, by providing requirements early in the lifecycle, are we seeing fewer vulnerabilities, and therefore, are we seeing code being pushed to production faster? So this, to me, are the three metrics, right? So this is not just good enough, this is amazing. Like, if you can get all three in.
+
+93
+00:17:25.170 --> 00:17:45.619
+sandesh Mysore Anand: I think that's great. For the good enough part, I would say, at least at a minimum, I would try to figure out the drift analysis, you know, how many requirements were generated, how many of them were actually implemented in code, right? If that's happening, then some developer is actually finding value in this, and then they're actually implementing it. I sometimes also recommend to people that, you know, security design review is not the stage to block things or enforce things.
+
+94
+00:17:45.620 --> 00:18:01.830
+sandesh Mysore Anand: Right? You don't want to say that, hey, if you don't implement every requirement we give, then, you know, you're going to block your pipeline, because it's just too early in the lifecycle to have all the context about what's going to come in the future, right? But, you know, without blocking, if every requirement is actually implemented by developers, then they're seeing value in it, and I would say that's good enough.
+
+95
+00:18:02.560 --> 00:18:07.559
+Ashish Popli: Yeah, I will… Maybe take you up on one more double-click on the good enough.
+
+96
+00:18:07.560 --> 00:18:08.210
+sandesh Mysore Anand: True.
+
+97
+00:18:08.210 --> 00:18:11.509
+Ashish Popli: For the sake of me and the audience, I think
+
+98
+00:18:12.080 --> 00:18:30.050
+Ashish Popli: a specific example of the output of an AI system providing a recommendation, or a question, or a requirement for the developer. What is a good enough example of that requirement, and what is a not good enough example?
+
+99
+00:18:30.050 --> 00:18:31.100
+sandesh Mysore Anand: That's a good example.
+
+100
+00:18:31.100 --> 00:18:32.029
+Ashish Popli: I'm a benchmark.
+
+101
+00:18:32.030 --> 00:18:32.460
+sandesh Mysore Anand: Yeah.
+
+102
+00:18:32.460 --> 00:18:38.639
+Ashish Popli: This system said do blah in this way, and this system said do blah in that way. This is better than that, and here is why.
+
+103
+00:18:38.940 --> 00:18:47.019
+sandesh Mysore Anand: Okay, super, that's a great point. So, let me take an example of, let's say you're building a new feature which is processing sensitive data.
+
+104
+00:18:47.080 --> 00:18:52.399
+sandesh Mysore Anand: Right? And then you know that the sensitive data flows through multiple places before it goes and hits the database.
+
+105
+00:18:52.400 --> 00:19:14.789
+sandesh Mysore Anand: So you want to give a requirement to a developer, which is basically saying, hey, you know, in your logging mechanisms, make sure you don't log the sensitive data that's being processed, because, you know, developers sometimes tend to log your entire requests, and that ends up in your log aggregator, that ends up in Splunk, that ends up in incidents and data leakage and all that. Okay, so that's the requirement. So, a not good enough security requirement would be saying, hey, make sure to not log sensitive data in logs.
+
+106
+00:19:14.790 --> 00:19:26.850
+sandesh Mysore Anand: do not log sensitive data into your… do not send sensitive data to your logs. That's a not good enough requirement. A good enough requirement is that make sure you don't send sensitive data into your logs, and here's the approved library within your company.
+
+107
+00:19:27.010 --> 00:19:40.979
+sandesh Mysore Anand: which actually makes it very easy for you to do it. Right? Because in most good companies, what ends up happening is that you already have an approved way of not logging sensitive data. If you provide that feedback, and then maybe even a link to a Confluence page where it's explained how it happens.
+
+108
+00:19:41.150 --> 00:19:43.539
+sandesh Mysore Anand: That is a good enough requirement, in my opinion.
+
+109
+00:19:44.250 --> 00:19:44.940
+Ashish Popli: Okay.
+
+110
+00:19:45.000 --> 00:19:56.819
+Ashish Popli: And this is possible in the technology that you're producing, because you're gathering this context over a period of time from the input unstructured information set. So you can make that correlation through your
+
+111
+00:19:56.820 --> 00:20:05.689
+Ashish Popli: LLM and reasoning engine that when I produce the output, it is more contextual. Just like the input is more contextual, the output is more contextual and directed at the
+
+112
+00:20:05.750 --> 00:20:08.959
+Ashish Popli: Current set of things known to the company.
+
+113
+00:20:09.350 --> 00:20:25.960
+sandesh Mysore Anand: Yeah, I mean, look, I think one of the coolest things we've built that I'm very proud of, and I get very excited when customers see this, is that, you know, how we all wrote security standards all our lives, and nobody ever read them, or nobody ever cared about them? It was so hard to kind of, almost feed the security standards.
+
+114
+00:20:25.960 --> 00:20:29.319
+Ashish Popli: Operationalizing them is now possible, is what you're saying.
+
+115
+00:20:29.320 --> 00:20:34.010
+sandesh Mysore Anand: Yeah, exactly, because what I'm saying right now is that humans don't need to reach security standards anymore.
+
+116
+00:20:35.340 --> 00:20:56.449
+sandesh Mysore Anand: LLMs can read it and tell them exactly… so the problems that, you know, I used to face with developers is that you would have, like, a 50-page security standards document, and then you would give that to a developer, and the developer's writing a new feature, and let's say he's the most secure-conscious developer in the world, okay? He really… this person, this developer, they really care about this, right? So what they're doing is they're like, hey, I have to now find out, for my feature, which of these
+
+117
+00:20:56.830 --> 00:20:59.710
+sandesh Mysore Anand: 275 security standards are applicable.
+
+118
+00:20:59.740 --> 00:21:12.759
+sandesh Mysore Anand: That is not possible, right? But now, with LLMs, you can do that. You can actually say, hey, for the feature you're building, here are the… here's the metadata or the characteristics of this feature, and these are the standards which are applicable for them, and here's how you implement them.
+
+119
+00:21:12.760 --> 00:21:31.079
+sandesh Mysore Anand: So, I kind of feel like writing good standards was almost done as a checkbox before, but now, writing good standards is a superpower, because if you have written good standards, if you've written libraries for them, if they're approved, if you have, like, secure pathways built out for your developers, you can finally actually communicate them very well with developers, and actually enforce them as well.
+
+120
+00:21:32.060 --> 00:21:48.170
+Ashish Popli: Very cool, very cool. I totally relate to this idea of shelfware standards versus outcome-enabled, actionable items in the flow of the developer. That's a big difference in the end. Okay, I'll move on from this train a little bit, and
+
+121
+00:21:48.390 --> 00:21:54.939
+Ashish Popli: Basically, the second part of my earlier framing of the question was, we kind of have an understanding of what good enough looks like.
+
+122
+00:21:55.190 --> 00:22:10.299
+Ashish Popli: But there's also dangers of how much we push AI to do something for you versus where we involve the human, right? And I think that's an ongoing journey, AGI or no AGI, I think that'll remain the case. What is your perspective on
+
+123
+00:22:10.450 --> 00:22:26.810
+Ashish Popli: where should we stop pushing AI, or where, at least today, what is it that you would still want the developer to do, or the consumer of the output to do, on a judgment level versus not? And what are you seeing there? What's your perspective there now?
+
+124
+00:22:27.440 --> 00:22:52.349
+sandesh Mysore Anand: Yeah, I think, look, I mean, I always say that, you know, security culture is downstream of org culture, so I think it depends on what your org's culture is and how things happen, right? I don't think there is a thing that you should not use LLMs for. You can use it everywhere, but I think it's really important to figure out where you place the human in the loop, right? And depending on your security culture, you may place it in different places. So, for example, the one, you know, the one way… the best users of CISO, the way they use it is that
+
+125
+00:22:52.350 --> 00:23:10.320
+sandesh Mysore Anand: they kind of automate 100% of all SDRs, like a first pass of the SDR, 100% is done by CISO. There's an automatic trigger, there's like a Jira ticket, which is created, and, you know, when somebody says, hey, we need a security review, or somebody says, hey, we're building a new feature, and here are all the artifacts, and then automatically CISO does a security review, and the results are available to the developers.
+
+126
+00:23:10.320 --> 00:23:33.010
+sandesh Mysore Anand: So this is kind of the 100% automated flow, right? And I can tell you that in most companies, this does not happen. Most customers, they don't do this, right? Because there's a risk of generating too much information, there's a risk of context being lost, and there's a risk that security people start ignoring what's happening because everything feels automated, right? The best use case that we have seen is that they'll automate the triggering of the assessment. So the first part of the assessment is done by the LLM.
+
+127
+00:23:33.010 --> 00:23:57.999
+sandesh Mysore Anand: So the LLM does the first pass, and it gives you some signals, right? Now, based on the signals, you decide whether you want a human in the loop or not. So let me give you an example. So let's say I scan 10 Jira epics for your next sprint, right? And for each of the sprint, I'll give a risk ranking. I'll say this is a high-risk epic, this is a medium-risk epic. There are, like, 3 high-risk, 4 medium-risk, and 3 low-risk epics, right? Now, low-risk epics, maybe they're just UX changes, maybe they really don't have an impact on security.
+
+128
+00:23:58.000 --> 00:24:22.929
+sandesh Mysore Anand: so CISO has a bunch of results, the results are available for the developers, but there's no enforcement, there's no triage. It's just, hey, you know, you can go ahead, right? I'm just giving an example of a workflow. But if it's a high-risk feature, you can say, hey, we actually need a security engineer or a security champion to actually not just go through all the CISO results, but also do additional manual reviews in case there's something missing, or if something else needs to be done, right? And for the medium case one, depending on the business unit, you can make a pick and choose what
+
+129
+00:24:22.930 --> 00:24:38.759
+sandesh Mysore Anand: want to do, right? So that's kind of the smartest way to do it, and the reason I'm hesitating to say this is the right way to do it is because I'm a big believer that if you just throw a tool and force a workflow on a company, that doesn't work, right? So the technology should match the workflow in the AppSec team and not the other way around.
+
+130
+00:24:38.760 --> 00:25:02.570
+sandesh Mysore Anand: So that's kind of how we think about it. You know, we have manual triggers where a human can go and figure an assessment, we have automated triggers. You have triggers where you can automatically send results to developers, and in some cases, you can actually look at it, and you can manually send results to developers. All of this is possible, but how it works depends on what your company does, and what our culture is, right? And yeah, human in the loop is important. I don't think there's any way to get out of it, right?
+
+131
+00:25:02.600 --> 00:25:05.580
+sandesh Mysore Anand: Where you place the human in the loop depends on your culture.
+
+132
+00:25:06.490 --> 00:25:16.670
+Ashish Popli: Gotcha. Lovely. So, I want to switch gears a little bit and, talk a little bit about go-to-market and, you know, company building.
+
+133
+00:25:17.060 --> 00:25:29.160
+Ashish Popli: I know you spent a bunch of time in, you know, various companies before starting one on your own, and you sort of understand the US buyer and the Indian buyer at the same time.
+
+134
+00:25:29.170 --> 00:25:44.400
+Ashish Popli: Right, and the world is increasingly global, I come from the same pedigree as you. I'm very, very curious, how do you characterize the GTM motion between a US consumer and, let's say, South Asia consumer, in this case? Yeah.
+
+135
+00:25:44.910 --> 00:26:09.840
+sandesh Mysore Anand: Yeah, I mean, look, I mean, I've spent a bunch of time in… I mean, I've obviously grown up in India, but most of my security career was spent between US, and then even though I was in India, I used to sell… I used to work with a lot of customers in Singapore and Hong Kong, right? And I've spent a bunch of time with customers in India as well. There's a saying about India that anything you say about India, the opposite is also true, just because of how big the country is, right? So I'm a little careful to kind of characterize exactly how it works, and I think that works for all large countries, right? Whether it's
+
+136
+00:26:09.840 --> 00:26:30.540
+sandesh Mysore Anand: whether it's China or the US, etc. But I think, I mean, there are a few kind of obvious differences, especially in the AI world, right? So, a lot of the AI use cases are actually trying to augment human labor. So, one of the challenges we faced when we started CISO was that SDR was… security design reviews were never in the tool budget of companies. They were always in the people budget.
+
+137
+00:26:30.540 --> 00:26:44.280
+sandesh Mysore Anand: Right? So you always… if you wanted to scale security design interviews, you would hire more security architects, right? But now we're saying, hey, hang on, you don't have to do that. You can have the security architects that you have today, but we can make them 4x more to get productive, and that's why you should buy this product, right? So we had to almost, like.
+
+138
+00:26:44.490 --> 00:26:48.379
+sandesh Mysore Anand: shift budgets from AOP to tool budget.
+
+139
+00:26:48.440 --> 00:27:05.840
+sandesh Mysore Anand: Okay? And that was kind of a challenge. And the reason I say that is because the cost of a good security researcher is very different in a country like India and a country like the US. And that obviously makes a difference in buying decisions, right? Because they're like, hey, you know, if the tool costs X, then, you know, should I just go hire a security architect instead?
+
+140
+00:27:05.840 --> 00:27:29.430
+sandesh Mysore Anand: One, that's changing rapidly in India, simply because we serve, kind of, the globe, there are all kinds of employers here, you know, the purchase parity is going up, and so on and so forth. The second diff… the second thing which was very interesting to me is that, depending on what kind of a sector you're addressing within India, the quality of the security teams vary dramatically, right? So, if you're selling to, like, a top-tier fintech in India.
+
+141
+00:27:29.430 --> 00:27:47.380
+sandesh Mysore Anand: I know I have some experience working in one of those companies as well. I would say the security talent and the developer talent are nearly as… nearly comparable to what you see in the US. It's also true of companies, for example, data platforms, right? So, if you look at companies like e-commerce companies, quick commerce companies in India, the amount of data they process is much higher than
+
+142
+00:27:47.590 --> 00:28:07.049
+sandesh Mysore Anand: the data process by, say, companies, their counterparts in the US. So, data platform pipelines, data security pipelines are very, very mature in India, right, among these technology startups. So, I think the point I'm trying to make here is that, depending on… there are certain sectors in India where I think working with those companies actually helped us sell to US customers as well.
+
+143
+00:28:07.140 --> 00:28:17.509
+sandesh Mysore Anand: Right? Because from a technology perspective, they were extremely… they were almost as mature. But I would say the buying process is very different, in North America and India. I think U.S. is among the
+
+144
+00:28:17.830 --> 00:28:40.750
+sandesh Mysore Anand: among the most open markets in times of trying new things, right? So it's a lot simpler to come and talk to them, and, you know, they're always looking for new startups, they're always looking for new things, which is true in Bangalore in India, but not the rest of India, right? So the traditional industries in India, the banking industries, the insurance industries, take much longer to kind of war up to new technologies, but that's not true of startups. So I would say, you know.
+
+145
+00:28:40.750 --> 00:28:45.189
+sandesh Mysore Anand: I would say the patterns are similar between Bangalore and Silicon Valley.
+
+146
+00:28:45.190 --> 00:28:49.569
+sandesh Mysore Anand: And then, like, Mumbai and New York, rather than saying India and the US.
+
+147
+00:28:50.270 --> 00:29:00.780
+Ashish Popli: Very cool. I think I have heard this repeatedly by talking to a bunch of fellow friends and founders, and you're confirming that again, is the notion that
+
+148
+00:29:01.050 --> 00:29:10.169
+Ashish Popli: Because of the number of people present in India, And the consumption of technology.
+
+149
+00:29:10.500 --> 00:29:16.230
+Ashish Popli: being at a very different level compared to a nation like United States.
+
+150
+00:29:16.330 --> 00:29:33.470
+Ashish Popli: some of the underlying infrastructure for that consumption looks very, very, very, very mature. So, when we often say things like Google scale, meta scale, we never talk about make my trip scale, or razor scale, or phone pay scale, right?
+
+151
+00:29:33.470 --> 00:29:34.010
+sandesh Mysore Anand: Yeah.
+
+152
+00:29:34.010 --> 00:29:48.590
+Ashish Popli: The fact is, these are comparable scales, because the consumption is too high, which means to be able to run an operation at that scale, you cannot be running it on, you know, belts and suspenders. You have to do real engineering.
+
+153
+00:29:48.590 --> 00:29:58.769
+Ashish Popli: Right? Yeah. So, I totally relate to that fact, and you're probably the third or fourth person in my network to elaborate on that, and I think it's coming out really well, because
+
+154
+00:29:58.810 --> 00:30:17.189
+Ashish Popli: then it builds perspective on how to build technology, and then it builds perspective on, you know, how to secure operationally and from a software standpoint. So it's super fascinating that there's something that we can learn from the continent in terms of how we approach a security solution in that regard.
+
+155
+00:30:18.310 --> 00:30:21.040
+Ashish Popli: So, good, good call there.
+
+156
+00:30:21.170 --> 00:30:24.960
+Ashish Popli: Anything surprising? I mean, you talked about,
+
+157
+00:30:25.250 --> 00:30:35.269
+Ashish Popli: your customers help you understand how to sell this maturity to a U.S. customer from India. But what is… anything uniquely surprising in that process that you want to share with us?
+
+158
+00:30:36.110 --> 00:30:38.300
+sandesh Mysore Anand: Among the… among the Indian companies?
+
+159
+00:30:38.300 --> 00:30:39.350
+Ashish Popli: Yes, yeah.
+
+160
+00:30:41.800 --> 00:31:01.690
+sandesh Mysore Anand: I mean, no, I mean, I think the way I look at it is that, you know, I have this belief that, you know, we're selling, like, you know, bits and not atoms, so in the end, kind of, like, software is software, right? So if anybody writes good software… so, I mean, the way… when I talk to a… when we talk to customers, we kind of try to kind of not segregate them by geography, but segregate them by, like, by…
+
+161
+00:31:01.700 --> 00:31:15.600
+sandesh Mysore Anand: AppSec maturity, and depending on the level of your security maturity, you may need different kinds of solutions. That's kind of how I look at it, right? So, for example, you know, if I'm selling to a large insurance company, which has, like, 17 different business units across different countries.
+
+162
+00:31:15.600 --> 00:31:33.280
+sandesh Mysore Anand: and they have a central security team, the way I would sell to them is very different from how I would sell to a fintech. So my point… I think the point I was trying to make was, if I learn how to sell to a fintech in India, I can… the lessons are more applicable to a fintech in the US, rather than a bank or, well, a hospital chain in India.
+
+163
+00:31:33.340 --> 00:31:43.839
+sandesh Mysore Anand: Right? Because actually, the similarities between the Indian fintech and the US fintech is a lot higher than the Indian fintech and the Indian hospital, right? So that's kind of the point. So I think for us.
+
+164
+00:31:43.940 --> 00:31:56.800
+sandesh Mysore Anand: we truly think of ourselves as a global company, and I think we focus more on industry and use case and maturity, rather than focusing on, kind of, the geography. Except the time zones and the travel. For that, I think there's no real way to get around it.
+
+165
+00:31:57.850 --> 00:31:59.640
+Ashish Popli: Yeah, AGI cannot solve that yet.
+
+166
+00:31:59.640 --> 00:32:00.980
+sandesh Mysore Anand: I'll get it.
+
+167
+00:32:00.980 --> 00:32:06.319
+Ashish Popli: Alright, alright, alright, let's shift some gears, Chang, maybe it's your.
+
+168
+00:32:06.870 --> 00:32:12.900
+Chang Xu: Sounds good, let's talk about, Outlook, and where we go from here. I loved what you were talking about earlier.
+
+169
+00:32:12.970 --> 00:32:32.909
+Chang Xu: about how now with LLMs and with CISO, you have an unprecedented opportunity to… to automate this part, of the security process that has used to be manual. It also reminds me of the rise of, like, prompt-driven development, test-driven development, which is, which is
+
+170
+00:32:32.970 --> 00:32:46.950
+Chang Xu: both now super important because of AI, but can also supercharge a AI-forward development team. So, I'm curious your perspective. How do you see CISO's role when code and design are mass-produced by AI?
+
+171
+00:32:47.580 --> 00:33:01.720
+sandesh Mysore Anand: Yeah, no, that's a good question, right? By the way, this is going to be a long answer, so cut me off when I'm going… if I'm going overboard. I think let's take back from CISO a little bit, then let's just think about security and AppSec, right? So, there are a couple of points I want to make. So, one is that
+
+172
+00:33:01.750 --> 00:33:26.429
+sandesh Mysore Anand: every time the software development lifecycle is changed, AppSec is changed, right? So when there was the waterfall model, the way we did AppSec was very different, and when Agile came about, you had to now kind of do things every two weeks because of the sprint cycle, and then the CICD pipeline came, and then you had to do things for every PR, and now we have the, whatever, the AI-powered SDLC, I guess. I don't know if there's another name for it, right? And things are different again, right? So my sense is that AppSec has no option but to evolve.
+
+173
+00:33:26.630 --> 00:33:29.060
+sandesh Mysore Anand: Right, so AppSec has to change, there's no question about it.
+
+174
+00:33:29.060 --> 00:33:51.909
+sandesh Mysore Anand: That's one point. The second point I'll make is that the SDLC is not actually completely transformed yet. If you think about it, except, like you said, some of design being automated, and some of code being auto-generated, the rest of the SDLC still kind of looks similar. You still package them into Docker containers, and you still deploy them in either Kubernetes or some kind of a container service, and it's still going on AWS or Azure. You're still writing Terraform scripts. So a lot of the
+
+175
+00:33:51.910 --> 00:34:10.179
+sandesh Mysore Anand: the… I would say the right half of the CICD pipeline, or the SDLC, is still very similar, right? So what I'm saying is that the AI-powered SDLC is going to change more, so there's going to be more changes in the way software is written, and AppSec has to adapt, right? So that's one part. The second… so what are the changes we've seen so far? So I think there are two big changes we've seen so far.
+
+176
+00:34:10.179 --> 00:34:12.100
+sandesh Mysore Anand: One is that
+
+177
+00:34:12.560 --> 00:34:30.409
+sandesh Mysore Anand: a lot of the thinking has gone from the coding stage to the design stage, right? So a lot of developers, they would think about security, quality, etc, when they're writing code. As they're writing code, they're trying to figure out what to do. But now they have to explain to the LLM what needs to be built, which means that they have to actually explicitly mention
+
+178
+00:34:30.409 --> 00:34:45.290
+sandesh Mysore Anand: about security as the prompt, as the right PRDs. So my sense is that when folks are actually either prompt engineering or writing PRDs, it's actually… if they can write better security requirements, the LLM will do a better job of writing more secure code.
+
+179
+00:34:45.290 --> 00:34:56.510
+sandesh Mysore Anand: Right? So I would say the role of design is actually even more important now. Whether it's automated by AI or a human rights it, the role of design is actually even more important than it was before. That's one point. The second point is that
+
+180
+00:34:56.510 --> 00:35:07.600
+sandesh Mysore Anand: a lot of the bottleneck… you know, I kind of like asking two questions every time I meet a new engineering team or a security team. I ask, you know, one, is your company generating more code?
+
+181
+00:35:07.600 --> 00:35:15.160
+sandesh Mysore Anand: And the answer is always yes. We always have more PRs, we have more repos created, etc. The second question is, is your company pushing more code to production?
+
+182
+00:35:15.400 --> 00:35:17.040
+sandesh Mysore Anand: And the answer is always 50-50.
+
+183
+00:35:17.090 --> 00:35:32.679
+sandesh Mysore Anand: Right? Because what's happening is a lot of code is getting generated, especially in enterprises and large companies, but it's getting stuck in the review place, right? So, the code reviews are being… are becoming a real bottleneck, and AI is going to help automate some of that as well, but right now, AI code gen is a lot more mature than AI code review.
+
+184
+00:35:32.680 --> 00:35:38.660
+sandesh Mysore Anand: Right? So, from a design perspective, it's actually probably better to kind of get your design right, so that your code gen kind of, like, frees up.
+
+185
+00:35:38.660 --> 00:35:50.360
+sandesh Mysore Anand: So that's the second point, right? So, the third point, which is, I think, fascinating from an application security perspective, is that, you know, for the last 15 years, we've worked really hard in educating developers on writing secure code.
+
+186
+00:35:50.380 --> 00:35:56.450
+sandesh Mysore Anand: And, you know, depending on who you talk to, we could say whether 50-50 successful. We've been kind of successful, we've kind of failed.
+
+187
+00:35:56.860 --> 00:36:03.749
+sandesh Mysore Anand: And now, product managers and designers and sales engineers are writing code, and we've never spent any time educating these people.
+
+188
+00:36:03.970 --> 00:36:16.109
+sandesh Mysore Anand: Right? So we've never actually spent time training any of those folks, and they're writing more code, right? So there's more code being written, there's no budget for new AppSec engineers, and we somehow have to scale AppSec now.
+
+189
+00:36:16.200 --> 00:36:32.620
+sandesh Mysore Anand: Right? So that's kind of where we are in this moment. So the only option is to kind of, you know, use AI to fight AI, I guess, right? So we've got to figure out how to use LLMs effectively, and not in a sloppy manner, to actually review the codes that's being written, review the design that's being fed into the LLMs, and then have a makers of place.
+
+190
+00:36:32.620 --> 00:36:40.829
+sandesh Mysore Anand: The last point is that, you know, the theory is saying, hey, if cursors can write code, why can't it write secure code and be done with it? Right? And my answer to that is.
+
+191
+00:36:41.090 --> 00:36:58.899
+sandesh Mysore Anand: Maybe, I don't know what's happening in the future. Like Ashi said, I don't know where AGI is going to take us, but the history of security is a risk management function, and risk management always needs makers and checkers, right? So if the entity that's making something cannot be the entity that's also checking itself, right? That just leads to the same biases creeping in.
+
+192
+00:36:58.900 --> 00:37:01.290
+sandesh Mysore Anand: So, I think the role of AppSec should be saying, hey.
+
+193
+00:37:01.290 --> 00:37:07.789
+sandesh Mysore Anand: If maker… if making code or building code is going this way, then how should we… how should the checker system evolve?
+
+194
+00:37:07.790 --> 00:37:21.299
+sandesh Mysore Anand: And I think, you know, and that's kind of the foundation of how we think about CISO. Our idea is always to say, hey, you know, we've got to help AppSec teams scale and match the speed of the SDLC, and we closely track how the SDLC is changing and figure out how AppSec should change as well.
+
+195
+00:37:22.800 --> 00:37:26.319
+Ashish Popli: Fascinating, fascinating. I think, the makers and checkers,
+
+196
+00:37:27.060 --> 00:37:28.910
+Ashish Popli: A comment that you made is.
+
+197
+00:37:30.000 --> 00:37:35.380
+Ashish Popli: not easily appreciated outside the security industry, so I think we should emphasize that.
+
+198
+00:37:36.480 --> 00:37:51.810
+Ashish Popli: Some people will call the checkers as compliance, but it is not necessarily just compliance, so I think it's more than that. There is a reason there are three parts of the Constitution and governance structure. Exactly. Similar models apply here, in that sense.
+
+199
+00:37:52.440 --> 00:37:53.869
+Ashish Popli: I think,
+
+200
+00:37:54.700 --> 00:38:02.200
+Ashish Popli: and this might be a nuanced question that I'm going to ask Sandesh, and, you know, not to put you on the spot here, but the goal is to understand
+
+201
+00:38:02.730 --> 00:38:05.999
+Ashish Popli: I think there is a, there is a…
+
+202
+00:38:07.310 --> 00:38:10.340
+Ashish Popli: I mean, we talked about the evolution from box product to cloud.
+
+203
+00:38:10.780 --> 00:38:13.920
+Ashish Popli: Then we talked about… how…
+
+204
+00:38:14.250 --> 00:38:28.239
+Ashish Popli: production of anything software-like is now getting powered by AI, the future of… the upcoming future. And then you said, hey, listen, makers and shakers always applied, no matter what, AppSec has been evolving, no issue with that.
+
+205
+00:38:29.320 --> 00:38:33.820
+Ashish Popli: But there is a call here to be made in terms of
+
+206
+00:38:34.020 --> 00:38:38.989
+Ashish Popli: How much of the workflow for the checker to automate?
+
+207
+00:38:39.620 --> 00:38:44.739
+Ashish Popli: Versus how much of the intelligence to give to the maker inherently. There is.
+
+208
+00:38:44.740 --> 00:38:45.130
+sandesh Mysore Anand: Nothing.
+
+209
+00:38:45.130 --> 00:38:46.450
+Ashish Popli: Links between the two.
+
+210
+00:38:46.750 --> 00:38:51.230
+Ashish Popli: Right? Because we'll both incentivized for the same objective function, reduce risk.
+
+211
+00:38:51.490 --> 00:38:55.290
+Ashish Popli: Right? Yeah. You can do more with the cursor.
+
+212
+00:38:55.750 --> 00:39:07.019
+Ashish Popli: a security foundational model, or you can just say, I'm gonna do better high, medium, low classification of your sprints based on LLM security design reviews, and so on and so forth, right?
+
+213
+00:39:08.500 --> 00:39:16.860
+Ashish Popli: There's clearly place for both strategies. Both will likely exist as part of this evolution, right?
+
+214
+00:39:16.970 --> 00:39:23.879
+Ashish Popli: the more you think about building your product, I know you're on the checker side, but the more you think about the larger problem.
+
+215
+00:39:24.100 --> 00:39:31.399
+Ashish Popli: Any insights on… on… What are the limits of each side's ability to impact the risk?
+
+216
+00:39:31.880 --> 00:39:42.380
+sandesh Mysore Anand: I mean, the way I think about it is, it's not an either-or, like you rightly mentioned, it's not a zero-sum game. I think we should enable the makers as much as possible, right? There's no question about it.
+
+217
+00:39:42.380 --> 00:39:58.789
+sandesh Mysore Anand: I mean, I always like to give, like, non-RM examples to kind of… just to level set. If you think about CSRF, it was a vulnerability which was very popular, like, 10, 12 years ago, and the idea was that, you know, I was a pentester when it became very popular, and it was the easiest bug to find because everybody had it, right? It just made my life very easy.
+
+218
+00:39:58.800 --> 00:40:18.589
+sandesh Mysore Anand: But then the way we solved that was not through education, not through checkers, not through better pen testing, not through better rule writing. It's just that the frameworks made it that by default, you add a nonce to every form, and that's it. It was gone. Now, you know, you don't find CSRF in the wild that often anymore, right? So, again, the solution there was not better checkers, it was actually better makers.
+
+219
+00:40:18.630 --> 00:40:32.039
+sandesh Mysore Anand: Right? And that's how progress happens. I have no doubt that tools like cursor and Clotcode will actually make certain kinds of vulnerabilities disappear from the face of the earth, right? And the checkers don't have to ever worry about that.
+
+220
+00:40:32.040 --> 00:40:51.909
+sandesh Mysore Anand: But they're also going to introduce other kinds of vulnerabilities, because that's the nature of security. Like, I'll give you an example, right? LLMs today write fantastic Python code, React code, and some other JavaScript frameworks as well. But if you have to write C++ code, if you have to write other programming languages, they don't do that good a job, because that's not what they're trained on.
+
+221
+00:40:51.910 --> 00:40:59.110
+sandesh Mysore Anand: Right? So now, what's happening is that maybe the Python code gets more secure over time, but the other programming languages don't, or maybe there's a new programming language
+
+222
+00:40:59.110 --> 00:41:23.130
+sandesh Mysore Anand: I don't know how it's going to happen, right? But the thing is that every… it's kind of like the old saying in all these cop movies, right? That, you know, every criminal always leaves behind some evidence. So it's kind of like that, right? Every technology is going to leave behind some insecurities, and the job of the checker is not to say the maker should not improve. It's that if the maker improves, cheer it on, but kind of have the smarts to identify what are the things they're creating.
+
+223
+00:41:23.130 --> 00:41:27.669
+sandesh Mysore Anand: And then look for that. For example, prompt injections are not a thing that existed till a few years ago.
+
+224
+00:41:27.700 --> 00:41:45.420
+sandesh Mysore Anand: Right? Now we have to deal with prompt injections. So the job of the checker now is more on maybe thinking about prompt injections than about SQL injections, right? So that's kind of how I think about it. I think we should empower the makers to the hilt, and that's where a lot of the effort should be, but they will leave risks. There will be residual risk, and that's the job of the checker.
+
+225
+00:41:45.690 --> 00:42:00.830
+Ashish Popli: Yeah, fair point. I think the cat and mouse game continues, no matter what the attack surface always evolves. Every new technology, every new paradigm, the attack surface evolves, and then with every evolution, there's a maker and a checker component, so the game is on forever. Over to you, Chung.
+
+226
+00:42:02.210 --> 00:42:08.640
+Chang Xu: So in closing, what are the one or two things you'll tell people about security design reviews and threat modeling? What guidance will you give them?
+
+227
+00:42:09.430 --> 00:42:26.050
+sandesh Mysore Anand: I mean, look, I think my sense is that, you know, coverage is really important. I kind of feel like, you know, for very long, we've kind of ignored… well, not ignored, there was just no way to scale coverage, so we just gave up on it. I think we have an opportunity to kind of think about coverage. I think 100% coverage has to be the null.
+
+228
+00:42:26.050 --> 00:42:39.859
+sandesh Mysore Anand: Right? 100% coverage doesn't mean that humans have to do it 100% of the time, it doesn't mean we give AI all the powers, but I think 100% coverage is really important. And the second part I'll make, point I'll make is, you know, use LLMs as a tool to
+
+229
+00:42:39.860 --> 00:42:52.069
+sandesh Mysore Anand: enhance them, but like Ashish also mentioned, you know, depending on your org culture, where to place the human in the loop is really, really important. And that should not depend on the tool you're using, it should depend on your org culture.
+
+230
+00:42:52.070 --> 00:43:05.680
+sandesh Mysore Anand: Right? So those are the two big things I will say, and maybe the third thing I'll say, and I'm repeating myself now, is that context is really important. So you've got to find a way to kind of make sure that context is a part of your AI tooling. If it's not, then you're going to get generic results which are kind of pointless.
+
+231
+00:43:06.940 --> 00:43:07.530
+Ashish Popli: Oh, I'm.
+
+232
+00:43:07.530 --> 00:43:13.700
+Chang Xu: management, name the game. This has been really fun, Vandash. Thank you so much for joining us today, and…
+
+233
+00:43:13.700 --> 00:43:14.520
+Ashish Popli: I'll throw one…
+
+234
+00:43:14.520 --> 00:43:14.980
+Chang Xu: Normally.
+
+235
+00:43:14.980 --> 00:43:16.209
+Ashish Popli: One more last one.
+
+236
+00:43:16.210 --> 00:43:17.010
+sandesh Mysore Anand: Go for it.
+
+237
+00:43:17.010 --> 00:43:21.939
+Ashish Popli: Sorry, sorry. Outside of Boring AppSec newsletter.
+
+238
+00:43:22.060 --> 00:43:26.040
+Ashish Popli: One resource that you would ask everybody to follow, or read.
+
+239
+00:43:26.540 --> 00:43:28.909
+sandesh Mysore Anand: For, threat modeling.
+
+240
+00:43:29.680 --> 00:43:31.760
+sandesh Mysore Anand: For threat modeling? In the…
+
+241
+00:43:31.760 --> 00:43:32.419
+Ashish Popli: Right, in the.
+
+242
+00:43:32.420 --> 00:43:32.870
+sandesh Mysore Anand: Yeah.
+
+243
+00:43:32.870 --> 00:43:35.450
+Ashish Popli: of design reviews and threat modeling. One resource.
+
+244
+00:43:35.450 --> 00:43:36.349
+sandesh Mysore Anand: Okay, yeah.
+
+245
+00:43:36.350 --> 00:43:37.570
+Ashish Popli: Boarding up sick.
+
+246
+00:43:37.910 --> 00:43:57.190
+sandesh Mysore Anand: I think for security and for threat modeling in general, I think knowing all kinds of information is really important, right? So if you just read about threat modeling, there's not much to learn. You have to learn about technology, you have to learn about security. That's kind of when you can do… if you want to be a really good threat modeler, and you know everything about threat modeling theory, but you don't know what's happening in AI, then you're going to lose the game anyway.
+
+247
+00:43:57.260 --> 00:44:14.579
+sandesh Mysore Anand: One resource, I'd say TLDRSEC. I think TLDRSEC is a fantastic newsletter, right? I think, a lot of great content in there. I think, you know, there's a lot of time spent, clearly, in that newsletter on coming up with great links. And yeah, I mean, if there's one thing I had to read, I'll… I'll go and… I'll go and read TLDRSEC.
+
+248
+00:44:14.750 --> 00:44:18.880
+Ashish Popli: Plus one on TLDR sec. Plug was not intended, but it came out naturally.
+
+249
+00:44:19.390 --> 00:44:20.510
+Ashish Popli: Amazing.
+
+250
+00:44:20.510 --> 00:44:23.250
+sandesh Mysore Anand: Yeah. All right.
+
+251
+00:44:23.250 --> 00:44:27.139
+Ashish Popli: Thank you, thank you so much. It was a real pleasure having you.
+
+252
+00:44:27.250 --> 00:44:30.709
+Ashish Popli: And, Cheng, maybe you want to close the…
+
+253
+00:44:31.260 --> 00:44:31.900
+sandesh Mysore Anand: Fair?
+
+254
+00:44:31.900 --> 00:44:32.430
+Chang Xu: Sure.
+
+255
+00:44:32.560 --> 00:44:44.649
+Chang Xu: This is great, thank you so much for joining us. I learned a lot today. I'm going to subscribe to the TLDR Tech newsletter as well, and we'll provide a link in the comments for everyone. And, hope you have a great day!
+
+256
+00:44:45.100 --> 00:44:48.449
+sandesh Mysore Anand: Yeah, thanks, Chung. Thank you, Ashish. Thank you so much. Enjoy this conversation.
+
+257
+00:44:48.450 --> 00:44:48.830
+Ashish Popli: Provider.
+

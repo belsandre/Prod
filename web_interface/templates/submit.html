@@ -26,30 +26,59 @@
         {% if parent_job %}
         <input type="hidden" name="parent_job_id" value="{{ parent_job.id }}">
         {% endif %}
-        <div class="form-group">
-            <label for="job_type">Job Type</label>
-            <select id="job_type" name="job_type">
-                <option value="general">General Task</option>
-                <option value="code_review">Code Review</option>
-                <option value="file_processing">File Processing</option>
-                <option value="data_analysis">Data Analysis</option>
-                <option value="document_generation">Document Generation</option>
-                <option value="custom">Custom</option>
-            </select>
-            <div class="form-help">Select the type of job you're submitting</div>
+        <input type="hidden" name="job_type" value="{{ parent_job.job_type if parent_job else 'general' }}">
+
+        <div class="form-section">
+            <h3>1. Inputs</h3>
+            <p class="form-help" style="margin-top: 0;">
+                Inputs can be files you upload or any URLs to websites, products, data rooms, decks, etc.
+                Include any relevant directions for how to log in or navigate protected content.
+            </p>
+            <div class="form-group">
+                <label for="files">Upload Files (Optional)</label>
+                <input type="file" id="files" name="files" multiple>
+                <div class="form-help">
+                    Supported formats: txt, pdf, png, jpg, gif, csv, json, xml, md, py, js, html, css, zip, tar, gz (50MB max per file)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="input_urls">URLs (include any login directions)</label>
+                <textarea id="input_urls" name="input_urls" placeholder="https://app.example.com
+Username: demo@example.com
+Password: ********
+Notes: Start on the analytics tab and export the weekly report."></textarea>
+                <div class="form-help">
+                    List any URLs or references Claude should open, along with credentials or access notes if needed.
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="prompt">Instructions / Prompt</label>
-            <textarea id="prompt" name="prompt" placeholder="Describe what you want Claude Code to do..."></textarea>
-            <div class="form-help">Provide clear instructions for your job. Be as specific as possible.</div>
-        </div>
+        <div class="form-section">
+            <h3>2. Choose workflows</h3>
+            <div class="form-group">
+                <label for="workflows">Available workflows</label>
+                {% if workflow_groups %}
+                <select id="workflows" name="workflows" multiple size="6">
+                    {% for group in workflow_groups %}
+                    <optgroup label="{{ group.label }}">
+                        {% for workflow in group.options %}
+                        <option value="{{ workflow.value }}">{{ workflow.label }}</option>
+                        {% endfor %}
+                    </optgroup>
+                    {% endfor %}
+                </select>
+                <div class="form-help">Hold Cmd/Ctrl to select multiple workflows.</div>
+                {% else %}
+                <div class="form-help">No workflows found yet. Upload files or proceed with custom instructions.</div>
+                {% endif %}
+            </div>
 
-        <div class="form-group">
-            <label for="files">Upload Files (Optional)</label>
-            <input type="file" id="files" name="files" multiple>
-            <div class="form-help">
-                Upload files for Claude Code to process. Supported formats: txt, pdf, png, jpg, gif, csv, json, xml, md, py, js, html, css, zip, tar, gz (max 50MB per file)
+            <div class="form-group">
+                <label for="custom_instructions">Custom instructions</label>
+                <textarea id="custom_instructions" name="custom_instructions" placeholder="Share evaluation criteria, edge cases, or anything else Claude should know to complete the task.
+Output as a file in the default outputs folder, emailed to you, or modifying a specified file."></textarea>
+                <div class="form-help">Be as specific as possible about success criteria and how you want the output.</div>
             </div>
         </div>
 

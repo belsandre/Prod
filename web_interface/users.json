@@ -9,10 +9,17 @@
     },
     {
       "username": "tam",
-      "password_hash": "pbkdf2:sha256:1000000$75Td90592dvwDWpJ$5d8049cd854d99f522f51efbfa6e9a4b3275c4c09567b6aa45246c585d9cdfea",
+      "password_hash": "pbkdf2:sha256:1000000$NRsdSAlZJtDjelJ4$bf368c1a1b4555b9784adea81afb6c35d982a9812c24c17d0818ecf8e26a3dd3",
       "role": "user",
       "folder": "users/tam",
       "created_at": "2025-11-06T00:00:00"
+    },
+    {
+      "username": "mark",
+      "password_hash": "pbkdf2:sha256:1000000$fUkpe0VxBwCA7irq$f0446e99c8b366afa134101cfb4f64186fde8b186aab569f85f4222ea3439c6a",
+      "role": "user",
+      "folder": "users/mark",
+      "created_at": "2025-11-09T17:45:55.414260"
     }
   ]
 }

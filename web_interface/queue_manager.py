@@ -279,14 +279,17 @@ class QueueManager:
             return self._row_to_dict(row)
         return None
 
-    def get_stats(self) -> Dict[str, int]:
-        """Get job queue statistics"""
+    def get_stats(self, username: str = None) -> Dict[str, int]:
+        """Get job queue statistics (optionally filtered by username)"""
         conn = self.get_connection()
         cursor = conn.cursor()
 
         stats = {}
         for status in ['pending', 'approved', 'processing', 'completed', 'failed', 'rejected']:
-            cursor.execute('SELECT COUNT(*) FROM jobs WHERE status = ?', (status,))
+            if username:
+                cursor.execute('SELECT COUNT(*) FROM jobs WHERE status = ? AND username = ?', (status, username))
+            else:
+                cursor.execute('SELECT COUNT(*) FROM jobs WHERE status = ?', (status,))
             stats[status] = cursor.fetchone()[0]
 
         conn.close()
@@ -343,3 +346,52 @@ class QueueManager:
             job['metadata'] = json.loads(job['metadata'])
 
         return job
+
+    def update_job(
+        self,
+        job_id: int,
+        *,
+        prompt: Optional[str] = None,
+        file_paths: Optional[List[str]] = None,
+        priority: Optional[int] = None,
+        metadata: Optional[Dict[str, Any]] = None
+    ) -> bool:
+        """Update editable fields of an existing job"""
+        conn = self.get_connection()
+        cursor = conn.cursor()
+
+        updates = []
+        params = []
+
+        if prompt is not None:
+            updates.append('prompt = ?')
+            params.append(prompt)
+
+        if file_paths is not None:
+            updates.append('file_paths = ?')
+            params.append(json.dumps(file_paths) if file_paths else None)
+
+        if priority is not None:
+            updates.append('priority = ?')
+            params.append(priority)
+
+        if metadata is not None:
+            updates.append('metadata = ?')
+            params.append(json.dumps(metadata) if metadata else None)
+
+        if not updates:
+            conn.close()
+            return False
+
+        params.append(job_id)
+        cursor.execute(f'''
+            UPDATE jobs
+            SET {', '.join(updates)}
+            WHERE id = ?
+        ''', params)
+
+        success = cursor.rowcount > 0
+        conn.commit()
+        conn.close()
+
+        return success
