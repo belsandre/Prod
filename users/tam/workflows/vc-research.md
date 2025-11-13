@@ -60,10 +60,11 @@ This workflow takes the output from `deal-prioritization.md` (`research/priority
 
 ```
 research/
-├── research-progress.md           # Progress tracker (resumability)
-├── gp-list.md                     # Dynamically extracted GP names
-├── company-clusters.md            # Company groupings by sector
-├── priority-deals.md              # Input (from deal-prioritization)
+├── process/                           # Process tracking docs
+│   ├── research-progress.md           # Progress tracker (resumability)
+│   ├── gp-list.md                     # Dynamically extracted GP names
+│   └── company-clusters.md            # Company groupings by sector
+├── priority-deals.md                  # Input (from deal-prioritization)
 ├── people/
 │   ├── {gp-name-1}/
 │   │   ├── research-summary.md
@@ -72,21 +73,21 @@ research/
 │   │       └── ...
 │   └── {gp-name-2}/
 │       └── ...
-├── deals/
-│   ├── tier-1/
-│   │   ├── {company-name}/
-│   │   │   ├── research-summary.md    # Includes GP mentions section
-│   │   │   └── sources/
-│   │   │       ├── website.md
-│   │   │       └── ...
-│   │   └── ...
-│   └── tier-2/
-│       └── ...
-├── analysis/
-│   ├── gp-relationships.md           # Matrix of GP-company relationships
-│   └── portfolio-assessment.md       # Portfolio quality & track record
-└── outputs/
-    └── executive-summary.md          # Final deliverable
+└── deals/
+    ├── tier-1/
+    │   ├── {company-name}/
+    │   │   ├── research-summary.md    # Includes GP mentions section
+    │   │   └── sources/
+    │   │       ├── website.md
+    │   │       └── ...
+    │   └── ...
+    └── tier-2/
+        └── ...
+outputs/
+├── analysis/                          # Analysis documents
+│   ├── gp-relationships.md            # Matrix of GP-company relationships
+│   └── portfolio-assessment.md        # Portfolio quality & track record
+└── vc-research-summary.md  # Final deliverable
 ```
 
 ---
@@ -98,9 +99,9 @@ research/
 
 ### Step 0.1: Create or Resume Progress Tracker
 
-**Action**: Check if `research/research-progress.md` exists
+**Action**: Check if `research/process/research-progress.md` exists
 
-**If NOT EXISTS**: Create the file with this template:
+**If NOT EXISTS**: Create the file using `templates/progress-tracking.md` as a guide, customized with these phases:
 
 ```markdown
 # VC Research Progress Tracker
@@ -149,6 +150,8 @@ research/
 [Document blockers, items needing follow-up]
 ```
 
+For detailed guidance on progress tracking best practices, see `templates/progress-tracking.md`.
+
 **If EXISTS**: Read the file to identify completed work and resume from checkpoint.
 
 ---
@@ -186,7 +189,23 @@ research/
 - Quoted individuals (e.g., "Dillon Dunteman says...")
 - "Partner [Name]" mentions
 
-**Action**: Create `research/gp-list.md`:
+**Extraction Examples**:
+```
+Example 1 - GP Bio Pattern:
+"Mr. Dunteman brings over 15 years of experience..."
+"Dillon Dunteman holds a B.S. in Electrical Engineering..."
+→ Extract: Dillon Dunteman
+
+Example 2 - Fund Deck Pattern:
+"Investment Team: Dillon Dunteman, General Partner"
+→ Extract: Dillon Dunteman (Title: General Partner)
+
+Example 3 - Case Study Pattern:
+"Our partnership with Hyperion, particularly Dillon's technical guidance..."
+→ Extract: Dillon (cross-reference with other sources to confirm full name)
+```
+
+**Action**: Create `research/process/gp-list.md`:
 
 ```markdown
 # GP Research List
@@ -230,11 +249,11 @@ Unable to automatically identify GPs from dataroom.
 
 Please provide GP names manually:
 1. Check GP Bio.md, Fund I.md, or pitch deck
-2. Add names to research/gp-list.md
+2. Add names to research/process/gp-list.md
 3. Continue with Phase 1A
 ```
 
-**Action**: Update `research-progress.md` Phase 1A section with GP names extracted.
+**Action**: Update `research/process/research-progress.md` Phase 1A section with GP names extracted.
 
 ---
 
@@ -245,7 +264,7 @@ Please provide GP names manually:
 1. **Tier 1 Companies**: Company names from "Tier 1 (Priority Research)" section
 2. **Tier 2 Companies**: Company names from "Tier 2 (Up-and-Comers)" section
 
-**Action**: Update `research-progress.md` with checkbox lists for all companies.
+**Action**: Update `research/process/research-progress.md` with checkbox lists for all companies.
 
 ---
 
@@ -253,7 +272,7 @@ Please provide GP names manually:
 
 **Purpose**: Enable research reuse across similar companies (20% analysis time savings)
 
-**Action**: Group companies by sector/industry and create `research/company-clusters.md`:
+**Action**: Group companies by sector/industry and create `research/process/company-clusters.md`:
 
 ```markdown
 # Company Clusters
@@ -302,9 +321,9 @@ Please provide GP names manually:
 - `research/people/` - Which GPs have folders? Mark as complete
 - `research/deals/tier-1/` - Which companies researched? Mark as complete
 - `research/deals/tier-2/` - Which companies researched? Mark as complete
-- `research/analysis/` - Which analysis docs exist?
+- `outputs/analysis/` - Which analysis docs exist?
 
-**Action**: Update `research-progress.md` to reflect actual completion status (file system is source of truth).
+**Action**: Update `research/process/research-progress.md` to reflect actual completion status (file system is source of truth).
 
 ---
 
@@ -353,7 +372,7 @@ Ready to begin Phase 1 (Parallel Research)
 **Duration**: ~30-45 minutes per GP
 **Checkpoint**: Before starting each GP, check if `research/people/{gp-name}/` exists. If yes, skip.
 
-### For Each GP in gp-list.md:
+### For Each GP in research/process/gp-list.md:
 
 #### Step 1A.1: Invoke Company-Research Skill
 
@@ -395,15 +414,7 @@ Use the company-research skill to research [GP NAME] as a person/investor. Focus
 
 Save to: research/people/{gp-name}/
 
-Create sources/ subfolder with each significant source as separate markdown file using the company-research skill's source template format:
-- **URL**: [Full URL]
-- **Date**: [Publication/Last Updated Date in YYYY-MM-DD format]
-- **Source Type**: [LinkedIn Profile / News Article / Interview / etc.]
-- **Objectivity Level**: [High / Medium / Low]
-- **Reliability Assessment**: [Brief assessment]
-- **Key Information**: [Bullet points]
-- **Critical Assessment**: [Strengths, limitations, biases, verification status]
-- **Raw Content**: [Full extracted content]
+Create sources/ subfolder with each significant source as separate markdown file. Follow `templates/source-documentation.md` for source template format and evidence tier classification.
 ```
 
 **Expected Output**:
@@ -412,12 +423,7 @@ Create sources/ subfolder with each significant source as separate markdown file
 
 #### Step 1A.2: Batch Update Progress
 
-**Action**: After completing **all GPs** (not after each), update `research-progress.md`:
-- Mark all completed GPs with checkboxes: `[x] [GP Name] (completed: YYYY-MM-DD)`
-- Update progress counter
-- Update "Last Updated" timestamp
-
-**Why batch?**: Reduces interruptions, maintains flow. File system is source of truth for individual GP status.
+**Action**: After completing **all GPs** (or major batches), update `research/process/research-progress.md`. See `templates/progress-tracking.md` for batch update guidance.
 
 ---
 
@@ -442,7 +448,7 @@ Create sources/ subfolder with each significant source as separate markdown file
 
 #### Step 1B.2: Check Company Cluster
 
-**Action**: Refer to `research/company-clusters.md`:
+**Action**: Refer to `research/process/company-clusters.md`:
 - Is this the first company in its sector cluster?
   - **If YES**: Do full market analysis
   - **If NO**: Reference prior company's market analysis, focus on competitive differentiation
@@ -515,15 +521,7 @@ Include template:
 
 **GP Mentions**: [To be researched in Phase 1C]
 
-Create sources/ subfolder with each source as separate markdown file using the company-research skill's source template format:
-- **URL**: [Full URL]
-- **Date**: [Publication/Last Updated Date in YYYY-MM-DD format]
-- **Source Type**: [Company Website / News Article / Press Release / etc.]
-- **Objectivity Level**: [High / Medium / Low]
-- **Reliability Assessment**: [Brief assessment]
-- **Key Information**: [Bullet points including funding details, customer info]
-- **Critical Assessment**: [Strengths, limitations, biases, verification status, inconsistencies]
-- **Raw Content**: [Full extracted content]
+Create sources/ subfolder with each source as separate markdown file. Follow `templates/source-documentation.md` for source template format, evidence tier classification, and quality criteria.
 ```
 
 **Quality Thresholds** (Smart, not arbitrary):
@@ -553,17 +551,7 @@ Create sources/ subfolder with each source as separate markdown file using the c
 
 #### Step 1B.4: Batch Progress Updates
 
-**Action**: Update `research-progress.md` after completing **batches** (not every company):
-- After every 3-4 companies
-- After completing all Tier 1
-- After completing all Tier 2
-- Before ending any session
-
-**Format**:
-- Mark completed companies: `[x] Company Name (completed: YYYY-MM-DD)`
-- Update progress counters
-
-**Why batch?**: Reduces context switching, maintains momentum. File system shows real-time status anyway.
+**Action**: Update `research/process/research-progress.md` at natural checkpoints (after 3-4 companies, at phase boundaries, before ending session). See `templates/progress-tracking.md` for batch update best practices.
 
 #### Step 1B.5: Quality Check (Every 3 Companies)
 
@@ -575,10 +563,22 @@ Create sources/ subfolder with each source as separate markdown file using the c
 
 ---
 
+## Source Quality & Evidence Standards
+
+For complete guidance on source documentation, evidence tier classification (Tier 1: External, Tier 2: Company-Controlled, Tier 3: Dataroom), citation formats, and high-value claim verification, see `templates/source-documentation.md`.
+
+**Key principles**:
+- Distinguish independent external sources from interested-party controlled sources
+- 3-tier evidence system: External (✅) > Company-Controlled (⚠️) > Dataroom (⚠️⚠️)
+- MUST attempt external validation for dataroom claims
+- Document verification failures as research limitations
+
+---
+
 ## Phase 1C: GP-Company Cross-Reference (After 1A + 1B Complete)
 
 **Duration**: ~15-20 minutes per company
-**Purpose**: Now that GP and company research is complete, search for GP mentions in relation to each company.
+**Purpose**: Now that GP and company research is complete, search for GP mentions in relation to each company AND classify source quality.
 
 **⚠️ Prerequisites**:
 - Phase 1A complete (all GPs researched)
@@ -590,7 +590,7 @@ Create sources/ subfolder with each source as separate markdown file using the c
 
 **Strategy**: Single efficient search instead of 6 separate searches (saves ~15 min per company).
 
-**Search Query** (adapt GP names from gp-list.md):
+**Search Query** (adapt GP names from research/process/gp-list.md):
 ```
 "[COMPANY NAME]" ("[GP1 NAME]" OR "[GP2 NAME]" OR "[GP3 NAME]") (funding OR investment OR quote OR announcement OR partner)
 ```
@@ -623,72 +623,129 @@ site:bloomberg.com "[COMPANY NAME]" funding "[GP NAME]"
 - Context (funding announcement, interview, thought leadership, etc.)
 - Signal strength assessment
 
-#### Step 1C.3: Update Company Research Summary
+#### Step 1C.3: Update Company Research Summary (WITH SOURCE QUALITY CLASSIFICATION)
 
 **Action**: Open `research/deals/tier-[1|2]/{company-name}/research-summary.md`
 
-**Locate section**: "## Investor Relationship & GP Involvement"
+**Locate section**: "## Investor Relationship & GP Involvement" or "## GP Mentions"
 
-**Update with**:
-```markdown
-## Investor Relationship & GP Involvement
-
-**Lead Investor**: [Name from funding history]
-**Board Members**: [If known]
-
-### GP Relationship Evidence
-
-**Overall Relationship Strength**: Strong / Medium / Weak / None Found
+**CRITICAL**: Classify ALL evidence by source tier BEFORE documenting. Choose the appropriate path below:
 
 ---
 
-#### [GP Name 1]
+**PATH 1: EXTERNAL EVIDENCE FOUND** (Tier 1 - Independent Sources) ✅
 
-**Mentions Found**: [X] ([Signal Strength])
+Use when GP mentions found in third-party media, independent sources, or public non-company-controlled materials.
+
+```markdown
+### GP Relationship Evidence - EXTERNAL VALIDATION
+
+✅ **Evidence Quality**: External sources (Tier 1 - independent)
+
+#### [GP Name]
+
+**Mentions Found**: [X] external sources
 
 **Key Evidence**:
-- **Source**: [Article Title](URL) | Date: [YYYY-MM-DD]
-- **Context**: [Funding announcement / Interview / Thought leadership / etc.]
-- **Quote/Mention**:
-  > [Exact verbatim text with GP name and company reference]
-- **Signal Strength**: Strong / Medium / Weak
-- **Analysis**: [What this reveals about GP involvement and value-add]
+1. ✅ **[GP Name] quoted in [Publication]**: "[Exact quote]"
+   - **Source**: [Article Title](URL) | Publication: [Third-party outlet] | Date: YYYY-MM-DD
+   - **Source Type**: ✅ External (Tier 1 - independent)
+   - **Context**: [Funding announcement / Interview / Analysis]
+   - **Quote/Mention**: > [Exact verbatim text]
+   - **Signal Strength**: Strong / Medium / Weak
+   - **Analysis**: [What this reveals about GP involvement]
+   - **Verification**: High confidence - independent third-party source
 
-[Repeat for additional mentions]
+[Repeat for additional external mentions]
 
-**Summary**: [Brief assessment of GP1's relationship with company]
-
----
-
-#### [GP Name 2]
-
-[Same structure as above]
-
----
-
-### Relationship Insights
-
-[Comparative analysis: Which GPs more involved? Value-add demonstrated? Public vs private relationship?]
+**Summary**: [Brief assessment of GP's relationship based on external evidence]
 ```
 
-**If No Mentions Found**:
+---
+
+**PATH 2: DATAROOM EVIDENCE ONLY** (Tier 3 - GP-Controlled Sources) ⚠️⚠️
+
+Use when ONLY dataroom testimonials exist with NO external validation found.
+
+```markdown
+### GP Relationship Evidence - DATAROOM ONLY
+
+⚠️⚠️ **Evidence Quality**: Dataroom only (Tier 3 - GP-controlled source, unverified)
+
+**External Validation Attempt**:
+- Search conducted: [Date]
+- Queries used: "[COMPANY]" ("[GP1]" OR "[GP2]") (funding OR quote OR announcement)
+- Results: ❌ No external mentions found in public sources
+- Escalation searches attempted: TechCrunch, LinkedIn, Bloomberg, Crunchbase
+- **Conclusion**: Zero independent validation of GP involvement
+
+#### [GP Name] - DATAROOM TESTIMONIAL (Unverified)
+
+**Source**: [Fund Name] dataroom materials
+**Testimonial Provider**: [Founder Name, Title]
+**Testimonial Content**:
+> ⚠️⚠️ DATAROOM QUOTE: "[Exact testimonial text]"
+
+**High-Value Claims Requiring Verification**:
+[IF testimonial mentions specific claims like "introduced to X" or "helped raise Y", list them here]
+
+1. **Claim**: "[Specific claim from testimonial]"
+   - **Verification Attempt**: [What you searched for]
+   - **Result**: ❌ No public evidence found / ✅ Verified by [source] / ⚠️ Partially verified
+   - **Assessment**: [Can verify / Cannot verify / Plausible but unverified]
+
+**Verification Status**: ⚠️⚠️ **UNVERIFIED**
+- No external corroboration found
+- No public evidence of claimed network introductions or value-add outcomes
+- No press mentions of GP involvement with this company
+- Testimonial likely solicited for fundraising purposes
+
+**Limitations**:
+- Cannot verify accuracy of claims in testimonial
+- Cannot assess whether claimed value-add actually materialized
+- Cannot determine if relationship remains active/positive
+- Testimonial may reflect fundraising positioning vs. comprehensive assessment
+- No timing information (testimonial age unknown)
+
+**Recommended Action**: Verify directly with founder outside fundraising context
+```
+
+---
+
+**PATH 3: NO EVIDENCE FOUND** (Neither External Nor Dataroom)
+
+Use when comprehensive search finds zero GP mentions in any source.
+
 ```markdown
 ### GP Relationship Evidence
 
-**Mentions Found**: 0 mentions across comprehensive search
+❌ **Evidence Quality**: No evidence found (external or dataroom)
 
-**Search Strategy Used**:
-- Primary query: "[COMPANY]" ("[GP1]" OR "[GP2]") (funding OR quote)
-- Escalation searches: TechCrunch, LinkedIn, Bloomberg
+**Search Comprehensive**: ✅ Yes
+- External search: No public mentions found
+- Dataroom review: No testimonials or case studies found
+- Company materials: No GP references found
+- LinkedIn/social: No interactions documented
+
+**Queries Used**:
+- "[COMPANY]" ("[GP1]" OR "[GP2]") (funding OR quote OR announcement)
+- Escalation: TechCrunch, LinkedIn, Bloomberg, Crunchbase
 - Date range: [Specify]
 
-**Analysis**: Absence of public GP mentions suggests:
-- Limited public involvement (not unusual for early-stage)
-- OR relationship is more private/behind-the-scenes
-- OR company operates with limited PR/media presence
+**Analysis**: Complete absence of GP mentions (even in dataroom) suggests:
+- Potentially limited GP involvement with this portfolio company
+- Or: Very early-stage relationship not yet documented
+- Or: Behind-scenes involvement without public/dataroom visibility
+- Or: "Check-writing" investment without deep operational partnership
 
-**Relationship Strength**: Unable to assess from public sources
+**Relationship Strength**: ❌ Unable to assess - no evidence available
+
+**Recommended Action**: Follow up directly with GP and founder to understand relationship status and level of involvement
 ```
+
+---
+
+**IMPORTANT**: Always attempt external validation FIRST before falling back to dataroom evidence. If dataroom testimonial exists but no external validation found, use PATH 2 (not PATH 1) and clearly document verification failure.
 
 #### Step 1C.4: Save High-Quality GP Mention Sources
 
@@ -732,7 +789,7 @@ site:bloomberg.com "[COMPANY NAME]" funding "[GP NAME]"
 
 #### Step 1C.5: Batch Update Progress
 
-**Action**: After completing GP mentions for all companies (or major batch), update `research-progress.md`:
+**Action**: After completing GP mentions for all companies (or major batch), update `research/process/research-progress.md`:
 - Add note: "Phase 1C complete: GP-company cross-references completed (Date)"
 
 ---
@@ -746,7 +803,7 @@ site:bloomberg.com "[COMPANY NAME]" funding "[GP NAME]"
 
 ### Step 2.1: Create GP-Company Relationships Matrix
 
-**Action**: Create `research/analysis/gp-relationships.md`
+**Action**: Create `outputs/analysis/gp-relationships.md`
 
 **Prompt**:
 ```
@@ -760,61 +817,142 @@ Create the following analysis:
 
 **Analysis Date**: [Date]
 **Companies Analyzed**: [X Tier 1, Y Tier 2]
-**GPs Evaluated**: [List from gp-list.md]
+**GPs Evaluated**: [List from research/process/gp-list.md]
 
 ---
 
 ## Executive Summary
 
-[3-4 sentences: Overall pattern of GP involvement across portfolio, key insights, notable findings]
+⚠️ **CRITICAL**: Include source quality assessment in executive summary. Example:
+"[X]% of GP relationship evidence comes from GP-controlled dataroom sources. [Y]% validated by external sources. [Key patterns, notable findings]"
+
+[3-4 sentences addressing: Overall GP involvement pattern, source quality distribution, key insights, notable findings/concerns]
+
+---
+
+## Evidence Quality Assessment
+
+⚠️⚠️ **MANDATORY SECTION** - Must be included BEFORE analyzing relationship patterns.
+
+**Total Companies Analyzed**: [X] (Tier 1: [Y], Tier 2: [Z])
+**Companies with GP Mentions**: [X] ([%])
+
+### Source Distribution
+
+**External Sources (Tier 1 - Independent)**: ✅ [X] companies ([%])
+- List companies with external validation
+- Note types of external sources (media, case studies, etc.)
+
+**Public Company Sources (Tier 2)**: ⚠️ [X] companies ([%])
+- List companies with company-controlled public sources
+- Note: May reflect positioning
+
+**Dataroom Sources Only (Tier 3 - GP-Controlled)**: ⚠️⚠️ [X] companies ([%])
+- List companies with ONLY dataroom testimonials
+- Note: Unverified, solicited for fundraising
+
+**No Evidence**: ❌ [X] companies ([%])
+- List companies with no mentions (dataroom or external)
+
+### Critical Limitations
+
+⚠️⚠️ **[X]% of GP relationship evidence comes from GP-controlled sources (dataroom)**
+
+**What this means for analysis**:
+1. [Explain specific limitations based on source distribution]
+2. [Note what CAN and CANNOT be concluded]
+3. [Document verification attempts for high-value claims]
+
+### Verification Attempts
+
+**High-value claims requiring verification** (list any dataroom claims about network introductions, customer connections, board roles):
+- [Company X]: "[Claim]" - ✅ Verified / ❌ No evidence found / ⚠️ Partially verified
+- [Continue for all high-value claims]
+
+### What We CAN Conclude
+[Based on available evidence quality]
+
+### What We CANNOT Conclude
+[Due to source quality limitations]
+
+### Recommended Actions
+[Specific recommendations for independent validation]
 
 ---
 
 ## GP Involvement Overview
 
-**Total Companies with GP Mentions**: [X out of Y companies]
+**Total Companies with GP Mentions**: [X out of Y companies] ([%])
 
 By GP:
-- **[GP1 Name]**: [X] companies, [Y] strong signals, [Z] medium signals
-- **[GP2 Name]**: [X] companies, [Y] strong signals, [Z] medium signals
+- **[GP1 Name]**: [X] companies ([Y] external, [Z] dataroom only, [W] unverified)
+- **[GP2 Name]**: [X] companies (breakdown by source quality)
 - [Continue for all GPs]
 
-**Companies with Multiple GP Mentions**: [List companies where 2+ GPs mentioned]
-**Companies with No GP Mentions**: [List and note patterns]
+**Companies with Multiple GP Mentions**: [List]
+**Companies with No GP Mentions**: [List and note patterns - include companies with thesis failures or other concerns]
 
 ---
 
 ## Relationship Strength Matrix
 
-| Company | Tier | [GP1] | [GP2] | [GP3] | Strongest Evidence |
-|---------|------|-------|-------|-------|-------------------|
-| Company A | 1  | Strong | Weak  | -     | [GP1] quoted in Series B announcement |
-| Company B | 1  | -      | Strong| -     | [GP2] featured in company case study |
-| Company C | 1  | Medium | Medium| -     | Both mentioned in investor list |
-| Company D | 2  | Weak   | -     | -     | Generic mention only |
-| [...]     |    |        |       |       |                   |
+**CRITICAL**: Add Source Quality and External Validation columns to matrix
+
+| Company | Tier | [GP1] | [GP2] | Source Quality | External Validation | Strongest Evidence |
+|---------|------|-------|-------|----------------|---------------------|-------------------|
+| Company A | 1  | Strong | -  | ✅ External | ✅ Yes | GP1 quoted in Bloomberg Series B announcement |
+| Company B | 1  | Medium | -  | ⚠️ Company | ❌ No | GP mentioned in company blog post |
+| Company C | 2  | Strong | -  | ⚠️⚠️ Dataroom | ❌ No | ⚠️⚠️ DATAROOM: Founder testimonial (unverified) |
+| Company D | 2  | -  | -  | No evidence | N/A | No GP mentions found |
+| [...]     |    |        |       |                |                     |                   |
 
 **Legend**:
-- **Strong**: Quoted, featured, board role, deep public involvement
-- **Medium**: Mentioned in materials, social engagement, event attendance
-- **Weak**: Generic mentions, passing references
+- **Strong/Medium/Weak**: Relationship signal strength (regardless of source)
 - **-**: No mentions found
+
+**Source Quality Key**:
+- ✅ = External validation (Tier 1 - independent sources)
+- ⚠️ = Public but company-controlled (Tier 2)
+- ⚠️⚠️ = Dataroom only (Tier 3 - GP-controlled, unverified)
+- ❌ = No external validation found
+
+**Interpretation Guide**:
+- **Strong + External (✅)**: High confidence in GP value-add
+- **Strong + Dataroom Only (⚠️⚠️)**: Positive signal but unverified; requires caution and follow-up
 
 ---
 
 ## Value-Add Patterns
 
-Based on relationship evidence, what value-add do GPs demonstrate?
+⚠️ **CRITICAL**: Separate externally validated evidence from dataroom-only claims
 
-### [GP1 Name]
-**Value-Add Style**: [Technical advisor / Strategic partner / Network connector / Board governance / etc.]
+### Section 1: EXTERNALLY VALIDATED Value-Add
 
-**Evidence**:
-- [Example 1: Company X - GP quoted on technical strategy]
-- [Example 2: Company Y - GP made introduction to customer]
-- [Pattern across portfolio...]
+✅ **Evidence with independent validation**:
 
-**Sectors of Focus**: [Which sectors show stronger GP involvement?]
+[If NO externally validated evidence]:
+**No externally validated GP value-add found across portfolio research.**
+
+[If externally validated evidence exists]:
+List examples with source citations
+
+### Section 2: DATAROOM-DOCUMENTED Value-Add (Unverified)
+
+⚠️⚠️ **Important Caveat**: The following evidence comes from GP-controlled dataroom materials and has not been independently verified.
+
+Based on **dataroom testimonials only**, what value-add do GPs claim?
+
+### [GP1 Name] (Dataroom Evidence Only)
+**Value-Add Style (Per Dataroom)**: [Description]
+
+**Dataroom Claims - Summarized**:
+- [Claim 1 from dataroom] - ❌ Verification: [Attempted, no evidence found]
+- [Claim 2 from dataroom] - ⚠️ Verification: [Partially verified by X]
+- [Pattern across portfolio based on testimonials]
+
+**Verification Status**: Document what could and could not be verified externally
+
+**Sectors (Per Dataroom Documentation)**: [Where testimonials concentrated]
 
 ### [GP2 Name]
 [Same structure]
@@ -885,19 +1023,19 @@ Based on mention patterns, what do we learn about each GP?
 [How do GP relationships inform portfolio quality evaluation?]
 ```
 
-**Output**: Save to `research/analysis/gp-relationships.md`
+**Output**: Save to `outputs/analysis/gp-relationships.md`
 
-**Action**: Mark complete in `research-progress.md`
+**Action**: Mark complete in `research/process/research-progress.md`
 
 ---
 
 ### Step 2.2: Create Portfolio Quality Assessment
 
-**Action**: Create `research/analysis/portfolio-assessment.md`
+**Action**: Create `outputs/analysis/portfolio-assessment.md`
 
 **Prompt**:
 ```
-Review ALL research-summary.md files from Tier 1 and Tier 2 companies, PLUS GP research from research/people/, PLUS company-clusters.md.
+Review ALL research-summary.md files from Tier 1 and Tier 2 companies, PLUS GP research from research/people/, PLUS research/process/company-clusters.md.
 
 Create a comprehensive portfolio quality assessment:
 
@@ -1045,7 +1183,7 @@ What types of competitive advantages does this VC bet on?
 
 ### Within-Portfolio Comparisons
 
-For companies in same sectors (use company-clusters.md):
+For companies in same sectors (use research/process/company-clusters.md):
 
 #### Quantum Computing Cluster
 - **[Company A]**: [Market position, strengths]
@@ -1064,7 +1202,7 @@ For companies in same sectors (use company-clusters.md):
 
 ## GP Value-Add Assessment
 
-Based on GP relationship evidence (from gp-relationships.md):
+Based on GP relationship evidence (from outputs/analysis/gp-relationships.md):
 
 ### Involvement Level: [High / Medium / Low]
 **Evidence**: [X]% of companies have GP mentions, [Y] strong signals found
@@ -1145,7 +1283,7 @@ Create scoring framework (1-10 scale, 10 = exceptional):
 - Demonstrated support: [Score] (evidence of value-add)
 - Strategic guidance: [Score] (based on GP capabilities)
 
-**Justification**: [From gp-relationships.md]
+**Justification**: [From outputs/analysis/gp-relationships.md]
 
 ### 5. Risk-Adjusted Potential Score: [X]/10
 **Components**:
@@ -1221,15 +1359,15 @@ Based on this assessment, recommend:
    - [Area requiring additional investigation]
 ```
 
-**Output**: Save to `research/analysis/portfolio-assessment.md`
+**Output**: Save to `outputs/analysis/portfolio-assessment.md`
 
-**Action**: Mark complete in `research-progress.md`
+**Action**: Mark complete in `research/process/research-progress.md`
 
 ---
 
 ### Step 2.3: Create Executive Summary
 
-**Action**: Create `research/outputs/executive-summary.md`
+**Action**: Create `outputs/vc-research-summary.md`
 
 **Prompt**:
 ```
@@ -1240,7 +1378,7 @@ Synthesize all research into a concise 2-3 page executive summary. Readers shoul
 **Fund/VC**: [Name]
 **Research Period**: [Start Date] - [End Date]
 **Companies Researched**: [X Tier 1, Y Tier 2 = Z total]
-**GPs Evaluated**: [Names from gp-list.md]
+**GPs Evaluated**: [Names from research/process/gp-list.md]
 
 ---
 
@@ -1406,22 +1544,22 @@ Based on portfolio analysis, this VC's investment focus:
 **Full Research Available**:
 - Individual company research: `research/deals/tier-[1|2]/{company}/`
 - GP profiles: `research/people/{gp-name}/`
-- Relationship analysis: `research/analysis/gp-relationships.md`
-- Portfolio assessment: `research/analysis/portfolio-assessment.md`
+- Relationship analysis: `outputs/analysis/gp-relationships.md`
+- Portfolio assessment: `outputs/analysis/portfolio-assessment.md`
 
 **Total Research Hours**: [Approximate time invested]
 **Sources Documented**: [Total count]
 ```
 
-**Output**: Save to `research/outputs/executive-summary.md`
+**Output**: Save to `outputs/vc-research-summary.md`
 
-**Action**: Mark complete in `research-progress.md`
+**Action**: Mark complete in `research/process/research-progress.md`
 
 ---
 
 ### Step 2.4: Final Progress Update
 
-**Action**: Update `research-progress.md`:
+**Action**: Update `research/process/research-progress.md`:
 
 1. Mark all Phase 2 items complete
 2. Update status to "Complete"
@@ -1438,11 +1576,11 @@ Based on portfolio analysis, this VC's investment focus:
 - [X] GPs researched → research/people/
 - [Y] Tier 1 companies researched → research/deals/tier-1/
 - [Z] Tier 2 companies researched → research/deals/tier-2/
-- GP-Company Relationships Matrix → research/analysis/gp-relationships.md
-- Portfolio Quality Assessment → research/analysis/portfolio-assessment.md
-- Executive Summary → research/outputs/executive-summary.md
+- GP-Company Relationships Matrix → outputs/analysis/gp-relationships.md
+- Portfolio Quality Assessment → outputs/analysis/portfolio-assessment.md
+- Executive Summary → outputs/vc-research-summary.md
 
-**Key Deliverable**: research/outputs/executive-summary.md
+**Key Deliverable**: outputs/vc-research-summary.md
 
 **Next Steps**: [What should happen with this research? Investment decisions? Deeper diligence? Memos?]
 ```
@@ -1451,10 +1589,10 @@ Based on portfolio analysis, this VC's investment focus:
 
 ## Quality Checklist
 
-Before marking workflow complete, verify:
+Before marking workflow complete, complete the quality checklist from `templates/quality-checklist.md`. Key workflow-specific items:
 
 ### Completeness ✅
-- [ ] All GPs from gp-list.md researched (folders in research/people/)
+- [ ] All GPs from research/process/gp-list.md researched (folders in research/people/)
 - [ ] All Tier 1 companies researched (folders in research/deals/tier-1/)
 - [ ] All Tier 2 companies researched (folders in research/deals/tier-2/)
 - [ ] GP mentions searched for all companies (integrated in research-summary.md)
@@ -1470,78 +1608,9 @@ Before marking workflow complete, verify:
 - [ ] Portfolio assessment includes scoring framework
 - [ ] Executive summary is concise (2-3 pages) and actionable
 
-### Source Documentation ✅
-- [ ] Every claim has source attribution
-- [ ] Source files properly formatted as .md
-- [ ] All source files include URL field (full URL, not just domain)
-- [ ] All source files include Date field in YYYY-MM-DD format
-- [ ] Source URLs working (spot check sample)
-- [ ] Each source includes Objectivity Level assessment
-- [ ] High-value sources saved as separate files
+For complete quality standards covering source documentation, file structure, attribution & verification, and cross-document consistency, see `templates/quality-checklist.md`.
 
-### Progress Tracking ✅
-- [ ] research-progress.md fully updated
-- [ ] Completion dates filled in
-- [ ] Final status = "Complete"
-- [ ] Completion summary added
-
----
-
-## Resuming After Interruption
-
-This workflow is designed for resumability. Here's how to continue after any interruption:
-
-### Step 1: Open Progress Tracker
-Read `research/research-progress.md`:
-- What phase were you in?
-- What's marked complete?
-- Any notes about blockers or in-progress items?
-
-### Step 2: Verify File System
-Scan actual folders (file system = source of truth):
-- `research/people/` - Which GPs complete?
-- `research/deals/tier-1/` - Which Tier 1 companies complete?
-- `research/deals/tier-2/` - Which Tier 2 companies complete?
-- `research/analysis/` - Which analysis docs exist?
-
-### Step 3: Reconcile Discrepancies
-If progress tracker doesn't match file system:
-- Trust the file system
-- Update progress tracker to reflect reality
-- Note discrepancy in "Notes & Issues"
-
-### Step 4: Identify Next Task
-From progress tracker, find first unchecked item:
-- **Phase 1A**: Continue with next uncompleted GP
-- **Phase 1B**: Continue with next uncompleted company (Tier 1 first, then Tier 2)
-- **Phase 1C**: Check which companies lack GP mention updates in their research-summary.md
-- **Phase 2**: Complete remaining analysis documents
-
-### Step 5: Resume from Checkpoint
-- Jump directly to the relevant step in this workflow
-- All phases designed to check for existing work before starting
-- No risk of duplication
-
-### Example Resume Scenario:
-```
-Progress tracker shows:
-✅ Phase 1A: 2/2 GPs complete
-✅ Phase 1B: 4/6 Tier 1 complete, 0/10 Tier 2 complete
-⬜ Phase 1C: Not started
-
-File system shows:
-✅ research/people/gp1/ exists
-✅ research/people/gp2/ exists
-✅ research/deals/tier-1/company-a/ exists
-✅ research/deals/tier-1/company-b/ exists
-✅ research/deals/tier-1/company-c/ exists
-✅ research/deals/tier-1/company-d/ exists
-
-ACTION: Resume Phase 1B, continue with Tier 1 Company E (5th of 6)
-THEN: Complete Tier 1 Company F
-THEN: Move to Tier 2 companies
-THEN: Start Phase 1C (GP mentions cross-reference)
-```
+For guidance on resuming work after interruption, see **Appendix B: Resumability Guide** at the end of this workflow.
 
 ---
 
@@ -1641,9 +1710,9 @@ Run through quality checklist above - all items checked?
 
 ### Step 3: Organize Outputs
 Ensure these files are ready for review:
-- **Primary Deliverable**: `research/outputs/executive-summary.md` (read this first)
-- **Deep Dive**: `research/analysis/portfolio-assessment.md` (full assessment)
-- **Relationships**: `research/analysis/gp-relationships.md` (GP involvement)
+- **Primary Deliverable**: `outputs/vc-research-summary.md` (read this first)
+- **Deep Dive**: `outputs/analysis/portfolio-assessment.md` (full assessment)
+- **Relationships**: `outputs/analysis/gp-relationships.md` (GP involvement)
 - **Individual Research**: `research/deals/` and `research/people/` (detailed sources)
 
 ### Step 4: Share & Next Steps
@@ -1747,42 +1816,63 @@ If focusing on one sector only:
 
 ---
 
-## Appendix: GP Extraction Examples
+## Appendix B: Resumability Guide
 
-### Example 1: GP Bio.md Pattern
-```markdown
-Line 52: "Mr. Dunteman brings over 15 years of experience..."
-Line 60: "Dillon Dunteman holds a B.S. in Electrical Engineering from Stanford..."
+This workflow is designed for resumability. Here's how to continue after any interruption:
 
-EXTRACTION:
-- GP Name: Dillon Dunteman
-- Source: GP Bio.md (lines 52, 60)
-- Context: Professional bio section
+### Step 1: Open Progress Tracker
+Read `research/process/research-progress.md`:
+- What phase were you in?
+- What's marked complete?
+- Any notes about blockers or in-progress items?
+
+### Step 2: Verify File System
+Scan actual folders (file system = source of truth):
+- `research/people/` - Which GPs complete?
+- `research/deals/tier-1/` - Which Tier 1 companies complete?
+- `research/deals/tier-2/` - Which Tier 2 companies complete?
+- `research/analysis/` - Which analysis docs exist?
+
+### Step 3: Reconcile Discrepancies
+If progress tracker doesn't match file system:
+- Trust the file system
+- Update progress tracker to reflect reality
+- Note discrepancy in "Notes & Issues"
+
+### Step 4: Identify Next Task
+From progress tracker, find first unchecked item:
+- **Phase 1A**: Continue with next uncompleted GP
+- **Phase 1B**: Continue with next uncompleted company (Tier 1 first, then Tier 2)
+- **Phase 1C**: Check which companies lack GP mention updates in their research-summary.md
+- **Phase 2**: Complete remaining analysis documents
+
+### Step 5: Resume from Checkpoint
+- Jump directly to the relevant step in this workflow
+- All phases designed to check for existing work before starting
+- No risk of duplication
+
+### Example Resume Scenario:
+```
+Progress tracker shows:
+✅ Phase 1A: 2/2 GPs complete
+✅ Phase 1B: 4/6 Tier 1 complete, 0/10 Tier 2 complete
+⬜ Phase 1C: Not started
+
+File system shows:
+✅ research/people/gp1/ exists
+✅ research/people/gp2/ exists
+✅ research/deals/tier-1/company-a/ exists
+✅ research/deals/tier-1/company-b/ exists
+✅ research/deals/tier-1/company-c/ exists
+✅ research/deals/tier-1/company-d/ exists
+
+ACTION: Resume Phase 1B, continue with Tier 1 Company E (5th of 6)
+THEN: Complete Tier 1 Company F
+THEN: Move to Tier 2 companies
+THEN: Start Phase 1C (GP mentions cross-reference)
 ```
 
-### Example 2: Fund Deck Pattern
-```markdown
-Slide 3: "Investment Team"
-- Dillon Dunteman, General Partner
-- Harry Bellew, General Partner
-
-EXTRACTION:
-- GP Name 1: Dillon Dunteman (Title: General Partner)
-- GP Name 2: Harry Bellew (Title: General Partner)
-- Source: Fund I.md (page 3)
-```
-
-### Example 3: Case Study Pattern
-```markdown
-"Our partnership with Hyperion, particularly Dillon's technical guidance,
-was instrumental in..." - CEO, Acme Robotics
-
-EXTRACTION:
-- GP Name: Dillon (likely Dillon Dunteman based on context)
-- Source: Case Study - Acme Robotics
-- Confidence: Medium (first name only, need to cross-reference)
-- Action: Validate with other sources
-```
+For more detailed guidance on progress tracking, see `templates/progress-tracking.md`.
 
 ---
 
@@ -1810,4 +1900,4 @@ EXTRACTION:
 
 ## Questions or Issues?
 
-Document in `research/progress-notes.md` or `research/research-progress.md` Notes & Issues section.
+Document in `research/process/research-progress.md` Notes & Issues section.

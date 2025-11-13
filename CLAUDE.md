@@ -58,7 +58,9 @@ Markdown files containing prompts/instructions for LLM processing, located in `s
 #### Available User Workflows
 
 - **users/ashish/workflows/podcast-marketer.md**: Transforms podcast transcripts into LinkedIn posts and viral social media clips
+- **users/tam/workflows/conflict-resolver.md**: Systematically resolve situations where multiple portfolio companies have identical or similar names, investigating dataroom sources and applying decision frameworks
 - **users/tam/workflows/deal-prioritization.md**: Analyzes fund datarooms to create tiered portfolio company research prioritization
+- **users/tam/workflows/validator.md**: Auto-detects requirements from workflows/skills and validates their outputs against quality standards (source documentation, file structure, completeness, attribution)
 - **users/tam/workflows/vc-research.md**: Deep research on VC portfolio companies and GPs with relationship tracking and portfolio quality assessment (resumable)
 
 ### Threading System

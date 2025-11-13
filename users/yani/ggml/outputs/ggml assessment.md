@@ -41,14 +41,14 @@ ggml.ai is positioned to capture a **$103M-186M Serviceable Obtainable Market (S
 
 **Combined Revenue Potential: $102M-259M ARR by Year 3**
 
-| Business Model | Year 3 ARR | Gross Margin | Priority |
-|----------------|------------|--------------|----------|
-| **Managed Inference Service (GGML Cloud)** | $60M-180M | 70-80% | PRIMARY |
-| **OEM/Embedded Licensing** | $15M-40M | 90-95% | HIGH |
-| **Open-Core Enterprise Edition** | $10M-25M | 85-90% | HIGH |
-| **Professional Services** | $3M-8M | 15-25% | MEDIUM |
-| **Model Optimization SaaS** | $2M-6M | 60-70% | MEDIUM |
-| **Training & Certification** | $2M-5M | 80-90% | LOW |
+| Business Model                             | Year 3 ARR | Gross Margin | Priority |
+| ------------------------------------------ | ---------- | ------------ | -------- |
+| **Managed Inference Service (GGML Cloud)** | $60M-180M  | 70-80%       | PRIMARY  |
+| **OEM/Embedded Licensing**                 | $15M-40M   | 90-95%       | HIGH     |
+| **Open-Core Enterprise Edition**           | $10M-25M   | 85-90%       | HIGH     |
+| **Professional Services**                  | $3M-8M     | 15-25%       | MEDIUM   |
+| **Model Optimization SaaS**                | $2M-6M     | 60-70%       | MEDIUM   |
+| **Training & Certification**               | $2M-5M     | 80-90%       | LOW      |
 
 **18-Month Revenue Trajectory:**
 - **Months 1-6:** $500K-1M ARR (Foundation - MVP launch, first 100 customers, lighthouse deals)
@@ -158,14 +158,14 @@ This is a **high-risk, high-reward** bet on category-defining infrastructure dur
 
 **Differentiation vs. Competitors:**
 
-| Capability | GGML | PyTorch | TensorFlow | Apple MLX | vLLM |
-|------------|------|---------|------------|-----------|------|
-| **Binary Size** | <1MB | ~500MB | ~400MB | ~50MB | ~200MB |
-| **Dependencies** | Zero | Extensive | Extensive | Minimal | Moderate |
-| **CPU Performance** | **Best** (30-50 t/s) | Poor (5-10 t/s) | Poor | Good (Mac only) | Poor |
-| **Cross-Platform** | **Yes** (Win/Lin/Mac/Android) | Yes | Yes | Mac only | Linux/Cloud |
-| **Quantization** | **2-8 bit** | 8-bit | 8-bit | 4-8 bit | 8-bit |
-| **Use Case Focus** | Inference-only | Training + Inference | Training + Inference | Inference | GPU Serving |
+| Capability          | GGML                          | PyTorch              | TensorFlow           | Apple MLX       | vLLM        |
+| ------------------- | ----------------------------- | -------------------- | -------------------- | --------------- | ----------- |
+| **Binary Size**     | <1MB                          | ~500MB               | ~400MB               | ~50MB           | ~200MB      |
+| **Dependencies**    | Zero                          | Extensive            | Extensive            | Minimal         | Moderate    |
+| **CPU Performance** | **Best** (30-50 t/s)          | Poor (5-10 t/s)      | Poor                 | Good (Mac only) | Poor        |
+| **Cross-Platform**  | **Yes** (Win/Lin/Mac/Android) | Yes                  | Yes                  | Mac only        | Linux/Cloud |
+| **Quantization**    | **2-8 bit**                   | 8-bit                | 8-bit                | 4-8 bit         | 8-bit       |
+| **Use Case Focus**  | Inference-only                | Training + Inference | Training + Inference | Inference       | GPU Serving |
 
 **Technical Moat Assessment:**
 

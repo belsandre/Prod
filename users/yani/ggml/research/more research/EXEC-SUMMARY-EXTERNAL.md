@@ -118,14 +118,14 @@ Traditional technical moats are **WEAK**:
 
 **DON'T put all eggs in one basket.** Execute 3 core products in parallel:
 
-| Business Model | Year 3 ARR | Gross Margin | Priority | Launch |
-|----------------|------------|--------------|----------|--------|
-| **1. GGML Cloud (Managed Inference)** | $60M-180M | 70-80% | **PRIMARY** | Month 6 |
-| **2. OEM/Embedded Licensing** | $15M-40M | 90-95% | **STRATEGIC** | Month 1 |
-| **3. GGML Enterprise (Open-Core)** | $10M-25M | 85-90% | **ENTRY FUNNEL** | Month 3 |
-| **4. Professional Services** | $3M-8M | 15-25% | **REVENUE BRIDGE** | Month 1 |
-| **5. Model Optimization SaaS** | $2M-6M | 60-70% | **ECOSYSTEM** | Month 12 |
-| **6. Training & Certification** | $2M-5M | 80-90% | **ECOSYSTEM** | Month 12 |
+| Business Model                        | Year 3 ARR | Gross Margin | Priority           | Launch   |
+| ------------------------------------- | ---------- | ------------ | ------------------ | -------- |
+| **1. GGML Cloud (Managed Inference)** | $60M-180M  | 70-80%       | **PRIMARY**        | Month 6  |
+| **2. OEM/Embedded Licensing**         | $15M-40M   | 90-95%       | **STRATEGIC**      | Month 1  |
+| **3. GGML Enterprise (Open-Core)**    | $10M-25M   | 85-90%       | **ENTRY FUNNEL**   | Month 3  |
+| **4. Professional Services**          | $3M-8M     | 15-25%       | **REVENUE BRIDGE** | Month 1  |
+| **5. Model Optimization SaaS**        | $2M-6M     | 60-70%       | **ECOSYSTEM**      | Month 12 |
+| **6. Training & Certification**       | $2M-5M     | 80-90%       | **ECOSYSTEM**      | Month 12 |
 
 ### Product 1: GGML Cloud (PRIMARY - $60M-180M ARR Potential)
 
