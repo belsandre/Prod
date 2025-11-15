@@ -101,7 +101,7 @@ outputs/
 
 **Action**: Check if `research/process/research-progress.md` exists
 
-**If NOT EXISTS**: Create the file using `templates/progress-tracking.md` as a guide, customized with these phases:
+**If NOT EXISTS**: Create the file using `users/tam/workflows/templates/progress-tracking.md` as a guide, customized with these phases:
 
 ```markdown
 # VC Research Progress Tracker
@@ -150,7 +150,7 @@ outputs/
 [Document blockers, items needing follow-up]
 ```
 
-For detailed guidance on progress tracking best practices, see `templates/progress-tracking.md`.
+For detailed guidance on progress tracking best practices, see `users/tam/workflows/templates/progress-tracking.md`.
 
 **If EXISTS**: Read the file to identify completed work and resume from checkpoint.
 
@@ -414,7 +414,7 @@ Use the company-research skill to research [GP NAME] as a person/investor. Focus
 
 Save to: research/people/{gp-name}/
 
-Create sources/ subfolder with each significant source as separate markdown file. Follow `templates/source-documentation.md` for source template format and evidence tier classification.
+Create sources/ subfolder with each significant source as separate markdown file. Follow `users/tam/workflows/templates/source-documentation.md` for source template format and evidence tier classification.
 ```
 
 **Expected Output**:
@@ -423,7 +423,7 @@ Create sources/ subfolder with each significant source as separate markdown file
 
 #### Step 1A.2: Batch Update Progress
 
-**Action**: After completing **all GPs** (or major batches), update `research/process/research-progress.md`. See `templates/progress-tracking.md` for batch update guidance.
+**Action**: After completing **all GPs** (or major batches), update `research/process/research-progress.md`. See `users/tam/workflows/templates/progress-tracking.md` for batch update guidance.
 
 ---
 
@@ -521,7 +521,7 @@ Include template:
 
 **GP Mentions**: [To be researched in Phase 1C]
 
-Create sources/ subfolder with each source as separate markdown file. Follow `templates/source-documentation.md` for source template format, evidence tier classification, and quality criteria.
+Create sources/ subfolder with each source as separate markdown file. Follow `users/tam/workflows/templates/source-documentation.md` for source template format, evidence tier classification, and quality criteria.
 ```
 
 **Quality Thresholds** (Smart, not arbitrary):
@@ -551,7 +551,7 @@ Create sources/ subfolder with each source as separate markdown file. Follow `te
 
 #### Step 1B.4: Batch Progress Updates
 
-**Action**: Update `research/process/research-progress.md` at natural checkpoints (after 3-4 companies, at phase boundaries, before ending session). See `templates/progress-tracking.md` for batch update best practices.
+**Action**: Update `research/process/research-progress.md` at natural checkpoints (after 3-4 companies, at phase boundaries, before ending session). See `users/tam/workflows/templates/progress-tracking.md` for batch update best practices.
 
 #### Step 1B.5: Quality Check (Every 3 Companies)
 
@@ -565,7 +565,7 @@ Create sources/ subfolder with each source as separate markdown file. Follow `te
 
 ## Source Quality & Evidence Standards
 
-For complete guidance on source documentation, evidence tier classification (Tier 1: External, Tier 2: Company-Controlled, Tier 3: Dataroom), citation formats, and high-value claim verification, see `templates/source-documentation.md`.
+For complete guidance on source documentation, evidence tier classification (Tier 1: External, Tier 2: Company-Controlled, Tier 3: Dataroom), citation formats, and high-value claim verification, see `users/tam/workflows/templates/source-documentation.md`.
 
 **Key principles**:
 - Distinguish independent external sources from interested-party controlled sources
@@ -1589,7 +1589,7 @@ Based on portfolio analysis, this VC's investment focus:
 
 ## Quality Checklist
 
-Before marking workflow complete, complete the quality checklist from `templates/quality-checklist.md`. Key workflow-specific items:
+Before marking workflow complete, complete the quality checklist from `users/tam/workflows/templates/quality-checklist.md`. Key workflow-specific items:
 
 ### Completeness ✅
 - [ ] All GPs from research/process/gp-list.md researched (folders in research/people/)
@@ -1608,7 +1608,7 @@ Before marking workflow complete, complete the quality checklist from `templates
 - [ ] Portfolio assessment includes scoring framework
 - [ ] Executive summary is concise (2-3 pages) and actionable
 
-For complete quality standards covering source documentation, file structure, attribution & verification, and cross-document consistency, see `templates/quality-checklist.md`.
+For complete quality standards covering source documentation, file structure, attribution & verification, and cross-document consistency, see `users/tam/workflows/templates/quality-checklist.md`.
 
 For guidance on resuming work after interruption, see **Appendix B: Resumability Guide** at the end of this workflow.
 
@@ -1872,7 +1872,7 @@ THEN: Move to Tier 2 companies
 THEN: Start Phase 1C (GP mentions cross-reference)
 ```
 
-For more detailed guidance on progress tracking, see `templates/progress-tracking.md`.
+For more detailed guidance on progress tracking, see `users/tam/workflows/templates/progress-tracking.md`.
 
 ---
 

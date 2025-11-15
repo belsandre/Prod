@@ -293,7 +293,7 @@ This research has the following limitations that users should be aware of:
 **Reference this checklist by including**:
 ```markdown
 ## Quality Checklist
-Before submitting deliverables, complete `templates/quality-checklist.md`:
+Before submitting deliverables, complete `users/tam/workflows/templates/quality-checklist.md`:
 - Completeness
 - Content Quality
 - Source Documentation

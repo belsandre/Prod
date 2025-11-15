@@ -297,7 +297,7 @@ This capital allocation vs. narrative misalignment may signal:
 
 ### Source Attribution
 
-**Every data point must cite its source.** For complete source documentation standards, see `templates/source-documentation.md`.
+**Every data point must cite its source.** For complete source documentation standards, see `users/tam/workflows/templates/source-documentation.md`.
 
 ✅ **Good:** "Entry valuation: $420M post-money (Source: Excel, entry date April 2023)"
 ❌ **Bad:** "Valuation: $5B" (no source, no date)
@@ -331,7 +331,7 @@ This capital allocation vs. narrative misalignment may signal:
 
 ### Pre-Submission Checklist
 
-For complete quality checklist, see `templates/quality-checklist.md`. Workflow-specific items to verify:
+For complete quality checklist, see `users/tam/workflows/templates/quality-checklist.md`. Workflow-specific items to verify:
 
 - [ ] **No company appears in multiple tiers**
 - [ ] **All Tier 1/2 companies are mentioned in narrative materials**

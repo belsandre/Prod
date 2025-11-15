@@ -245,7 +245,7 @@ When dataroom or company materials make specific, verifiable claims, attempt ext
 **Reference this template by including**:
 ```markdown
 ## Source Documentation
-Follow `templates/source-documentation.md` for:
+Follow `users/tam/workflows/templates/source-documentation.md` for:
 - Source template format
 - Evidence tier classification
 - Citation formats

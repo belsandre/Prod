@@ -325,7 +325,7 @@ Compile all checks into structured pass/fail summary using this template:
 [Prioritized action plan: Priority 1 (Critical), Priority 2 (Quality), Priority 3 (Enhancement)]
 ```
 
-For complete validation report format examples, see `templates/quality-checklist.md`.
+For complete validation report format examples, see `users/tam/workflows/templates/quality-checklist.md`.
 
 ## Workflow Adaptability
 
@@ -357,7 +357,7 @@ The validator auto-detects requirements from different workflow types:
 
 ## Universal Source Standards
 
-For complete source documentation standards, see `templates/source-documentation.md`. The validator always checks (unless workflow explicitly exempts):
+For complete source documentation standards, see `users/tam/workflows/templates/source-documentation.md`. The validator always checks (unless workflow explicitly exempts):
 - URL field present and valid (full URL, not "N/A")
 - Date field in YYYY-MM-DD format
 - Raw Content preserved (not just summaries)

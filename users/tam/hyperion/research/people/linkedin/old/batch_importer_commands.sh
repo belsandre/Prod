@@ -1,0 +1,26 @@
+#!/bin/bash
+# Generated MCP import commands for each batch
+# Note: These are reference commands - actual import will be done via MCP tools
+
+echo "=== LinkedIn Connections Import Plan ==="
+echo "Total records: 1039"
+echo "Batches: 11 (100 records each, except last batch with 39)"
+echo ""
+echo "Spreadsheet ID: 1h7T4Z_VbzkrZFF9c5vGrJnuC6DHaRUvJAsnWlh5wUEM"
+echo "Sheet: Sheet1"
+echo ""
+echo "Batch Import Plan:"
+echo "  Batch  1: A2:E101    (100 records)"
+echo "  Batch  2: A102:E201  (100 records)"
+echo "  Batch  3: A202:E301  (100 records)"
+echo "  Batch  4: A302:E401  (100 records)"
+echo "  Batch  5: A402:E501  (100 records)"
+echo "  Batch  6: A502:E601  (100 records)"
+echo "  Batch  7: A602:E701  (100 records)"
+echo "  Batch  8: A702:E801  (100 records)"
+echo "  Batch  9: A802:E901  (100 records)"
+echo "  Batch 10: A902:E1001 (100 records)"
+echo "  Batch 11: A1002:E1040 (39 records)"
+echo ""
+echo "✓ All batches prepared in /tmp/import_batch_*.json"
+echo "✓ Ready for import via MCP update_cells tool"

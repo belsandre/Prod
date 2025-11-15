@@ -107,11 +107,11 @@
 - [ ] No orphaned references in priority-deals.md
 - [ ] Company-clusters.md has each company in exactly one cluster
 - [ ] Research-progress.md accurately reflects status of each company
-- [ ] All source material citations correctly attributed (see `templates/source-documentation.md`)
+- [ ] All source material citations correctly attributed (see `users/tam/workflows/templates/source-documentation.md`)
 - [ ] Tier classifications justified with clear rationale
 - [ ] Information gaps clearly documented with interim tier assignments
 
-For complete quality standards, see `templates/quality-checklist.md`.
+For complete quality standards, see `users/tam/workflows/templates/quality-checklist.md`.
 
 ---
 

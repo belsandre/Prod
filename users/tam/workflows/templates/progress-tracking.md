@@ -262,7 +262,7 @@ Overall: ██████████░░░░░░░░░░░░ 49% 
 **Reference this template by including**:
 ```markdown
 ## Progress Tracking
-Use `templates/progress-tracking.md` template for tracking work across sessions.
+Use `users/tam/workflows/templates/progress-tracking.md` template for tracking work across sessions.
 
 Update at:
 - Start/end of each session
