@@ -23,19 +23,34 @@
 
 ## Phase 2: Source Material Investigation
 
-**For each dataroom source, systematically check:**
-1. Company mentions (exact name + variants)
-2. Logos (visual differentiation = strong signal different companies)
-3. Founder names (same/different)
-4. Descriptions (compatible vs. mutually exclusive)
-5. Investment details (dates, amounts, valuations)
+**Systematically check these dataroom sources IN ORDER:**
 
-**Sources to check (in priority order):**
-1. **Excel Portfolio Spreadsheet** (most authoritative for investment data)
-2. **Founder References Document** (check testimonial logos + names)
-3. **Sourcing Differentiation Document** (check network map logos + categorization)
-4. **Case Studies Document** (check founder names, descriptions)
-5. **Public Sources** (company websites, LinkedIn, founding dates validation)
+### 1. Excel Portfolio Spreadsheet
+- Search for all entries matching company name(s)
+- Note: Investment dates, amounts, valuations, founder names (if listed)
+- Count distinct entries - are there 1 or 2+ rows?
+
+### 2. Founder References Document
+- Find testimonials matching company name(s)
+- **Critical**: Check logos accompanying testimonials - different logos = different companies
+- Note founder names providing testimonials
+- Look for product/company descriptions in testimonial text
+
+### 3. Sourcing Differentiation Document
+- Find company mentions in sourcing network map
+- **Critical**: Check logos - different logos = different companies
+- Note categorization (which sourcing network/cluster)
+- Note descriptions provided
+
+### 4. Case Studies Document
+- Search for company mentions
+- Note founders, product descriptions, investment details
+- Check if case study clearly distinguishes between companies
+
+### 5. Cross-Reference Public Sources
+- Search company websites for conflicting names
+- Check LinkedIn for founder affiliations
+- Verify founding dates vs investment dates
 
 ---
 
@@ -72,7 +87,7 @@
 
 ### For MULTIPLE Companies
 1. Create separate entries in priority-deals.md for each company
-2. **Re-tier each company independently** using tier criteria from `deal-prioritization.md` (Tier 1: Priority Research, Tier 2: Up-and-Comers, Tier 3: Red Flags, Tier 4: Remaining Portfolio). Consider:
+2. **Re-tier each company independently** based on:
    - Investment performance (if data available)
    - Strategic fit with fund thesis
    - Relationship strength with GPs
@@ -92,12 +107,8 @@
 ### For Information Gaps
 1. Document gap clearly in priority-deals.md with "⚠️ INFORMATION GAP" section
 2. List missing information needed: investment date, amount, valuation, founder confirmation
-3. **Interim tier assignment**: Classify based on available data ONLY
-   - If partial evidence suggests Tier 1/2 criteria met → assign tentatively
-   - If insufficient evidence → assign Tier 4 (Remaining Portfolio)
-   - Mark tier as "PROVISIONAL - pending information"
-4. Note in research-progress.md that tier assessment pending information
-5. Flag for follow-up with GP or deeper dataroom review
+3. Note in research-progress.md that tier assessment pending information
+4. Flag for follow-up with GP or deeper dataroom review
 
 ---
 
@@ -107,11 +118,9 @@
 - [ ] No orphaned references in priority-deals.md
 - [ ] Company-clusters.md has each company in exactly one cluster
 - [ ] Research-progress.md accurately reflects status of each company
-- [ ] All source material citations correctly attributed (see `users/tam/workflows/templates/source-documentation.md`)
+- [ ] All source material citations correctly attributed
 - [ ] Tier classifications justified with clear rationale
-- [ ] Information gaps clearly documented with interim tier assignments
-
-For complete quality standards, see `users/tam/workflows/templates/quality-checklist.md`.
+- [ ] Information gaps clearly documented
 
 ---
 

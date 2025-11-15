@@ -249,6 +249,24 @@ This capital allocation vs. narrative misalignment may signal:
 
 ---
 
+### Summary: 4-Tier Framework
+
+The tiering creates actionable intelligence:
+
+- **Tier 1** (<6 companies): True winners driving fund's narrative and returns. Deep dive priority.
+- **Tier 2** (<10 companies): Up-and-comers with strong momentum. Active monitoring.
+- **Tier 3** (2-5 companies): Significant capital deployed but conspicuously absent from fundraising materials. Investigate disconnect.
+- **Tier 4** (remaining): Active portfolio performing adequately. Brief monitoring.
+
+**Tiers are naturally mutually exclusive:**
+- Tier 1/2 companies are showcased in fundraising materials
+- Tier 3 companies are conspicuously absent despite significant capital deployment
+- Tier 4 is everything else
+
+This structure identifies not just what's working, but also **where capital and narrative are misaligned** (Tier 3), providing critical insights into founder relationships, GP engagement, and portfolio reality vs. narrative.
+
+---
+
 ## PHASE 5: Compile Research List
 
 ### Document Structure
@@ -297,7 +315,7 @@ This capital allocation vs. narrative misalignment may signal:
 
 ### Source Attribution
 
-**Every data point must cite its source.** For complete source documentation standards, see `users/tam/workflows/templates/source-documentation.md`.
+**Every data point must cite its source:**
 
 ✅ **Good:** "Entry valuation: $420M post-money (Source: Excel, entry date April 2023)"
 ❌ **Bad:** "Valuation: $5B" (no source, no date)
@@ -311,7 +329,10 @@ This capital allocation vs. narrative misalignment may signal:
 
 ### No Inference Rule
 
-**ONLY use what's explicitly stated in source documents.** State limitations for missing data: "Description: (not provided in documents)"
+**ONLY use what's explicitly stated in source documents:**
+
+❌ Don't infer: company sector, founder background, investment rationale, future outcomes
+✅ State limitations: "Description: (not provided in documents)"
 
 ### Flag Fund Drivers Not Featured
 
@@ -331,8 +352,7 @@ This capital allocation vs. narrative misalignment may signal:
 
 ### Pre-Submission Checklist
 
-For complete quality checklist, see `users/tam/workflows/templates/quality-checklist.md`. Workflow-specific items to verify:
-
+Before finalizing, verify:
 - [ ] **No company appears in multiple tiers**
 - [ ] **All Tier 1/2 companies are mentioned in narrative materials**
 - [ ] **All Tier 3 companies are NOT mentioned anywhere despite significant capital**
@@ -343,6 +363,7 @@ For complete quality checklist, see `users/tam/workflows/templates/quality-check
 - [ ] Failed investments excluded
 - [ ] Valuation discrepancies noted and explained
 - [ ] "Why Priority" / "Why Watch" sections completed
+- [ ] Cross-references consistent across document
 
 ### Validation Questions
 
