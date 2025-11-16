@@ -77,6 +77,7 @@ module.exports = function(eleventyConfig, username) {
   // Passthrough copy for specific file types (preserve directory structure)
   eleventyConfig.addPassthroughCopy(`../../users/${username}/**/*.json`);
   eleventyConfig.addPassthroughCopy(`../../users/${username}/**/*.{png,jpg,jpeg,gif,svg}`);
+  eleventyConfig.addPassthroughCopy(`../../users/${username}/**/*.csv`); // Also copy raw CSV files
 
   // Ignore large files and virtual environments
   eleventyConfig.ignores.add(`../../users/${username}/**/*.{mp4,mov,avi,mkv,pdf,zip,tar,gz}`);
