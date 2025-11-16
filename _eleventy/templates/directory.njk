@@ -42,21 +42,28 @@ eleventyComputed:
         {% for file in directory.files %}
         {% set fileExt = file.name | extension %}
         {% set fileIcon = "📄" %}
+        {% set fileUrl = file.url %}
         {% if fileExt == "md" %}
           {% set fileIcon = "📝" %}
         {% elif fileExt == "json" %}
           {% set fileIcon = "📊" %}
         {% elif fileExt == "csv" %}
           {% set fileIcon = "📈" %}
+          {% set fileUrl = file.url | replace(".csv", "/") %}
         {% elif fileExt == "png" or fileExt == "jpg" or fileExt == "jpeg" or fileExt == "gif" %}
           {% set fileIcon = "🖼️" %}
         {% endif %}
 
-        <a href="{{ file.url }}" class="file-card">
+        <a href="{{ fileUrl }}" class="file-card">
             <div class="file-icon">{{ fileIcon }}</div>
             <div class="file-name">{{ file.name }}</div>
             {% if file.size %}
             <div class="file-meta">{{ file.size }}</div>
+            {% endif %}
+            {% if fileExt == "csv" %}
+            <div class="file-meta" style="margin-top: 0.5rem;">
+                <a href="{{ file.url }}" style="font-size: 0.85rem; color: #0066cc;" onclick="event.stopPropagation();">↓ Download CSV</a>
+            </div>
             {% endif %}
         </a>
         {% endfor %}
