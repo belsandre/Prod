@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="content">
+    {% if title %}
+    <h1>{{ title }}</h1>
+    {% endif %}
+
+    {% if date %}
+    <div class="file-meta">
+        Last updated: {{ date | formatDate }}
+    </div>
+    {% endif %}
+
+    <div class="markdown-content">
+        {{ content | safe }}
+    </div>
+</article>

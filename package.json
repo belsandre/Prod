@@ -1,0 +1,31 @@
+{
+  "name": "prod-static-sites",
+  "version": "1.0.0",
+  "description": "Multi-user static sites built with Eleventy",
+  "private": true,
+  "workspaces": [
+    "sites/*"
+  ],
+  "scripts": {
+    "setup": "node scripts/setup-sites.js",
+    "build": "npm run setup && node scripts/build-all-sites.js",
+    "build:ashish": "cd sites/ashish && npm run build",
+    "build:tam": "cd sites/tam && npm run build",
+    "build:yani": "cd sites/yani && npm run build",
+    "serve:ashish": "cd sites/ashish && npm run serve",
+    "serve:tam": "cd sites/tam && npm run serve",
+    "serve:yani": "cd sites/yani && npm run serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "csv-parse": "^6.1.0"
+  }
+}

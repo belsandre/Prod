@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+
+<h1>Welcome to {{ site.username | capitalize }}'s Workspace</h1>
+
+<p>Browse your content by exploring the folders below.</p>
+
+{% set rootDir = collections.directoriesWithContent | first %}
+
+{% if rootDir and rootDir.folders.length > 0 %}
+<section style="margin-top: 2rem;">
+    <h2>Folders</h2>
+    <div class="file-grid">
+        {% for folder in rootDir.folders %}
+        <a href="/{{ folder }}/" class="folder-card">
+            <div class="folder-icon">📁</div>
+            <div class="folder-name">{{ folder | replace("-", " ") | capitalize }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if rootDir and rootDir.markdown.length > 0 %}
+<section style="margin-top: 2rem;">
+    <h2>Recent Documents</h2>
+    <div class="file-grid">
+        {% for item in rootDir.markdown | reverse | slice(0, 6) %}
+        <a href="{{ item.url }}" class="file-card">
+            <div class="file-icon">📝</div>
+            <div class="file-name">{{ item.data.title or (item.fileSlug | replace("-", " ") | capitalize) }}</div>
+            {% if item.date %}
+            <div class="file-meta">{{ item.date | formatDate }}</div>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if collections.workflows.length > 0 %}
+<section style="margin-top: 2rem;">
+    <h2>Workflows</h2>
+    <div class="file-grid">
+        {% for workflow in collections.workflows | reverse | slice(0, 6) %}
+        <a href="{{ workflow.url }}" class="file-card">
+            <div class="file-icon">📋</div>
+            <div class="file-name">{{ workflow.data.title or (workflow.fileSlug | replace("-", " ") | capitalize) }}</div>
+            {% if workflow.date %}
+            <div class="file-meta">{{ workflow.date | formatDate }}</div>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
