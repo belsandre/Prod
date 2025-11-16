@@ -4,26 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **multi-user job queue system** for Claude Code that allows users to submit jobs via a web interface, which are then processed by a local Claude Code instance. The system supports workflow-based processing, file uploads, threaded conversations, and role-based access control.
+This is a **workflow and user data repository** for Claude Code processing. It contains organized workflows (prompt templates and instructions), user-specific input/output directories, and shared resources accessible across all users. This repository is designed to work with a separate web interface that manages job submission and processing.
 
 ## Repository Structure
 
 ```
 Prod/
-├── web_interface/          # Flask web application
-│   ├── app.py             # Main Flask application
-│   ├── queue_manager.py   # Job queue management (SQLite)
-│   ├── user_manager.py    # User authentication and management
-│   ├── config.py          # Configuration settings
-│   ├── queue_watcher.py   # CLI tool for processing jobs
-│   ├── templates/         # HTML templates
-│   ├── static/            # Static assets (CSS, JS)
-│   ├── uploads/           # Legacy upload location (deprecated)
-│   ├── outputs/           # Legacy output location (deprecated)
-│   ├── jobs.db            # SQLite database (auto-created)
-│   ├── users.json         # User accounts database
-│   └── *.md               # Documentation (README, guides)
-│
 ├── shared/                 # Resources accessible to all users
 │   ├── inputs/            # Shared input files/data
 │   ├── outputs/           # Shared output files/data
@@ -35,25 +21,24 @@ Prod/
     └── workflows/         # User-specific workflow definitions (markdown)
 ```
 
+**Note**: The web interface (Flask application, job queue management, authentication, etc.) has been moved to a separate repository.
+
 ## Architecture
 
-### Multi-Tenant Structure
+### Data Organization
 
-- **web_interface/**: Flask web app with authentication, role-based access control, job submission/management UI, and Cloudflare Tunnel integration
 - **shared/**: Workflows, inputs, and outputs accessible across all users (admin-managed)
+  - `shared/workflows/`: Global workflow templates available to all users
+  - `shared/inputs/`: Shared input files and data
+  - `shared/outputs/`: Shared output files and results
 - **users/{username}/**: Isolated workspaces with user-specific inputs, outputs, and workflows
-
-### Job Queue System
-
-SQLite-based job lifecycle:
-1. **Submission**: Jobs can include prompts, file uploads, workflows, URLs, and priority settings
-2. **Approval**: Manual (admin approval required) or auto mode
-3. **Processing**: Queue watcher (`queue_watcher.py`) picks up approved jobs in interactive or watch mode
-4. **Completion**: Results stored as text or files, viewable via web interface
+  - `users/{username}/workflows/`: User-specific workflow templates
+  - `users/{username}/inputs/`: User-uploaded files and data
+  - `users/{username}/outputs/`: User-specific output files and results
 
 ### Workflows
 
-Markdown files containing prompts/instructions for LLM processing, located in `shared/workflows/` or `users/{username}/workflows/`. Users select workflows when submitting jobs.
+Markdown files containing prompts/instructions for LLM processing, located in `shared/workflows/` or `users/{username}/workflows/`. These workflows define reusable templates for common tasks and processing patterns.
 
 #### Available User Workflows
 
@@ -62,10 +47,6 @@ Markdown files containing prompts/instructions for LLM processing, located in `s
 - **users/tam/workflows/deal-prioritization.md**: Analyzes fund datarooms to create tiered portfolio company research prioritization
 - **users/tam/workflows/validator.md**: Auto-detects requirements from workflows/skills and validates their outputs against quality standards (source documentation, file structure, completeness, attribution)
 - **users/tam/workflows/vc-research.md**: Deep research on VC portfolio companies and GPs with relationship tracking and portfolio quality assessment (resumable)
-
-### Threading System
-
-Jobs support threaded conversations via `parent_job_id` for multi-turn interactions and iterative refinement.
 
 ### Skills
 
@@ -81,38 +62,29 @@ User-scoped Claude Code skills available via the Skill tool and located in `~/.c
 - **skill-creator**: Guide for creating effective skills that extend Claude's capabilities with specialized knowledge, workflows, or tool integrations
 - **document-skills (xlsx, docx, pptx, pdf)**: Comprehensive suite for creating, editing, and analyzing spreadsheets, documents, presentations, and PDFs with support for formulas, formatting, tracked changes, comments, and more
 
-## Key Files
-
-- **config.py**: Authentication, processing mode, file upload settings, path configurations
-- **app.py**: Flask routes for authentication, dashboard, job submission/management, admin functions
-- **queue_manager.py**: SQLite job queue operations, CRUD, status tracking, threading
-- **user_manager.py**: User authentication, role-based permissions, folder mapping
-- **queue_watcher.py**: CLI tool for processing jobs (interactive/watch modes)
-- **jobs.db**: SQLite database with job metadata, status, files, outputs, threading info
-
 ## Development Workflow
 
-**Adding Features**: Update schema in `queue_manager.py`, add routes in `app.py`, update templates/config, document changes
+**Creating Workflows**: Add markdown files to `shared/workflows/` (for all users) or `users/{username}/workflows/` (user-specific). Workflows should contain clear instructions, prompts, and templates for LLM processing.
 
-**User Data**: Respect user isolation (users access only their data; admins can access all). Use `Config.get_user_input_folder()` and `Config.get_user_output_folder()`
+**Managing User Data**: Respect user isolation - users should only access their own data in `users/{username}/`. Shared resources in `shared/` are accessible across all users.
 
-**Processing Jobs**: Run `queue_watcher.py`, read files from `users/{username}/inputs/`, process per instructions/workflows, save to `users/{username}/outputs/`, mark completed
+**Processing Jobs**: When processing jobs via the web interface, read input files from `users/{username}/inputs/`, process according to workflow instructions, and save results to `users/{username}/outputs/`.
 
 ## Security Considerations
 
-Change default credentials, use strong SECRET_KEY, validate file uploads, prevent path traversal, enforce role-based access control, use HTTPS via Cloudflare Tunnel for public access.
-
-## Documentation
-
-See `web_interface/` for README.md, QUICKSTART.md, JOB_PROCESSING_GUIDE.md, and MULTI_USER_THREADS_GUIDE.md.
+- **Data Isolation**: Maintain strict separation between user directories. Processing code should only access `users/{username}/` data when working on that user's jobs.
+- **Path Traversal**: Validate all file paths to prevent access outside designated user/shared directories.
+- **Sensitive Data**: Be cautious with files in user directories that may contain credentials, API keys, or other sensitive information.
 
 ## Common Tasks
 
-**Add User**: `cd web_interface && python3 manage_users.py`
-**Run Web Interface**: `cd web_interface && python3 app.py` (http://localhost:5001)
-**Process Jobs**: `cd web_interface && python3 queue_watcher.py [--watch|--stats]`
-**Create Workflows**: Add markdown files to `shared/workflows/` or `users/{username}/workflows/`
+**Create Global Workflow**: Add markdown file to `shared/workflows/` - accessible to all users
+**Create User Workflow**: Add markdown file to `users/{username}/workflows/` - specific to that user
+**Add User Directory**: Create new directory structure: `users/{username}/` with subdirectories for `inputs/`, `outputs/`, and `workflows/`
+**Organize User Files**: Place input files in `users/{username}/inputs/` and outputs will be generated in `users/{username}/outputs/`
 
 ## Migration Notes
 
-`claude-code-webui` has been removed; `web_interface` is the active codebase. File uploads now use `users/{username}/inputs/` instead of legacy `web_interface/uploads/`.
+- **Web Interface Separated**: The Flask web application (`web_interface/`) has been moved to a separate repository. This repository now focuses solely on workflow definitions and user data storage.
+- **Data Structure**: All user data follows the structure `users/{username}/inputs/` and `users/{username}/outputs/`. Legacy paths like `web_interface/uploads/` are no longer used.
+- **Workflow Management**: Workflows are organized in `shared/workflows/` (global) and `users/{username}/workflows/` (user-specific).

@@ -10,3 +10,16 @@
 
 # Large media files
 *.mp4
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Eleventy build output
+_site/
+
+# Generated site configurations
+sites/
+
+# User index files (auto-generated)
+users/*/index.njk

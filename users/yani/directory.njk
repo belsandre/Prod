@@ -1,0 +1,82 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.directoriesWithContent
+  size: 1
+  alias: directory
+eleventyComputed:
+  title: "{{ directory.name }}"
+  permalink: "{% if directory.path %}/{{ directory.path }}/index.html{% endif %}"
+  breadcrumb: |
+    <a href="/">Home</a>
+    {% set parts = directory.path | split("/") %}
+    {% set currentPath = "" %}
+    {% for part in parts %}
+      {% if part %}
+        {% set currentPath = currentPath + "/" + part %}
+        <span>/</span> <a href="{{ currentPath }}/">{{ part | replace("-", " ") | capitalize }}</a>
+      {% endif %}
+    {% endfor %}
+---
+
+<h1>{{ directory.name | replace("-", " ") | capitalize }}</h1>
+
+{% if directory.folders.length > 0 %}
+<section style="margin-top: 2rem;">
+    <h2>Folders</h2>
+    <div class="file-grid">
+        {% for folder in directory.folders %}
+        <a href="/{{ directory.path }}{% if directory.path %}/{% endif %}{{ folder }}/" class="folder-card">
+            <div class="folder-icon">📁</div>
+            <div class="folder-name">{{ folder | replace("-", " ") | capitalize }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if directory.files.length > 0 %}
+<section style="margin-top: 2rem;">
+    <h2>Files</h2>
+    <div class="file-grid">
+        {% for file in directory.files %}
+        {% set fileExt = file.name | extension %}
+        {% set fileIcon = "📄" %}
+        {% if fileExt == "md" %}
+          {% set fileIcon = "📝" %}
+        {% elif fileExt == "json" %}
+          {% set fileIcon = "📊" %}
+        {% elif fileExt == "csv" %}
+          {% set fileIcon = "📈" %}
+        {% elif fileExt == "png" or fileExt == "jpg" or fileExt == "jpeg" or fileExt == "gif" %}
+          {% set fileIcon = "🖼️" %}
+        {% endif %}
+
+        <a href="{{ file.url }}" class="file-card">
+            <div class="file-icon">{{ fileIcon }}</div>
+            <div class="file-name">{{ file.name }}</div>
+            {% if file.size %}
+            <div class="file-meta">{{ file.size }}</div>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if directory.markdown.length > 0 %}
+<section style="margin-top: 2rem;">
+    <h2>Documents</h2>
+    {% for item in directory.markdown %}
+    <article style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e0e0e0;">
+        <h3><a href="{{ item.url }}">{{ item.data.title or item.fileSlug | replace("-", " ") | capitalize }}</a></h3>
+        {% if item.data.description %}
+        <p>{{ item.data.description }}</p>
+        {% endif %}
+        {% if item.date %}
+        <div class="file-meta">{{ item.date | formatDate }}</div>
+        {% endif %}
+    </article>
+    {% endfor %}
+</section>
+{% endif %}

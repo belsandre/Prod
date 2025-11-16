@@ -1,0 +1,236 @@
+name: Deploy User Sites
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'users/**'
+      - '_eleventy/**'
+      - 'sites/**'
+      - 'scripts/**'
+      - '.github/workflows/deploy-sites.yml'
+  workflow_dispatch:
+
+jobs:
+  detect-changes:
+    name: Detect Changed User Folders
+    runs-on: ubuntu-latest
+    outputs:
+      ashish: ${{ steps.changes.outputs.ashish }}
+      tam: ${{ steps.changes.outputs.tam }}
+      yani: ${{ steps.changes.outputs.yani }}
+      any_changed: ${{ steps.changes.outputs.any_changed }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect which users changed
+        id: changes
+        run: |
+          # For manual triggers, build all sites
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "ashish=true" >> $GITHUB_OUTPUT
+            echo "tam=true" >> $GITHUB_OUTPUT
+            echo "yani=true" >> $GITHUB_OUTPUT
+            echo "any_changed=true" >> $GITHUB_OUTPUT
+            echo "Manual trigger - building all sites"
+            exit 0
+          fi
+
+          # Check if _eleventy or scripts changed (rebuild all)
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -qE '^(_eleventy|scripts)/'; then
+            echo "ashish=true" >> $GITHUB_OUTPUT
+            echo "tam=true" >> $GITHUB_OUTPUT
+            echo "yani=true" >> $GITHUB_OUTPUT
+            echo "any_changed=true" >> $GITHUB_OUTPUT
+            echo "Template or script changes detected - rebuilding all sites"
+            exit 0
+          fi
+
+          # Check individual user folders
+          ANY_CHANGED=false
+
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q "^users/ashish/"; then
+            echo "ashish=true" >> $GITHUB_OUTPUT
+            echo "✓ Changes detected in users/ashish/"
+            ANY_CHANGED=true
+          else
+            echo "ashish=false" >> $GITHUB_OUTPUT
+            echo "✗ No changes in users/ashish/"
+          fi
+
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q "^users/tam/"; then
+            echo "tam=true" >> $GITHUB_OUTPUT
+            echo "✓ Changes detected in users/tam/"
+            ANY_CHANGED=true
+          else
+            echo "tam=false" >> $GITHUB_OUTPUT
+            echo "✗ No changes in users/tam/"
+          fi
+
+          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q "^users/yani/"; then
+            echo "yani=true" >> $GITHUB_OUTPUT
+            echo "✓ Changes detected in users/yani/"
+            ANY_CHANGED=true
+          else
+            echo "yani=false" >> $GITHUB_OUTPUT
+            echo "✗ No changes in users/yani/"
+          fi
+
+          echo "any_changed=$ANY_CHANGED" >> $GITHUB_OUTPUT
+
+  build-ashish:
+    name: Build Ashish Site
+    needs: detect-changes
+    if: needs.detect-changes.outputs.ashish == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate site configs
+        run: npm run setup
+
+      - name: Build Ashish site
+        run: npm run build:ashish
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-ashish
+          path: _site/ashish/
+          retention-days: 1
+
+  build-tam:
+    name: Build Tam Site
+    needs: detect-changes
+    if: needs.detect-changes.outputs.tam == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate site configs
+        run: npm run setup
+
+      - name: Build Tam site
+        run: npm run build:tam
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-tam
+          path: _site/tam/
+          retention-days: 1
+
+  build-yani:
+    name: Build Yani Site
+    needs: detect-changes
+    if: needs.detect-changes.outputs.yani == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate site configs
+        run: npm run setup
+
+      - name: Build Yani site
+        run: npm run build:yani
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-yani
+          path: _site/yani/
+          retention-days: 1
+
+  deploy-ashish:
+    name: Deploy Ashish to Cloudflare Pages
+    needs: build-ashish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-ashish
+          path: dist/
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ashish
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy-tam:
+    name: Deploy Tam to Cloudflare Pages
+    needs: build-tam
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-tam
+          path: dist/
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: tam
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy-yani:
+    name: Deploy Yani to Cloudflare Pages
+    needs: build-yani
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-yani
+          path: dist/
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: yani
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
