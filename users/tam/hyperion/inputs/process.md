@@ -11,3 +11,8 @@ Root folder: users/tam/hyperion
 6. Run the `reference-identifier` workflow on dataroom, output as `outputs/reference-check-targets.md` and `outputs/investor-mentions-map.csv`
 	1. Add names from LinkedIn connections - Run the `reference-linkedin-checker` workflow on `research/people/linkedin/connections_vcpe.csv`, update `outputs/reference-check-targets.md` and `outputs/investor-mentions-map.csv`
 7. Run network analysis to classify network into early, mid, late-stage VC, PE, LPs, etc. - run `network-analyzer` workflow on `research/people/linkedin/connections_vcpe.csv`, output as `outputs/network_analysis.md`
+8. Network analysis
+	1. LinkedIn search with all Harvard alums = ~600 connections -> output as connections_harvard.csv
+	2. LinkedIn search with Industries = Computer and Network Security, Semiconductor Manufacturing, Automation Machinery Manufacturing, Renewable Energy Semiconductor Manufacturing, Computers and Electronics Manufacturing, Biotechnology Research, Utilities, Mining, Research Services, Appliances, Electrical and Electronics Manufacturing, Machinery Manufacturing, Oil and Gas, Computer Hardware Manufacturing, Software Development, Nanotechnology Research, Chemical Manufacturing, Computer Networking Products -> ~380 connections
+		1. Informed by `linkedin-industry-analysis` workflow
+		2. outputs as connections_deeptech.csv

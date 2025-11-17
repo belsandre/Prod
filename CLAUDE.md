@@ -4,24 +4,36 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **workflow and user data repository** for Claude Code processing. It contains organized workflows (prompt templates and instructions), user-specific input/output directories, and shared resources accessible across all users. This repository is designed to work with a separate web interface that manages job submission and processing.
+This is a **workflow and user data repository** for Claude Code processing. It contains organized workflows (prompt templates and instructions), user-specific input/output directories, and shared resources accessible across all users. User content is published as static sites via Eleventy SSG and deployed to Cloudflare Pages.
 
 ## Repository Structure
 
 ```
 Prod/
+├── _eleventy/              # Eleventy SSG configuration and templates
+│   ├── config-template.js # Base Eleventy config
+│   └── templates/         # Shared layouts and templates
+│
+├── _site/                  # Generated static sites (gitignored)
+│   └── {username}/        # Per-user built site
+│
+├── sites/                  # Per-user site configs (gitignored)
+│   └── {username}/        # Auto-generated .eleventy.js, package.json, auth middleware
+│
+├── scripts/                # Build automation
+│   ├── setup-sites.js     # Generate per-user configs
+│   └── build-all-sites.js # Build all user sites
+│
 ├── shared/                 # Resources accessible to all users
 │   ├── inputs/            # Shared input files/data
 │   ├── outputs/           # Shared output files/data
-│   └── workflows/         # Shared workflow definitions (markdown files)
+│   └── workflows/         # Shared workflow definitions
 │
 └── users/{username}/       # Per-user isolated resources
     ├── inputs/            # User-specific uploaded files
     ├── outputs/           # User-specific output files
-    └── workflows/         # User-specific workflow definitions (markdown)
+    └── workflows/         # User-specific workflow definitions
 ```
-
-**Note**: The web interface (Flask application, job queue management, authentication, etc.) has been moved to a separate repository.
 
 ## Architecture
 
@@ -35,6 +47,25 @@ Prod/
   - `users/{username}/workflows/`: User-specific workflow templates
   - `users/{username}/inputs/`: User-uploaded files and data
   - `users/{username}/outputs/`: User-specific output files and results
+
+### Static Site Generation
+
+Each user's content is published as a static site using Eleventy SSG:
+
+- **Tech Stack**: Eleventy 3.0, Markdown-it, Prism syntax highlighting
+- **Build System**: Node.js (>=18.0.0) with npm workspaces
+- **Deployment**: GitHub Actions with smart change detection → Cloudflare Pages
+- **Authentication**: HTTP Basic Auth per user via Cloudflare environment variables
+- **Content Features**:
+  - CSV files rendered as HTML tables with passthrough for raw downloads
+  - Automatic file routing (`users/tam/workflows/test.md` → `/workflows/test/`)
+  - Passthrough copy for JSON, CSV, images (PNG, JPG, SVG)
+- **Per-User Sites**: ashish, tam, yani (each deployed to separate Cloudflare project)
+
+**GitHub Actions CI/CD**: Smart builds trigger only for affected users:
+- Changes in `users/ashish/` → builds ashish only
+- Changes in `_eleventy/` or `scripts/` → rebuilds all sites
+- Manual trigger → builds all sites
 
 ### Workflows
 
@@ -64,11 +95,30 @@ User-scoped Claude Code skills available via the Skill tool and located in `~/.c
 
 ## Development Workflow
 
-**Creating Workflows**: Add markdown files to `shared/workflows/` (for all users) or `users/{username}/workflows/` (user-specific). Workflows should contain clear instructions, prompts, and templates for LLM processing.
+**Setup** (one-time or when adding users):
+```bash
+npm install
+npm run setup  # Generates per-user site configs in sites/{username}/
+```
 
-**Managing User Data**: Respect user isolation - users should only access their own data in `users/{username}/`. Shared resources in `shared/` are accessible across all users.
+**Local Development**:
+```bash
+npm run serve:ashish  # Start dev server for specific user
+npm run serve:tam
+npm run serve:yani
+```
 
-**Processing Jobs**: When processing jobs via the web interface, read input files from `users/{username}/inputs/`, process according to workflow instructions, and save results to `users/{username}/outputs/`.
+**Building**:
+```bash
+npm run build           # Build all user sites
+npm run build:ashish   # Build specific user site
+```
+
+**Creating Workflows**: Add markdown files to `shared/workflows/` (global) or `users/{username}/workflows/` (user-specific). Workflows contain prompts and templates for LLM processing.
+
+**Managing User Data**: Respect user isolation - only access data in `users/{username}/`. Shared resources in `shared/` are accessible across all users.
+
+**Deployment**: Automatic via GitHub Actions on push. Sites deploy to Cloudflare Pages.
 
 ## Security Considerations
 
@@ -79,12 +129,29 @@ User-scoped Claude Code skills available via the Skill tool and located in `~/.c
 ## Common Tasks
 
 **Create Global Workflow**: Add markdown file to `shared/workflows/` - accessible to all users
+
 **Create User Workflow**: Add markdown file to `users/{username}/workflows/` - specific to that user
-**Add User Directory**: Create new directory structure: `users/{username}/` with subdirectories for `inputs/`, `outputs/`, and `workflows/`
-**Organize User Files**: Place input files in `users/{username}/inputs/` and outputs will be generated in `users/{username}/outputs/`
 
-## Migration Notes
+**Add New User**:
+1. Create directory: `users/{username}/` with subdirectories `inputs/`, `outputs/`, `workflows/`
+2. Run `npm run setup` to generate site config
+3. Add deployment secrets to Cloudflare Pages (AUTH_USERNAME, AUTH_PASSWORD)
 
-- **Web Interface Separated**: The Flask web application (`web_interface/`) has been moved to a separate repository. This repository now focuses solely on workflow definitions and user data storage.
-- **Data Structure**: All user data follows the structure `users/{username}/inputs/` and `users/{username}/outputs/`. Legacy paths like `web_interface/uploads/` are no longer used.
-- **Workflow Management**: Workflows are organized in `shared/workflows/` (global) and `users/{username}/workflows/` (user-specific).
+**Test Changes Locally**: Run `npm run serve:{username}` to preview site before deploying
+
+**Add New Content**: Place files in `users/{username}/` - markdown, CSV, JSON, images auto-processed
+
+## Documentation
+
+- **STATIC_SITES_README.md**: Comprehensive guide to Eleventy setup, architecture, and maintenance
+- **CLOUDFLARE_SETUP.md**: Step-by-step Cloudflare Pages deployment configuration
+- **QUICKSTART.md**: 30-minute quick start guide for new users
+- **CLAUDE.md** (this file): Repository structure and Claude Code guidance
+
+## Architecture Notes
+
+- **Static Site Focus**: Repository generates static sites from user content via Eleventy SSG
+- **Data Structure**: User data in `users/{username}/inputs/` and `users/{username}/outputs/`
+- **Workflow Organization**: `shared/workflows/` (global) and `users/{username}/workflows/` (user-specific)
+- **Automated Deployment**: GitHub Actions CI/CD with smart change detection → Cloudflare Pages
+- **No Server Required**: Pure static sites with authentication via Cloudflare Pages Functions

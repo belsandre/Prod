@@ -478,7 +478,7 @@ Beyond the three core thesis areas, Hyperion has demonstrated investment activit
    - Extracted GP background and expertise areas
 
 2. **Phase 2: Industry Code Mapping** (45 minutes)
-   - Searched `linkedin-industry-codes.csv` (488 active codes) for keywords matching investment focus areas
+   - Searched `linkedin-industry-codes.csv` (488 industry codes) for keywords matching investment focus areas
    - Searched for: robotics, nuclear, energy, fusion, semiconductors, quantum, cybersecurity, software, AI, defense, space, manufacturing, mining, research
    - Reviewed matched codes for relevance based on:
      - Direct alignment with stated investment thesis
@@ -486,7 +486,7 @@ Beyond the three core thesis areas, Hyperion has demonstrated investment activit
      - GP expertise and background
    - Classified codes into Tier 1 (Most Relevant) and Tier 2 (Potentially Relevant) based on evidence strength
 
-3. **Phase 3: Classification and Output Generation** (20 minutes)
+3. **Phase 3: Output Generation** (20 minutes)
    - Applied classification criteria to assign codes to Tier 1 vs Tier 2
    - Documented rationale, portfolio evidence, use cases, and sources for each code
    - Generated structured markdown output with full analysis
@@ -525,153 +525,7 @@ Beyond the three core thesis areas, Hyperion has demonstrated investment activit
 
 ---
 
-## Recommendations
-
-### LinkedIn Profile Optimization
-
-**For Dillon Dunleman (GP) Personal Profile:**
-
-**Primary Industry Tags** (select top 5-7):
-1. **Venture Capital and Private Equity Principals** (106) - Must have, primary identity
-2. **Nuclear Electric Power Generation** (386) - Signature investment area (fusion)
-3. **Robot Manufacturing** (3247) OR **Robotics Engineering** (3248) - Core thesis + academic background
-4. **Computer and Network Security** (118) - Core thesis + Vista experience
-5. **Semiconductor Manufacturing** (7) - Advanced computing focus
-6. **Research Services** (70) - Academic background, research-intensive investments
-7. **Software Development** (4) - Full-stack approach, AI/ML emphasis
-
-**Rationale**: These 7 codes capture GP's unique positioning as deeptech VC with technical background (robotics, engineering) investing in fusion, robotics, cybersecurity, and advanced computing.
-
-**For Hyperion Ventures Company Page:**
-
-**Primary Industry Tags**:
-1. **Venture Capital and Private Equity Principals** (106)
-2. **Nuclear Electric Power Generation** (386)
-3. **Robot Manufacturing** (3247)
-4. **Computer and Network Security** (118)
-5. **Semiconductor Manufacturing** (7)
-
-**Rationale**: Fund-level profile should emphasize core investment focus areas backed by multiple portfolio companies.
-
-### Network Targeting
-
-**Most Valuable Tier 2 Codes for Connection Searches:**
-
-1. **Renewable Energy Power Generation** (3240) - Find clean energy investors, operators, and partners
-2. **Manufacturing** (25) - Identify robotics customers and manufacturing leaders
-3. **Technology, Information and Internet** (6) - Broad tech ecosystem for AI/software talent
-4. **Defense and Space Manufacturing** (1) + **Armed Forces** (71) - Defense tech ecosystem for dual-use applications
-5. **IT Services and IT Consulting** (96) - Enterprise cybersecurity customers
-6. **Research Services** (70) + **Nanotechnology Research** (114) - Academic founders and research commercialization
-
-**Search Strategies:**
-- **Co-investor identification**: Search "Venture Capital" + "Nuclear Electric Power Generation" or "Robot Manufacturing" to find other deeptech VCs
-- **Founder sourcing**: Search "Robotics Engineering" + "Research Services" to find technical founders at universities
-- **Customer development**: Search "Manufacturing" + specific geographies to find robotics deployment prospects
-- **Defense partnerships**: Search "Armed Forces" + "Defense and Space Manufacturing" for dual-use opportunities
-
-### Competitive Intelligence
-
-**Industries Containing Likely Competitors/Peers:**
-
-1. **Venture Capital and Private Equity Principals** (106)
-   - **Direct competitors**: Other early-stage deeptech VCs (Cantos, Lowercarbon Capital, DCVC, Construct, Root Ventures)
-   - **Action**: Monitor these firms' portfolio announcements, hiring, and thought leadership
-
-2. **Nuclear Electric Power Generation** (386) + **Renewable Energy Power Generation** (3240)
-   - **Strategic investors**: Energy corporates, climate tech VCs, utility companies investing in fusion
-   - **Action**: Identify potential co-investors and strategic acquirers for fusion portfolio
-
-3. **Robot Manufacturing** (3247) + **Robotics Engineering** (3248)
-   - **Competing VCs**: Robotics-focused funds, AI investors moving into physical AI
-   - **Strategic**: Big tech (Amazon, Tesla) and industrial automation companies
-   - **Action**: Track robotics M&A activity and corporate venture arms
-
-4. **Computer and Network Security** (118)
-   - **Competing investors**: Cybersecurity VCs, growth equity firms (Vista's peers)
-   - **Action**: Leverage Vista network; differentiate on agentic/AI positioning
-
-### Signal Detection
-
-**Industries to Monitor for Deal Flow, News, and Market Trends:**
-
-1. **Research Services** (70) + **Nanotechnology Research** (114)
-   - Monitor: University press releases, SBIR/STTR awards, academic publications in fusion/robotics/quantum
-   - Setup: Google Alerts for Harvard, MIT, Stanford, Caltech research in target areas
-
-2. **Defense and Space Manufacturing** (1) + **Space Research and Technology** (3089)
-   - Monitor: DoD contracts, DARPA programs, defense tech accelerators
-   - Signal: Government contracts to startups indicate product-market fit
-
-3. **Semiconductor Manufacturing** (7) + **Renewable Energy Semiconductor Manufacturing** (144)
-   - Monitor: Chip tapeouts, foundry partnerships (TSMC, Samsung), semiconductor IP announcements
-   - Signal: Successful tapeouts indicate technical milestones
-
-4. **Nuclear Electric Power Generation** (386)
-   - Monitor: NRC regulatory filings, fusion milestones (Q>1 achievements), energy market LCOE trends
-   - Signal: Regulatory approvals and technical breakthroughs create investment opportunities
-
-5. **Manufacturing** (25) + **Automation Machinery Manufacturing** (3246)
-   - Monitor: Manufacturing labor shortage statistics, automation adoption rates, factory deployments
-   - Signal: Customer urgency for robotics and automation solutions
-
-**Recommended Monitoring Setup:**
-- LinkedIn Sales Navigator searches for companies by industry code
-- Google Alerts for keywords + industry combinations
-- Newsletter subscriptions: Fusion Industry Association, robotics trade publications, defense tech newsletters
-- Track portfolio company network for referrals (50% of deal flow comes from founder referrals)
-
----
-
 ## Appendices
-
-### Appendix A: Full Industry Code List (CSV Export)
-
-```csv
-tier,industry_id,label,hierarchy,portfolio_evidence
-Most Relevant,106,Venture Capital and Private Equity Principals,Financial Services > Capital Markets > Venture Capital and Private Equity Principals,Hyperion Ventures fund
-Most Relevant,386,Nuclear Electric Power Generation,Utilities > Electric Power Generation > Nuclear Electric Power Generation,"Zap Energy, Hephaestus, Avalanche, Marathon Fusion, Valar Atomics"
-Most Relevant,3240,Renewable Energy Power Generation,Utilities > Electric Power Generation > Renewable Energy Power Generation,Fusion energy portfolio (clean energy positioning)
-Most Relevant,3247,Robot Manufacturing,Manufacturing > Machinery Manufacturing > Automation Machinery Manufacturing > Robot Manufacturing,"Figure AI, Scout AI, Titan Dynamics, Bedrock"
-Most Relevant,3248,Robotics Engineering,Professional Services > Engineering Services > Robotics Engineering,Robotics portfolio + GP robotics background
-Most Relevant,118,Computer and Network Security,Professional Services > IT Services and IT Consulting > Computer and Network Security,"Composite, Innerworks, Outtake"
-Most Relevant,3130,Data Security Software Products,Technology Information and Media > Technology Information and Internet > Software Development > Data Security Software Products,Cybersecurity software portfolio
-Most Relevant,7,Semiconductor Manufacturing,Manufacturing > Computers and Electronics Manufacturing > Semiconductor Manufacturing,"Normal Computing, Primitive Instruments"
-Most Relevant,3,Computer Hardware Manufacturing,Manufacturing > Computers and Electronics Manufacturing > Computer Hardware Manufacturing,"Quantinuum, GR Moth, Aqora, Normal Computing"
-Most Relevant,4,Software Development,Technology Information and Media > Technology Information and Internet > Software Development,"Figure AI, Dirac, Composite, Normal Computing"
-Most Relevant,3102,IT System Custom Software Development,Professional Services > IT Services and IT Consulting > IT System Custom Software Development,"Dirac, Composite, Normal Computing"
-Most Relevant,1,Defense and Space Manufacturing,Manufacturing > Transportation Equipment Manufacturing > Defense and Space Manufacturing,Titan Dynamics (defense robotics)
-Most Relevant,3089,Space Research and Technology,Government Administration > Space Research and Technology,Deeptech with space applications
-Most Relevant,70,Research Services,Professional Services > Research Services,All portfolio companies + GP research background
-Most Relevant,114,Nanotechnology Research,Professional Services > Research Services > Nanotechnology Research,Advanced materials for fusion and semiconductors
-Most Relevant,3251,Climate Technology Product Manufacturing,Manufacturing > Climate Technology Products Manufacturing,Fusion energy portfolio (climate tech)
-Most Relevant,983,Measuring and Control Instrument Manufacturing,Manufacturing > Computers and Electronics Manufacturing > Measuring and Control Instrument Manufacturing,Fusion plasma control + robotics sensors
-Potentially Relevant,3241,Renewable Energy Equipment Manufacturing,Manufacturing > Machinery Manufacturing > Engines and Power Transmission Equipment Manufacturing > Renewable Energy Equipment Manufacturing,Upstream supplier for fusion companies
-Potentially Relevant,144,Renewable Energy Semiconductor Manufacturing,Manufacturing > Computers and Electronics Manufacturing > Semiconductor Manufacturing > Renewable Energy Semiconductor Manufacturing,Semiconductors for fusion reactor control
-Potentially Relevant,3255,Fuel Cell Manufacturing,Manufacturing > Appliances Electrical and Electronics Manufacturing > Electrical Equipment Manufacturing > Fuel Cell Manufacturing,Adjacent clean energy technology
-Potentially Relevant,3246,Automation Machinery Manufacturing,Manufacturing > Machinery Manufacturing > Automation Machinery Manufacturing,Parent category for robotics
-Potentially Relevant,96,IT Services and IT Consulting,Professional Services > IT Services and IT Consulting,Customer industry for cybersecurity
-Potentially Relevant,6,Technology Information and Internet,Technology Information and Media > Technology Information and Internet,Parent category for software companies
-Potentially Relevant,1594,Technology Information and Media,Technology Information and Media,Top-level technology category
-Potentially Relevant,383,Electric Power Generation,Utilities > Electric Power Generation,Parent category for nuclear/renewable
-Potentially Relevant,385,Fossil Fuel Electric Power Generation,Utilities > Electric Power Generation > Fossil Fuel Electric Power Generation,Competitive displacement target
-Potentially Relevant,387,Solar Electric Power Generation,Utilities > Electric Power Generation > Renewable Energy Power Generation > Solar Electric Power Generation,Adjacent renewable energy
-Potentially Relevant,2489,Wind Electric Power Generation,Utilities > Electric Power Generation > Renewable Energy Power Generation > Wind Electric Power Generation,Adjacent renewable energy
-Potentially Relevant,384,Hydroelectric Power Generation,Utilities > Electric Power Generation > Renewable Energy Power Generation > Hydroelectric Power Generation,Adjacent renewable energy
-Potentially Relevant,389,Geothermal Electric Power Generation,Utilities > Electric Power Generation > Renewable Energy Power Generation > Geothermal Electric Power Generation,Adjacent renewable energy
-Potentially Relevant,390,Biomass Electric Power Generation,Utilities > Electric Power Generation > Renewable Energy Power Generation > Biomass Electric Power Generation,Adjacent renewable energy
-Potentially Relevant,25,Manufacturing,Manufacturing,Customer industry for robotics and manufacturing AI
-Potentially Relevant,54,Chemical Manufacturing,Manufacturing > Chemical Manufacturing,Customer industry + materials supplier
-Potentially Relevant,690,Chemical Raw Materials Manufacturing,Manufacturing > Chemical Manufacturing > Chemical Raw Materials Manufacturing,Advanced materials for fusion and semiconductors
-Potentially Relevant,56,Mining,Oil Gas and Mining > Mining,Portfolio company Durin
-Potentially Relevant,345,Metal Ore Mining,Oil Gas and Mining > Mining > Metal Ore Mining,Specific mining category for Durin
-Potentially Relevant,11,Business Consulting and Services,Professional Services > Business Consulting and Services,GP Vista background + enterprise customers
-Potentially Relevant,49,Engineering Services,Professional Services > Engineering Services,Parent category for robotics engineering
-Potentially Relevant,71,Armed Forces,Government Administration > Military and International Affairs > Armed Forces,Customer for defense portfolio
-Potentially Relevant,3243,Services for Renewable Energy,Professional Services > Services for Renewable Energy,Services ecosystem for energy portfolio
-Potentially Relevant,382,Electric Power Transmission Control and Distribution,Utilities > Electric Power Transmission Control and Distribution,Grid infrastructure for power generation
-Potentially Relevant,3086,Utilities Administration,Government Administration > Economic Programs > Utilities Administration,Energy sector regulation
-```
 
 ### Appendix B: Industry Clusters by Technology Theme
 
@@ -726,6 +580,15 @@ Potentially Relevant,3086,Utilities Administration,Government Administration > E
 - Mining (56) - Tier 2
 - Metal Ore Mining (345) - Tier 2
 
+**Cluster 9: Renewable Energy Ecosystem** (6 codes)
+- Fossil Fuel Electric Power Generation (385) - Tier 2 (competitive)
+- Solar Electric Power Generation (387) - Tier 2
+- Wind Electric Power Generation (2489) - Tier 2
+- Hydroelectric Power Generation (384) - Tier 2
+- Geothermal Electric Power Generation (389) - Tier 2
+- Biomass Electric Power Generation (390) - Tier 2
+- Services for Renewable Energy (3243) - Tier 2
+
 ---
 
 ## Quality Checklist
@@ -743,7 +606,7 @@ Potentially Relevant,3086,Utilities Administration,Government Administration > E
 
 ---
 
-**Analysis Complete**: 2025-11-16 at 16:45 UTC
+**Analysis Complete**: 2025-11-16
 **Total Analysis Time**: ~2 hours
 **Industry Codes Identified**: 42 total (17 Tier 1 + 25 Tier 2)
 **Quality Score**: ✓ Meets all success criteria

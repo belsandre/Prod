@@ -177,6 +177,42 @@ For each **Tier 1 (Core Focus)** area from Phase 1:
   - Source: Deeptech perspectives.md
 ```
 
+#### Common Tech Startup Industry Codes (Quick Reference)
+
+**When to use this reference**: If analyzing a tech-focused fund, startup, or portfolio with software/technology companies, the codes below are the most commonly used on LinkedIn for tech startups.
+
+**Important Note**: LinkedIn networks are not granular enough to segment by highly specific codes. It's better to include **more rather than fewer** relevant technology categories in your analysis, as people's networks won't be precise enough to include connections in every niche category. Including broader tech codes increases network reach.
+
+**Most Common Tech Startup Codes**:
+
+| Industry Code | ID | Hierarchy | Best For |
+|---------------|-----|-----------|----------|
+| **Software Development** | 4 | Technology, Information and Media > Technology, Information and Internet > Software Development | **Most popular** - SaaS, enterprise software, B2B/B2C software products |
+| **Technology, Information and Internet** | 6 | Technology, Information and Media > Technology, Information and Internet | Broad tech companies, platforms, data companies when software alone doesn't fit |
+| **IT Services and IT Consulting** | 96 | Professional Services > IT Services and IT Consulting | Tech services, implementation partners, consulting firms |
+| **Computer and Network Security** | 118 | Professional Services > IT Services and IT Consulting > Computer and Network Security | Cybersecurity startups, security software, threat intelligence |
+| **Computer Hardware Manufacturing** | 3 | Manufacturing > Computers and Electronics Manufacturing > Computer Hardware Manufacturing | Hardware tech, IoT devices, computing equipment |
+| **Semiconductor Manufacturing** | 7 | Manufacturing > Computers and Electronics Manufacturing > Semiconductor Manufacturing | Chip companies, hardware infrastructure |
+| **Computer Networking Products** | 24 | Technology, Information and Media > Technology, Information and Internet > Computer Networking Products | Networking software, infrastructure companies |
+| **Mobile Gaming Apps** | 3131 | Technology, Information and Media > Technology, Information and Internet > Mobile Gaming Apps | Gaming companies, entertainment tech |
+| **E-Learning Providers** | 3134 | Education > E-Learning Providers | EdTech companies |
+| **Biotechnology Research** | 14 | Professional Services > Research Services > Biotechnology Research | BioTech, HealthTech with research focus |
+| **Research Services** | 70 | Professional Services > Research Services | AI/ML companies, R&D-intensive startups |
+
+**Common Combinations by Startup Type**:
+- **B2B SaaS**: Software Development (4) + IT Services and IT Consulting (96)
+- **Consumer Apps**: Technology, Information and Internet (6) + Software Development (4)
+- **AI/ML Companies**: Software Development (4) + Research Services (70)
+- **Hardware Startups**: Computer Hardware Manufacturing (3) + potentially Semiconductor Manufacturing (7)
+- **Security Startups**: Computer and Network Security (118) + Software Development (4)
+- **Platform Companies**: Technology, Information and Internet (6) as primary
+
+**Why include multiple tech codes?**:
+- LinkedIn search algorithms surface profiles based on multiple industry tags
+- Broader reach for network targeting (someone might be in "Technology, Information and Internet" but not "Software Development" specifically)
+- Portfolio companies often span multiple categories
+- Better coverage for investor/talent searches
+
 ### Step 2: Identify Adjacent/Related Codes (Potentially Relevant)
 
 For each **Tier 1** focus area, also identify:
