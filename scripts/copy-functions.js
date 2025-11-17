@@ -60,7 +60,14 @@ export default {
     try {
       const buffer = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
       const decoded = new TextDecoder().decode(buffer);
-      const [username, password] = decoded.split(':');
+      const separatorIndex = decoded.indexOf(':');
+
+      if (separatorIndex === -1) {
+        return unauthorized('Invalid authentication payload');
+      }
+
+      const username = decoded.slice(0, separatorIndex);
+      const password = decoded.slice(separatorIndex + 1);
 
       const validUser =
         (username === env.AUTH_USERNAME && password === env.AUTH_PASSWORD) ||

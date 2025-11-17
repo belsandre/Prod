@@ -122,7 +122,19 @@ export async function onRequest(context) {
   // Decode credentials
   const buffer = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
   const decoded = new TextDecoder().decode(buffer);
-  const [username, password] = decoded.split(':');
+  const separatorIndex = decoded.indexOf(':');
+
+  if (separatorIndex === -1) {
+    return new Response('Invalid authentication payload', {
+      status: 401,
+      headers: {
+        'WWW-Authenticate': 'Basic realm="Secure Area"',
+      },
+    });
+  }
+
+  const username = decoded.slice(0, separatorIndex);
+  const password = decoded.slice(separatorIndex + 1);
 
   // Check credentials against environment variables
   const validUser = (
