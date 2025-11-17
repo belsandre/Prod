@@ -1,754 +1,497 @@
 # Hyperion Folder Reorganization Proposal
 
-**Date**: 2025-11-16
-**Version**: 2.0 (Phase-Based Workflow)
-**Purpose**: Reorganize users/tam/hyperion/ around 4-phase analytical workflow with full traceability from CTAs back to source evidence
+**Date**: 2025-11-17
+**Version**: 3.0 (Output-Focused, Iterative Analysis)
+**Purpose**: Reorganize users/tam/hyperion/ around how outputs are viewed and used, supporting iterative analysis as diligence evolves
 
 ---
 
 ## Table of Contents
 
 1. [Current Structure Issues](#current-structure-issues)
-2. [Phase-Based Analytical Workflow](#phase-based-analytical-workflow)
+2. [Design Principles](#design-principles)
 3. [Proposed New Structure](#proposed-new-structure)
-4. [Evidence Tier Framework](#evidence-tier-framework)
-5. [Claims Validation Mapping](#claims-validation-mapping)
-6. [Process Transparency Templates](#process-transparency-templates)
-7. [CTA Design Patterns](#cta-design-patterns)
-8. [Index/Hub Page Structure](#index-hub-page-structure)
-9. [Structured Data Schemas](#structured-data-schemas)
-10. [Visual Hierarchy & Diagrams](#visual-hierarchy-diagrams)
-11. [Migration Plan](#migration-plan)
-12. [Benefits Summary](#benefits-summary)
-13. [Implementation Guide](#implementation-guide)
-14. [Open Questions](#open-questions)
-15. [Next Steps](#next-steps)
+4. [Executive Summary Template](#executive-summary-template)
+5. [Structured Data Opportunities](#structured-data-opportunities)
+6. [Navigation & Linking](#navigation-linking)
+7. [Iterative Analysis Support](#iterative-analysis-support)
+8. [Incremental Migration Path](#incremental-migration-path)
+9. [Benefits Summary](#benefits-summary)
+10. [Open Questions](#open-questions)
+11. [Next Steps](#next-steps)
 
 ---
 
 ## Current Structure Issues
 
-### Problem 1: Main Outputs Buried
-- Key outputs in `hyperion/outputs/` folder (3 levels deep)
-- Supporting research at same level creates cognitive load
-- No clear hierarchy between "what matters" vs "supporting evidence"
+### Problem 1: Workflow-Focused, Not Output-Focused
+- Structure reflects processing steps (dataroom → portfolio → network → synthesis)
+- Should reflect **how you view results**: executive summary → findings → supporting evidence
+- Current: "Where did this come from?" New: "What do I need to know?"
 
-### Problem 2: No CTA/Action Layer
-- Recommendations scattered across analysis files
-- No dedicated space to surface "what should I do next?"
-- Hard to connect analysis → actionable next steps
+### Problem 2: No Executive Summary Entry Point
+- No single starting point that shows:
+  - What data sources we have
+  - What analysis we've completed
+  - What's still left to do
+  - What the main findings and recommendations are
+- User must read multiple files to understand status
 
-### Problem 3: Missing Process Transparency
-- No documentation of inputs, prompts, workflows used
-- Can't trace "how did we get this result?"
-- Difficult to update/iterate on analyses
+### Problem 3: Hard to Navigate from Findings to Evidence
+- Findings scattered across multiple analysis files
+- No easy way to click through from a recommendation to the supporting analysis and sources
+- Can't easily answer "Why is this a critical action?"
 
-### Problem 4: Navigation Challenges
-- No index/hub page to understand the full picture
-- Terminology (Tier 1/2/3, claims structure) not explained upfront
-- No visual relationships between claims and validations
+### Problem 4: Linear Structure for Iterative Process
+- Current structure assumes linear workflow (phase 1 → 2 → 3 → 4)
+- Reality: Getting new information (meeting notes, new data sources) requires revisiting earlier analyses
+- No clear way to track:
+  - What analyses need to be revisited when new data arrives
+  - How new information changed previous findings
+  - What's the delta between analysis v1 and v2
 
-### Problem 5: No Phase-Based Workflow Tracking
-- Unclear which analyses depend on which others
-- No visibility into analytical progression (dataroom → portfolio → network → synthesis)
-- Can't see which phase validated which claims
+### Problem 5: Too Much New Terminology
+- Introduced terms need explanation (Tier 1/2/3, Phase 1/2/3/4)
+- Glossaries are poor UX
+- Better to use existing, intuitive terms (dataroom, research, findings, recommendations)
 
-### Problem 6: Evidence Tier Validation Not Systematically Tracked
-- Claims validation scattered across multiple files
-- No structured mapping of claim → evidence → tier → status
-- Hard to answer: "Which Phase 1 claims did Phase 2 validate?"
+### Problem 6: Data Mixed with Presentation
+- Analyses mix structured data with narrative
+- Hard to reuse data for comparisons or charts
+- No programmatic access to findings
 
 ---
 
-## Phase-Based Analytical Workflow
+## Design Principles
 
-### Design Principles
+### 1. Output-Focused Structure
 
-**1. Sequential Phase-Gating**
+**Organize by how you consume information, not how it was created**
 
-Each phase builds on validated outputs from the previous phase:
-- **Phase 1** extracts claims from dataroom → **Phase 2** validates via portfolio research → **Phase 3** validates via network analysis → **Phase 4** synthesizes into recommendations
+Users start with:
+- **Executive Summary**: What do I need to know right now?
+- **Findings**: What did we learn?
+- **Recommendations**: What should I do next?
 
-**2. Full Traceability**
+Then drill down to:
+- **Supporting Analysis**: How did we reach these findings?
+- **Source Evidence**: What's the proof?
 
-Every CTA traces backwards through analytical layers:
+Not organized by processing workflow (dataroom → portfolio → network → synthesis).
+
+---
+
+### 2. Support Iterative Analysis
+
+**Diligence is not linear - design for iteration**
+
+When new information arrives (meeting notes, Crunchbase data, reference checks):
+- Identify which analyses need revisiting
+- Re-run those analyses
+- Track what changed (delta from previous version)
+- Update findings and recommendations accordingly
+
+Support versioning:
+- `portfolio-assessment.md` (current)
+- `portfolio-assessment-2025-11-15.md` (snapshot after Crunchbase data added)
+- `_process/change-log.md` (what changed and why)
+
+---
+
+### 3. Use Intuitive Terms, Not New Jargon
+
+**No glossaries needed**
+
+Avoid introducing terms that need explanation:
+- ❌ Tier 1/2/3 evidence (requires glossary)
+- ❌ Phase 1/2/3/4 (requires workflow diagram)
+- ✅ Dataroom materials (clear)
+- ✅ External research (clear)
+- ✅ Independent sources (clear)
+
+Use terminology the industry already knows:
+- Dataroom, due diligence, reference checks, portfolio companies, co-investors
+
+---
+
+### 4. Separate Data from Presentation
+
+**Structured data (JSON) + Human narrative (Markdown)**
+
+Mature, stable outputs should be JSON:
+- Portfolio company list with valuations, funding rounds, co-investors
+- Network statistics (connections by category, relationship strength)
+- Timeline of key events
+
+Benefits:
+- Programmatic comparison between funds
+- Charts and visualizations
+- Automated validation
+- Easy updates when new data arrives
+
+Narrative analyses remain Markdown:
+- Executive summary
+- Investment recommendation
+- Qualitative assessments
+
+---
+
+### 5. Full Traceability
+
+**Every finding links back to supporting evidence**
+
+Executive Summary → Findings → Analysis → Sources
+
+Example navigation path:
 ```
-CTA → Phase 4 Analysis → Phase 2/3 Evidence → Phase 1 Claim → Dataroom Source
-```
-
-**3. Evidence Tier Progression**
-
-- **Phase 1**: Tier 1 (GP sources) - claims extraction only
-- **Phase 2**: Tier 2 + Tier 3 (external sources) - portfolio validation
-- **Phase 3**: Tier 3 (independent sources) - network validation
-- **Phase 4**: All tiers - synthesis and translation
-
-**4. JSON-First for Structured Data**
-
-Critical data stored as JSON for programmatic cross-referencing:
-- `claims-inventory.json` - Hierarchical claims structure
-- `validation-map.json` - Claims → Evidence → Status mapping
-- `network-stats.json` - Quantitative network metrics
-- `phase-status.json` - Phase completion tracking
-
-### Phase Descriptions
-
-#### Phase 0: Context & Orientation
-
-**Purpose**: Provide methodology and navigation
-
-**Outputs**:
-- README (start here guide)
-- Methodology docs (evidence tiers, phase workflow)
-- Terminology glossary
-
-**Evidence Tier**: N/A (meta-level)
-
----
-
-#### Phase 1: Dataroom Analysis
-
-**Purpose**: Extract GP claims and assess evidence quality
-
-**Analytical Question**: "What is the GP claiming, and what evidence did they provide?"
-
-**Outputs**:
-- Claims inventory (hierarchical structure with claim IDs)
-- Evidence tier classification per claim
-- Gaps identified (what's missing from dataroom)
-- Validation plan (how to externally verify each claim)
-
-**Evidence Tier**: Tier 1 (GP-controlled sources)
-
-**Success Criteria**: 100% of claims catalogued with tier classifications
-
----
-
-#### Phase 2: Portfolio Validation
-
-**Purpose**: Validate claims via external research on portfolio companies
-
-**Analytical Question**: "Do the portfolio companies validate the GP's claims?"
-
-**Outputs**:
-- Per-company research (14 companies across tier 1 and tier 2)
-- Funding validation (claimed vs actual rounds)
-- Portfolio assessment (overall quality scoring)
-- Claims validated report (which Phase 1 claims were verified/contradicted)
-
-**Evidence Tier**: Tier 2 + Tier 3 (external sources)
-
-**Success Criteria**: 80%+ of material claims verified or contradicted
-
----
-
-#### Phase 3: Network Analysis
-
-**Purpose**: Validate relationship and referral claims through network data
-
-**Analytical Question**: "Does Dillon's network validate his claimed relationships and sourcing capabilities?"
-
-**Rationale for Including People in Phase 3**:
-- Phase 3 **IS** the analysis of Dillon's network (not a separate concern)
-- Harvard/deeptech/VC-PE are **dimensions** of Dillon's network, not standalone entities
-- All LinkedIn CSVs are **Dillon's connections** → belong under `dillon-dunteman/`
-- Henry Bellew analyzed as **comparison point** (co-GP with no network visibility = red flag)
-
-**Outputs**:
-- Network depth quantification across dimensions (Harvard, deeptech, VC/PE)
-- Claimed relationship verification (6 founders claimed, X verified)
-- Referral conversion proof (network exists → actual referrals?)
-- Henry Bellew absence analysis (why no network data?)
-
-**Evidence Tier**: Tier 3 (independent sources like LinkedIn)
-
-**Success Criteria**: Network claims validated with concrete examples
-
----
-
-#### Phase 4: Synthesis & Recommendations
-
-**Purpose**: Translate marketing claims to reality and generate actionable CTAs
-
-**Analytical Question**: "What should we do next based on all validation efforts?"
-
-**Outputs**:
-- Marketing-to-reality translation (GP spin → objective facts)
-- Investment recommendation (overall verdict)
-- Objective timeline (chronological narrative with tier tags)
-- Reference check targets (who to talk to, warm intro paths)
-- CTAs (prioritized action items with full traceability)
-
-**Evidence Tier**: All tiers (synthesized)
-
-**Success Criteria**: Clear investment recommendation with risk-adjusted mitigations
-
----
-
-### Phase Dependencies
-
-```mermaid
-graph LR
-    P0[Phase 0: Context] --> P1[Phase 1: Dataroom]
-    P1 --> P2[Phase 2: Portfolio]
-    P1 --> P3[Phase 3: Network]
-    P2 --> P4[Phase 4: Synthesis]
-    P3 --> P4
-
-    P1 -.Claims extracted.-> P2
-    P1 -.Claims extracted.-> P3
-    P2 -.Portfolio claims validated.-> P4
-    P3 -.Network claims validated.-> P4
+Executive Summary: "Critical: Verify GP relationships"
+  ↓ Click for details
+Recommendation: "100% of value-add claims unverified"
+  ↓ Click for analysis
+Finding: "No portfolio founders mention GP help in public sources"
+  ↓ Click for sources
+Evidence: [Links to 14 company research files, each with sources]
+  ↓ Click for raw data
+Sources: TechCrunch articles, LinkedIn profiles, Crunchbase
 ```
 
-**Phase Gating**: Phase 4 final recommendation should be blocked until Phase 2 reaches 80%+ completion (prevents premature conclusions on incomplete evidence).
+No dead ends. Always able to drill down or trace back.
+
+---
+
+### 6. Clear Status Visibility
+
+**Always show: What we have, what we've done, what's left**
+
+Executive summary shows:
+- **Data Sources**: Dataroom (✓), Crunchbase (⏳ pending), Reference checks (⏳ pending)
+- **Analysis Completed**: Portfolio (14/24 companies), Network (✓), Timeline (✓), Claims validation (✓)
+- **Gaps**: 10 companies not researched, GP value-add claims unverified, Henry Bellew analysis incomplete
 
 ---
 
 ## Proposed New Structure
 
+**Key Changes from Current**:
+- **START** with executive summary (not buried 3 levels deep)
+- Organize by **output type** (findings, recommendations, evidence) not workflow steps
+- **No phase terminology** - use intuitive folder names
+- **Separate JSON data** from markdown narratives
+- **Iteration support** with versioning and change tracking
+
 ```
 users/tam/hyperion/
 │
-├── 0-context/                          # Orientation & Methodology
-│   ├── README.md                       # Start here: fund overview, navigation guide
-│   ├── methodology.md                  # Evidence tiers, phase workflow explained
-│   ├── evidence-tiers.md               # Tier 1/2/3 definitions and usage
-│   ├── terminology.json                # Glossary (structured data)
-│   └── traceability-guide.md           # How to trace CTA → analysis → source
+├── index.md                            # 🚀 EXECUTIVE SUMMARY (start here)
+│   │                                   # - Current status (data sources, analysis done, gaps)
+│   │                                   # - Key findings (portfolio quality, network strength, red flags)
+│   │                                   # - Critical recommendations (what to do next)
+│   │                                   # - Links to drill down into details
 │
-├── 1-dataroom/                         # Phase 1: GP Claims Extraction
-│   ├── phase1-index.md                 # Phase 1 outputs summary
-│   ├── claims-inventory.json           # Machine-readable claims tree
-│   ├── claims-inventory.md             # Human-readable with dataroom citations
-│   ├── evidence-assessment.md          # What evidence GP provided per claim
-│   ├── validation-plan.md              # Proposed external validation methods
-│   └── source-materials/               # Raw dataroom files (moved from dataroom/)
+├── data/                               # 📊 STRUCTURED DATA (JSON for mature outputs)
+│   ├── portfolio.json                  # Companies, valuations, funding rounds, co-investors
+│   ├── network.json                    # GP connections, relationship strength, dimensions
+│   ├── timeline.json                   # Key events with dates and sources
+│   ├── claims.json                     # GP claims + validation status + evidence links
+│   └── gp-profiles.json                # Dillon, Henry backgrounds and involvement
+│
+├── findings/                           # 📝 ANALYSIS OUTPUTS (what we learned)
+│   ├── portfolio-assessment.md         # Portfolio quality, winners, concerns
+│   ├── network-analysis.md             # GP network depth and relationship validation
+│   ├── claims-validation.md            # Which GP claims verified/unverified
+│   ├── timeline.md                     # Chronological fund narrative
+│   ├── gp-analysis.md                  # Dillon background, Henry absence
+│   │
+│   └── _archive/                       # Previous versions when analyses updated
+│       ├── portfolio-assessment-2025-11-15.md
+│       └── network-analysis-2025-11-10.md
+│
+├── recommendations/                    # 🎯 ACTIONABLE NEXT STEPS
+│   ├── critical/
+│   │   ├── verify-gp-relationships.md  # Founder reference checks
+│   │   └── validate-figure-execution.md # Verify customer deployment claims
+│   ├── high-priority/
+│   │   ├── investigate-henry-bellew.md  # Understand co-GP absence
+│   │   └── validate-customer-claims.md  # Cross-check deployment stories
+│   └── medium-priority/
+│       ├── benchmark-portfolio.md       # Compare to similar funds
+│       └── deep-dive-quantinuum.md      # Second-largest holding validation
+│
+├── research/                           # 📚 SUPPORTING EVIDENCE
+│   ├── companies/                      # Per-company deep dives
+│   │   ├── figure/
+│   │   │   ├── overview.md             # Company summary
+│   │   │   ├── funding-history.md      # Rounds, valuations, investors
+│   │   │   ├── gp-relationship.md      # How Dillon sourced, value-add claims
+│   │   │   └── sources/
+│   │   │       ├── techcrunch-series-c.md
+│   │   │       ├── bmw-partnership.md
+│   │   │       └── company-website.md
+│   │   ├── quantinuum/
+│   │   ├── normal-computing/
+│   │   └── [24 total companies...]
+│   │
+│   ├── people/                         # GP and network analysis
+│   │   ├── dillon-dunteman/
+│   │   │   ├── background.md           # Harvard, Vista, Firmament
+│   │   │   ├── thought-leadership.md   # Substack, public presence
+│   │   │   ├── network-harvard.md      # 150 alumni connections
+│   │   │   ├── network-deeptech.md     # 33% of connections
+│   │   │   ├── network-investors.md    # 80+ VC/PE relationships
+│   │   │   └── linkedin-data/
+│   │   │       ├── connections_1k.csv
+│   │   │       ├── connections_harvard.csv
+│   │   │       └── connections_deeptech.csv
+│   │   │
+│   │   └── henry-bellew/
+│   │       ├── background.md           # Co-GP research
+│   │       ├── portfolio-involvement.md # Zero documented involvement
+│   │       └── network-absence.md      # Why no LinkedIn data?
+│   │
+│   └── dataroom/                       # GP-provided materials
 │       ├── GP Bio.md
 │       ├── Fund I.md
 │       ├── Sourcing Differentiation.md
-│       └── [all other dataroom files...]
+│       ├── Portfolio Company Profiles.md
+│       └── [all dataroom files...]
 │
-├── 2-portfolio/                        # Phase 2: External Portfolio Validation
-│   ├── phase2-index.md                 # Phase 2 outputs summary
-│   ├── portfolio-assessment.md         # Main synthesis (from vc-research-summary)
-│   ├── portfolio-companies.json        # Structured company data
-│   ├── portfolio-claims-validated.md   # Which Phase 1 claims did we validate?
-│   │
-│   ├── companies/                      # Per-company research (moved from research/deals/)
-│   │   ├── tier1-winners/              # 5 high-priority companies
-│   │   │   ├── figure/
-│   │   │   │   ├── company-summary.md
-│   │   │   │   ├── valuation-validation.md     # GP marks vs reality
-│   │   │   │   ├── gp-claims-check.md          # What GP said vs what we found
-│   │   │   │   └── sources/                    # Evidence (tier-tagged)
-│   │   │   │       ├── [TIER-3] series-b-funding-feb-2024.md
-│   │   │   │       ├── [TIER-3] bmw-partnership-deployment.md
-│   │   │   │       └── [TIER-2] company-website.md
-│   │   │   ├── quantinuum/
-│   │   │   ├── normal-computing/
-│   │   │   ├── dirac/
-│   │   │   └── scout-ai/
-│   │   │
-│   │   └── tier2-emerging/             # 9 medium-priority companies
-│   │       ├── natrion/
-│   │       ├── emerge/
-│   │       ├── hephaestus/
-│   │       └── [6 more companies...]
-│   │
-│   └── data/                           # Structured portfolio data
-│       ├── funding-rounds.json         # All rounds with dates, amounts, sources
-│       ├── valuation-history.json      # GP claims vs public data
-│       ├── co-investors.json           # Who invested alongside Dillon
-│       └── claim-validation-map.json   # Phase 1 claim ID → Phase 2 evidence
-│
-├── 3-network/                          # Phase 3: Network & Relationship Validation
-│   ├── phase3-index.md                 # Phase 3 outputs summary
-│   ├── network-synthesis.md            # Overall network characterization
-│   ├── network-claims-validated.md     # Which Phase 1 network claims validated?
-│   │
-│   ├── dillon-dunteman/                # Primary GP network analysis
-│   │   ├── profile-summary.md          # Background, Harvard, Vista, Firmament
-│   │   ├── substack-analysis.md        # Thought leadership timeline
-│   │   ├── linkedin-profile.md         # LinkedIn data overview
-│   │   │
-│   │   ├── harvard-network/            # School dimension of network
-│   │   │   ├── analysis.md             # From network-analysis-harvard.md
-│   │   │   ├── network-stats.json      # 603 connections, graduation years
-│   │   │   ├── claimed-relationships.md # 6 founders claimed vs verified
-│   │   │   └── raw-data/
-│   │   │       └── connections_harvard.csv
-│   │   │
-│   │   ├── deeptech-network/           # Industry dimension of network
-│   │   │   ├── analysis.md             # From network-analysis-deeptech.md
-│   │   │   ├── network-stats.json      # 33% deeptech, industry breakdown
-│   │   │   ├── claimed-expertise.md    # "Deeptech specialist" claim validation
-│   │   │   └── raw-data/
-│   │   │       └── connections_deeptech.csv
-│   │   │
-│   │   └── vcpe-network/               # Investor relationships dimension
-│   │       ├── analysis.md             # From linkedin-industry-analysis.md
-│   │       ├── network-stats.json      # 80+ VC/PE investors
-│   │       ├── investor-relationships.md # Vista, Tamarack, Coatue ties
-│   │       └── raw-data/
-│   │           └── connections_vcpe.csv
-│   │
-│   ├── henry-bellew/                   # Co-GP analysis (absence pattern)
-│   │   ├── profile-summary.md          # Background research
-│   │   ├── network-absence.md          # Why no LinkedIn data? Red flag
-│   │   └── portfolio-involvement.md    # Zero documented involvement across 14 companies
-│   │
-│   └── data/
-│       ├── network-dimension-summary.json  # Aggregated stats across dimensions
-│       └── claim-validation-map.json       # Phase 1 network claims → Phase 3 evidence
-│
-├── 4-synthesis/                        # Phase 4: CTAs & Recommendations
-│   ├── phase4-index.md                 # Phase 4 outputs summary
-│   ├── executive-summary.md            # Top-level investment recommendation (NEW)
-│   ├── marketing-to-reality.md         # Translation guide: GP spin → facts (NEW)
-│   ├── objective-timeline.md           # Moved from outputs/
-│   ├── reference-check-targets.md      # Moved from outputs/
-│   │
-│   ├── ctas/                           # Call-to-actions with full traceability
-│   │   ├── index.md                    # All CTAs sorted by priority
-│   │   ├── CRITICAL-verify-gp-relationships.md
-│   │   ├── CRITICAL-validate-figure-execution.md
-│   │   ├── HIGH-investigate-henry-bellew.md
-│   │   ├── HIGH-verify-customer-claims.md
-│   │   ├── MEDIUM-validate-network-depth.md
-│   │   └── MEDIUM-benchmark-portfolio-metrics.md
-│   │
-│   └── cross-phase-analysis/           # Synthesized analyses
-│       ├── claims-validation-full.md   # From outputs/claims-validation.md
-│       ├── discrepancy-tracker.md      # Funding gaps, timing issues (NEW)
-│       └── unresolved-questions.md     # What we still can't validate (NEW)
-│
-└── _meta/                              # Process Tracking & Iteration Support
-    ├── research-log.md                 # Chronological work log
-    ├── data-update-history.md          # Track Crunchbase/PitchBook additions
-    ├── workflow-versions.md            # Which workflow version generated what
-    └── claims-validation-tracker.csv   # Master tracking spreadsheet
+└── _process/                           # 🔧 HOW WE GOT HERE (iteration support)
+    ├── analysis-log.md                 # Chronological work done
+    ├── data-updates.md                 # When new data added, what changed
+    ├── methodology.md                  # How to interpret evidence quality
+    ├── workflows-used.md               # Which workflows generated what
+    └── change-log.md                   # Version history of key analyses
+```
+
+**Navigation Flow**:
+```
+START: index.md (executive summary)
+  ↓
+Critical Finding: "Verify GP relationships"
+  ↓
+Click → recommendations/critical/verify-gp-relationships.md
+  ↓
+Links to → findings/claims-validation.md ("100% of value-add claims unverified")
+  ↓
+Links to → research/companies/figure/gp-relationship.md
+  ↓
+Links to → research/companies/figure/sources/ (TechCrunch, LinkedIn, etc.)
+  ↓
+Can also view → data/claims.json (structured data for programmatic analysis)
 ```
 
 ---
 
-## Evidence Tier Framework
+## Executive Summary Template
 
-### Tier Definitions
+The `index.md` file is the starting point for all users. It should answer three questions:
 
-**Tier 1 (GP-Controlled Sources)** - Highest Bias Risk
-- **Examples**: Pitch deck, case studies, GP interviews, dataroom materials
-- **Use**: Initial claims extraction only (Phase 1)
-- **Validation Requirement**: MUST be verified by Tier 2 or Tier 3 sources
-- **Bias Risk**: GP selects what to share, how to frame it
+1. **Where are we?** (Status/progress)
+2. **What did we learn?** (Key findings)
+3. **What should we do?** (Recommendations)
 
-**Tier 2 (Influenced Sources)** - Moderate Bias
-- **Examples**: Company PR, founder interviews, pitch materials, company websites
-- **Use**: Corroborating evidence for Tier 1 claims
-- **Validation Requirement**: Best when paired with Tier 3 sources
-- **Bias Risk**: Companies/founders incentivized to present positive picture
-
-**Tier 3 (Independent Sources)** - Most Objective
-- **Examples**: TechCrunch, SEC filings, LinkedIn, Crunchbase, public records, court filings
-- **Use**: Gold standard for claims validation
-- **Validation Requirement**: Sufficient on its own for verification
-- **Bias Risk**: Minimal (third-party reporting, regulatory disclosure)
-
-### Usage Guidelines Per Phase
-
-**Phase 1 (Dataroom)**:
-- Accept all Tier 1 sources at face value
-- Extract claims without judgment
-- Tag each claim with evidence tier
-
-**Phase 2 (Portfolio)**:
-- Seek Tier 3 sources first
-- Use Tier 2 sources as secondary validation
-- Flag claims that remain Tier 1-only
-
-**Phase 3 (Network)**:
-- LinkedIn data is Tier 3 (publicly visible connections)
-- Network analysis outputs are Tier 3
-- Claimed relationships need founder verification (Tier 2/3)
-
-**Phase 4 (Synthesis)**:
-- Tier 1-only claims → HIGH priority CTAs
-- Tier 2-only claims → MEDIUM priority CTAs
-- Tier 3 validated → No CTA needed (confidence high)
-
----
-
-## Claims Validation Mapping
-
-### How Claims Flow Through Phases
-
-Every claim follows this analytical workflow:
-
-#### Step 1: Phase 1 Extraction
-- Claim identified in dataroom → Assigned claim ID (e.g., `claim-1.1`)
-- Evidence tier classified (Tier 1/2/3)
-- Source documented (specific dataroom file + page)
-- Added to `claims-inventory.json`
-
-#### Step 2: Phase 2 Validation Attempt
-- External research seeks Tier 2/3 evidence
-- Outcome: **Verified ✅** | **Unverified ❓** | **Contradicted ❌**
-- Results added to `validation-map.json`
-
-#### Step 3: Phase 3 Network Validation (if applicable)
-- Relationship claims checked against network data
-- Conversion proof sought (network exists → actual referrals?)
-- Results update `validation-map.json`
-
-#### Step 4: Phase 4 Synthesis
-- Unverified/contradicted claims → CTAs generated
-- CTAs link back to claim IDs for full traceability
-- Final recommendation incorporates validation status
-
-### Example: Claim 1.1 Validation Flow
-
-```json
-{
-  "claim_id": "claim-1.1",
-  "claim_text": "Dillon generates 50+ referrals per year from his deeptech network",
-  "phase_extracted": "1-dataroom",
-  "source_file": "1-dataroom/source-materials/Sourcing Differentiation.md",
-  "source_page": 3,
-  "evidence_tier_claimed": "tier-1",
-
-  "validation_attempts": [
-    {
-      "phase": "2-portfolio",
-      "result": "unverified",
-      "notes": "No portfolio company founders mentioned referrals in public sources",
-      "evidence_tier": "tier-3",
-      "source_file": "2-portfolio/portfolio-assessment.md"
-    },
-    {
-      "phase": "3-network",
-      "result": "partial",
-      "notes": "Network exists (33% deeptech) but no proof of referral conversion",
-      "evidence_tier": "tier-3",
-      "source_file": "3-network/network-synthesis.md"
-    }
-  ],
-
-  "final_status": "unverified",
-  "ctas_generated": ["CTA-005"],
-  "recommendation": "Require founder interviews to validate referral claim"
-}
-```
-
-### Validation Tracker CSV
-
-Track all claims in `_meta/claims-validation-tracker.csv`:
-
-| claim_id | claim_text | phase_extracted | phase_validated | evidence_tier | status | cta_generated | source_file |
-|----------|------------|-----------------|-----------------|---------------|--------|---------------|-------------|
-| claim-1.1 | 50+ referrals/year | 1-dataroom | 3-network | tier-3 | partial | CTA-005 | 1-dataroom/source-materials/Sourcing Differentiation.md |
-| claim-2.1 | Hiring referrals value-add | 1-dataroom | 2-portfolio | tier-3 | unverified | CTA-001 | 1-dataroom/source-materials/GP Bio.md |
-| claim-3.1 | Figure sourced via Tamarack | 1-dataroom | 2-portfolio | tier-2 | verified | - | 2-portfolio/companies/tier1-winners/figure/ |
-
----
-
-## Process Transparency Templates
-
-### Analysis Frontmatter (Enhanced with Phase Fields)
-
-Every analysis file should have standardized YAML frontmatter:
-
-```yaml
----
-analysis_type: "Portfolio Assessment"
-phase: "2-portfolio"                    # Which phase does this belong to?
-generated_date: "2025-11-12"
-last_updated: "2025-11-15"
-
-inputs:
-  - dataroom: "users/tam/hyperion/1-dataroom/source-materials/"
-  - external_research: "users/tam/hyperion/2-portfolio/companies/"
-  - phase1_claims: "users/tam/hyperion/1-dataroom/claims-inventory.json"
-
-workflow: "users/tam/workflows/vc-research.md"
-prompt_version: "v2.3"
-
-methodology:
-  - step: "Research each company via public sources (Tier 3)"
-  - step: "Cross-reference with dataroom claims (Tier 1)"
-  - step: "Score companies on traction, validation, GP relationship quality"
-  - step: "Calculate portfolio-level metrics and risk assessment"
-
-results:
-  companies_researched: 14
-  strong_performers: 4
-  red_flags: 2
-  overall_rating: "7.5/10"
-
-claims_validated: ["claim-3.1", "claim-3.2", "claim-3.5"]  # Which Phase 1 claims validated
-claims_contradicted: ["claim-2.4"]                         # Which Phase 1 claims contradicted
-evidence_tier: "tier-3"                                    # Primary evidence tier used
-
-linked_ctas:
-  - 4-synthesis/ctas/CRITICAL-verify-gp-relationships.md
-  - 4-synthesis/ctas/CRITICAL-validate-figure-execution.md
-  - 4-synthesis/ctas/HIGH-investigate-henry-bellew.md
----
-```
-
-### CTA Frontmatter (Enhanced with Phase Fields)
-
-```yaml
----
-cta_id: "CTA-001"
-priority: "CRITICAL"
-status: "pending"
-
-phase_generated: "4-synthesis"                      # Where was this CTA created?
-validation_phase: "2-portfolio"                     # Which phase will execute this CTA?
-claims_addressed: ["claim-2.1", "claim-2.2"]       # Which Phase 1 claims will this validate?
-evidence_tier_target: "tier-3"                      # What evidence tier are we seeking?
-
-driving_analyses:
-  - 4-synthesis/cross-phase-analysis/claims-validation-full.md
-  - 2-portfolio/portfolio-assessment.md
-  - 4-synthesis/reference-check-targets.md
----
-
-# CTA: Verify GP Relationships Through Independent Founder Interviews
-
-## Why This Matters (Risk Level: CRITICAL)
-100% of Dillon relationship evidence comes from GP-controlled dataroom sources...
-
-## Phase Workflow
-This CTA will be executed as **supplemental validation for Phase 2: Portfolio**
-- Inputs from: Phase 1 dataroom claims extraction
-- Outputs to: Phase 4 synthesis (marketing-to-reality translation)
-- Evidence tier goal: Tier 3 (independent founder interviews)
-- Dependencies: Requires reference check targets from Phase 4 analysis
-
-[Rest of CTA content...]
-```
-
----
-
-## CTA Design Patterns
-
-### Full CTA Template
-
-```markdown
----
-cta_id: "CTA-XXX"
-priority: "CRITICAL | HIGH | MEDIUM | LOW"
-status: "pending | in-progress | completed | blocked"
-phase_generated: "4-synthesis"
-validation_phase: "2-portfolio | 3-network"
-claims_addressed: ["claim-X.X"]
-evidence_tier_target: "tier-3"
-driving_analyses:
-  - [list of analysis files that generated this CTA]
----
-
-# CTA: [Action Title]
-
-## Why This Matters (Risk Level: [CRITICAL/HIGH/MEDIUM/LOW])
-[1-2 sentences explaining the risk if this isn't addressed]
-
-## Driving Evidence
-[Bulleted list of findings from analyses, with links]
-- **From [Analysis Name]**: "[Quote or finding]"
-  → [Link to specific section]
-
-## Phase Workflow
-This CTA will be executed in **Phase X: [Name]**
-- Inputs from: Phase Y claims/analysis
-- Outputs to: Phase Z synthesis
-- Evidence tier goal: Tier 3 (specific source types)
-- Dependencies: [what must complete first]
-
-## Recommended Action
-
-### 1. [Action Item Title]
-- [Specific steps]
-- [Expected outcome]
-
-### 2. Questions to Ask
-- [Question 1]
-- [Question 2]
-
-### 3. Cross-Reference with [Data Source]
-[How to validate this against existing data]
-
-## Expected Timeline
-[Time estimate]
-
-## Mitigation if Not Completed
-[What happens if we skip this? How to adjust recommendation?]
-
-## Related CTAs
-- [CTA-XXX: Title](link) (relationship explanation)
-```
-
----
-
-## Index/Hub Page Structure
-
-### Executive Summary Format
+### Template Structure
 
 ```markdown
 # Hyperion Ventures Fund I: Due Diligence Assessment
 
-**Last Updated**: 2025-11-16
-**Research Status**: Phase 2 (58% complete) | Phase 3 (40% complete) | 6 CTAs pending
+**Last Updated**: 2025-11-17
+**Overall Assessment**: 7.5/10 (Above Average/Strong)
 
 ---
 
-## Phase Progress Dashboard
+## Current Status
 
-### Phase 1: Dataroom Analysis
-**Status**: ✅ Complete
-- Claims extracted: 24 main claims, 67 sub-claims
-- Evidence tier classified: 100%
-- Gaps identified: 18 missing investment details
-- [View Phase 1 outputs →](1-dataroom/phase1-index.md)
+### Data Sources Available
+- ✅ **Dataroom**: GP Bio, Fund I details, Portfolio profiles, Sourcing deck
+- ✅ **Public Research**: 14 companies researched via TechCrunch, LinkedIn, Crunchbase
+- ✅ **Network Data**: 1000+ LinkedIn connections analyzed
+- ⏳ **Pending**: Crunchbase export, Reference checks, Meeting notes
 
-### Phase 2: Portfolio Validation
-**Status**: 🔄 In Progress (58% complete)
-- Companies researched: 14 of 24
-- Claims validated: 8 verified, 5 unverified, 1 contradicted
-- Funding validated: 6 of 24 investment dates confirmed
-- [View Phase 2 outputs →](2-portfolio/phase2-index.md)
+### Analysis Completed
+- ✅ **Portfolio Assessment**: 14/24 companies researched ([view →](findings/portfolio-assessment.md))
+- ✅ **Network Analysis**: Dillon's connections quantified ([view →](findings/network-analysis.md))
+- ✅ **Claims Validation**: GP claims verified against independent sources ([view →](findings/claims-validation.md))
+- ✅ **Timeline**: Objective chronology of fund events ([view →](findings/timeline.md))
+- ⏳ **Incomplete**: 10 companies not yet researched, Henry Bellew analysis partial
 
-### Phase 3: Network Analysis
-**Status**: 🔄 In Progress (40% complete)
-- Network mapped: ✅ Complete (1000+ connections, 33% deeptech)
-- Referral conversion: ❌ Pending (no proof yet)
-- Co-investor validation: 🔄 In Progress (tier-1 syndicate confirmed)
-- [View Phase 3 outputs →](3-network/phase3-index.md)
+### What's Left to Do
+- **Research**: 10 remaining portfolio companies
+- **Validation**: Verify GP value-add claims via reference checks
+- **Investigation**: Understand Henry Bellew's role and absence from public data
+- **Benchmarking**: Compare portfolio metrics to similar funds
 
-### Phase 4: Synthesis
-**Status**: 🔄 In Progress (30% complete)
-- Marketing-to-reality translation: ✅ Complete
-- CTAs generated: 7 CTAs (2 CRITICAL, 2 HIGH, 3 MEDIUM)
-- Investment recommendation: 🔄 Draft (pending Phase 2/3 completion)
-- [View Phase 4 outputs →](4-synthesis/phase4-index.md)
+---
 
-### Phase Dependencies
+## Key Findings
 
-```mermaid
-graph TD
-    P1[Phase 1: Dataroom ✅] --> P2[Phase 2: Portfolio 🔄]
-    P1 --> P3[Phase 3: Network 🔄]
-    P2 --> P4[Phase 4: Synthesis 🔄]
-    P3 --> P4
+### Portfolio Quality: Strong Winners, Limited Visibility on Rest
+- **Standout**: Figure AI ($39.5B, 94x MOIC), Quantinuum ($5B, 119x)
+- **Concern**: 10 companies not researched, 3 unnamed underperformers
+- **Co-investors**: Tier-1 syndicate (BMW i Ventures, BlackRock, Intel Capital)
+- [View full portfolio assessment →](findings/portfolio-assessment.md)
 
-    P2 -.58% complete.-> P4
-    P3 -.40% complete.-> P4
+### Network Strength: Deep Connections, Unproven Conversion
+- **Harvard Network**: 150 alumni connections, 603 total from graduation years
+- **Deeptech Focus**: 33% of connections in deeptech industries
+- **VC/PE Relationships**: 80+ investors (Vista, Tamarack, Coatue ties)
+- **Unverified**: No proof network converts to referrals or deal flow
+- [View full network analysis →](findings/network-analysis.md)
+
+### Claims Validation: Independent Sources Contradict GP Spin
+- **100% of GP value-add claims unverified** (hiring help, VC intros, advisory)
+- **Missing data**: 18/24 investment dates, amounts, or details not provided
+- **Red flag**: Henry Bellew (co-GP) has zero documented portfolio involvement
+- [View full claims validation →](findings/claims-validation.md)
+
+### GP Background: Dillon Strong, Henry Absent
+- **Dillon Dunteman**: Harvard MBA, 5 years at Vista Equity, Firmament Capital experience
+- **Thought Leadership**: Active Substack on deeptech trends (credibility signal)
+- **Henry Bellew**: Co-GP with no visible network, portfolio involvement, or public presence
+- [View full GP analysis →](findings/gp-analysis.md)
+
+---
+
+## Critical Recommendations
+
+### 🔴 **CRITICAL**: Verify GP Relationships
+**Why**: 100% of value-add claims rely on dataroom (GP-controlled) sources only
+
+**What to do**:
+1. Reference checks with 6 claimed founder relationships
+2. Verify hiring referrals with Figure AI, Quantinuum
+3. Confirm VC introduction claims with co-investors
+
+[View full recommendation →](recommendations/critical/verify-gp-relationships.md)
+
+---
+
+### 🔴 **CRITICAL**: Validate Figure AI Execution
+**Why**: 50%+ of portfolio value concentrated in Figure AI - deployment claims unverified
+
+**What to do**:
+1. Confirm BMW deployment status (GP claims "first humanoid in F500")
+2. Verify customer pipeline claims
+3. Cross-check Series C valuation sources
+
+[View full recommendation →](recommendations/critical/validate-figure-execution.md)
+
+---
+
+### 🟠 **HIGH**: Investigate Henry Bellew Role
+**Why**: Co-GP with zero portfolio involvement is a red flag for fund governance
+
+**What to do**:
+1. Understand Henry's actual role (capital only? silent partner?)
+2. Clarify decision-making authority
+3. Assess risk if Dillon becomes unavailable
+
+[View full recommendation →](recommendations/high-priority/investigate-henry-bellew.md)
+
+---
+
+### 🟡 **MEDIUM**: Complete Portfolio Research
+**Why**: Only 14/24 companies researched - missing view of underperformers
+
+**What to do**:
+1. Research remaining 10 companies
+2. Identify the 3 unnamed underperformers
+3. Calculate full portfolio MOIC distribution
+
+---
+
+## Analysis Details
+
+All findings and supporting evidence are available:
+
+- **Findings**: [portfolio-assessment.md](findings/portfolio-assessment.md), [network-analysis.md](findings/network-analysis.md), [claims-validation.md](findings/claims-validation.md)
+- **Recommendations**: [critical/](recommendations/critical/), [high-priority/](recommendations/high-priority/), [medium-priority/](recommendations/medium-priority/)
+- **Company Research**: [research/companies/](research/companies/)
+- **GP Research**: [research/people/](research/people/)
+- **Structured Data**: [data/portfolio.json](data/portfolio.json), [data/network.json](data/network.json)
+
+---
+
+## Methodology
+
+### Data Sources Used
+- **Dataroom materials**: GP-provided documents (requires external verification)
+- **External research**: TechCrunch, Crunchbase, LinkedIn, company websites
+- **Independent sources**: Public filings, verified news sources (most reliable)
+
+### Evidence Quality
+- ✅ **Verified**: Claim supported by independent sources (high confidence)
+- ⚠️ **Partial**: Claim partially supported or from influenced sources (medium confidence)
+- ❓ **Unverified**: Claim from dataroom only (requires validation)
+- ❌ **Contradicted**: Independent sources contradict dataroom claim (red flag)
+
+### How This Was Generated
+- **Workflows**: [vc-research.md](../_process/workflows-used.md), deal-prioritization.md, validator.md
+- **Analysis Log**: [_process/analysis-log.md](_process/analysis-log.md)
+- **Last Updated**: 2025-11-17
+
+[View full methodology →](_process/methodology.md)
+
+---
+
+**Questions?** See [Open Questions](#open-questions) or contact the research team.
 ```
 
-**Next Phase Gate**: Phase 4 final recommendation blocked until Phase 2 reaches 80%+ completion
-
 ---
 
-## Data Room Quick Assessment
+## Structured Data Opportunities
 
-**Overall Fund Quality**: 7.5/10 (Above Average/Strong)
+### 1. portfolio.json
 
-**Key Narrative**:
-- Proprietary deeptech deal flow via Harvard/Vista network + thought leadership
-- Early-stage pre-seed/seed investor with tier-1 co-investor validation
-- GP adds value through introductions, hiring referrals, advisory support
+**Why**: Most mature, stable data - perfect for JSON conversion
 
-**Conspicuous Gaps**:
-- ❌ No independent validation of GP value-add claims
-- ❌ Missing 18 of 24 portfolio company investment details
-- ❌ 3 unnamed underperforming investments (opacity on failures)
-- ❌ Henry Bellew (co-GP) has zero documented portfolio involvement
+**What to include**:
+- Company names, sectors, investment dates
+- Valuations, funding rounds, MOICs
+- Co-investors
+- Source citations (with URLs)
 
-**Validation Methods Applied**:
-- ✅ Network analysis (quantified deeptech connections: 33% of 1000+)
-- ✅ Timeline construction (independent sources only, Tier 3)
-- ✅ Portfolio research (company-by-company deep dives, 14 done)
-- 🔄 Reference checks (targets identified, in progress)
-
----
-
-## Critical CTAs (Action Required)
-
-[Same CTA list as before, enhanced with phase information]
-
----
-
-## Analysis by Phase
-
-[Replace "Main Analyses" with phase-based navigation showing status and completion %]
-
-### Phase 1: Dataroom Analysis (GP Claims)
-- [Claims Inventory](1-dataroom/claims-inventory.md) ✅ Complete
-- [Evidence Assessment](1-dataroom/evidence-assessment.md) ✅ Complete
-- Status: 24 claims extracted, 100% classified by tier
-
-### Phase 2: Portfolio Validation (External Sources)
-- [Portfolio Assessment](2-portfolio/portfolio-assessment.md) 🔄 58% complete
-- [Companies Research](2-portfolio/companies/) 🔄 14 of 24 done
-- Status: 8 verified, 5 unverified, 1 contradicted
-
-### Phase 3: Network Analysis (Relationship Validation)
-- [Network Synthesis](3-network/network-synthesis.md) 🔄 40% complete
-- [Dillon's Network](3-network/dillon-dunteman/) ✅ Mapped
-- Status: Network exists, referral conversion unproven
-
-### Phase 4: Synthesis (CTAs & Recommendations)
-- [Marketing-to-Reality](4-synthesis/marketing-to-reality.md) ✅ Complete
-- [Investment Recommendation](4-synthesis/executive-summary.md) 🔄 Draft
-- Status: 7 CTAs generated, final recommendation pending
-
----
-
-## Terminology Guide
-
-[Same as before - keep Tier definitions, status indicators]
-```
-
----
-
-## Structured Data Schemas
-
-### claims-inventory.json
-
+**Example**:
 ```json
 {
-  "fund": "Hyperion Ventures Fund I",
-  "claims_extracted_date": "2025-11-12",
-  "total_claims": 24,
-  "total_sub_claims": 67,
-
-  "claims": [
+  "fund_name": "Hyperion Ventures Fund I",
+  "overall_rating": 7.5,
+  "companies": [
     {
-      "claim_id": "claim-1",
-      "category": "Sourcing Differentiation",
-      "main_claim": "Proprietary deal flow via deeptech network",
-      "evidence_tier": "tier-1",
-      "source_file": "1-dataroom/source-materials/Sourcing Differentiation.md",
-      "source_page": 1,
-
-      "sub_claims": [
+      "id": "figure-ai",
+      "name": "Figure AI",
+      "sector": "Robotics",
+      "description": "Humanoid robots for manufacturing",
+      "investment": {
+        "date": "2023-04-01",
+        "stage": "Pre-Seed",
+        "amount_usd": 500000,
+        "valuation_at_entry_usd": 42000000
+      },
+      "current_valuation": {
+        "amount_usd": 39500000000,
+        "date": "2024-09-15",
+        "source": "https://techcrunch.com/2024/09/15/figure-ai-series-c"
+      },
+      "moic": 94,
+      "co_investors": ["BMW i Ventures", "BlackRock", "Intel Capital", "Nvidia"],
+      "gp_relationship": {
+        "sourcing_claim": "Sourced via Tamarack Global relationship",
+        "value_add_claims": ["Hiring referrals", "Customer introductions"],
+        "verification_status": "partial"
+      },
+      "sources": [
         {
-          "claim_id": "claim-1.1",
-          "text": "50+ passive deeptech founder referrals per year",
-          "source_file": "1-dataroom/source-materials/Sourcing Differentiation.md",
-          "source_page": 3,
-          "evidence_tier": "tier-1",
-          "quantifiable": true,
-          "verification_method": "founder_interviews"
+          "type": "independent",
+          "url": "https://techcrunch.com/2024/09/15/figure-ai-series-c",
+          "title": "Figure AI raises Series C at $39.5B valuation",
+          "date": "2024-09-15"
         },
         {
-          "claim_id": "claim-1.2",
-          "text": "Potential to ramp to 300+ referrals with Hyperion brand",
-          "source_file": "1-dataroom/source-materials/Sourcing Differentiation.md",
-          "source_page": 3,
-          "evidence_tier": "tier-1",
-          "quantifiable": true,
-          "verification_method": "network_analysis"
+          "type": "independent",
+          "url": "https://www.bloomberg.com/news/bmw-deploys-figure-humanoids",
+          "title": "BMW Deploys Humanoid Robots in South Carolina Plant",
+          "date": "2024-08-20"
         }
       ]
     }
@@ -756,429 +499,758 @@ graph TD
 }
 ```
 
-### validation-map.json
+**Benefits**:
+- Can programmatically query: "Show all companies with >50x MOIC"
+- Easy to generate charts (MOIC distribution, sector breakdown)
+- Simple to compare to other funds
+- Automated validation (e.g., check all companies have independent sources)
 
+---
+
+### 2. network.json
+
+**Why**: Network statistics are quantitative and stable
+
+**What to include**:
+- Total connections count
+- Breakdown by category (Harvard, deeptech, VC/PE)
+- Claimed relationships and verification status
+
+**Example**:
 ```json
 {
-  "claim-1.1": {
-    "claim_text": "50+ referrals per year from deeptech network",
-    "phase_extracted": "1-dataroom",
-
-    "validation_attempts": [
-      {
-        "phase": "2-portfolio",
-        "result": "unverified",
-        "evidence_tier": "tier-3",
-        "file": "2-portfolio/portfolio-assessment.md",
-        "finding": "No portfolio company founders mentioned referrals in public sources"
-      },
-      {
-        "phase": "3-network",
-        "result": "partial",
-        "evidence_tier": "tier-3",
-        "file": "3-network/network-synthesis.md",
-        "finding": "Network exists (33% deeptech) but no referral conversion proof"
-      }
-    ],
-
-    "final_status": "unverified",
-    "ctas_generated": ["CTA-005"],
-
-    "evidence_chain": [
-      {
-        "phase": "1-dataroom",
-        "file": "1-dataroom/source-materials/Sourcing Differentiation.md",
-        "tier": "tier-1"
-      },
-      {
-        "phase": "3-network",
-        "file": "3-network/dillon-dunteman/deeptech-network/analysis.md",
-        "tier": "tier-3",
-        "finding": "Network exists but no referral proof"
-      }
-    ]
-  }
-}
-```
-
-### phase-status.json
-
-```json
-{
-  "phases": {
-    "1-dataroom": {
-      "status": "complete",
-      "completion_date": "2025-11-12",
-      "completion_percentage": 100,
-      "outputs": [
-        "claims-inventory.md",
-        "claims-inventory.json",
-        "evidence-assessment.md",
-        "validation-plan.md"
-      ],
-      "claims_extracted": 24,
-      "next_phase_ready": true
+  "gp_id": "dillon-dunteman",
+  "network_summary": {
+    "total_connections": 1000,
+    "harvard_alumni": 150,
+    "deeptech_pct": 33,
+    "vcpe_investors": 80
+  },
+  "claimed_relationships": [
+    {
+      "founder": "Brett Adcock",
+      "company": "Figure AI",
+      "relationship_type": "sourcing",
+      "claim": "Sourced via Tamarack Global relationship",
+      "verification_status": "partial",
+      "source": "dataroom/Sourcing Differentiation.md"
     },
-
-    "2-portfolio": {
-      "status": "in_progress",
-      "completion_percentage": 58,
-      "companies_researched": 14,
-      "companies_total": 24,
-      "claims_validated": 8,
-      "claims_contradicted": 1,
-      "blocking_issues": [
-        "Missing 10 company investment dates",
-        "Cannot verify GP value-add claims without founder interviews"
-      ],
-      "next_phase_ready": false
-    },
-
-    "3-network": {
-      "status": "in_progress",
-      "completion_percentage": 40,
-      "network_mapped": true,
-      "referral_conversion_proven": false,
-      "blocking_issues": [
-        "No proof of referral conversion (network → deals)",
-        "Cannot verify 6 claimed founder relationships"
-      ],
-      "next_phase_ready": false
-    },
-
-    "4-synthesis": {
-      "status": "in_progress",
-      "completion_percentage": 30,
-      "ctas_generated": 7,
-      "marketing_to_reality_complete": true,
-      "investment_recommendation_complete": false,
-      "blocking_issues": [
-        "Awaiting Phase 2 completion (80%+ needed)",
-        "Awaiting Phase 3 completion (80%+ needed)"
-      ]
+    {
+      "founder": "Ilyas Khan",
+      "company": "Quantinuum",
+      "relationship_type": "sourcing",
+      "claim": "Direct founder relationship",
+      "verification_status": "unverified",
+      "source": "dataroom/GP Bio.md"
     }
-  }
+  ]
 }
 ```
 
 ---
 
-## Visual Hierarchy & Diagrams
+### 3. timeline.json
 
-### Phase Workflow Diagram
+**Why**: Timeline is a sequence of events - perfect for structured data
 
-```mermaid
-graph LR
-    %% Phase 1: Dataroom
-    P1[Phase 1: Dataroom] --> C1[Claim 1.1: 50+ referrals/year]
-    P1 --> C2[Claim 2.1: Hiring referrals]
+**What to include**:
+- Date, event description, source
+- Event type (investment, exit, milestone)
 
-    %% Phase 2: Portfolio Validation
-    C1 --> P2V1{Phase 2: No evidence found}
-    C2 --> P2V2{Phase 2: No evidence found}
-
-    %% Phase 3: Network Validation
-    P2V1 --> P3V1{Phase 3: Network exists<br/>but no proof of conversion}
-
-    %% Phase 4: CTAs
-    P2V2 --> CTA1[CTA-001: Verify GP Relationships]
-    P3V1 --> CTA5[CTA-005: Network Analysis]
-
-    %% Evidence Tiers
-    P1 -.Tier 1 source.-> C1
-    P2V1 -.Tier 3 needed.-> CTA5
-    P2V2 -.Tier 3 needed.-> CTA1
-
-    style P1 fill:#e1f5ff
-    style P2V1 fill:#fff3cd
-    style P2V2 fill:#fff3cd
-    style P3V1 fill:#fff3cd
-    style CTA1 fill:#f8d7da
-    style CTA5 fill:#f8d7da
-```
-
-### Claims Validation Flow
-
-```mermaid
-graph TD
-    C1[Claim 1: Sourcing Differentiation] --> C1.1[Sub-claim 1.1: 50+ referrals/year]
-    C1 --> C1.2[Sub-claim 1.2: 300+ potential]
-    C1 --> C1.3[Sub-claim 1.3: Deeptech network depth]
-
-    C1.1 --> V1.1{Phase 2: ❓ Unverified}
-    C1.2 --> V1.2{Phase 2: ❓ Unverified}
-    C1.3 --> V1.3{Phase 3: ⚠️ Partial}
-
-    V1.1 --> P3[Phase 3: Network Analysis]
-    V1.3 --> P3
-
-    P3 --> CTA5[CTA-005: Network Analysis<br/>Validate referral conversion]
-
-    V1.2 --> CTA5
-
-    C2[Claim 2: Value-Add] --> C2.1[Hiring referrals]
-    C2 --> C2.2[VC introductions]
-    C2 --> C2.3[Advisory roles]
-
-    C2.1 --> V2.1{Phase 2: ❓ Unverified}
-    C2.2 --> V2.2{Phase 2: ❓ Unverified}
-    C2.3 --> V2.3{Phase 2: ❓ Unverified}
-
-    V2.1 --> CTA1[CTA-001: Verify GP Relationships<br/>Founder interviews needed]
-    V2.2 --> CTA1
-    V2.3 --> CTA1
-```
-
-### Evidence Tier Progression
-
-```mermaid
-graph LR
-    T1[Tier 1: Dataroom<br/>GP-controlled] --> P1[Phase 1:<br/>Claims Extraction]
-
-    P1 --> P2[Phase 2:<br/>Portfolio Validation]
-    P1 --> P3[Phase 3:<br/>Network Validation]
-
-    T2[Tier 2: Influenced<br/>Company sources] --> P2
-    T3[Tier 3: Independent<br/>Public sources] --> P2
-    T3 --> P3
-
-    P2 --> P4[Phase 4:<br/>Synthesis]
-    P3 --> P4
-
-    P4 --> R[Investment<br/>Recommendation]
-
-    style T1 fill:#f8d7da
-    style T2 fill:#fff3cd
-    style T3 fill:#d4edda
-    style P4 fill:#cfe2ff
-    style R fill:#d1ecf1
+**Example**:
+```json
+{
+  "timeline": [
+    {
+      "date": "2023-04-01",
+      "event": "Hyperion invests $500K in Figure AI pre-seed",
+      "event_type": "investment",
+      "source": "dataroom/Fund I.md",
+      "source_quality": "dataroom"
+    },
+    {
+      "date": "2024-02-26",
+      "event": "Figure AI raises $675M Series B at $2.6B valuation (OpenAI, Nvidia, Bezos)",
+      "event_type": "funding_round",
+      "source": "https://techcrunch.com/2024/02/26/figure-ai-series-b",
+      "source_quality": "independent"
+    }
+  ]
+}
 ```
 
 ---
 
-## Migration Plan
+### 4. claims.json
 
-### Phase 1: Create Phase Structure (Read-Only)
-1. Create phase directories: `0-context/`, `1-dataroom/`, `2-portfolio/`, `3-network/`, `4-synthesis/`, `_meta/`
-2. Keep existing `outputs/` and `research/` folders untouched during testing
-3. Validate directory structure before moving any files
+**Why**: Claims validation is core to analysis - needs structure for tracking
 
-### Phase 2: Extract Claims as Structured Data
-1. Process `dataroom/` materials → extract claims → `1-dataroom/claims-inventory.json`
-2. Generate `claims-inventory.md` (human-readable version with dataroom citations)
-3. Create `evidence-assessment.md` (tier classification per claim)
-4. Generate `validation-map.json` (claims → evidence → phase mapping)
-5. Create `validation-plan.md` (proposed external validation methods)
+**What to include**:
+- Claim ID, text, source
+- Validation status, evidence
+- Recommendations generated
 
-### Phase 3: Reorganize Existing Content by Phase
-
-**Phase 1 content**:
-- Move `dataroom/` → `1-dataroom/source-materials/`
-- Move `outputs/analysis/claims-inventory.md` → `1-dataroom/claims-inventory.md`
-
-**Phase 2 content**:
-- Move `research/deals/tier-1/` → `2-portfolio/companies/tier1-winners/`
-- Move `research/deals/tier-2/` → `2-portfolio/companies/tier2-emerging/`
-- Move `outputs/vc-research-summary.md` → `2-portfolio/portfolio-assessment.md`
-- Move `outputs/analysis/portfolio-assessment.md` → `2-portfolio/portfolio-assessment.md` (if different)
-- Create `funding-validation.md` from timeline data
-- Within each company folder, create `valuation-validation.md` and `gp-claims-check.md`
-- Prefix source files with `[TIER-X]` evidence tier
-
-**Phase 3 content** (people/ inside 3-network/):
-- Move `research/people/dillon-dunteman-*` → `3-network/dillon-dunteman/`
-- Move `outputs/network-analysis-harvard.md` → `3-network/dillon-dunteman/harvard-network/analysis.md`
-- Move `outputs/network-analysis-deeptech.md` → `3-network/dillon-dunteman/deeptech-network/analysis.md`
-- Move `outputs/linkedin-industry-analysis.md` → `3-network/dillon-dunteman/vcpe-network/analysis.md`
-- Move `research/people/linkedin/connections_harvard.csv` → `3-network/dillon-dunteman/harvard-network/raw-data/`
-- Move `research/people/linkedin/connections_deeptech.csv` → `3-network/dillon-dunteman/deeptech-network/raw-data/`
-- Move `research/people/linkedin/connections_vcpe.csv` → `3-network/dillon-dunteman/vcpe-network/raw-data/`
-- Move `research/people/henry-bellew-*` → `3-network/henry-bellew/`
-- Move `outputs/network-analysis.md` → `3-network/network-synthesis.md`
-- Create `network-stats.json` files per dimension
-
-**Phase 4 content**:
-- Move `outputs/claims-validation.md` → `4-synthesis/cross-phase-analysis/claims-validation-full.md`
-- Move `outputs/objective-timeline.md` → `4-synthesis/objective-timeline.md`
-- Move `outputs/reference-check-targets.md` → `4-synthesis/reference-check-targets.md`
-- Create `4-synthesis/ctas/` from extracted recommendations
-- Generate `executive-summary.md` (final synthesis)
-- Generate `marketing-to-reality.md` (GP claims → reality translation)
-- Create `discrepancy-tracker.md` (funding gaps, contradictions)
-
-**Cross-phase content**:
-- Move `research/process/` → `_meta/`
-
-### Phase 4: Add Phase Frontmatter
-
-Add to all analysis files:
-```yaml
-phase: "2-portfolio"
-validation_phase: "2-portfolio"
-claims_validated: ["claim-X.X"]
-evidence_tier: "tier-3"
+**Example**:
+```json
+{
+  "claims": [
+    {
+      "id": "gp-value-add-1",
+      "category": "value_add",
+      "text": "Dillon provides hiring referrals to portfolio companies",
+      "source": {
+        "file": "research/dataroom/GP Bio.md",
+        "page": 2,
+        "source_quality": "dataroom"
+      },
+      "validation": {
+        "status": "unverified",
+        "evidence": [
+          {
+            "type": "portfolio_research",
+            "finding": "No portfolio founders mention hiring help in public sources",
+            "source": "findings/portfolio-assessment.md"
+          }
+        ],
+        "recommendation_id": "verify-gp-relationships"
+      }
+    }
+  ]
+}
 ```
 
-### Phase 5: Generate Cross-Links
+---
 
-1. Create `_meta/claims-validation-tracker.csv`:
-   - Columns: claim_id | claim_text | phase_extracted | phase_validated | evidence_tier | status | source_file
-2. Update all CTAs with `claims_addressed` frontmatter
-3. Generate bidirectional links (claim → evidence, evidence → CTA)
-4. Generate `2-portfolio/data/claim-validation-map.json`
-5. Generate `3-network/data/claim-validation-map.json`
+### 5. gp-profiles.json
 
-### Phase 6: Create Navigation Hub
+**Why**: GP background data is factual and stable
 
-1. Create `0-context/README.md` (landing page with phase overview)
-2. Create `0-context/methodology.md` (evidence tiers, phase workflow explained)
-3. Create `0-context/traceability-guide.md` (how to trace CTAs)
-4. Add phase progress tracking to index
-5. Generate phase-to-phase dependency map
+**What to include**:
+- Name, background, experience
+- Network stats, involvement metrics
 
-### Phase 7: Update Eleventy Config
+**Example**:
+```json
+{
+  "gps": [
+    {
+      "id": "dillon-dunteman",
+      "name": "Dillon Dunteman",
+      "background": {
+        "education": "Harvard Business School MBA",
+        "prior_experience": [
+          {"company": "Vista Equity Partners", "role": "Investor", "years": 5},
+          {"company": "Firmament Capital", "role": "Associate", "years": 2}
+        ]
+      },
+      "portfolio_involvement": {
+        "companies_documented": 14,
+        "sourcing_claims": 6,
+        "value_add_documented": 0
+      },
+      "thought_leadership": {
+        "substack": "https://substack.com/@dillondunteman",
+        "posts_count": 45,
+        "topics": ["deeptech", "AI", "robotics"]
+      }
+    },
+    {
+      "id": "henry-bellew",
+      "name": "Henry Bellew",
+      "background": {
+        "education": "Unknown",
+        "prior_experience": []
+      },
+      "portfolio_involvement": {
+        "companies_documented": 0,
+        "red_flags": ["No public network", "Zero portfolio involvement"]
+      }
+    }
+  ]
+}
+```
 
-1. Update routes to reflect phase structure
-2. Add phase-based navigation menus
-3. Add claims validation tracker visualization
-4. Test build: `npm run build:tam`
+---
+
+## Navigation & Linking
+
+### Bi-Directional Links
+
+Every finding should link to:
+- **Supporting evidence** (drill down)
+- **Recommendations** (what to do)
+- **Related findings** (cross-reference)
+
+Every recommendation should link to:
+- **Driving findings** (why this matters)
+- **Evidence** (proof)
+- **Related recommendations** (dependencies)
+
+### Example: Recommendation File
+
+```markdown
+---
+id: verify-gp-relationships
+priority: critical
+status: pending
+---
+
+# Recommendation: Verify GP Relationships Through Independent Founder Interviews
+
+## Why This Matters (CRITICAL Risk Level)
+
+100% of Dillon's value-add evidence comes from dataroom sources only. No independent validation exists for:
+- Hiring referrals
+- VC introductions
+- Advisory support
+
+**Finding**: [Claims Validation Analysis →](../../findings/claims-validation.md#gp-value-add)
+
+**Evidence**:
+- [Figure AI Research →](../../research/companies/figure/gp-relationship.md) - No mention of Dillon in public sources
+- [Portfolio Assessment →](../../findings/portfolio-assessment.md#gp-relationships) - 14 companies researched, zero value-add documented
+
+**Data**: [claims.json](../../data/claims.json) (see claim IDs: gp-value-add-1, gp-value-add-2, gp-value-add-3)
+
+---
+
+## Recommended Action
+
+### 1. Founder Reference Checks
+
+Contact 6 founders Dillon claims relationships with:
+- Brett Adcock (Figure AI)
+- Ilyas Khan (Quantinuum)
+- [4 more from dataroom...]
+
+**Questions to ask**:
+- How did Hyperion source your deal?
+- What value-add has Dillon provided post-investment?
+- Can you provide specific examples of hiring help or introductions?
+
+### 2. Co-Investor Validation
+
+Reach out to tier-1 co-investors:
+- BMW i Ventures
+- BlackRock
+- Intel Capital
+
+**Questions**:
+- Did Dillon bring this deal or did you co-invest separately?
+- What's your assessment of Dillon's network and capabilities?
+
+---
+
+## Expected Timeline
+
+2-3 weeks (founder outreach, scheduling, calls)
+
+---
+
+## Related Recommendations
+
+- [Validate Figure AI Execution →](validate-figure-execution.md) (customer claims verification)
+- [Investigate Henry Bellew →](../high-priority/investigate-henry-bellew.md) (understand co-GP role)
+
+---
+
+## If This Recommendation Not Completed
+
+**Mitigation**: Discount GP value-add claims entirely, assess fund on portfolio quality alone
+
+**Impact on Rating**: Could drop from 7.5/10 to 6.5/10 (network differentiation unproven)
+```
+
+---
+
+## Iterative Analysis Support
+
+### The Problem
+
+Diligence is iterative. New information arrives that requires revisiting previous analyses:
+
+**Example scenarios**:
+1. **Crunchbase data arrives** → Need to update funding rounds, valuations
+2. **Reference check completed** → Update claims validation, GP assessment
+3. **New meeting notes** → May contradict earlier findings
+4. **Portfolio company exit** → Update valuations, MOIC
+
+Current structure doesn't support this well.
+
+---
+
+### The Solution
+
+**1. Version Snapshots**
+
+When updating an analysis, save previous version:
+```
+findings/
+├── portfolio-assessment.md           (current version)
+└── _archive/
+    ├── portfolio-assessment-2025-11-15.md (before Crunchbase data)
+    └── portfolio-assessment-2025-11-10.md (before reference checks)
+```
+
+**2. Change Log**
+
+Track what changed and why in `_process/change-log.md`:
+
+```markdown
+# Analysis Change Log
+
+## 2025-11-17: Crunchbase Data Integration
+
+**Data Source Added**: Crunchbase export (24 companies)
+
+**Analyses Updated**:
+- `findings/portfolio-assessment.md` - Added 6 missing investment dates
+- `data/portfolio.json` - Updated funding rounds for 10 companies
+- `findings/claims-validation.md` - Verified 2 additional GP claims
+
+**Key Changes**:
+- Figure AI investment date corrected: 2023-04-01 (was estimated as Q2 2023)
+- Quantinuum Series B confirmed: $300M at $5B valuation
+- 3 companies had valuation discrepancies (GP claimed higher than Crunchbase)
+
+**Findings Impact**:
+- Portfolio rating: No change (7.5/10)
+- Critical recommendations: No change
+- New concern: Valuation discrepancies require investigation
+
+**Recommendation Updates**:
+- Added: `recommendations/medium-priority/investigate-valuation-gaps.md`
+
+**Archived Versions**:
+- `findings/_archive/portfolio-assessment-2025-11-15.md`
+- `data/_archive/portfolio-2025-11-15.json`
+
+---
+
+## 2025-11-15: Reference Check - Figure AI
+
+**Data Source Added**: Phone call with Brett Adcock (Figure AI founder)
+
+**Analyses Updated**:
+- `findings/claims-validation.md` - Updated GP value-add claims
+- `recommendations/critical/verify-gp-relationships.md` - Marked as in-progress
+
+**Key Changes**:
+- **CONTRADICTED**: Brett confirmed Dillon did NOT source the deal (Tamarack introduced directly)
+- **VERIFIED**: Dillon provided 2 engineering hiring referrals (both hired)
+- **UNVERIFIED**: Customer introduction claims (Brett wouldn't comment)
+
+**Findings Impact**:
+- Sourcing claim downgraded from "unverified" to "contradicted"
+- Value-add partially verified (hiring help confirmed)
+- Portfolio rating: No change (7.5/10)
+
+**Recommendation Updates**:
+- `verify-gp-relationships.md` updated: 5 remaining founders to check
+
+**Archived Versions**:
+- `findings/_archive/claims-validation-2025-11-14.md`
+```
+
+**3. Data Update Tracking**
+
+Track when new data sources arrive in `_process/data-updates.md`:
+
+```markdown
+# Data Source Updates
+
+| Date | Source | Files Added | Analyses Affected |
+|------|--------|-------------|-------------------|
+| 2025-11-17 | Crunchbase export | `research/dataroom/crunchbase-export.csv` | portfolio-assessment, claims-validation |
+| 2025-11-15 | Reference check (Brett Adcock) | `research/companies/figure/reference-check-founder.md` | claims-validation |
+| 2025-11-10 | Meeting notes (Dillon) | `research/people/dillon-dunteman/meeting-notes-2025-11-10.md` | gp-analysis |
+```
+
+**4. Impact Assessment**
+
+When new data arrives, identify which analyses need updating:
+
+**Crunchbase data** affects:
+- ✅ `findings/portfolio-assessment.md` (funding rounds, valuations)
+- ✅ `data/portfolio.json` (structured company data)
+- ✅ `findings/timeline.md` (investment dates)
+- ❌ `findings/network-analysis.md` (not affected)
+
+**Reference check** affects:
+- ✅ `findings/claims-validation.md` (GP claims)
+- ✅ `findings/portfolio-assessment.md` (GP relationship quality)
+- ✅ `recommendations/critical/verify-gp-relationships.md` (progress update)
+- ❌ `findings/network-analysis.md` (not affected)
+
+---
+
+## Incremental Migration Path
+
+**Goal**: Don't migrate everything at once - do it incrementally to minimize disruption
+
+---
+
+### Step 1: Create New Structure (No File Moves)
+
+**Time**: 30 minutes
+
+**What to do**:
+```bash
+cd users/tam/hyperion/
+mkdir -p data findings recommendations/{critical,high-priority,medium-priority} research/{companies,people,dataroom} _process
+```
+
+**Result**: Empty folders created, existing files untouched
+
+**Test**: Verify folders exist
+
+---
+
+### Step 2: Create Executive Summary (index.md)
+
+**Time**: 1-2 hours
+
+**What to do**:
+- Create `index.md` using template above
+- Link to existing files in `outputs/` and `research/`
+- Don't move any files yet
+
+**Result**: New entry point that links to current structure
+
+**Test**: Open `index.md` in browser, verify all links work
+
+---
+
+### Step 3: Extract Structured Data (portfolio.json)
+
+**Time**: 2-3 hours
+
+**What to do**:
+- Create `data/portfolio.json` by extracting data from `outputs/vc-research-summary.md`
+- Use JSON schema from "Structured Data Opportunities" section
+- Include source citations
+
+**Result**: `data/portfolio.json` exists, markdown file unchanged
+
+**Test**: Validate JSON schema, verify data completeness
+
+---
+
+### Step 4: Create First Recommendation File
+
+**Time**: 1 hour
+
+**What to do**:
+- Create `recommendations/critical/verify-gp-relationships.md`
+- Use template from "Navigation & Linking" section
+- Link back to existing analysis files
+
+**Result**: One recommendation file exists, demonstrates navigation pattern
+
+**Test**: Follow links from index.md → recommendation → findings → sources
+
+---
+
+### Step 5: Migrate One Finding (claims-validation.md)
+
+**Time**: 1 hour
+
+**What to do**:
+- Copy `outputs/claims-validation.md` → `findings/claims-validation.md`
+- Update links to point to new structure
+- Leave original in `outputs/` for now
+
+**Result**: One finding file in new location, original preserved
+
+**Test**: Verify links work, no broken references
+
+---
+
+### Step 6: Migrate One Company (Figure AI)
+
+**Time**: 1 hour
+
+**What to do**:
+- Copy `research/deals/tier-1/figure/` → `research/companies/figure/`
+- Rename/reorganize files to match new structure (overview.md, funding-history.md, gp-relationship.md)
+- Leave original in `research/deals/` for now
+
+**Result**: One company in new location, demonstrates company file structure
+
+**Test**: Verify links from findings/portfolio-assessment.md work
+
+---
+
+### Step 7: Migrate Dataroom
+
+**Time**: 30 minutes
+
+**What to do**:
+- Copy `dataroom/` → `research/dataroom/`
+- Update links in analysis files
+- Can delete original `dataroom/` folder
+
+**Result**: Dataroom in final location
+
+**Test**: Verify all links to dataroom files work
+
+---
+
+### Step 8: Migrate All Findings
+
+**Time**: 2-3 hours
+
+**What to do**:
+- Copy all files from `outputs/` → `findings/`
+- Rename files to match new naming conventions
+- Update internal links
+- Leave originals in `outputs/` for comparison
+
+**Result**: All findings in new location
+
+**Test**: Spot-check links, verify no broken references
+
+---
+
+### Step 9: Migrate All Companies
+
+**Time**: 3-4 hours
+
+**What to do**:
+- Copy all from `research/deals/tier-1/` and `research/deals/tier-2/` → `research/companies/`
+- Remove "tier-1" and "tier-2" terminology
+- Reorganize files within each company folder
+- Can delete original `research/deals/` after verification
+
+**Result**: All company research in new location
+
+**Test**: Verify navigation from index.md works for all companies
+
+---
+
+### Step 10: Migrate GP/Network Research
+
+**Time**: 2 hours
+
+**What to do**:
+- Copy `research/people/` → `research/people/` (mostly rename/reorganize)
+- Consolidate Dillon analyses into fewer files
+- Can delete original files after verification
+
+**Result**: GP research in final location
+
+**Test**: Verify network analysis links work
+
+---
+
+### Step 11: Create Process Documentation
+
+**Time**: 1-2 hours
+
+**What to do**:
+- Create `_process/methodology.md`
+- Create `_process/analysis-log.md`
+- Create `_process/workflows-used.md`
+- Create `_process/change-log.md` (initial entry)
+
+**Result**: Process documentation exists
+
+**Test**: Review for completeness
+
+---
+
+### Step 12: Create Remaining Structured Data
+
+**Time**: 2-3 hours
+
+**What to do**:
+- Create `data/network.json`
+- Create `data/timeline.json`
+- Create `data/claims.json`
+- Create `data/gp-profiles.json`
+
+**Result**: All structured data files exist
+
+**Test**: Validate JSON schemas, verify data completeness
+
+---
+
+### Step 13: Create Remaining Recommendations
+
+**Time**: 2-3 hours
+
+**What to do**:
+- Create all recommendation files in `recommendations/`
+- Organize by priority (critical, high-priority, medium-priority)
+- Ensure full traceability (links to findings and sources)
+
+**Result**: All recommendations surfaced
+
+**Test**: Navigate from index.md → recommendation → evidence
+
+---
+
+### Step 14: Update Eleventy Config
+
+**Time**: 1 hour
+
+**What to do**:
+- Update `sites/tam/.eleventy.js` to recognize new structure
+- Ensure `/hyperion/` routes to `index.md`
+- Test JSON file passthrough
+- Update navigation menus
+
+**Result**: Site builds with new structure
+
+**Test**: `npm run build:tam` succeeds, review site locally
+
+---
+
+### Step 15: Delete Old Structure
+
+**Time**: 30 minutes
+
+**What to do**:
+- Delete `outputs/` folder (all content migrated to `findings/`)
+- Delete `research/deals/` folder (migrated to `research/companies/`)
+- Delete `research/process/` folder (migrated to `_process/`)
+
+**Result**: Clean, new structure only
+
+**Test**: Verify site still builds, no broken links
+
+---
+
+### Step 16: Deploy and Monitor
+
+**Time**: 30 minutes
+
+**What to do**:
+- Commit changes: `git add . && git commit -m "Reorganize hyperion folder to output-focused structure"`
+- Push to GitHub: `git push`
+- Monitor GitHub Actions build
+- Verify deployment to Cloudflare Pages
+
+**Result**: New structure live
+
+**Test**: Visit https://tam.pages.dev/hyperion/ and verify everything works
+
+---
+
+### Migration Timeline Summary
+
+| Step | Description | Time | Cumulative |
+|------|-------------|------|------------|
+| 1 | Create folders | 30 min | 30 min |
+| 2 | Executive summary | 1-2 hrs | 2.5 hrs |
+| 3 | portfolio.json | 2-3 hrs | 5.5 hrs |
+| 4 | First recommendation | 1 hr | 6.5 hrs |
+| 5 | Migrate one finding | 1 hr | 7.5 hrs |
+| 6 | Migrate one company | 1 hr | 8.5 hrs |
+| 7 | Migrate dataroom | 30 min | 9 hrs |
+| 8 | Migrate all findings | 2-3 hrs | 12 hrs |
+| 9 | Migrate all companies | 3-4 hrs | 16 hrs |
+| 10 | Migrate GP research | 2 hrs | 18 hrs |
+| 11 | Process docs | 1-2 hrs | 20 hrs |
+| 12 | Remaining JSON files | 2-3 hrs | 23 hrs |
+| 13 | Remaining recommendations | 2-3 hrs | 26 hrs |
+| 14 | Update Eleventy | 1 hr | 27 hrs |
+| 15 | Delete old structure | 30 min | 27.5 hrs |
+| 16 | Deploy | 30 min | **28 hrs** |
+
+**Total**: ~28 hours of work
+
+**Recommended pace**:
+- Week 1: Steps 1-7 (9 hours) - Create structure, migrate high-value files
+- Week 2: Steps 8-11 (11 hours) - Migrate bulk content
+- Week 3: Steps 12-14 (8 hours) - Structured data, recommendations
+- Week 4: Steps 15-16 (1 hour) - Cleanup and deploy
 
 ---
 
 ## Benefits Summary
 
-### For User Experience
+### For Viewing Outputs
 
 **Before**:
-- Navigate to `users/tam/hyperion/outputs/claims-validation.md`
-- Read through entire document
-- Try to remember which issues need follow-up
-- Switch to `vc-research-summary.md` to cross-reference
-- Manually connect dots between analyses
+- Start in `users/tam/hyperion/outputs/` (3 levels deep)
+- Read `claims-validation.md`, `portfolio-assessment.md`, `network-analysis.md` separately
+- Manually synthesize findings
+- Hunt for recommendations scattered across files
 
 **After**:
-- Land on `users/tam/hyperion/0-context/README.md`
-- See phase progress dashboard immediately
-- Navigate by phase (1 → 2 → 3 → 4)
-- See which phase validated which claims
-- Process frontmatter shows "how was this made?" for auditability
+- Start at `users/tam/hyperion/index.md` (executive summary)
+- See status, findings, and recommendations immediately
+- Click through to details only if needed
+- Clear navigation: summary → finding → evidence → sources
 
-### For Iteration/Updates
+---
+
+### For Iterative Analysis
 
 **Before**:
-- User provides new data (e.g., Crunchbase/PitchBook exports)
-- Unclear which analysis to update
-- No documentation of what inputs were used originally
-- Manual search for related files
+- New data arrives (e.g., Crunchbase export)
+- Unclear which files to update
+- No tracking of what changed
+- Risk of inconsistencies between files
 
 **After**:
-- Process frontmatter shows exact inputs/workflow used
-- Update inputs (add Crunchbase data to `2-portfolio/data/`)
-- Re-run workflow with version tracking in `_meta/data-update-history.md`
-- validation-map.json shows which claims need re-validation
-- Change log in phase indices shows what's new
+- New data arrives → logged in `_process/data-updates.md`
+- Identify affected analyses (documented process)
+- Update analyses → archive old versions
+- Track changes in `_process/change-log.md`
+- Structured data (JSON) easier to update programmatically
+
+---
 
 ### For Stakeholder Communication
 
 **Before**:
-- Send 5 separate markdown files
-- Stakeholder reads linearly, misses CTAs
+- Share 5+ markdown files
+- Stakeholder reads linearly
+- Must read everything to understand recommendations
 - Follow-up questions: "What should I do with this?"
 
 **After**:
-- Send single link: `users/tam/hyperion/0-context/README.md`
-- Phase progress dashboard → CTAs → Deep dives (drill-down navigation)
-- Clear "Phase 4 blocked until Phase 2 reaches 80%" messaging
-- Each CTA has "why this matters" + "what happens if we skip this"
-
-### For Automation (NEW)
-
-**Before**:
-- No structured data for programmatic analysis
-- Can't generate automated reports
-- Can't track validation progress systematically
-
-**After**:
-- JSON files enable automated cross-referencing
-- validation-map.json tracks claim → evidence → status
-- phase-status.json enables automated progress reports
-- Can build dashboards showing validation coverage
-- Can programmatically identify gaps (claims with only Tier 1 evidence)
+- Share single link: `https://tam.pages.dev/hyperion/`
+- Executive summary answers: Where are we? What did we learn? What should we do?
+- Stakeholder can drill down into details only if interested
+- Recommendations clearly prioritized (critical, high, medium)
 
 ---
 
-## Implementation Guide
+### For Data Reuse
 
-### Phase 1 Setup Checklist
+**Before**:
+- Data mixed with narrative in markdown
+- Hard to extract for comparisons (e.g., compare Hyperion to Craft Ventures)
+- Can't generate charts or visualizations
+- No programmatic access
 
-- [ ] Create `1-dataroom/` directory structure
-- [ ] Move dataroom files to `source-materials/`
-- [ ] Extract claims from dataroom → `claims-inventory.json`
-- [ ] Generate `claims-inventory.md` with dataroom citations
-- [ ] Create `evidence-assessment.md` (tier classification)
-- [ ] Create `validation-plan.md` (how to validate each claim)
-- [ ] Generate `phase1-index.md` summary
-- [ ] Validate: 100% of claims have tier classifications
-
-### Phase 2 Setup Checklist
-
-- [ ] Create `2-portfolio/` directory structure
-- [ ] Move company research folders
-- [ ] Rename `vc-research-summary.md` → `portfolio-assessment.md`
-- [ ] Create `valuation-validation.md` per company
-- [ ] Create `gp-claims-check.md` per company
-- [ ] Prefix source files with `[TIER-X]`
-- [ ] Generate `funding-rounds.json`
-- [ ] Generate `claim-validation-map.json`
-- [ ] Create `portfolio-claims-validated.md`
-- [ ] Generate `phase2-index.md` summary
-- [ ] Validate: 80%+ of material claims verified/contradicted
-
-### Phase 3 Setup Checklist
-
-- [ ] Create `3-network/` directory structure
-- [ ] Move `dillon-dunteman/` research inside `3-network/`
-- [ ] Move `henry-bellew/` research inside `3-network/`
-- [ ] Reorganize network analyses by dimension
-- [ ] Move LinkedIn CSVs to `raw-data/` folders
-- [ ] Generate `network-stats.json` per dimension
-- [ ] Create `network-claims-validated.md`
-- [ ] Generate `network-dimension-summary.json`
-- [ ] Generate `phase3-index.md` summary
-- [ ] Validate: Network claims validated with concrete examples
-
-### Phase 4 Setup Checklist
-
-- [ ] Create `4-synthesis/` directory structure
-- [ ] Move timeline and reference targets
-- [ ] Create CTA files (7 total)
-- [ ] Generate `executive-summary.md`
-- [ ] Generate `marketing-to-reality.md`
-- [ ] Create `discrepancy-tracker.md`
-- [ ] Create `unresolved-questions.md`
-- [ ] Move `claims-validation.md` to `cross-phase-analysis/`
-- [ ] Generate `phase4-index.md` summary
-- [ ] Validate: Clear investment recommendation with mitigations
+**After**:
+- Structured data in JSON files
+- Easy to query: "Show all companies with >50x MOIC"
+- Can generate charts (MOIC distribution, sector breakdown, co-investor overlap)
+- Can compare funds programmatically
+- Automated validation (check all companies have independent sources)
 
 ---
 
 ## Open Questions
 
-1. **Benchmarking**: Do you have access to Craft Ventures or Basis Set data rooms to calibrate the rating system?
+1. **Terminology**: Are "dataroom materials", "external research", and "independent sources" clear enough? Or do we still need to explain evidence quality somewhere?
 
-2. **Phase-Gating**: Should we enforce phase-gating (block Phase 4 final recommendation until Phase 2/3 reach 80%+ completion)?
+2. **Iteration Workflow**: When new data arrives, should there be a checklist of "analyses to review"? Or is the change log sufficient?
 
-3. **Validation Map Auto-Update**: Should `validation-map.json` auto-update when new evidence is added, or manual updates?
+3. **Archiving**: How many versions should we keep in `findings/_archive/`? (e.g., last 3 versions only?)
 
-4. **Tegus/AlphaSense**: You mentioned these datasets would be "huge" — add CTA for "obtain Tegus interviews on portfolio companies"?
+4. **JSON Schema Validation**: Should we create formal JSON schemas and validate in CI/CD? (from architecture-recommendations.md)
 
-5. **Google Calendar/Affinity**: You wished for calendar API data to see "when did connections form" — add this as a data gap CTA?
+5. **Benchmarking Data**: For fund comparisons, do you have access to similar funds' data in JSON format? (e.g., Craft Ventures, Basis Set)
 
-6. **Visual Timeline**: Do you want an actual visual timeline (e.g., interactive D3.js chart) vs the current markdown table format?
+6. **Eleventy Integration**: Should JSON files auto-render as HTML tables? Or just provide download link?
 
-7. **Reference Check Workflow**: Once you complete founder interviews, do you want a workflow to integrate those results back into the analysis?
-
-8. **Crunchbase/PitchBook Integration**: When this data arrives, should it auto-update `funding-rounds.json` or require manual review?
+7. **Process Documentation**: Should `_process/methodology.md` include the old "tier" framework for reference? Or completely remove that terminology?
 
 ---
 
@@ -1186,51 +1258,37 @@ evidence_tier: "tier-3"
 
 ### Recommended Immediate Actions
 
-1. **Review this proposal** — Does the phase-based structure make sense? Any changes needed?
+**If you approve this approach**:
 
-2. **Approve phase-based structure** — Confirm that people/ inside 3-network/ is correct (network analysis IS analyzing Dillon's network)
+1. **Review this proposal** - Does the output-focused structure make sense? Any changes needed?
 
-3. **Decide on phase-gating policy** — Should Phase 4 final recommendation be blocked until Phase 2/3 reach 80%?
+2. **Start incremental migration** - Follow Step 1 (create folders) and Step 2 (executive summary)
 
-4. **Prioritize CTAs** — Which of the 7 CTAs should be worked on first?
-   - Recommended: CTA-001 (verify GP relationships) + CTA-002 (Figure AI validation)
+3. **Test navigation** - Verify the executive summary → finding → evidence flow works
 
-5. **Identify benchmark data** — Can you provide access to a known fund's data room to calibrate the rating system?
+4. **Decide on JSON priority** - Which structured data file is most valuable? Start there
 
-### Implementation Timeline (if approved)
-
-**Week 1: Phase Structure + Claims Extraction**
-- Create directory structure (Phase 1-2)
-- Extract claims as JSON (Phase 2)
-- Time: 8-10 hours
-
-**Week 2: File Migration + Frontmatter**
-- Reorganize files by phase (Phase 3)
-- Add phase frontmatter (Phase 4)
-- Time: 6-8 hours
-
-**Week 3: Cross-Links + Navigation**
-- Generate validation maps (Phase 5)
-- Create navigation hub (Phase 6)
-- Time: 6-8 hours
-
-**Week 4: Testing + Eleventy Updates**
-- Update Eleventy config (Phase 7)
-- Test build and fix issues
-- Time: 4-6 hours
-
-**Total**: 24-32 hours of work
+5. **Set timeline** - Commit to migration pace (e.g., 10 hours/week = 3 weeks)
 
 ---
 
-**Ready to proceed?** Let me know if you want to:
-- A) Implement the full reorganization (recommended)
-- B) Start with just Phase 1-2 setup (claims extraction + portfolio)
-- C) Modify the structure first (feedback needed)
-- D) See a proof of concept on one phase first
+**If you want to see a proof of concept first**:
+
+1. I can implement Steps 1-6 (create structure, executive summary, one recommendation, one finding, one company)
+
+2. You review the working prototype
+
+3. We iterate on the approach
+
+4. Then proceed with full migration
+
+---
+
+**Questions or feedback?** Let me know what adjustments you'd like to see.
 
 ---
 
 **Version History**:
-- **v1.0** (2025-11-17): Initial proposal with document-type organization
-- **v2.0** (2025-11-16): Complete restructure to phase-based analytical workflow with full traceability
+- **v3.0** (2025-11-17): Complete rewrite to output-focused structure, removed phase/tier terminology, added iterative analysis support
+- **v2.0** (2025-11-16): Phase-based analytical workflow (deprecated)
+- **v1.0** (2025-11-15): Initial proposal (deprecated)
