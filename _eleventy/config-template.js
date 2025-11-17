@@ -303,6 +303,35 @@ module.exports = function(eleventyConfig, username) {
     return buildTree(userDir);
   });
 
+  // Add computed breadcrumb data for all pages
+  eleventyConfig.addGlobalData("eleventyComputed", {
+    breadcrumbHtml: (data) => {
+      // Skip if no page URL or if it's the root
+      if (!data.page || !data.page.url || data.page.url === '/') {
+        return null;
+      }
+
+      const parts = data.page.url.split('/').filter(p => p);
+      if (parts.length === 0) {
+        return null;
+      }
+
+      let breadcrumb = '<a href="/">Home</a>';
+      let currentPath = '';
+
+      parts.forEach((part) => {
+        currentPath += '/' + part;
+        const formattedPart = part
+          .replace(/-/g, ' ')
+          .replace(/_/g, ' ')
+          .replace(/\b\w/g, l => l.toUpperCase());
+        breadcrumb += `<span>/</span> <a href="${currentPath}/">${formattedPart}</a>`;
+      });
+
+      return breadcrumb;
+    }
+  });
+
   return {
     dir: {
       input: `../../users/${username}`,

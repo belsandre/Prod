@@ -331,10 +331,10 @@
         </div>
     </header>
 
-    {% if breadcrumb %}
+    {% if breadcrumb or breadcrumbHtml %}
     <div class="container">
         <div class="breadcrumb">
-            {{ breadcrumb | safe }}
+            {{ (breadcrumb or breadcrumbHtml) | safe }}
         </div>
     </div>
     {% endif %}

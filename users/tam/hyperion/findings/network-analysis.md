@@ -462,7 +462,7 @@ Interview questions:
 ---
 
 **Related Documents**:
-- [Claims Validation](claims-validation.md) — Cross-reference claimed relationships against evidence
+- [Claims Validation](Prod/users/tam/hyperion/findings/claims-validation.md) — Cross-reference claimed relationships against evidence
 - [GP Analysis](gp-analysis.md) — Dillon assessment including network-based deal flow claims
-- [Portfolio Assessment](portfolio-assessment.md) — Company-by-company sourcing analysis
+- [Portfolio Assessment](Prod/users/tam/hyperion/findings/portfolio-assessment.md) — Company-by-company sourcing analysis
 - [Network Data](/_data/network.json) — Complete connection mappings and firm categorizations

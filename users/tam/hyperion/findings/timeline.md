@@ -838,8 +838,8 @@ This chronological timeline reconstructs the development of Dillon Dunteman's in
 ---
 
 **Related Documents**:
-- [Claims Validation](claims-validation.md) — Cross-reference timeline against GP marketing claims
+- [Claims Validation](Prod/users/tam/hyperion/findings/claims-validation.md) — Cross-reference timeline against GP marketing claims
 - [GP Analysis](gp-analysis.md) — Dillon assessment with timeline-based concerns
-- [Portfolio Assessment](portfolio-assessment.md) — Company outcomes with timeline context
-- [Network Analysis](network-analysis.md) — LinkedIn connections mapped to deal flow timing
+- [Portfolio Assessment](Prod/users/tam/hyperion/findings/portfolio-assessment.md) — Company outcomes with timeline context
+- [Network Analysis](Prod/users/tam/hyperion/findings/network-analysis.md) — LinkedIn connections mapped to deal flow timing
 - [Timeline Data](/_data/timeline.json) — Complete 47-event structured timeline
