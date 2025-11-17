@@ -75,6 +75,8 @@ layout: layouts/base.njk
     .table-wrapper {
         overflow-x: auto;
         margin-top: 1.5rem;
+        max-width: 100%;
+        -webkit-overflow-scrolling: touch;
     }
 
     .csv-table {
@@ -108,13 +110,20 @@ layout: layouts/base.njk
     }
 
     @media (max-width: 768px) {
+        .table-wrapper {
+            margin-left: -1rem;
+            margin-right: -1rem;
+            max-width: calc(100vw - 30px);
+        }
+
         .csv-table {
             font-size: 0.8rem;
         }
 
         .csv-table th,
         .csv-table td {
-            padding: 0.5rem;
+            padding: 0.5rem 0.35rem;
+            font-size: 0.75rem;
         }
     }
 </style>
