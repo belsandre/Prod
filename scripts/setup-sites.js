@@ -56,7 +56,7 @@ module.exports = function(eleventyConfig) {
     version: "1.0.0",
     private: true,
     scripts: {
-      "build": "eleventy",
+      "build": `eleventy && node ../../scripts/copy-functions.js ${username}`,
       "serve": "eleventy --serve",
       "debug": "DEBUG=Eleventy* eleventy"
     }
