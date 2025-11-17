@@ -105,12 +105,22 @@ Support versioning:
 Avoid introducing terms that need explanation:
 - ❌ Tier 1/2/3 evidence (requires glossary)
 - ❌ Phase 1/2/3/4 (requires workflow diagram)
-- ✅ Dataroom materials (clear)
-- ✅ External research (clear)
-- ✅ Independent sources (clear)
+- ✅ Dataroom materials (private info provided by target)
+- ✅ Independent sources (journalism, verified databases - objective)
+- ✅ Target sources (publicly accessible but target-controlled/influenced)
+
+**Source Type Hierarchy** (from most to least reliable):
+1. **Independent sources**: TechCrunch, Bloomberg, Crunchbase, verified journalism (objective, third-party)
+2. **Target sources**: GP's LinkedIn, Substack, social media; company websites, press releases (externally acquired, target-influenced)
+3. **Dataroom materials**: GP-provided private documents, confidential materials (private, target-provided)
+
+**Key Distinction**:
+- **Dataroom materials**: Private information provided BY the target
+- **Target sources**: Public information controlled/influenced BY the target (but externally acquired)
+- **Independent sources**: Information created by third parties, not controlled by target
 
 Use terminology the industry already knows:
-- Dataroom, due diligence, reference checks, portfolio companies, co-investors
+- Dataroom, due diligence, reference checks, portfolio companies, co-investors, target sources
 
 ---
 
@@ -188,97 +198,98 @@ users/tam/hyperion/
 │   │                                   # - Critical recommendations (what to do next)
 │   │                                   # - Links to drill down into details
 │
-├── data/                               # 📊 STRUCTURED DATA (JSON for mature outputs)
-│   ├── portfolio.json                  # Companies, valuations, funding rounds, co-investors
-│   ├── network.json                    # GP connections, relationship strength, dimensions
-│   ├── timeline.json                   # Key events with dates and sources
-│   ├── claims.json                     # GP claims + validation status + evidence links
-│   └── gp-profiles.json                # Dillon, Henry backgrounds and involvement
+├── research/                           # 📚 RAW EVIDENCE (what we gathered)
+│   ├── dataroom/                       # Private materials provided by target
+│   │   ├── GP Bio.md
+│   │   ├── Fund I.md
+│   │   ├── Sourcing Differentiation.md
+│   │   ├── Portfolio Company Profiles.md
+│   │   └── [all dataroom files...]
+│   │
+│   ├── companies/                      # Per-company research
+│   │   ├── figure/
+│   │   │   ├── independent-research.md # Independent sources (TechCrunch, Bloomberg, etc.)
+│   │   │   ├── target-sources.md       # Company website, press releases, pitch deck
+│   │   │   └── funding-history.md      # Verified funding rounds from Crunchbase
+│   │   ├── quantinuum/
+│   │   ├── normal-computing/
+│   │   └── [24 total companies...]
+│   │
+│   └── people/                         # GP and network raw data
+│       ├── dillon-dunteman/
+│       │   ├── independent-research.md # Third-party sources (Vista alumni, news)
+│       │   ├── target-sources/         # Target-controlled public info
+│       │   │   ├── linkedin-profile.md # GP's LinkedIn
+│       │   │   ├── linkedin-export/    # LinkedIn connection data (CSV)
+│       │   │   │   ├── connections_1k.csv
+│       │   │   │   ├── connections_harvard.csv
+│       │   │   │   └── connections_deeptech.csv
+│       │   │   └── substack-archive/   # GP's Substack posts
+│       │   └── background-sources.md   # Vista, Firmament research
+│       │
+│       └── henry-bellew/
+│           └── research-notes.md       # What we found (or didn't find)
 │
-├── findings/                           # 📝 ANALYSIS OUTPUTS (what we learned)
-│   ├── portfolio-assessment.md         # Portfolio quality, winners, concerns
-│   ├── network-analysis.md             # GP network depth and relationship validation
-│   ├── claims-validation.md            # Which GP claims verified/unverified
-│   ├── timeline.md                     # Chronological fund narrative
-│   ├── gp-analysis.md                  # Dillon background, Henry absence
+├── findings/                           # 📊 ANALYSIS (how we interpreted the evidence)
+│   ├── portfolio-assessment.md         # ANALYSIS: Portfolio quality, winners, concerns
+│   ├── network-analysis.md             # ANALYSIS: GP network depth and relationship validation
+│   ├── claims-validation.md            # ANALYSIS: Which GP claims verified/unverified
+│   ├── timeline.md                     # ANALYSIS: Chronological fund narrative with interpretation
+│   ├── gp-analysis.md                  # ANALYSIS: Dillon background, Henry absence
+│   │
+│   ├── _data/                          # 📊 STRUCTURED DATA (supports findings above)
+│   │   ├── portfolio.json              # Companies, valuations, funding rounds, co-investors
+│   │   ├── network.json                # GP connections, relationship strength, dimensions
+│   │   ├── timeline.json               # Key events with dates and sources
+│   │   ├── claims.json                 # GP claims + validation status + evidence links
+│   │   └── gp-profiles.json            # Dillon, Henry backgrounds and involvement
+│   │
+│   ├── _process/                       # 🔧 ANALYSIS METHODOLOGY (how we did the work)
+│   │   ├── methodology.md              # How to interpret evidence quality
+│   │   ├── analysis-log.md             # Chronological work done
+│   │   ├── data-updates.md             # When new data added, what changed
+│   │   ├── workflows-used.md           # Which workflows generated what
+│   │   └── change-log.md               # Version history of analyses
 │   │
 │   └── _archive/                       # Previous versions when analyses updated
 │       ├── portfolio-assessment-2025-11-15.md
 │       └── network-analysis-2025-11-10.md
 │
-├── recommendations/                    # 🎯 ACTIONABLE NEXT STEPS
-│   ├── critical/
-│   │   ├── verify-gp-relationships.md  # Founder reference checks
-│   │   └── validate-figure-execution.md # Verify customer deployment claims
-│   ├── high-priority/
-│   │   ├── investigate-henry-bellew.md  # Understand co-GP absence
-│   │   └── validate-customer-claims.md  # Cross-check deployment stories
-│   └── medium-priority/
-│       ├── benchmark-portfolio.md       # Compare to similar funds
-│       └── deep-dive-quantinuum.md      # Second-largest holding validation
-│
-├── research/                           # 📚 SUPPORTING EVIDENCE
-│   ├── companies/                      # Per-company deep dives
-│   │   ├── figure/
-│   │   │   ├── overview.md             # Company summary
-│   │   │   ├── funding-history.md      # Rounds, valuations, investors
-│   │   │   ├── gp-relationship.md      # How Dillon sourced, value-add claims
-│   │   │   └── sources/
-│   │   │       ├── techcrunch-series-c.md
-│   │   │       ├── bmw-partnership.md
-│   │   │       └── company-website.md
-│   │   ├── quantinuum/
-│   │   ├── normal-computing/
-│   │   └── [24 total companies...]
-│   │
-│   ├── people/                         # GP and network analysis
-│   │   ├── dillon-dunteman/
-│   │   │   ├── background.md           # Harvard, Vista, Firmament
-│   │   │   ├── thought-leadership.md   # Substack, public presence
-│   │   │   ├── network-harvard.md      # 150 alumni connections
-│   │   │   ├── network-deeptech.md     # 33% of connections
-│   │   │   ├── network-investors.md    # 80+ VC/PE relationships
-│   │   │   └── linkedin-data/
-│   │   │       ├── connections_1k.csv
-│   │   │       ├── connections_harvard.csv
-│   │   │       └── connections_deeptech.csv
-│   │   │
-│   │   └── henry-bellew/
-│   │       ├── background.md           # Co-GP research
-│   │       ├── portfolio-involvement.md # Zero documented involvement
-│   │       └── network-absence.md      # Why no LinkedIn data?
-│   │
-│   └── dataroom/                       # GP-provided materials
-│       ├── GP Bio.md
-│       ├── Fund I.md
-│       ├── Sourcing Differentiation.md
-│       ├── Portfolio Company Profiles.md
-│       └── [all dataroom files...]
-│
-└── _process/                           # 🔧 HOW WE GOT HERE (iteration support)
-    ├── analysis-log.md                 # Chronological work done
-    ├── data-updates.md                 # When new data added, what changed
-    ├── methodology.md                  # How to interpret evidence quality
-    ├── workflows-used.md               # Which workflows generated what
-    └── change-log.md                   # Version history of key analyses
+└── recommendations/                    # 🎯 ACTIONABLE NEXT STEPS (what to do)
+    ├── critical/
+    │   ├── verify-gp-relationships.md  # Founder reference checks
+    │   └── validate-figure-execution.md # Verify customer deployment claims
+    ├── high-priority/
+    │   ├── investigate-henry-bellew.md  # Understand co-GP absence
+    │   └── validate-customer-claims.md  # Cross-check deployment stories
+    └── medium-priority/
+        ├── benchmark-portfolio.md       # Compare to similar funds
+        └── deep-dive-quantinuum.md      # Second-largest holding validation
 ```
 
-**Navigation Flow**:
+**Navigation Flow - Full Traceability**:
 ```
 START: index.md (executive summary)
   ↓
-Critical Finding: "Verify GP relationships"
+Critical Recommendation: "Verify GP relationships"
   ↓
 Click → recommendations/critical/verify-gp-relationships.md
-  ↓
-Links to → findings/claims-validation.md ("100% of value-add claims unverified")
-  ↓
-Links to → research/companies/figure/gp-relationship.md
-  ↓
-Links to → research/companies/figure/sources/ (TechCrunch, LinkedIn, etc.)
-  ↓
-Can also view → data/claims.json (structured data for programmatic analysis)
+  ↓ "Why this matters"
+Links to → findings/claims-validation.md (ANALYSIS: "100% of value-add claims unverified")
+  ↓ "Evidence reviewed"
+Links to → research/companies/figure/independent-research.md (RAW: TechCrunch, Bloomberg - no GP mention)
+  AND → research/companies/figure/target-sources.md (RAW: Company website, press releases - no GP mention)
+  AND → research/dataroom/GP Bio.md (RAW: GP claims of value-add)
+  ↓ "Structured data"
+Can also view → findings/_data/claims.json (programmatic access to all claims + validation status)
 ```
+
+**Key Insight**: The three-layer structure provides complete traceability:
+1. **research/** = Raw evidence (what sources say, verbatim or summarized)
+2. **findings/** = Analysis layer (how we interpreted the evidence, what patterns we see, what conclusions we draw)
+3. **recommendations/** = Action layer (what to do based on findings)
+
+Each layer links bi-directionally to the layers above and below.
 
 ---
 
@@ -408,29 +419,29 @@ All findings and supporting evidence are available:
 - **Recommendations**: [critical/](recommendations/critical/), [high-priority/](recommendations/high-priority/), [medium-priority/](recommendations/medium-priority/)
 - **Company Research**: [research/companies/](research/companies/)
 - **GP Research**: [research/people/](research/people/)
-- **Structured Data**: [data/portfolio.json](data/portfolio.json), [data/network.json](data/network.json)
+- **Structured Data**: [findings/_data/portfolio.json](findings/_data/portfolio.json), [findings/_data/network.json](findings/_data/network.json)
 
 ---
 
 ## Methodology
 
 ### Data Sources Used
-- **Dataroom materials**: GP-provided documents (requires external verification)
-- **External research**: TechCrunch, Crunchbase, LinkedIn, company websites
-- **Independent sources**: Public filings, verified news sources (most reliable)
+- **Independent sources**: TechCrunch, Bloomberg, Crunchbase, verified journalism (objective, third-party - most reliable)
+- **Target sources**: GP's LinkedIn/Substack/social media, company websites, press releases (externally acquired, target-influenced)
+- **Dataroom materials**: GP-provided private documents, confidential materials (private, target-provided - requires verification)
 
 ### Evidence Quality
 - ✅ **Verified**: Claim supported by independent sources (high confidence)
-- ⚠️ **Partial**: Claim partially supported or from influenced sources (medium confidence)
-- ❓ **Unverified**: Claim from dataroom only (requires validation)
-- ❌ **Contradicted**: Independent sources contradict dataroom claim (red flag)
+- ⚠️ **Partial**: Claim partially supported or only from target sources (medium confidence)
+- ❓ **Unverified**: Claim from dataroom only, no external confirmation (requires validation)
+- ❌ **Contradicted**: Independent sources contradict dataroom/target source claims (red flag)
 
 ### How This Was Generated
-- **Workflows**: [vc-research.md](../_process/workflows-used.md), deal-prioritization.md, validator.md
-- **Analysis Log**: [_process/analysis-log.md](_process/analysis-log.md)
+- **Workflows**: [vc-research.md](findings/_process/workflows-used.md), deal-prioritization.md, validator.md
+- **Analysis Log**: [findings/_process/analysis-log.md](findings/_process/analysis-log.md)
 - **Last Updated**: 2025-11-17
 
-[View full methodology →](_process/methodology.md)
+[View full methodology →](findings/_process/methodology.md)
 
 ---
 
@@ -707,10 +718,11 @@ status: pending
 **Finding**: [Claims Validation Analysis →](../../findings/claims-validation.md#gp-value-add)
 
 **Evidence**:
-- [Figure AI Research →](../../research/companies/figure/gp-relationship.md) - No mention of Dillon in public sources
+- [Figure AI Independent Research →](../../research/companies/figure/independent-research.md) - No mention of Dillon in TechCrunch, Bloomberg
+- [Figure AI Target Sources →](../../research/companies/figure/target-sources.md) - Company website, press releases - no GP mention
 - [Portfolio Assessment →](../../findings/portfolio-assessment.md#gp-relationships) - 14 companies researched, zero value-add documented
 
-**Data**: [claims.json](../../data/claims.json) (see claim IDs: gp-value-add-1, gp-value-add-2, gp-value-add-3)
+**Data**: [claims.json](../../findings/_data/claims.json) (see claim IDs: gp-value-add-1, gp-value-add-2, gp-value-add-3)
 
 ---
 
@@ -794,7 +806,7 @@ findings/
 
 **2. Change Log**
 
-Track what changed and why in `_process/change-log.md`:
+Track what changed and why in `findings/_process/change-log.md`:
 
 ```markdown
 # Analysis Change Log
@@ -805,7 +817,7 @@ Track what changed and why in `_process/change-log.md`:
 
 **Analyses Updated**:
 - `findings/portfolio-assessment.md` - Added 6 missing investment dates
-- `data/portfolio.json` - Updated funding rounds for 10 companies
+- `findings/_data/portfolio.json` - Updated funding rounds for 10 companies
 - `findings/claims-validation.md` - Verified 2 additional GP claims
 
 **Key Changes**:
@@ -823,7 +835,7 @@ Track what changed and why in `_process/change-log.md`:
 
 **Archived Versions**:
 - `findings/_archive/portfolio-assessment-2025-11-15.md`
-- `data/_archive/portfolio-2025-11-15.json`
+- `findings/_data/_archive/portfolio-2025-11-15.json`
 
 ---
 
@@ -854,7 +866,7 @@ Track what changed and why in `_process/change-log.md`:
 
 **3. Data Update Tracking**
 
-Track when new data sources arrive in `_process/data-updates.md`:
+Track when new data sources arrive in `findings/_process/data-updates.md`:
 
 ```markdown
 # Data Source Updates
@@ -872,7 +884,7 @@ When new data arrives, identify which analyses need updating:
 
 **Crunchbase data** affects:
 - ✅ `findings/portfolio-assessment.md` (funding rounds, valuations)
-- ✅ `data/portfolio.json` (structured company data)
+- ✅ `findings/_data/portfolio.json` (structured company data)
 - ✅ `findings/timeline.md` (investment dates)
 - ❌ `findings/network-analysis.md` (not affected)
 
@@ -886,285 +898,347 @@ When new data arrives, identify which analyses need updating:
 
 ## Incremental Migration Path
 
-**Goal**: Don't migrate everything at once - do it incrementally to minimize disruption
+**Goal**: Migrate objective content first, preserve old files for reference, validate differences
+
+**Philosophy**: Start with what's certain (folder structure, raw research), then tackle interpretive work (findings, recommendations) while keeping the old version available for comparison.
 
 ---
 
-### Step 1: Create New Structure (No File Moves)
+### PHASE 1: OBJECTIVE MIGRATION (Safe, No Deletion)
+
+---
+
+#### Step 1: Create New Folder Structure
+
+**Time**: 5 minutes
+
+**What to do**:
+```bash
+cd users/tam/hyperion/
+mkdir -p research/{dataroom,companies,people}
+mkdir -p findings/{_data,_process,_archive}
+mkdir -p recommendations/{critical,high-priority,medium-priority}
+```
+
+**Result**: Empty folders created, zero risk
+
+**Test**: `ls -la` to verify folders exist
+
+---
+
+#### Step 2: Migrate Dataroom (Objective Content)
+
+**Time**: 10 minutes
+
+**What to do**:
+```bash
+# Copy dataroom files to new location
+cp -r dataroom/* research/dataroom/
+```
+
+**Result**: Dataroom files in new location, originals untouched
+
+**Why objective**: These are GP-provided files, no interpretation required, safe to move
+
+**Test**: Verify file count matches: `ls dataroom/ | wc -l` vs `ls research/dataroom/ | wc -l`
+
+---
+
+#### Step 3: Migrate Company Research (Objective Content)
 
 **Time**: 30 minutes
 
 **What to do**:
 ```bash
-cd users/tam/hyperion/
-mkdir -p data findings recommendations/{critical,high-priority,medium-priority} research/{companies,people,dataroom} _process
+# Move all company research to new location, removing tier terminology
+cp -r research/deals/tier-1/* research/companies/
+cp -r research/deals/tier-2/* research/companies/
+
+# Rename files within each company folder to match new structure
+# Example: figure/research-notes.md → figure/independent-research.md
+#          figure/pitch-deck-notes.md → figure/target-sources.md
 ```
 
-**Result**: Empty folders created, existing files untouched
+**Result**: All company research in `research/companies/`, originals preserved in `research/deals/`
 
-**Test**: Verify folders exist
+**Why objective**: These are research notes, not analysis - factual content only
+
+**Test**: Verify all 24 companies present in `research/companies/`
 
 ---
 
-### Step 2: Create Executive Summary (index.md)
+#### Step 4: Migrate GP/People Research (Objective Content)
 
-**Time**: 1-2 hours
+**Time**: 15 minutes
 
 **What to do**:
-- Create `index.md` using template above
-- Link to existing files in `outputs/` and `research/`
-- Don't move any files yet
+```bash
+# People research is already in research/people/, just reorganize
+# Move raw data files (LinkedIn exports, etc.) to proper locations
+```
 
-**Result**: New entry point that links to current structure
+**Result**: GP research organized, raw data clearly separated
 
-**Test**: Open `index.md` in browser, verify all links work
+**Why objective**: LinkedIn CSVs, background research notes are factual
 
----
-
-### Step 3: Extract Structured Data (portfolio.json)
-
-**Time**: 2-3 hours
-
-**What to do**:
-- Create `data/portfolio.json` by extracting data from `outputs/vc-research-summary.md`
-- Use JSON schema from "Structured Data Opportunities" section
-- Include source citations
-
-**Result**: `data/portfolio.json` exists, markdown file unchanged
-
-**Test**: Validate JSON schema, verify data completeness
+**Test**: Verify CSV files and research notes present
 
 ---
 
-### Step 4: Create First Recommendation File
-
-**Time**: 1 hour
-
-**What to do**:
-- Create `recommendations/critical/verify-gp-relationships.md`
-- Use template from "Navigation & Linking" section
-- Link back to existing analysis files
-
-**Result**: One recommendation file exists, demonstrates navigation pattern
-
-**Test**: Follow links from index.md → recommendation → findings → sources
+### PHASE 2: STRUCTURED DATA CONVERSION (Objective Extraction)
 
 ---
 
-### Step 5: Migrate One Finding (claims-validation.md)
-
-**Time**: 1 hour
-
-**What to do**:
-- Copy `outputs/claims-validation.md` → `findings/claims-validation.md`
-- Update links to point to new structure
-- Leave original in `outputs/` for now
-
-**Result**: One finding file in new location, original preserved
-
-**Test**: Verify links work, no broken references
-
----
-
-### Step 6: Migrate One Company (Figure AI)
-
-**Time**: 1 hour
-
-**What to do**:
-- Copy `research/deals/tier-1/figure/` → `research/companies/figure/`
-- Rename/reorganize files to match new structure (overview.md, funding-history.md, gp-relationship.md)
-- Leave original in `research/deals/` for now
-
-**Result**: One company in new location, demonstrates company file structure
-
-**Test**: Verify links from findings/portfolio-assessment.md work
-
----
-
-### Step 7: Migrate Dataroom
-
-**Time**: 30 minutes
-
-**What to do**:
-- Copy `dataroom/` → `research/dataroom/`
-- Update links in analysis files
-- Can delete original `dataroom/` folder
-
-**Result**: Dataroom in final location
-
-**Test**: Verify all links to dataroom files work
-
----
-
-### Step 8: Migrate All Findings
-
-**Time**: 2-3 hours
-
-**What to do**:
-- Copy all files from `outputs/` → `findings/`
-- Rename files to match new naming conventions
-- Update internal links
-- Leave originals in `outputs/` for comparison
-
-**Result**: All findings in new location
-
-**Test**: Spot-check links, verify no broken references
-
----
-
-### Step 9: Migrate All Companies
+#### Step 5: Extract Structured Data to JSON
 
 **Time**: 3-4 hours
 
 **What to do**:
-- Copy all from `research/deals/tier-1/` and `research/deals/tier-2/` → `research/companies/`
-- Remove "tier-1" and "tier-2" terminology
-- Reorganize files within each company folder
-- Can delete original `research/deals/` after verification
+- Create `findings/_data/portfolio.json` by extracting data from current outputs
+- Create `findings/_data/network.json` (LinkedIn stats, connection counts)
+- Create `findings/_data/timeline.json` (chronological events)
+- Create `findings/_data/claims.json` (GP claims + validation status)
+- Create `findings/_data/gp-profiles.json` (background data)
 
-**Result**: All company research in new location
+Use JSON schemas from "Structured Data Opportunities" section.
 
-**Test**: Verify navigation from index.md works for all companies
+**Result**: All structured data in `findings/_data/`, source files untouched
 
----
-
-### Step 10: Migrate GP/Network Research
-
-**Time**: 2 hours
-
-**What to do**:
-- Copy `research/people/` → `research/people/` (mostly rename/reorganize)
-- Consolidate Dillon analyses into fewer files
-- Can delete original files after verification
-
-**Result**: GP research in final location
-
-**Test**: Verify network analysis links work
-
----
-
-### Step 11: Create Process Documentation
-
-**Time**: 1-2 hours
-
-**What to do**:
-- Create `_process/methodology.md`
-- Create `_process/analysis-log.md`
-- Create `_process/workflows-used.md`
-- Create `_process/change-log.md` (initial entry)
-
-**Result**: Process documentation exists
-
-**Test**: Review for completeness
-
----
-
-### Step 12: Create Remaining Structured Data
-
-**Time**: 2-3 hours
-
-**What to do**:
-- Create `data/network.json`
-- Create `data/timeline.json`
-- Create `data/claims.json`
-- Create `data/gp-profiles.json`
-
-**Result**: All structured data files exist
+**Why objective**: Extracting factual data (dates, numbers, names) into structured format
 
 **Test**: Validate JSON schemas, verify data completeness
 
 ---
 
-### Step 13: Create Remaining Recommendations
+### PHASE 3: SUBJECTIVE CONTENT (Preserve Old for Reference)
+
+---
+
+#### Step 6: Preserve Old Findings for Reference
+
+**Time**: 2 minutes
+
+**What to do**:
+```bash
+# Create migration reference folder
+mkdir -p migration-reference
+
+# Copy ALL old findings/outputs for comparison
+cp -r outputs/* migration-reference/
+cp -r research/deals/ migration-reference/old-company-structure/
+```
+
+**Result**: Complete snapshot of old analysis preserved
+
+**Why critical**: Old findings contain your interpretations - need to reference during rewrite
+
+**Test**: Verify `migration-reference/` contains all old files
+
+---
+
+#### Step 7: Create New index.md (Executive Summary)
 
 **Time**: 2-3 hours
 
 **What to do**:
-- Create all recommendation files in `recommendations/`
-- Organize by priority (critical, high-priority, medium-priority)
-- Ensure full traceability (links to findings and sources)
+- Create `index.md` using template from this proposal
+- Reference old files in `migration-reference/` as you write
+- Include status, findings, recommendations
+- Link to research files in new locations
 
-**Result**: All recommendations surfaced
+**Result**: New executive summary exists
 
-**Test**: Navigate from index.md → recommendation → evidence
+**Why subjective**: This is synthesis and interpretation
+
+**Test**: Open `index.md`, verify all links work
 
 ---
 
-### Step 14: Update Eleventy Config
+#### Step 8: Create New Findings (Rewrite from Old)
+
+**Time**: 4-6 hours
+
+**What to do**:
+For each old output file, create new finding:
+- `migration-reference/vc-research-summary.md` → `findings/portfolio-assessment.md`
+- `migration-reference/claims-validation.md` → `findings/claims-validation.md`
+- `migration-reference/network-analysis.md` → `findings/network-analysis.md`
+- Etc.
+
+**Keep old files available**: Reference `migration-reference/` as you write
+
+**Result**: New findings in `findings/`, old versions preserved
+
+**Why subjective**: Analysis and interpretation may evolve during rewrite
+
+**Test**: Compare new vs old side-by-side, note differences
+
+---
+
+#### Step 9: Create Recommendations (New Content)
+
+**Time**: 3-4 hours
+
+**What to do**:
+- Create all recommendation files in `recommendations/`
+- Use template from "Navigation & Linking" section
+- Ensure full traceability (links to findings and research)
+- Organize by priority
+
+**Reference old files**: Check `migration-reference/` for recommendations scattered in old outputs
+
+**Result**: All recommendations surfaced and prioritized
+
+**Why subjective**: Recommendations require judgment
+
+**Test**: Navigate from index.md → recommendation → finding → evidence
+
+---
+
+#### Step 10: Create Process Documentation
+
+**Time**: 1-2 hours
+
+**What to do**:
+- Create `findings/_process/methodology.md`
+- Create `findings/_process/analysis-log.md`
+- Create `findings/_process/workflows-used.md`
+- Create `findings/_process/change-log.md` (initial entry documenting migration)
+
+**Result**: Process documentation complete
+
+**Test**: Review for completeness
+
+---
+
+### PHASE 4: VALIDATION & CLEANUP
+
+---
+
+#### Step 11: Validate Migration Differences
+
+**Time**: 2-3 hours
+
+**What to do**:
+Create `migration-validation.md` that documents:
+
+**What Changed**:
+- Portfolio assessment: [List specific changes from old to new]
+- Claims validation: [List differences]
+- Network analysis: [List differences]
+- Recommendations: [What's new, what's different]
+
+**What Stayed the Same**:
+- Core findings
+- Evidence base
+- Overall rating
+
+**Structural Changes**:
+- Folder organization
+- File naming
+- Navigation flow
+
+**Result**: Clear documentation of migration impact
+
+**Why critical**: You need to know if rewrite changed substance or just structure
+
+**Test**: Review validation doc, confirm no critical findings lost
+
+---
+
+#### Step 12: Update Eleventy Config
 
 **Time**: 1 hour
 
 **What to do**:
 - Update `sites/tam/.eleventy.js` to recognize new structure
 - Ensure `/hyperion/` routes to `index.md`
-- Test JSON file passthrough
-- Update navigation menus
+- Test JSON file passthrough (`findings/_data/*.json`)
+- Verify `migration-reference/` folder is included (for your reference)
 
-**Result**: Site builds with new structure
+**Result**: Site builds with new structure + reference folder
 
 **Test**: `npm run build:tam` succeeds, review site locally
 
 ---
 
-### Step 15: Delete Old Structure
+#### Step 13: Review & Decision Point
 
-**Time**: 30 minutes
+**Time**: 1-2 hours
 
 **What to do**:
-- Delete `outputs/` folder (all content migrated to `findings/`)
-- Delete `research/deals/` folder (migrated to `research/companies/`)
-- Delete `research/process/` folder (migrated to `_process/`)
+- Review new structure end-to-end
+- Compare new findings to `migration-reference/` originals
+- Verify no critical content lost
+- Check navigation flow works
+- Read `migration-validation.md`
 
-**Result**: Clean, new structure only
+**Decision**: Are you comfortable deleting old structure?
+
+**If NO**: Keep both structures, iterate on new version
+**If YES**: Proceed to Step 14
+
+---
+
+#### Step 14: Delete Old Structure (Optional)
+
+**Time**: 5 minutes
+
+**Only do this after you've validated the migration**
+
+**What to do**:
+```bash
+# Delete old folders (migration-reference remains for your reference)
+rm -rf outputs/
+rm -rf research/deals/
+rm -rf dataroom/
+
+# Keep migration-reference folder indefinitely for comparison
+```
+
+**Result**: Clean new structure, reference folder preserved
 
 **Test**: Verify site still builds, no broken links
 
 ---
 
-### Step 16: Deploy and Monitor
+#### Step 15: Deploy
 
 **Time**: 30 minutes
 
 **What to do**:
-- Commit changes: `git add . && git commit -m "Reorganize hyperion folder to output-focused structure"`
-- Push to GitHub: `git push`
+- Commit changes: `git add . && git commit -m "Reorganize hyperion to output-focused structure (objective-first migration)"`
+- Push to GitHub: `git push -u origin claude/review-reorg-proposal-01WCf9Y8ssCGRbMptPbyybif`
 - Monitor GitHub Actions build
 - Verify deployment to Cloudflare Pages
 
 **Result**: New structure live
 
-**Test**: Visit https://tam.pages.dev/hyperion/ and verify everything works
+**Test**: Visit site, verify everything works
 
 ---
 
 ### Migration Timeline Summary
 
-| Step | Description | Time | Cumulative |
-|------|-------------|------|------------|
-| 1 | Create folders | 30 min | 30 min |
-| 2 | Executive summary | 1-2 hrs | 2.5 hrs |
-| 3 | portfolio.json | 2-3 hrs | 5.5 hrs |
-| 4 | First recommendation | 1 hr | 6.5 hrs |
-| 5 | Migrate one finding | 1 hr | 7.5 hrs |
-| 6 | Migrate one company | 1 hr | 8.5 hrs |
-| 7 | Migrate dataroom | 30 min | 9 hrs |
-| 8 | Migrate all findings | 2-3 hrs | 12 hrs |
-| 9 | Migrate all companies | 3-4 hrs | 16 hrs |
-| 10 | Migrate GP research | 2 hrs | 18 hrs |
-| 11 | Process docs | 1-2 hrs | 20 hrs |
-| 12 | Remaining JSON files | 2-3 hrs | 23 hrs |
-| 13 | Remaining recommendations | 2-3 hrs | 26 hrs |
-| 14 | Update Eleventy | 1 hr | 27 hrs |
-| 15 | Delete old structure | 30 min | 27.5 hrs |
-| 16 | Deploy | 30 min | **28 hrs** |
+| Phase | Steps | Description | Time |
+|-------|-------|-------------|------|
+| **1: Objective** | 1-4 | Create folders, migrate research (dataroom, companies, people) | 1 hour |
+| **2: Structured Data** | 5 | Convert markdown to JSON for findings/_data/ | 3-4 hours |
+| **3: Subjective** | 6-10 | Preserve old, create new findings/recommendations/process docs | 12-16 hours |
+| **4: Validation** | 11-15 | Validate differences, update Eleventy, delete old (optional) | 5-7 hours |
+| **TOTAL** | | | **21-28 hours** |
 
-**Total**: ~28 hours of work
+**Key Differences from Previous Approach**:
+- ✅ Migrate objective content first (research, dataroom)
+- ✅ Preserve old files in `migration-reference/` folder (never delete until validated)
+- ✅ Create validation document to track differences
+- ✅ Decision point before deleting old structure
+- ✅ Keep `migration-reference/` indefinitely for comparison
 
-**Recommended pace**:
-- Week 1: Steps 1-7 (9 hours) - Create structure, migrate high-value files
-- Week 2: Steps 8-11 (11 hours) - Migrate bulk content
-- Week 3: Steps 12-14 (8 hours) - Structured data, recommendations
-- Week 4: Steps 15-16 (1 hour) - Cleanup and deploy
+**Recommended Pace**:
+- **Week 1**: Phase 1-2 (4-5 hours) - Objective migration + JSON conversion
+- **Week 2**: Phase 3 (12-16 hours) - Subjective content rewrite
+- **Week 3**: Phase 4 (5-7 hours) - Validation + deployment
 
 ---
 
@@ -1238,19 +1312,24 @@ mkdir -p data findings recommendations/{critical,high-priority,medium-priority} 
 
 ## Open Questions
 
-1. **Terminology**: Are "dataroom materials", "external research", and "independent sources" clear enough? Or do we still need to explain evidence quality somewhere?
+1. **Terminology** ✅ **RESOLVED**: Using three-tier source hierarchy without glossary needed:
+   - **Independent sources**: Third-party journalism, verified databases (objective)
+   - **Target sources**: Externally acquired but target-controlled/influenced (GP's LinkedIn/Substack, company websites, press releases)
+   - **Dataroom materials**: Private information provided by target (confidential documents)
 
 2. **Iteration Workflow**: When new data arrives, should there be a checklist of "analyses to review"? Or is the change log sufficient?
 
 3. **Archiving**: How many versions should we keep in `findings/_archive/`? (e.g., last 3 versions only?)
 
-4. **JSON Schema Validation**: Should we create formal JSON schemas and validate in CI/CD? (from architecture-recommendations.md)
+4. **JSON Schema Validation**: Should we create formal JSON schemas and validate in CI/CD?
 
 5. **Benchmarking Data**: For fund comparisons, do you have access to similar funds' data in JSON format? (e.g., Craft Ventures, Basis Set)
 
-6. **Eleventy Integration**: Should JSON files auto-render as HTML tables? Or just provide download link?
+6. **Eleventy Integration**: Should JSON files in `findings/_data/` auto-render as HTML tables? Or just provide download link?
 
-7. **Process Documentation**: Should `_process/methodology.md` include the old "tier" framework for reference? Or completely remove that terminology?
+7. **Process Documentation**: Should `findings/_process/methodology.md` include the old "tier" framework for reference? Or completely remove that terminology?
+
+8. **Migration Reference Folder**: Should `migration-reference/` be published to the site or kept gitignored (for your eyes only)?
 
 ---
 
