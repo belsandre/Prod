@@ -1,0 +1,354 @@
+{
+  "metadata": {
+    "extraction_date": "2025-11-17",
+    "source": "network-analysis.md, investor-mention-map.csv, LinkedIn connection data",
+    "data_source": "Dillon Dunteman LinkedIn connections",
+    "total_connections": 637,
+    "connections_with_firm_data": 466,
+    "connections_without_firm_data": 171
+  },
+  "overall_statistics": {
+    "total_connections": 637,
+    "vc_connections": 175,
+    "vc_percentage": "27.5%",
+    "top_categories": [
+      {
+        "category": "Unknown / Uncategorized",
+        "count": 291,
+        "percentage": "62.4%"
+      },
+      {
+        "category": "Multi-Stage VC (Series A-C+)",
+        "count": 66,
+        "percentage": "14.2%"
+      },
+      {
+        "category": "Early-Stage VC (Seed, Series A)",
+        "count": 40,
+        "percentage": "8.6%"
+      },
+      {
+        "category": "Growth Equity (Pre-IPO, growth buyouts)",
+        "count": 39,
+        "percentage": "8.4%"
+      },
+      {
+        "category": "Private Equity (Buyouts)",
+        "count": 9,
+        "percentage": "1.9%"
+      },
+      {
+        "category": "Limited Partners / Fund of Funds",
+        "count": 6,
+        "percentage": "1.3%"
+      }
+    ]
+  },
+  "top_firms": [
+    {
+      "firm": "Vista Equity Partners",
+      "connections": 9,
+      "category": "Growth Equity (Pre-IPO, growth buyouts)",
+      "relationship": "Former employer (2021-2025)",
+      "significance": "High - Former employer, LP investors"
+    },
+    {
+      "firm": "Insight Partners",
+      "connections": 6,
+      "category": "Growth Equity (Pre-IPO, growth buyouts)",
+      "relationship": "Network",
+      "significance": "Medium"
+    },
+    {
+      "firm": "8VC",
+      "connections": 4,
+      "category": "Multi-Stage VC (Series A-C+)",
+      "relationship": "Central Hub partner",
+      "significance": "High - Strategic filtering relationship"
+    },
+    {
+      "firm": "HOF Capital",
+      "connections": 4,
+      "category": "Multi-Stage VC (Series A-C+)",
+      "relationship": "Network",
+      "significance": "Medium"
+    },
+    {
+      "firm": "Bessemer Venture Partners",
+      "connections": 4,
+      "category": "Multi-Stage VC (Series A-C+)",
+      "relationship": "Network",
+      "significance": "Medium"
+    },
+    {
+      "firm": "Coatue",
+      "connections": 3,
+      "category": "Growth Equity (Pre-IPO, growth buyouts)",
+      "relationship": "Strategic partner, co-investor",
+      "significance": "Critical - Dirac co-lead, claimed 'close' relationship"
+    },
+    {
+      "firm": "Radical Ventures",
+      "connections": 3,
+      "category": "Multi-Stage VC (Series A-C+)",
+      "relationship": "Network",
+      "significance": "Medium"
+    },
+    {
+      "firm": "Andreessen Horowitz",
+      "connections": 3,
+      "category": "Multi-Stage VC (Series A-C+)",
+      "relationship": "Central Hub partner",
+      "significance": "High - American Dynamism focus"
+    },
+    {
+      "firm": "Founders Fund",
+      "connections": 2,
+      "category": "Multi-Stage VC (Series A-C+)",
+      "relationship": "Co-investor, claimed introduction",
+      "significance": "Critical - Dirac co-lead, claimed 'friend' introduction"
+    }
+  ],
+  "strategic_relationships": {
+    "central_hub_partners": [
+      {
+        "firm": "8VC",
+        "connections": 4,
+        "role": "Strategic filtering partner for too-early deals",
+        "portfolio_overlap": "Bedrock ($80M+ raised)"
+      },
+      {
+        "firm": "a16z / American Dynamism",
+        "connections": 3,
+        "role": "Strategic filtering partner",
+        "portfolio_overlap": "Foursquare (Henry connection)"
+      },
+      {
+        "firm": "Lowercarbon Capital",
+        "connections": "Unknown",
+        "role": "Strategic filtering partner + co-investor",
+        "portfolio_overlap": "Zap Energy (~$1.1B), Entheos diligence"
+      },
+      {
+        "firm": "Spark Capital",
+        "connections": 2,
+        "role": "Co-investor",
+        "portfolio_overlap": "Antithesis (>$80M), Garden ($7M+)"
+      }
+    ],
+    "key_deal_sources": [
+      {
+        "firm": "Tamarack Global",
+        "connections": 1,
+        "relationship": "Close relationship with partners",
+        "deals_sourced": ["Figure AI Series A"],
+        "verification_priority": "Critical",
+        "notes": "$200M+ AUM deeptech firm"
+      },
+      {
+        "firm": "Coatue",
+        "connections": 3,
+        "relationship": "Claimed 'close' strategic partner",
+        "deals_sourced": ["Dirac seed co-lead"],
+        "verification_priority": "High",
+        "notes": "Co-led $6M (or $10.7M) Dirac seed with Founders Fund"
+      },
+      {
+        "firm": "Founders Fund",
+        "connections": 2,
+        "relationship": "Claimed 'friend' at FF",
+        "deals_sourced": ["Dirac seed co-lead (via introduction claim)"],
+        "verification_priority": "Critical",
+        "notes": "Trae Stephens sponsor - VERIFY introduction claim"
+      },
+      {
+        "firm": "Also Capital (Mike Annunziata)",
+        "connections": 2,
+        "relationship": "Key mentor to Dillon",
+        "deals_sourced": ["Mesh Optical seed co-investor"],
+        "verification_priority": "High",
+        "notes": "Described as key mentor, data center connections shared"
+      }
+    ],
+    "co_investors": [
+      {
+        "firm": "Drive Capital",
+        "connections": "Unknown",
+        "deals": ["Normal Computing Series A lead"],
+        "relationship": "Co-investor"
+      },
+      {
+        "firm": "DCVC",
+        "connections": "Unknown",
+        "deals": ["Quantinuum key investor"],
+        "relationship": "Co-investor + early-stage collaborator"
+      },
+      {
+        "firm": "Thrive Capital",
+        "connections": "Unknown",
+        "deals": ["Mesh Optical seed lead", "Haiqu intro target"],
+        "relationship": "Co-investor + network"
+      },
+      {
+        "firm": "Primary Ventures",
+        "connections": "Unknown",
+        "deals": ["Haiqu $10M seed lead"],
+        "relationship": "Co-investor"
+      }
+    ],
+    "corporate_strategic": [
+      {
+        "firm": "Microsoft",
+        "connections": "Unknown",
+        "deals": ["Figure AI Series B ($95M)"],
+        "relationship": "Corporate co-investor"
+      },
+      {
+        "firm": "NVIDIA",
+        "connections": "Unknown",
+        "deals": ["Figure AI Series B ($50M)"],
+        "relationship": "Corporate co-investor"
+      },
+      {
+        "firm": "Jeff Bezos (personal)",
+        "connections": "Unknown",
+        "deals": ["Figure AI Series B ($100M)"],
+        "relationship": "Angel co-investor"
+      },
+      {
+        "firm": "OpenAI Startup Fund",
+        "connections": "Unknown",
+        "deals": ["Figure AI Series B co-lead"],
+        "relationship": "Corporate VC co-investor"
+      },
+      {
+        "firm": "IBM",
+        "connections": "Unknown",
+        "deals": ["Quantinuum key investor"],
+        "relationship": "Corporate strategic"
+      },
+      {
+        "firm": "JPMorgan Chase",
+        "connections": "Unknown",
+        "deals": ["Quantinuum key investor"],
+        "relationship": "Corporate strategic"
+      }
+    ]
+  },
+  "investor_priorities": [
+    {
+      "investor": "Tamarack Global",
+      "priority": "High",
+      "relationship_type": "Deal flow partner",
+      "context": "Close relationship with partners, sourced Figure AI deal",
+      "deal_context": "Figure AI Series A ($70M at $420M post)",
+      "verification_priority": "Critical - Primary deal source claim"
+    },
+    {
+      "investor": "Vista Equity Partners Colleagues",
+      "priority": "High",
+      "relationship_type": "Former employer + LP investors",
+      "context": "LP commitments and references from senior Vista leaders",
+      "deal_context": "Vista 2021-2025: Deployed $1B+ across 15 deals",
+      "verification_priority": "Critical - Verify LP commitment amounts and seniority"
+    },
+    {
+      "investor": "Mike Annunziata @ Also Capital",
+      "priority": "High",
+      "relationship_type": "Key mentor",
+      "context": "Described as 'key mentor to Dillon'",
+      "deal_context": "Mesh Optical seed co-investor",
+      "verification_priority": "Critical - Mentorship depth and ongoing collaboration"
+    },
+    {
+      "investor": "Coatue",
+      "priority": "High",
+      "relationship_type": "Strategic partner",
+      "context": "'Close with Coatue', strong partner on early-stage opportunities",
+      "deal_context": "Dirac co-led $6M seed with FF (Apr 2024)",
+      "verification_priority": "High - Verify strategic partnership claim"
+    },
+    {
+      "investor": "Founders Fund",
+      "priority": "Medium",
+      "relationship_type": "Co-investor + network",
+      "context": "Co-led Dirac seed, friend at FF introduced to CEO",
+      "deal_context": "Dirac Advanced manufacturing AI",
+      "verification_priority": "Medium - Relationship depth beyond single deal"
+    },
+    {
+      "investor": "Figure AI Board Member",
+      "priority": "High",
+      "relationship_type": "Mentor with collaboration commitment",
+      "context": "Mentored by Figure board member who expects to work with Dillon on pre-seed spin-outs",
+      "deal_context": "Figure AI ecosystem / robotics spin-outs",
+      "verification_priority": "Critical - Verify identity and collaboration commitment"
+    },
+    {
+      "investor": "Amazon (AWS & Warehouses)",
+      "priority": "High",
+      "relationship_type": "Commercial network",
+      "context": "'Close relationships' helpful for robotics founders seeking customer access",
+      "deal_context": "Robotics portfolio companies - customer access",
+      "verification_priority": "High - Verify relationship depth and actual intros"
+    }
+  ],
+  "network_by_category": {
+    "multi_stage_vc": {
+      "count": 66,
+      "percentage": "14.2%",
+      "key_firms": ["8VC", "HOF Capital", "Bessemer", "Radical Ventures", "a16z", "Founders Fund", "General Catalyst", "Menlo Ventures"]
+    },
+    "early_stage_vc": {
+      "count": 40,
+      "percentage": "8.6%",
+      "key_firms": ["Spark Capital", "Collaborative Fund", "Slow Ventures", "Also Capital", "Alpha Partners"]
+    },
+    "growth_equity": {
+      "count": 39,
+      "percentage": "8.4%",
+      "key_firms": ["Vista Equity", "Insight Partners", "Coatue", "Lead Edge Capital"]
+    },
+    "private_equity": {
+      "count": 9,
+      "percentage": "1.9%",
+      "key_firms": ["Cerberus", "Apollo", "Bain Capital", "KKR", "EQT"]
+    },
+    "limited_partners": {
+      "count": 6,
+      "percentage": "1.3%",
+      "key_firms": ["Top Tier", "ArchPoint", "Industry Ventures", "Sapphire Partners"]
+    }
+  },
+  "verification_requirements": [
+    "CRITICAL: Verify Tamarack Global relationship depth (primary Figure AI source claim)",
+    "CRITICAL: Verify Founders Fund introduction claim (Dirac CEO intro to 'friend at FF')",
+    "CRITICAL: Verify Mike Annunziata mentorship (Also Capital, Mesh Optical co-investor)",
+    "HIGH: Verify Coatue 'close' strategic partnership claim",
+    "HIGH: Verify Figure AI board member mentor identity and spin-out collaboration",
+    "HIGH: Verify Amazon AWS/warehouse relationship depth for customer intros",
+    "MEDIUM: Verify Vista colleague LP commitments and amounts"
+  ],
+  "key_insights": [
+    "Network heavily weighted toward former employer (Vista: 9 connections)",
+    "Modest tier-1 VC connections (Founders Fund: 2, Coatue: 3) relative to claims",
+    "62.4% connections uncategorized - suggests broad but shallow network",
+    "Key deal sources (Tamarack, Coatue, FF) have limited connections (1-3 each)",
+    "Network strength appears relationship-quality driven, not connection-count driven",
+    "Former employer (Vista) likely primary LP base",
+    "Strategic filtering relationships (Central Hub partners) provide deal flow leverage"
+  ],
+  "red_flags": [
+    "Limited Founders Fund connections (2) despite critical Dirac introduction claim",
+    "Single Tamarack connection despite being primary Figure AI source",
+    "No Firmament colleagues documented (former employer 2019-2021)",
+    "Henry Bellew network entirely absent from analysis"
+  ],
+  "notes": [
+    "Data based on Dillon Dunteman's LinkedIn connections only",
+    "Henry Bellew network analysis not available",
+    "Connection count may not reflect relationship depth or strength",
+    "Many strategic relationships claimed in dataroom have low connection counts",
+    "Network appears built on quality (strategic relationships) over quantity (connection count)"
+  ]
+}
