@@ -67,12 +67,12 @@ You should now have three projects:
 
 Add these four variables (for Production and Preview):
 
-| Variable Name | Value | Environment |
-|--------------|-------|-------------|
-| `AUTH_USERNAME` | `ashish` | Production and Preview |
-| `AUTH_PASSWORD` | [Create strong password] | Production and Preview |
-| `ADMIN_USERNAME` | `admin` | Production and Preview |
-| `ADMIN_PASSWORD` | [Create admin password] | Production and Preview |
+| Variable Name    | Value          | Environment            |
+| ---------------- | -------------- | ---------------------- |
+| `AUTH_USERNAME`  | `ashish`       | Production and Preview |
+| `AUTH_PASSWORD`  | [FullName]789! | Production and Preview |
+| `ADMIN_USERNAME` | `admin`        | Production and Preview |
+| `ADMIN_PASSWORD` | in 1Password   | Production and Preview |
 
 **Important Notes:**
 - Use a **strong, unique** password for `AUTH_PASSWORD`
@@ -86,12 +86,12 @@ Add these four variables (for Production and Preview):
 2. Click **Settings** tab → **Environment variables**
 3. Add the same four variables:
 
-| Variable Name | Value | Environment |
-|--------------|-------|-------------|
-| `AUTH_USERNAME` | `tam` | Production and Preview |
-| `AUTH_PASSWORD` | [Create strong password - DIFFERENT from ashish] | Production and Preview |
-| `ADMIN_USERNAME` | `admin` | Production and Preview |
-| `ADMIN_PASSWORD` | [SAME as ashish's admin password] | Production and Preview |
+| Variable Name    | Value          | Environment            |
+| ---------------- | -------------- | ---------------------- |
+| `AUTH_USERNAME`  | `tam`          | Production and Preview |
+| `AUTH_PASSWORD`  | [FullName]789! | Production and Preview |
+| `ADMIN_USERNAME` | `admin`        | Production and Preview |
+| `ADMIN_PASSWORD` | in 1Password   | Production and Preview |
 
 ### Step 3: Set Up Environment Variables for Yani
 
@@ -99,12 +99,12 @@ Add these four variables (for Production and Preview):
 2. Click **Settings** tab → **Environment variables**
 3. Add the same four variables:
 
-| Variable Name | Value | Environment |
-|--------------|-------|-------------|
-| `AUTH_USERNAME` | `yani` | Production and Preview |
-| `AUTH_PASSWORD` | [Create strong password - DIFFERENT from others] | Production and Preview |
-| `ADMIN_USERNAME` | `admin` | Production and Preview |
-| `ADMIN_PASSWORD` | [SAME as others' admin password] | Production and Preview |
+| Variable Name    | Value                                            | Environment            |
+| ---------------- | ------------------------------------------------ | ---------------------- |
+| `AUTH_USERNAME`  | `yani`                                           | Production and Preview |
+| `AUTH_PASSWORD`  | [Create strong password - DIFFERENT from others] | Production and Preview |
+| `ADMIN_USERNAME` | `admin`                                          | Production and Preview |
+| `ADMIN_PASSWORD` | in 1Password                                     | Production and Preview |
 
 ### Password Summary
 
