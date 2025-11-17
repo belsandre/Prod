@@ -1,0 +1,123 @@
+Investor Name,Priority,Relationship Type,Claim/Context,Source Document,Page/Location,Deal Context,Verification Priority
+Tamarack Global,High,Deal flow partner,"Close relationship with partners, sourced Figure AI deal, $200M+ AUM deeptech firm",Case Studies - Outperforming Investments.md,Page 3,Figure AI - Sourced Series A ($70M at $420M post),Critical - Primary deal source claim
+Vista Equity Partners Colleagues,High,Former employer + LP investors,"LP commitments and references from senior Vista leaders, planning to invest personal capital",Hyperion - Fund I.md; Letter to Prospective LPs.md,Page 4; Page 2,Vista 2021-2025: Deployed $1B+ across 15 deals,Critical - Verify LP commitment amounts and seniority
+Mike Annunziata @ Also Capital,High,Key mentor,"Described as 'key mentor to Dillon', Dillon supported by sharing data center connections",Case Studies - Recent Investments.md,Page 3,Mesh Optical - Seed round co-investor,Critical - Mentorship depth and ongoing collaboration
+Coatue,High,Strategic partner,"'Close with Coatue', strong partner on early-stage opportunities, co-led Dirac seed",Deeptech perspectives.md; Case Studies - Outperforming.md,Page 4; Page 5,Dirac - Co-led $6M seed with FF (Apr 2024),High - Verify strategic partnership claim
+Nat Friedman & Daniel Gross,High,Co-investors,"Invested alongside in Composite Security seed round",Deeptech perspectives.md,Page 3,Composite Security - Seed round,High - Co-investment relationship validation
+Figure AI Board Member,High,Mentor with collaboration commitment,"Mentored by Figure board member who expects to work with Dillon on pre-seed spin-outs",Deeptech perspectives.md,Page 4,Figure AI ecosystem / robotics spin-outs,Critical - Verify identity and collaboration commitment
+Firmament Colleagues,High,Former employer + LP investors,"Planning to invest personal capital in fund, Dillon worked 2019-2021",Letter to Prospective LPs.md,Page 2,Quantinuum original investment (~$660K deployed),High - Verify LP commitments and amounts
+Amazon (AWS & Warehouses),High,Commercial network,"'Close relationships' helpful for robotics founders seeking customer access",Deeptech perspectives.md,Page 4,Robotics portfolio companies - customer access,High - Verify relationship depth and actual intros
+Founders Fund,Medium,Co-investor + network,"Co-led Dirac $6M seed (Trae Stephens sponsor), friend at FF introduced to CEO",Case Studies - Outperforming Investments.md,Page 5,Dirac - Advanced manufacturing AI,Medium - Relationship depth beyond single deal
+DCVC,Medium,Co-investor + collaborator,"Key investor in Quantinuum, listed as early-stage deeptech collaborator",Fund I.md; Sourcing Differentiation.md,Page 19; Page 5,Quantinuum ($10.6B valuation),Medium - Verify collaboration vs. network mention
+Thrive Capital,Medium,Co-investor + network,"Led Mesh Optical seed, intro target for Haiqu, mentioned in Dirac outreach",Case Studies - Recent Investments.md,Pages 2-3,Mesh Optical (lead); Haiqu (intro),Medium - Multiple touch points validation
+8VC,Medium,Central Hub partner,"One of 4 'Central Hub' firms where Hyperion filters too-early deals, backed Bedrock",Sourcing Differentiation.md; Fund I.md,Page 5; Page 6,Bedrock ($80M+ raised),Medium - Strategic filtering relationship claim
+a16z / American Dynamism,Medium,Central Hub partner,"One of 4 Central Hub firms, backed Foursquare (Henry Bellew connection)",Sourcing Differentiation.md; Fund I.md,Page 5; Page 6,Strategic hub positioning,Medium
+Lowercarbon Capital,Medium,Central Hub partner + co-investor,"One of 4 Central Hub firms, key investor in Zap Energy, diligenced Entheos",Sourcing Differentiation.md; Fund I.md,Page 5; Page 19,Zap Energy (~$1.1B valuation),Medium
+Spark Capital,Medium,Co-investor,"Key investor in Antithesis with Amplify, backed Garden (Henry connection)",Fund I.md; Sourcing Differentiation.md,Pages 6 & 19; Page 5,Antithesis (>$80M raised); Garden ($7M+),Medium
+Amplify,Medium,Early-stage collaborator + co-investor,"Listed as deeptech collaborator, key investor in Antithesis",Sourcing Differentiation.md; Fund I.md,Page 5; Page 19,Antithesis co-investor,Medium
+Drive Capital,Medium,Co-investor,"Led Normal Computing $17M Series A where Dillon got advisory shares",Case Studies - Outperforming Investments.md; Fund I.md,Page 4; Page 19,Normal Computing - Advanced semis,Medium
+First Spark Ventures,Medium,Co-investor + collaborator,"Key investor in Normal, listed as early-stage deeptech collaborator",Fund I.md; Sourcing Differentiation.md,Page 19; Page 5,Normal Computing,Medium
+Celesta,Medium,Co-investor,"Key investor in Normal Computing",Fund I.md,Page 19,Normal Computing,Low
+Addition,Medium,Co-investor,"Key investor in Zap Energy fusion company",Fund I.md,Page 19,Zap Energy (~$1.1B valuation),Low
+Soros Fund Management,Medium,Co-investor,"Key investor in Zap Energy",Fund I.md,Page 19,Zap Energy,Low
+Nvidia,Medium,Corporate co-investor,"Key investor in Figure AI Series B ($675M at $2.6B)",Fund I.md; Case Studies - Outperforming.md,Page 19; Page 3,Figure AI,Low
+OpenAI,Medium,Corporate co-investor,"Co-led Figure AI Series B with Microsoft and Nvidia",Fund I.md; Case Studies - Outperforming.md,Page 19; Page 3,Figure AI,Low
+Microsoft,Medium,Corporate co-investor,"Key investor in Figure AI Series B",Fund I.md; Case Studies - Outperforming.md,Page 19; Page 3,Figure AI,Low
+IBM,Medium,Corporate co-investor,"Key investor in Quantinuum",Fund I.md; Case Studies - Outperforming.md,Page 19; Page 2,Quantinuum ($10.6B valuation),Low
+JPMorgan Chase,Medium,Corporate co-investor,"Key investor in Quantinuum",Case Studies - Outperforming Investments.md,Page 2,Quantinuum,Low
+Mitsui,Medium,Corporate co-investor,"Key investor in Quantinuum",Case Studies - Outperforming Investments.md,Page 2,Quantinuum,Low
+Primary Ventures,Medium,Co-investor,"Led Haiqu $10M seed round where Dillon invested $20K",Case Studies - Recent Investments.md,Page 2,Haiqu - Quantum algorithm platform,Low
+Soma Capital,Medium,Co-investor,"Key investor in Haiqu seed round",Case Studies - Recent Investments.md,Page 2,Haiqu,Low
+Alumni Ventures,Medium,Syndication partner,"Introduced by Dillon as Haiqu co-investor (~$700K with Collab Fund)",Case Studies - Recent Investments.md,Page 2,Haiqu seed - Dillon syndicated,Medium - Syndication relationship
+Collab Fund,Medium,Syndication partner,"Introduced by Dillon as Haiqu co-investor (~$700K combined)",Case Studies - Recent Investments.md,Page 2,Haiqu seed - Dillon syndicated,Medium - Syndication relationship
+Khosla Ventures,Medium,Diligenced but passed,"Showed interest in Bleximo but fell through in diligence (failed investment)",Case Studies - Underperforming Investments.md,Page 2,Bleximo (failed) - Bridge round interest,Low
+GV (Google Ventures),Medium,Co-investor but passed on follow-on,"Invested in Bleximo but passed on Series A (failed investment)",Case Studies - Underperforming Investments.md,Page 2,Bleximo (failed),Low
+ENIAC,Medium,Co-investor,"Investor in Bleximo ~$1.5M bridge round (Aug 2022 - failed)",Case Studies - Underperforming Investments.md,Page 2,Bleximo,Low
+Scout Ventures,Medium,Co-investor,"Investor in Bleximo bridge round (failed)",Case Studies - Underperforming Investments.md,Page 2,Bleximo,Low
+Index Ventures,Low,Tier 1 Generalist network,"Listed in Tier 1 deeptech-interested generalists receiving off-core deals",Sourcing Differentiation.md,Page 5,Network - Too-early deal filter,Low
+Avenir,Low,Tier 1 Generalist network,"Tier 1 generalist, also mentioned on Fund I page 10 growing deeptech interest",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Eclipse,Low,Tier 1 Generalist + co-investor,"Tier 1 generalist, backed Bedrock where Henry Bellew worked",Sourcing Differentiation.md; Fund I.md,Page 5; Page 6,Bedrock ($80M+ raised),Low
+General Innovation,Low,Tier 1 Generalist network,"Listed in Tier 1 deeptech-interested generalists",Sourcing Differentiation.md,Page 5,Network mention,Low
+Interlagos,Low,Tier 1 Generalist network,"Listed in Tier 1 deeptech-interested generalists",Sourcing Differentiation.md,Page 5,Network mention,Low
+Cerberus Ventures,Low,Tier 1 Generalist network,"Listed in Tier 1 deeptech-interested generalists",Sourcing Differentiation.md,Page 5,Network mention,Low
+Altimeter,Low,Tier 2 Generalist network,"Tier 2 generalist, also mentioned on Fund I page 10",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Bedrock,Low,Tier 2 Generalist network,"Tier 2 generalist, backed Cursor $9.9B, intro target for Haiqu",Sourcing Differentiation.md; Case Studies - Recent.md,Page 5; Page 2,Network mention,Low
+Raine,Low,Tier 2 Generalist + former employer,"Tier 2 generalist, Henry Bellew's former employer, backed Bedrock & Foursquare",Sourcing Differentiation.md; Fund I.md,Page 5; Page 6,Henry Bellew connection,Low
+USV (Union Square Ventures),Low,Tier 2 Generalist network,"Tier 2 generalist, intro target for Haiqu CEO",Sourcing Differentiation.md; Case Studies - Recent.md,Page 5; Page 2,Network mention,Low
+Insight Partners,Low,Tier 3 Generalist network,"Listed in Tier 3 deeptech-interested generalists",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Point72 Ventures,Low,Tier 3 Generalist network,"Listed in Tier 3 deeptech-interested generalists",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Hedosophia,Low,Tier 3 Generalist network,"Listed in Tier 3 deeptech-interested generalists",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Nava,Low,Tier 3 Generalist network,"Listed in Tier 3 deeptech-interested generalists",Sourcing Differentiation.md,Page 5,Network mention,Low
+Inspired Capital,Low,Tier 3 Generalist network,"Listed in Tier 3 deeptech-interested generalists",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Greenoaks,Low,Tier 3 Generalist network,"Listed in Tier 3 deeptech-interested generalists",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Sequoia,Low,Tier 3 Generalist network,"Listed in Tier 3 deeptech-interested generalists",Sourcing Differentiation.md,Page 5,Network mention,Low
+Bessemer Venture Partners,Low,Tier 3 Generalist network,"Listed in Tier 3 deeptech-interested generalists",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Kleiner Perkins,Low,Tier 2/3 Generalist network,"Listed as Tier 2 or 3 deeptech-interested generalist",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Dragoneer Investment Group,Low,Tier 4 Generalist network,"Listed in Tier 4 deeptech-interested generalists",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Alkeon,Low,Tier 4 Generalist network,"Listed in Tier 4 deeptech-interested generalists",Sourcing Differentiation.md,Page 5,Network mention,Low
+Bond,Low,Tier 4 Generalist network,"Listed in Tier 4 deeptech-interested generalists",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Salesforce Ventures,Low,Tier 4 Generalist network,"Listed in Tier 4 deeptech-interested generalists",Sourcing Differentiation.md,Page 5,Network mention,Low
+General Catalyst,Low,Tier 4 + separate mention,"Tier 4 or separate mention as growing deeptech interest",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Tiger Global,Low,Generalist network,"Mentioned on Fund I page 10 as growing deeptech interest, Tier 2",Sourcing Differentiation.md; Fund I.md,Page 5; Page 10,Network mention,Low
+Cantos,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator with Hyperion",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+Quanto Nation,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+Topology,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+HOF,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+AlleyCorp,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+N47,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+Construct,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+Root Ventures,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+CIV,Low,Early-stage deeptech collaborator,"Listed as early-stage deeptech collaborator",Sourcing Differentiation.md,Page 5,Network - Collaborator claim,Low
+Toyota Ventures,Low,Central Hub partner,"Listed as one of 4 Central Hub partners",Sourcing Differentiation.md,Page 5,Network - Hub claim,Low
+Bezos Expeditions,Low,Co-investor,"Key investor in Figure AI",Case Studies - Outperforming Investments.md,Page 3,Figure AI,Low
+Samsung Next,Low,Co-investor,"Key investor in Normal Computing",Case Studies - Outperforming Investments.md,Page 4,Normal Computing,Low
+First Round Ventures,Low,Co-investor,"Key investor in Normal Computing",Case Studies - Outperforming Investments.md,Page 4,Normal Computing,Low
+Valor Equity,Low,Co-investor,"Backed Bedrock where Henry Bellew provided market analysis",Fund I.md,Page 6,Bedrock,Low
+Craft,Low,Co-investor,"Backed Garden where Henry Bellew worked",Fund I.md,Page 6,Garden ($7M+ raised),Low
+Felicis,Low,Network mention,"Backed Mercor ($10B rumored Series C), connection via Virat Talwar '23",Sourcing Differentiation.md,Page 4,Harvard network - Mercor,Low
+Ch. 1,Low,Co-investor in failed deal,"Investor in Entheos (failed investment)",Case Studies - Underperforming Investments.md,Page 3,Entheos (failed),Low
+186b Ventures,Low,Co-investor in failed deal,"Investor in Entheos (failed investment)",Case Studies - Underperforming Investments.md,Page 3,Entheos (failed),Low
+Blockchange,Low,Co-investor in failed deal,"Investor in Entheos (failed investment)",Case Studies - Underperforming Investments.md,Page 3,Entheos (failed),Low
+Jamie Lee @ Tamarack Global,High,Managing Partner + Deal flow partner,"Managing Partner with 80 mutual LinkedIn connections, ONLY connection at firm - primary deal source for Figure AI",LinkedIn + Case Studies - Outperforming.md,LinkedIn Profile,Figure AI - Sourced Series A,Critical - ONLY contact at key deal flow firm
+David Breach @ Vista Equity,High,President/COO + LP investor,"President and Chief Operating Officer, 18 mutuals, C-suite validation of Dillon's capabilities",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Critical - C-suite LP commitment validation
+Fareed Adib @ Vista Equity,High,President OneVista + MD + LP investor,"President of OneVista and Managing Director, 45 mutuals, senior leadership validation",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Critical - C-suite LP commitment validation
+Cheryl Cecchini Leahy @ Vista Equity,High,Senior Managing Director + LP investor,"Senior Managing Director, 23 mutuals, MD-level backup reference",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,High - Senior leadership validation
+Brian Steel @ Vista Equity,High,MD Strategic Communications + LP investor,"Managing Director Strategic Communications, 4 mutuals",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Medium-High
+Ryan McMorrow @ Vista Equity,High,SVP + LP investor,"Senior Vice President, 32 mutuals",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Medium-High
+Stephen Foster @ Vista Equity,High,SVP + LP investor,"Senior Vice President, 9 mutuals",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Medium
+Kyle Henderson @ Vista Equity,High,VP + LP investor,"Vice President, 15 mutuals",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Medium
+Nicholas Burrello @ Vista Equity,High,Senior Associate + LP investor,"Senior Associate, 12 mutuals",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Medium
+Jack Dillon @ Vista Equity,High,Software Investor + LP investor,"Software investor, 14 mutuals",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Medium
+Andrew Hughes @ Vista Equity,High,Value Creation + LP investor,"Product & Technology Value Creation, 5 mutuals",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Medium
+Ryan Blitstein @ Vista Equity,High,Value Creation + LP investor,"Value Creation (GTM, AI, ESG), 17 mutuals",LinkedIn + Fund I.md,LinkedIn Profile,Vista 2021-2025,Medium
+Mike Annunziata @ Also Capital,High,Founder & Solo GP + Key mentor,"Founder & Solo GP, 205+ mutuals, CONFIRMED target from dataroom, key mentor claim",LinkedIn + Case Studies - Recent.md,LinkedIn Profile,Mesh Optical - Seed co-investor,Critical - EXACT TARGET, mentorship validation
+Brandes Woodall @ Also Capital,High,Secondary contact,"17 mutuals, backup contact at Also Capital",LinkedIn,LinkedIn Profile,Also Capital network,Low - Backup to Mike Annunziata
+Matthew Mazzeo @ Coatue,High,Formerly Coatue + 1st-degree,"Formerly Coatue & Lowercase, 336+ mutuals, 1ST-DEGREE connection - WARM INTRO AVAILABLE",LinkedIn + Deeptech perspectives.md,LinkedIn Profile,Dirac - Co-led $6M seed,Critical - Use for warm intro to Spencer Peterson
+Spencer Peterson @ Coatue,High,General Partner + Strategic partner,"General Partner, 212+ mutuals, strategic partnership claim validation",LinkedIn + Deeptech perspectives.md,LinkedIn Profile,Dirac - Co-led $6M seed,Critical - Strategic partner validation
+Lucas Swisher @ Coatue,High,Lead Growth Investing,"Lead Growth Investing, 266+ mutuals, highly connected backup",LinkedIn + Deeptech perspectives.md,LinkedIn Profile,Coatue network,High - Secondary Coatue contact
+Elijah Sutanto @ Coatue,High,Vice President,"Vice President, 24 mutuals",LinkedIn + Deeptech perspectives.md,LinkedIn Profile,Coatue network,Medium
+Rohan Bharvani @ Coatue,High,Investor,"Investor at Coatue Management, 46 mutuals",LinkedIn + Deeptech perspectives.md,LinkedIn Profile,Coatue network,Medium
+Nihar Sheth @ Firmament,High,Vice President + LP investor,"Vice President, 13 mutuals, Firmament colleague planning to invest",LinkedIn + Letter to LPs.md,LinkedIn Profile,Quantinuum original investment,Medium-High - Firmament LP validation
+Brian Bell (ex-AWS),High,ex-AWS + Potential Amazon contact,"Founder at Team Ignite Ventures, ex AI at AWS, 235+ mutuals - NO LONGER AT AMAZON",LinkedIn + Deeptech perspectives.md,LinkedIn Profile,Unclear - Now at different firm,Low - May not validate Amazon claim
+Michael Sutton (Potential Amazon),High,Investor + Potential Amazon contact,"Investor/Board Member/Advisor, 32 mutuals, unclear Amazon affiliation",LinkedIn + Deeptech perspectives.md,LinkedIn Profile,Unclear Amazon connection,Low - Requires profile verification
+Connor Dawson (Potential Amazon),High,MD + Potential Amazon contact,"MD at Growth Catalyst Partners, 10 mutuals, unclear Amazon affiliation",LinkedIn + Deeptech perspectives.md,LinkedIn Profile,Unclear Amazon connection,Low - Requires profile verification
+John Luttig @ Founders Fund,Medium,Partner + Co-investor,"Partner, 214+ mutuals, co-led Dirac seed, strong network",LinkedIn + Case Studies - Outperforming.md,LinkedIn Profile,Dirac - Co-led $6M seed,High - Co-investor validation
+Amin Mirzadegan @ Founders Fund,Medium,Partner + Co-investor,"Partner, 100 mutuals, co-led Dirac seed",LinkedIn + Case Studies - Outperforming.md,LinkedIn Profile,Dirac - Co-led $6M seed,Medium-High
+Luca Parolari @ DCVC,Medium,Senior Associate @DCVC Bio,"Senior Associate @DCVC Bio, MD/PhD, 27 mutuals",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,Quantinuum co-investor,Medium
+Philip Clark @ Thrive Capital,Medium,1st-degree connection,"1ST-DEGREE, 74 mutuals - WARM INTRO AVAILABLE, led Mesh Optical seed",LinkedIn + Case Studies - Recent.md,LinkedIn Profile,Mesh Optical (lead investor),High - 1st-degree warm intro
+Jack Moshkovich @ 8VC,Medium,Partner + Central Hub,"Partner, 110 mutuals, Central Hub filtering relationship",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,Bedrock ($80M+ raised),Medium-High
+Jimmy S. Yun @ 8VC,Medium,8VC contact,"83 mutuals, role unspecified",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,8VC network,Medium
+Bela Becerra @ 8VC,Medium,8VC contact,"55 mutuals, role unspecified",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,8VC network,Medium
+Justin Rose @ 8VC,Medium,Associate,"Associate, 28 mutuals",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,8VC network,Low
+Jason Cui @ a16z,Medium,Partner Infrastructure & AI,"Partner @ a16z - Infrastructure & AI, 95 mutuals",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,Central Hub partner,Medium-High
+Ryan M. @ a16z,Medium,Partner,"Partner @ a16z, 84 mutuals",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,Central Hub partner,Medium-High
+Oliver Hsu @ a16z,Medium,Investment Partner,"Investment Partner, 66 mutuals",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,Central Hub partner,Medium
+Shangda Xu @ a16z,Medium,Investing Partner,"Investing Partner, 22 mutuals",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,Central Hub partner,Medium
+Eric Helfgott @ Lowercarbon,Medium,Principal,"Principal, 31 mutuals, Central Hub partner",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,Zap Energy (~$1.1B valuation),Medium
+James Kuklinski @ Spark Capital,Medium,General Partner,"General Partner, 97 mutuals, co-investor in Antithesis",LinkedIn + Fund I.md,LinkedIn Profile,Antithesis (>$80M raised),Medium-High
+Clay Fisher @ Spark Capital,Medium,General Partner,"General Partner, 45 mutuals, co-investor in Antithesis",LinkedIn + Fund I.md,LinkedIn Profile,Antithesis (>$80M raised),Medium
+Mike Dauber @ Amplify,Medium,General Partner,"General Partner, 110 mutuals, deeptech collaborator",LinkedIn + Sourcing Differentiation.md,LinkedIn Profile,Antithesis co-investor,Medium-High
+John Volquez @ Drive Capital,Medium,Partner,"Partner, 62 mutuals, led Normal Series A where Dillon got advisory shares",LinkedIn + Case Studies - Outperforming.md,LinkedIn Profile,Normal Computing - $17M Series A,Medium
+Jin Kim @ Alumni Ventures,Medium,EVP + Syndication partner,"Executive Vice President, 47 mutuals, Dillon syndicated into Haiqu",LinkedIn + Case Studies - Recent.md,LinkedIn Profile,Haiqu seed - Dillon syndication,Medium
+David K. Cohen @ Collaborative Fund,Medium,Operating Partner + Syndication,"Operating Partner & GC, 29 mutuals, Dillon syndicated into Haiqu",LinkedIn + Case Studies - Recent.md,LinkedIn Profile,Haiqu seed - Dillon syndication,Medium
+Matt Kaufman @ Collaborative Fund,Medium,Investor + Syndication,"Investor, 14 mutuals, co-investor via Dillon syndication",LinkedIn + Case Studies - Recent.md,LinkedIn Profile,Haiqu seed,Low-Medium
