@@ -47,7 +47,7 @@ Of the 6 specific Harvard founder relationships claimed in the dataroom material
 - **Result:** **FOUND** ✅
 - **LinkedIn data:**
   - Name: Kushan Weerakoon
-  - Title: ProDex Labs (note: spelled "ProDex" not "PRODEX")
+  - Title: ProDex Labs
   - Location: New York City Metropolitan Area
   - Profile: https://www.linkedin.com/in/kushan-weerakoon/
 - **Additional findings:** Also found Rick Li ("ProDex Labs | Prev. SpaceX | Applied Math @ Harvard")
@@ -141,7 +141,7 @@ To thoroughly validate these claims, the following searches should be performed:
    - Purpose: Validate claim of privileged access to PROD ecosystem
    - Search: `grep -i "\\bprod\\b" connections_harvard.csv`
    - **Result:** ❌ No direct matches to "PROD" accelerator
-   - **Note:** Found "ProDex" connections but this appears to be a different entity
+   - **Note:** ProDex Labs (found in connections) is unrelated to PROD accelerator
 
 ### **Secondary Target Searches (Next Wave Companies)**
 
@@ -158,30 +158,6 @@ To thoroughly validate these claims, the following searches should be performed:
     - Search: `grep -i "zhou" connections_harvard.csv` (find all Zhous)
     - **Result:** ❌ Not found (found other Zhous but not Henry)
 
-### **Class Year Validation Searches**
-
-11. **Harvard Class of 2019 (Scott Wu's class)**
-    - Purpose: Check if connected to Scott Wu's classmates
-    - Search: `grep -i "'19\|2019" connections_harvard.csv`
-    - **Relevance:** Claimed to be Scott Wu's classmate - should have many '19 connections
-
-12. **Harvard Class of 2023 (Oskar Schulz & Virat Talwar's class)**
-    - Purpose: Check connections to this graduating class
-    - Search: `grep -i "'23\|2023" connections_harvard.csv`
-    - **Relevance:** Both Cursor and Mercor contacts allegedly from this class
-
-13. **Harvard Class of 2022 (Justin Mack's class)**
-    - Purpose: Validate the verified connection's class year
-    - Search: `grep -i "'22\|2022" connections_harvard.csv`
-
-14. **Harvard Class of 2025 (Kushan Weerakoon's class)**
-    - Purpose: Validate the verified connection's class year
-    - Search: `grep -i "'25\|2025" connections_harvard.csv`
-
-15. **Harvard Class of 2028 (Henry Zhou's class)**
-    - Purpose: Check for very recent graduates/current students
-    - Search: `grep -i "'28\|2028" connections_harvard.csv`
-
 ---
 
 ## Additional Investigation Pathways
@@ -192,16 +168,13 @@ If available, search the complete LinkedIn connections CSV (not just Harvard):
 - May find Oskar Schulz, Virat Talwar, or Scott Wu through non-Harvard paths
 - Would reveal if these are genuine connections established through other means
 
-### **ProDex Labs Deep Dive**
+### **ProDex Labs Analysis**
 
 Found 2 connections at ProDex Labs:
 1. Kushan Weerakoon (claimed relationship)
 2. Rick Li ("ProDex Labs | Prev. SpaceX | Applied Math @ Harvard")
 
-Questions:
-- Is ProDex Labs the same as the "PRODEX LABS" mentioned in the dataroom?
-- What is the relationship between ProDex Labs and the PROD accelerator?
-- Should search for all ProDex-related connections
+**Note:** ProDex Labs is likely the same as "PRODEX LABS" mentioned in the dataroom (just different spelling/capitalization). ProDex Labs has no relationship with the PROD accelerator.
 
 ### **Founder Ecosystem Analysis**
 
