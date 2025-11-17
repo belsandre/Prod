@@ -12,7 +12,9 @@ Root folder: users/tam/hyperion
 	1. Add names from LinkedIn connections - Run the `reference-linkedin-checker` workflow on `research/people/linkedin/connections_vcpe.csv`, update `outputs/reference-check-targets.md` and `outputs/investor-mentions-map.csv`
 7. Run network analysis to classify network into early, mid, late-stage VC, PE, LPs, etc. - run `network-analyzer` workflow on `research/people/linkedin/connections_vcpe.csv`, output as `outputs/network_analysis.md`
 8. Network analysis
-	1. LinkedIn search with all Harvard alums = ~600 connections -> output as connections_harvard.csv
-	2. LinkedIn search with Industries = Computer and Network Security, Semiconductor Manufacturing, Automation Machinery Manufacturing, Renewable Energy Semiconductor Manufacturing, Computers and Electronics Manufacturing, Biotechnology Research, Utilities, Mining, Research Services, Appliances, Electrical and Electronics Manufacturing, Machinery Manufacturing, Oil and Gas, Computer Hardware Manufacturing, Software Development, Nanotechnology Research, Chemical Manufacturing, Computer Networking Products -> ~380 connections
-		1. Informed by `linkedin-industry-analysis` workflow
-		2. outputs as connections_deeptech.csv
+	1. Assess the quality of Dillon's Harvard "hot founders" network: Run `linkedin-to-csv` workflow on his connections that have attended "Harvard University". output as connections_harvard.csv -> ~600 connections
+		1. Compare his connections with his claims: Run `network-linkedin-checker` workflow on `dataroom` folder and `research/people/linkedin/connections_harvard.csv`
+	2. Assess the quality of Dillon's deeptech network: Run `linkedin-industry-analysis` workflow and output as `connections_deeptech.csv`
+		1. LinkedIn search with Industries = Computer and Network Security, Semiconductor Manufacturing, Automation Machinery Manufacturing, Renewable Energy Semiconductor Manufacturing, Computers and Electronics Manufacturing, Biotechnology Research, Utilities, Mining, Research Services, Appliances, Electrical and Electronics Manufacturing, Machinery Manufacturing, Oil and Gas, Computer Hardware Manufacturing, Software Development, Nanotechnology Research, Chemical Manufacturing, Computer Networking Products -> ~380 connections
+		2. Characterize the quality of his deeptech network: Run `industry-network-analyzer` workflow on `research/people/linkedin/connections_deeptech.csv` and reference `outputs /linkedin-industry-analysis.md`
+9. 

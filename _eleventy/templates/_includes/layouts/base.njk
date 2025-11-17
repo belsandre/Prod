@@ -16,6 +16,7 @@
             line-height: 1.6;
             color: #333;
             background: #f5f5f5;
+            margin-left: 280px; /* Account for fixed sidebar */
         }
 
         .container {
@@ -44,20 +45,20 @@
             text-decoration: none;
         }
 
-        nav ul {
+        header nav ul {
             list-style: none;
             display: flex;
             gap: 2rem;
         }
 
-        nav a {
+        header nav a {
             color: #666;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s;
         }
 
-        nav a:hover {
+        header nav a:hover {
             color: #000;
         }
 
@@ -214,7 +215,11 @@
         }
 
         @media (max-width: 768px) {
-            nav ul {
+            body {
+                margin-left: 0; /* Reset sidebar margin on mobile */
+            }
+
+            header nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
             }
@@ -233,6 +238,8 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+    {% include "components/sidebar-nav.njk" %}
+
     <header>
         <div class="container header-content">
             <a href="/" class="site-title">{{ site.username | capitalize }}'s Workspace</a>

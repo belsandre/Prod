@@ -1,0 +1,76 @@
+---
+layout: layouts/base.njk
+---
+
+<h1>{{ title or (page.fileSlug | capitalize) }}</h1>
+
+{% if jsonError %}
+  <div class="error-message">
+    <p><strong>Error parsing JSON file:</strong></p>
+    <p>{{ jsonError }}</p>
+  </div>
+{% elif jsonData %}
+  <div class="json-container">
+    <div class="json-header">
+      <span class="file-info">{{ page.inputPath | basename }}</span>
+    </div>
+    <div class="json-content">
+      <pre><code class="language-json">{{ jsonFormatted }}</code></pre>
+    </div>
+  </div>
+{% else %}
+  <p>No JSON data available.</p>
+{% endif %}
+
+<style>
+  .error-message {
+    background: #fee;
+    border-left: 4px solid #c33;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+  }
+
+  .error-message strong {
+    color: #c33;
+  }
+
+  .json-container {
+    margin: 1.5rem 0;
+  }
+
+  .json-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+  }
+
+  .file-info {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #6c757d;
+  }
+
+  .json-content {
+    border: 1px solid #dee2e6;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+  }
+
+  .json-content pre {
+    margin: 0;
+    border-radius: 0;
+    max-height: 70vh;
+    overflow: auto;
+  }
+
+  .json-content code {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+</style>

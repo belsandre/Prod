@@ -1,0 +1,274 @@
+{# Macro to recursively render navigation tree - MUST be defined first #}
+{% macro renderNavTree(items, currentUrl, level = 0) %}
+  <ul class="nav-list" data-level="{{ level }}">
+    {% for item in items %}
+      <li class="nav-item {% if item.type == 'folder' %}nav-folder{% else %}nav-file{% endif %}">
+        {% if item.type == 'folder' %}
+          <details class="folder-details" data-folder-path="{{ item.path }}">
+            <summary class="folder-summary">
+              <span class="folder-icon">📁</span>
+              <span class="folder-name">{{ item.name }}</span>
+              <span class="folder-count">({{ item.children | length }})</span>
+            </summary>
+            {% if item.children and item.children.length > 0 %}
+              {{ renderNavTree(item.children, currentUrl, level + 1) }}
+            {% endif %}
+          </details>
+        {% else %}
+          <a href="{{ item.url }}" class="file-link {% if item.url == currentUrl %}active{% endif %}">
+            <span class="file-icon">
+              {% if item.extension == 'md' %}📄
+              {% elif item.extension == 'csv' %}📊
+              {% elif item.extension == 'json' %}📋
+              {% else %}📎
+              {% endif %}
+            </span>
+            <span class="file-name">{{ item.name }}</span>
+          </a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{# Sidebar navigation component with collapsible folder tree #}
+<nav class="sidebar-nav" id="sidebar-nav">
+  <div class="sidebar-header">
+    <h3>Navigation</h3>
+  </div>
+
+  <div class="nav-tree">
+    {% if navigationTree %}
+      {{ renderNavTree(navigationTree, page.url) }}
+    {% endif %}
+  </div>
+</nav>
+
+<style>
+  .sidebar-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    background: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 1rem 0;
+  }
+
+  .sidebar-header {
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #212529;
+  }
+
+  .nav-tree {
+    padding: 0 0.5rem;
+  }
+
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  .folder-details {
+    margin: 0.25rem 0;
+  }
+
+  .folder-summary {
+    cursor: pointer;
+    padding: 0.4rem 0.5rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+    transition: background-color 0.15s;
+  }
+
+  .folder-summary:hover {
+    background: #e9ecef;
+  }
+
+  .folder-summary::marker,
+  .folder-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .folder-summary::before {
+    content: '▶';
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+    display: inline-block;
+    width: 1rem;
+    color: #6c757d;
+  }
+
+  .folder-details[open] > .folder-summary::before {
+    transform: rotate(90deg);
+  }
+
+  .folder-icon {
+    font-size: 1rem;
+  }
+
+  .folder-name {
+    flex: 1;
+    font-weight: 500;
+    color: #495057;
+  }
+
+  .folder-count {
+    font-size: 0.75rem;
+    color: #6c757d;
+  }
+
+  .folder-details[open] > .nav-list {
+    padding-left: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .file-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.5rem 0.4rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #495057;
+    transition: background-color 0.15s;
+  }
+
+  .file-link:hover {
+    background: #e9ecef;
+    text-decoration: none;
+  }
+
+  .file-link.active {
+    background: #0d6efd;
+    color: #fff;
+  }
+
+  .file-link.active .file-icon {
+    filter: brightness(0) invert(1);
+  }
+
+  .file-icon {
+    font-size: 1rem;
+  }
+
+  .file-name {
+    font-size: 0.9rem;
+  }
+
+  /* Scrollbar styling */
+  .sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .sidebar-nav::-webkit-scrollbar-track {
+    background: #f8f9fa;
+  }
+
+  .sidebar-nav::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 3px;
+  }
+
+  .sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
+  }
+
+  /* Responsive: hide sidebar on mobile */
+  @media (max-width: 768px) {
+    .sidebar-nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // State persistence using localStorage
+  (function() {
+    const STORAGE_KEY = 'sidebar-nav-state';
+    const currentPath = window.location.pathname;
+
+    // Load saved state
+    function loadState() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : { openFolders: [] };
+      } catch (e) {
+        return { openFolders: [] };
+      }
+    }
+
+    // Save state
+    function saveState(state) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {
+        console.warn('Could not save navigation state:', e);
+      }
+    }
+
+    // Get all folder details elements
+    const folderDetails = document.querySelectorAll('.folder-details');
+    const state = loadState();
+
+    // Restore state and expand path to current page
+    folderDetails.forEach(details => {
+      const folderPath = details.getAttribute('data-folder-path');
+
+      // Check if this folder should be open (either in saved state or contains current page)
+      const wasOpen = state.openFolders.includes(folderPath);
+      const containsCurrentPage = currentPath.includes(folderPath);
+
+      if (wasOpen || containsCurrentPage) {
+        details.open = true;
+      }
+    });
+
+    // Listen for toggle events
+    folderDetails.forEach(details => {
+      details.addEventListener('toggle', function() {
+        const folderPath = this.getAttribute('data-folder-path');
+        const state = loadState();
+
+        if (this.open) {
+          // Add to open folders if not already there
+          if (!state.openFolders.includes(folderPath)) {
+            state.openFolders.push(folderPath);
+          }
+        } else {
+          // Remove from open folders
+          state.openFolders = state.openFolders.filter(p => p !== folderPath);
+        }
+
+        saveState(state);
+      });
+    });
+
+    // Scroll active item into view
+    const activeLink = document.querySelector('.file-link.active');
+    if (activeLink) {
+      setTimeout(() => {
+        activeLink.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }, 100);
+    }
+  })();
+</script>
