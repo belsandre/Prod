@@ -9,12 +9,12 @@
   "scripts": {
     "setup": "node scripts/setup-sites.js",
     "build": "npm run setup && node scripts/build-all-sites.js",
-    "build:ashish": "cd sites/ashish && npm run build",
-    "build:tam": "cd sites/tam && npm run build",
-    "build:yani": "cd sites/yani && npm run build",
-    "serve:ashish": "cd sites/ashish && npm run serve",
-    "serve:tam": "cd sites/tam && npm run serve",
-    "serve:yani": "cd sites/yani && npm run serve"
+    "build:ashish": "npm run setup && cd sites/ashish && npm run build",
+    "build:tam": "npm run setup && cd sites/tam && npm run build",
+    "build:yani": "npm run setup && cd sites/yani && npm run build",
+    "serve:ashish": "npm run setup && cd sites/ashish && npm run serve",
+    "serve:tam": "npm run setup && cd sites/tam && npm run serve",
+    "serve:yani": "npm run setup && cd sites/yani && npm run serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

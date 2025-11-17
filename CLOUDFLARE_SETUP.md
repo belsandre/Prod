@@ -15,21 +15,46 @@ Step-by-step instructions for setting up Cloudflare Pages and authentication.
 1. Log into Cloudflare Dashboard: https://dash.cloudflare.com
 2. In the sidebar, click **Pages**
 3. Click **Create a project**
-4. Click **Direct Upload** (we're using GitHub Actions, not Git integration)
-5. Enter project name: `ashish`
-6. Click **Create project**
-7. You'll see "Waiting for first upload" - that's fine, we'll deploy via GitHub Actions
+4. Click **Connect to Git**
+5. Click **GitHub** and authorize Cloudflare to access your GitHub account
+   - You'll be redirected to GitHub to grant permissions
+   - Select which repositories to grant access (you can select just this repo or all repos)
+   - Click **Install & Authorize**
+6. Back in Cloudflare, select your repository from the list
+7. Configure build settings:
+   - **Project name**: `ashish`
+   - **Production branch**: `main`
+   - **Framework preset**: `None` (or select `Eleventy` if available)
+   - **Build command**: `npm run build:ashish`
+   - **Build output directory**: `_site/ashish`
+   - **Root directory (advanced)**: Leave blank
+   - **Environment variables**: Leave empty for now (we'll add these after project creation)
+8. Click **Save and Deploy**
+9. Cloudflare will start the first build - this may take a few minutes
+   - ⚠️ The first build may fail if you haven't run `npm run setup` locally yet - that's okay, we'll fix it in Part 2
 
 ### Step 2: Create Additional Projects
 
-Repeat Step 1 for:
-- Project name: `tam`
-- Project name: `yani`
+Repeat Step 1 for each user, with these settings:
+
+**For Tam:**
+- **Project name**: `tam`
+- **Production branch**: `main`
+- **Build command**: `npm run build:tam`
+- **Build output directory**: `_site/tam`
+
+**For Yani:**
+- **Project name**: `yani`
+- **Production branch**: `main`
+- **Build command**: `npm run build:yani`
+- **Build output directory**: `_site/yani`
 
 You should now have three projects:
 - ashish.pages.dev
 - tam.pages.dev
 - yani.pages.dev
+
+**Note:** Each project is connected to the same repository but builds a different user's site using a different build command.
 
 ## Part 2: Configure Authentication
 
