@@ -121,8 +121,22 @@
             color: #333;
         }
 
+        .content,
+        .markdown-content {
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
         .content p {
             margin-bottom: 1rem;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .content a {
+            word-break: break-all;
+            overflow-wrap: break-word;
         }
 
         .content ul, .content ol {
@@ -132,6 +146,8 @@
 
         .content li {
             margin-bottom: 0.5rem;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         .content pre {
@@ -162,6 +178,7 @@
             display: block;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            max-width: 100%;
         }
 
         .content th,
@@ -169,7 +186,8 @@
             padding: 0.75rem;
             text-align: left;
             border-bottom: 1px solid #e0e0e0;
-            word-break: break-word;
+            white-space: nowrap;
+            min-width: 100px;
         }
 
         .content th {
@@ -274,12 +292,20 @@
             }
 
             .content table {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+                width: auto;
+                min-width: 100%;
             }
 
             .content th,
             .content td {
-                padding: 0.5rem;
+                padding: 0.5rem 0.35rem;
+                min-width: 80px;
+                font-size: 0.8rem;
+            }
+
+            .content a {
+                word-break: break-word;
             }
         }
     </style>
