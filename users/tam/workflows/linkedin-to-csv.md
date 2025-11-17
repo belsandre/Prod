@@ -87,8 +87,10 @@ For each connection extracted from the snapshot, format as a CSV row with these 
 
 **CSV Escaping Rules**:
 - Wrap fields in double quotes if they contain commas, quotes, or newlines
-- Escape internal double quotes by doubling them (`""`)
+- Escape internal double quotes by doubling them (`""`) - **NOT** with backslashes
+- **NEVER** use backslash escaping (`\"`) - this is invalid CSV format and will cause parsing errors
 - Use empty quotes `""` for missing/unavailable fields
+- Example: `"Ganesh ""GK"" Kumar"` (correct) not `"Ganesh \"GK\" Kumar"` (incorrect)
 
 Example CSV row:
 ```csv
@@ -149,8 +151,13 @@ If `browser_snapshot` exceeds token limit:
 After appending each page:
 1. ✅ Verify connection count (typically 10 per page, may be fewer on last page)
 2. ✅ Check that all profile URLs start with `https://www.linkedin.com/in/`
-3. ✅ Confirm Edit operation succeeded (no errors)
-4. ✅ Update running total for final footer
+3. ✅ **CSV Escaping Validation**: Check for invalid backslash escaping (`\"`) and fix if found
+   - Use Grep tool to search for `\\"` pattern in the CSV file
+   - If found, use Edit tool to replace all instances of `\"` with proper CSV escaping `""`
+   - Example: `Ganesh \"GK\" Kumar` → `Ganesh ""GK"" Kumar`
+   - This prevents "Invalid Closing Quote" parsing errors
+4. ✅ Confirm Edit operation succeeded (no errors)
+5. ✅ Update running total for final footer
 
 ### Recovery from Interruptions
 - Progress is saved after each page (incremental Edit operations)
@@ -212,7 +219,8 @@ Name,Degree Connection,Title,Location,Mutual Connections Count,Mutual Connection
 - ✅ Profile URLs are complete and clickable
 - ✅ Mutual connection counts split into numeric count and names
 - ✅ CSV properly formatted with 7 columns per row
-- ✅ CSV fields properly escaped (quotes around fields with commas)
+- ✅ CSV fields properly escaped (double quotes `""`, never backslashes `\"`)
+- ✅ **No invalid backslash escaping** - verified and corrected after each page
 - ✅ No data fabricated or inferred beyond what's visible
 - ✅ 1-2 second delays between pages (rate limiting)
 - ✅ Validation after each page append
@@ -220,4 +228,4 @@ Name,Degree Connection,Title,Location,Mutual Connections Count,Mutual Connection
 
 ---
 
-**Version**: 4.1 (2025-11-14) - Added Profile URL column to CSV output (7 columns total)
+**Version**: 4.2 (2025-11-16) - Added CSV escaping validation to prevent backslash-escaped quotes parsing errors
