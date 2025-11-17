@@ -1,35 +1,3 @@
-# Harvard Network Verification
-
-## Data Interpretation Guide
-
-### Connection Degree Definitions
-
-**Important**: The connection degrees in the Harvard connections dataset have specific meanings based on the relationship between Tam, Dillon, and the target individual:
-
-- **1st Degree Connection**: Indicates that **both Tam AND Dillon** are connected to the target person
-- **2nd Degree Connection**: Indicates that **only Dillon** is connected to the target person (Tam is NOT connected)
-
-### Mutual Connections Clarification
-
-The "Mutual Connections Count" and "Mutual Connections Names" fields represent:
-- **Mutual connections between Tam and the target** (NOT between Dillon and the target)
-
-This means that for 2nd degree connections, even though Tam is not directly connected to the target, the mutual connections shown are still calculated based on Tam's network (representing people who know both Tam and the target, even if they are not directly connected on LinkedIn).
-
-### Data Source
-
-**File**: `users/tam/hyperion/research/people/linkedin/connections_harvard.csv`
-
-This dataset was scraped from LinkedIn and contains Harvard-affiliated individuals in Tam's and Dillon's professional networks.
-
-### Analysis Implications
-
-1. **1st Degree Connections** are the strongest relationship opportunities since both Tam and Dillon have direct connections to these individuals
-2. **2nd Degree Connections** represent targets where Dillon has the direct relationship but Tam does not
-3. **Mutual Connections** provide potential warm introduction paths for Tam to reach targets, regardless of degree
-
----
-
 # Harvard Network Verification Analysis
 **Subject:** Dillon Dunteman's Harvard Network Claims
 **Data Source:** LinkedIn connections who studied at Harvard (603 total connections)
@@ -81,11 +49,9 @@ Of the 6 specific Harvard founder relationships claimed in the dataroom material
   - Name: Kushan Weerakoon
   - Title: ProDex Labs (note: spelled "ProDex" not "PRODEX")
   - Location: New York City Metropolitan Area
-  - Degree: 2nd connection
-  - Mutual connections: 10 ("Lisa Dolan, Steven Simoni, and 8 others")
   - Profile: https://www.linkedin.com/in/kushan-weerakoon/
 - **Additional findings:** Also found Rick Li ("ProDex Labs | Prev. SpaceX | Applied Math @ Harvard")
-- **Validation status:** ✅ **VERIFIED** (connection exists, but only 2nd degree)
+- **Validation status:** ✅ **VERIFIED**
 
 #### ✅ **CLAIM 5: garden - Justin Mack**
 - **Claimed relationship:** "Close friendship with Founder & CTO Justin Mack '22"
@@ -95,10 +61,8 @@ Of the 6 specific Harvard founder relationships claimed in the dataroom material
   - Name: Justin Mack
   - Title: Co-Founder & CTO at Garden
   - Location: New York City Metropolitan Area
-  - Degree: 2nd connection
-  - Mutual connections: 12 ("Phil Nadel, Sarah Blanchard, and 10 others")
   - Profile: https://www.linkedin.com/in/justindmack/
-- **Validation status:** ✅ **VERIFIED** (connection exists, but only 2nd degree)
+- **Validation status:** ✅ **VERIFIED**
 
 #### ❌ **CLAIM 6: Stealth - Henry Zhou**
 - **Claimed relationship:** "Friendship with Founder & CTO Henry Zhou '28"
@@ -120,9 +84,7 @@ Of the 6 specific Harvard founder relationships claimed in the dataroom material
    - Mercor: "1st hire & angel investor" Virat Talwar (not a founder)
    - Only for Cognition does he claim a relationship with the actual CEO
 
-3. **2nd-degree connections only**: The two verified relationships (Kushan Weerakoon and Justin Mack) are both **2nd-degree connections**, not 1st-degree, which weakens the "close friendship" claim
-
-4. **PROD accelerator**: No connections found to anyone listing "Prod" or "PROD" in their profile, despite claiming this is a key sourcing advantage
+3. **PROD accelerator**: No connections found to anyone listing "Prod" or "PROD" in their profile, despite claiming this is a key sourcing advantage
 
 ### 📊 **Statistical Summary**
 
@@ -185,11 +147,11 @@ To thoroughly validate these claims, the following searches should be performed:
 
 8. **Kushan Weerakoon (PRODEX/ProDex Labs)**
    - Search: `grep -i "weerakoon\|prodex" connections_harvard.csv`
-   - **Result:** ✅ **FOUND** - 2nd degree connection
+   - **Result:** ✅ **FOUND**
 
 9. **Justin Mack (garden)**
    - Search: `grep -i "mack.*garden\|garden.*mack" connections_harvard.csv`
-   - **Result:** ✅ **FOUND** - 2nd degree connection
+   - **Result:** ✅ **FOUND**
 
 10. **Henry Zhou (Stealth)**
     - Search: `grep -i "henry.*zhou\|zhou.*henry" connections_harvard.csv`
@@ -230,17 +192,6 @@ If available, search the complete LinkedIn connections CSV (not just Harvard):
 - May find Oskar Schulz, Virat Talwar, or Scott Wu through non-Harvard paths
 - Would reveal if these are genuine connections established through other means
 
-### **Mutual Connection Analysis**
-
-For the verified connections, analyze the mutual connections:
-- **Kushan Weerakoon:** 10 mutual connections ("Lisa Dolan, Steven Simoni, and 8 others")
-- **Justin Mack:** 12 mutual connections ("Phil Nadel, Sarah Blanchard, and 10 others")
-
-Suggested searches:
-- Who are Lisa Dolan, Steven Simoni, Phil Nadel, and Sarah Blanchard?
-- Do these mutual connections have ties to the claimed companies (Cursor, Mercor, Cognition)?
-- Are these mutual connections from Vista, Firmament, or his professional network?
-
 ### **ProDex Labs Deep Dive**
 
 Found 2 connections at ProDex Labs:
@@ -273,7 +224,6 @@ grep -i "founder\|co-founder\|ceo\|cto" connections_harvard.csv
 1. **Not all connections are on LinkedIn:** Some founders may not maintain active LinkedIn profiles
 2. **Connection timing:** May have connected after the dataroom was created
 3. **Privacy settings:** Some connections may be hidden or not searchable
-4. **2nd-degree vs 1st-degree:** Given the data interpretation guide above, the "2nd degree" designation means **only Dillon is connected** (not Tam), which significantly impacts the interpretation of these relationships
 
 ### **Alternative Explanations**
 
@@ -298,9 +248,8 @@ The LinkedIn data reveals a **significant gap between claimed relationships and 
 **Key takeaways:**
 1. ❌ **0 out of 3 "already scaling" company relationships verified** (0%)
 2. ✅ **2 out of 3 "next wave" company relationships verified** (67%)
-3. 🚩 **Both verified connections are 2nd-degree** (only Dillon connected, not Tam)
-4. 🚩 **No connections found to PROD accelerator** despite claiming it as key sourcing advantage
-5. 🚩 **The most valuable relationships are the least verifiable**
+3. 🚩 **No connections found to PROD accelerator** despite claiming it as key sourcing advantage
+4. 🚩 **The most valuable relationships are the least verifiable**
 
 This warrants deeper investigation through:
 - Interview references with the claimed contacts
