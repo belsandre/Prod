@@ -1,0 +1,373 @@
+{
+  "metadata": {
+    "extraction_date": "2025-11-17",
+    "source": "GP Bio.md, research/people/, vc-research-summary.md, LinkedIn profiles",
+    "fund": "Hyperion Ventures I LP"
+  },
+  "general_partners": [
+    {
+      "name": "Dillon Dunteman",
+      "role": "General Partner",
+      "education": {
+        "institution": "Harvard University",
+        "degree": "B.S. in Mechanical Engineering",
+        "years": "2015-2019",
+        "notable_coursework": [
+          "Quantum computing algorithms and simulations",
+          "Grid storage power systems"
+        ],
+        "thesis": "Vision software for micro-robotic bees",
+        "extracurricular": "Varsity lightweight crew (walked on as novice)",
+        "verification": "verified",
+        "tier": 2
+      },
+      "professional_experience": [
+        {
+          "company": "Vista Equity Partners",
+          "role": "Investor",
+          "years": "2021-2025",
+          "description": "Growth equity investments in enterprise SaaS",
+          "claimed_activities": [
+            "Deployed $1.0+ billion across 15+ deals (primarily Series C+ growth)",
+            "Deployed ~$320M across 3 cybersecurity companies (KnowBe4, Acronis, Deepwatch)",
+            "Spearheaded AI research and strategy for team (2023-2025)"
+          ],
+          "notable_investments_claimed": [
+            "Databricks ($62B)",
+            "Fivetran ($5.6B)",
+            "Acronis ($4.5B)",
+            "RapidAI",
+            "FLYR"
+          ],
+          "verification": "partial",
+          "verification_notes": "Vista employment verified (LinkedIn). Individual attribution for $1B+ deployment unclear without role specifics. Vista is $100B+ AUM firm with teams.",
+          "tier": 2
+        },
+        {
+          "company": "Firmament Group",
+          "role": "Investor",
+          "years": "2019-2021",
+          "description": "Enterprise SaaS buyouts and venture arm buildout",
+          "claimed_activities": [
+            "Built out venture arm from scratch",
+            "Executed enterprise SaaS buyouts",
+            "Scaled businesses via organic growth and M&A"
+          ],
+          "claimed_exits": [
+            {
+              "company": "Envase",
+              "moic": ">5x",
+              "exit_value": "$230M",
+              "buyer": "WiseTech (ASX: WTC)",
+              "exit_date": "2023-01",
+              "timing_issue": "Exit occurred 16 months AFTER Dillon left Firmament (joined Vista Sept 2021)"
+            },
+            {
+              "company": "Logistyx",
+              "moic": ">3x",
+              "exit_value": "$185M",
+              "buyer": "E2open (NYSE: ETWO)",
+              "exit_date": "2022-03",
+              "timing_issue": "Exit occurred 6 months AFTER Dillon left Firmament"
+            }
+          ],
+          "verification": "partial",
+          "verification_notes": "Firmament employment verified. Both exits occurred AFTER departure. Attribution unclear: work during employment vs retroactive credit?",
+          "tier": 2
+        }
+      ],
+      "personal_venture_portfolio": {
+        "start_date": "Mid-2022 (per LP Letter)",
+        "initial_capital": "~$300K (nearly all personal savings)",
+        "claimed_performance": {
+          "tvpi": "6.7x net",
+          "irr": "77% net",
+          "tvpi_early_stage_only": "8.2x net (Pre-seed through Series A only)",
+          "notes": "Net of fees and expenses. Based on latest-round markups, not realized exits."
+        },
+        "total_companies": 24,
+        "researched_companies": 14,
+        "average_check_size": "~$42K (estimated from ~$1M deployed across 24 companies)",
+        "top_holdings": [
+          {
+            "company": "Figure AI",
+            "entry_date": "2023-04",
+            "entry_valuation": "$420M",
+            "entry_amount": "$40K",
+            "current_valuation": "$39.5B",
+            "paper_moic": "94x",
+            "percentage_of_portfolio_value": ">50%"
+          },
+          {
+            "company": "Quantinuum",
+            "entry_date": "2020-03 (Firmament note), 2021-07 (personal pro-rata)",
+            "entry_valuation": "$244M (conversion)",
+            "entry_amount": "~$76K personal",
+            "firmament_amount": "~$660K institutional",
+            "current_valuation": "$10.6B",
+            "paper_moic": "6.7x (verified)",
+            "note": "Attribution ambiguous: Firmament institutional vs personal"
+          },
+          {
+            "company": "Zap Energy",
+            "entry_date": "Unknown",
+            "entry_valuation": "~$1.1B (claimed)",
+            "entry_amount": "~$140K (claimed Series D)",
+            "current_valuation": "~$1.1B",
+            "paper_moic": "Unknown",
+            "verification": "unverified"
+          }
+        ],
+        "portfolio_status": {
+          "strong_performers": 4,
+          "steady_performers": 5,
+          "red_flags": 2,
+          "too_early": 3
+        },
+        "failed_investments": {
+          "acknowledged": true,
+          "details": [
+            "3 of next 4 investments in 2020-2021 were underperformers",
+            "1 company fire-sold for pennies on the dollar ~1 year after investment",
+            "2 of 16 companies (15+ month holding) shut down"
+          ],
+          "companies_named": "NO - not disclosed",
+          "verification": "unverified"
+        },
+        "verification": "partial",
+        "verification_notes": "Performance based on unrealized markups. Only 6 of 24 companies documented. Small sample size with extreme concentration (Figure >50% of value)."
+      },
+      "thought_leadership": {
+        "platform": "Substack 'Prescience' (tagline: 'Precursor to Hyperion')",
+        "launch_date": "~2021",
+        "notable_articles": [
+          {
+            "title": "Anticipating Disruptive Innovation",
+            "date": "2021-10",
+            "note": "Pinned post, first major article"
+          },
+          {
+            "title": "Deep-Dive #2: Nuclear Fusion",
+            "date": "2022-04",
+            "note": "Comprehensive fusion analysis"
+          },
+          {
+            "title": "Deep-Dive #3: Solid-State Batteries",
+            "date": "2022-06"
+          }
+        ],
+        "timing_concern": "Substack launched AFTER first investment (Quantinuum March 2020), suggesting retroactive narrative construction rather than prospective thesis development",
+        "verification": "verified (Substack exists)",
+        "tier": 1
+      },
+      "portfolio_involvement": {
+        "tier_1_companies": "5/5 (100%)",
+        "tier_2_companies": "4/9 (44%)",
+        "total_involvement": "9/14 companies (64%)",
+        "full_case_studies": ["Figure AI", "Normal Computing", "Dirac", "Quantinuum"],
+        "testimonials": ["Scout AI", "Scout", "Haiqu", "Hephaestus", "Innerworks"],
+        "no_involvement": ["Natrion", "Emerge", "Biofire", "Marathon Fusion", "Mesh Optical"]
+      },
+      "claimed_value_add": {
+        "sourcing": {
+          "methods": [
+            "Relationship-driven (Tamarack/Figure, Firmament/Quantinuum)",
+            "Networking events (Normal)",
+            "VC referrals (Dirac)",
+            "Cold outreach ('120+ quantum founders')"
+          ],
+          "verification": "unverified - all claims from dataroom"
+        },
+        "strategic_support": {
+          "activities": [
+            "Hiring referrals (Normal: 2 key hires)",
+            "Fundraising assistance (Normal Series A, Dirac seed strategy)",
+            "VC introductions (claimed Dirac-Founders Fund intro)",
+            "Financial modeling (Normal)",
+            "Commercial strategy (Normal)"
+          ],
+          "verification": "unverified - all claims from dataroom, no independent founder testimonials"
+        },
+        "advisory_roles": [
+          {
+            "company": "Normal Computing",
+            "role": "Advisor",
+            "equity": "~$80K equity award (claimed)",
+            "date": "2024-07",
+            "verification": "unverified"
+          }
+        ],
+        "relationship_quality": [
+          "'Better technical understanding than major VCs' (Quantinuum founder testimonial, dataroom)",
+          "'Trusted confidante' (multiple testimonials, dataroom)",
+          "'First call when raising' (Normal CEO testimonial, dataroom)",
+          "'Clears weekends for portfolio' (testimonial, dataroom)"
+        ],
+        "verification_status": "ALL UNVERIFIED - 100% of evidence from dataroom only, zero public validation"
+      },
+      "network": {
+        "total_linkedin_connections": 637,
+        "vc_connections": 175,
+        "vc_percentage": "27.5%",
+        "top_firms": [
+          "Vista Equity Partners (9 - former employer)",
+          "Insight Partners (6)",
+          "8VC (4)",
+          "HOF Capital (4)",
+          "Bessemer Venture Partners (4)",
+          "Coatue (3)",
+          "Andreessen Horowitz (3)",
+          "Founders Fund (2)"
+        ],
+        "strategic_relationships": {
+          "central_hub_partners": ["8VC", "a16z/American Dynamism", "Lowercarbon Capital", "Spark Capital"],
+          "key_deal_sources": [
+            "Tamarack Global (Figure AI)",
+            "Coatue (Dirac co-lead)",
+            "Founders Fund (Dirac co-lead via claimed intro)",
+            "Also Capital / Mike Annunziata (mentor, Mesh Optical)"
+          ]
+        },
+        "network_assessment": "Quality over quantity - strategic relationships with key firms, but modest connection counts"
+      },
+      "strengths": [
+        "Genuine technical background (Harvard ME, quantum/robotics coursework)",
+        "Two exceptional portfolio winners (Figure 94x, Quantinuum 6.7x verified)",
+        "Tier-1 co-investor validation (Founders Fund, Coatue, Microsoft, NVIDIA, Bezos)",
+        "Favorable investment timing (entered before 2024 mega-rounds)",
+        "Thought leadership demonstrates sustained intellectual engagement",
+        "Acknowledges failures (selective transparency)"
+      ],
+      "concerns": [
+        "CRITICAL: All value-add claims unverified (100% from dataroom)",
+        "CRITICAL: Multiple funding discrepancies (Dirac, Normal) undermine credibility",
+        "CRITICAL: Customer claims contradicted (Dirac: Anduril, Stellantis, Lockheed)",
+        "HIGH: Performance based on unrealized markups, not exits",
+        "HIGH: Portfolio extremely concentrated (Figure >50% of value)",
+        "HIGH: Attribution ambiguity (individual vs Firmament/Vista institutional credit)",
+        "HIGH: Thought leadership appears retroactive (launched AFTER first investment)",
+        "MEDIUM: Failed investments not disclosed (names, dates, lessons)",
+        "MEDIUM: Only 6 of 24 portfolio companies documented"
+      ],
+      "verification_priorities": [
+        "CRITICAL: Verify Dirac-Founders Fund introduction (key GP value-add claim)",
+        "CRITICAL: Verify Tamarack Global relationship depth",
+        "CRITICAL: Resolve funding discrepancies (Dirac $6M vs $10.7M, Normal $17M vs $35M)",
+        "HIGH: Verify Normal advisory role and equity award",
+        "HIGH: Conduct independent founder reference calls",
+        "HIGH: Request full 24-company portfolio list with dates, amounts, valuations",
+        "MEDIUM: Verify Vista role and deployment attribution",
+        "MEDIUM: Verify Quantinuum attribution (Firmament team vs individual)"
+      ],
+      "overall_assessment": {
+        "rating": "7.5/10 (Above Average / Strong with significant caveats)",
+        "summary": "Dillon demonstrates strong technical background, access to quality deals, and opportunistic timing. Two exceptional winners validate investment judgment. However, extreme concentration risk (Figure >50%), unverified value-add claims, funding discrepancies, and retroactive narrative concerns require extensive due diligence.",
+        "conditional_ratings": {
+          "best_case": "9/10 (Figure executes, GP claims verify)",
+          "base_case": "7.5/10 (Figure partially delivers, some claims verify)",
+          "downside_case": "5.5/10 (Figure compresses, claims false)"
+        }
+      }
+    },
+    {
+      "name": "Henry Bellew",
+      "role": "General Partner",
+      "education": {
+        "institution": "Harvard University",
+        "degree": "History, Government, Economics",
+        "years": "Graduated 2023",
+        "verification": "verified",
+        "tier": 2
+      },
+      "professional_experience": [
+        {
+          "company": "The Raine Group",
+          "role": "Advisory",
+          "years": "Post-graduation (2023+)",
+          "description": "Investment banking and advisory",
+          "verification": "verified",
+          "tier": 2
+        }
+      ],
+      "portfolio_involvement": {
+        "tier_1_companies": "0/5 (0%)",
+        "tier_2_companies": "0/9 (0%)",
+        "total_involvement": "0/14 companies (0%)",
+        "full_case_studies": "NONE",
+        "testimonials": "NONE",
+        "mentions": "ZERO across entire portfolio (dataroom or external)"
+      },
+      "experience": "~2 years post-graduation",
+      "network": {
+        "data_available": false,
+        "note": "Henry's LinkedIn connections not analyzed. No network data available."
+      },
+      "strengths": [
+        "Harvard education",
+        "Raine Group experience (investment banking/advisory)"
+      ],
+      "concerns": [
+        "CRITICAL: Zero portfolio involvement across 14 companies",
+        "CRITICAL: Zero mentions in dataroom or external research",
+        "CRITICAL: No documented contribution to fund operations",
+        "HIGH: For GP to show zero involvement in companies with 94x-6.7x MOICs is highly unusual",
+        "HIGH: Raises questions about division of labor, value justification, team utilization",
+        "MEDIUM: Only 2 years post-graduation experience",
+        "MEDIUM: Network analysis not available"
+      ],
+      "verification_priorities": [
+        "URGENT: Clarify Henry's actual role and contribution to fund",
+        "URGENT: Interview Dillon and Henry about division of labor",
+        "HIGH: Assess Henry's non-portfolio contributions (operations, LP relations, fundraising)",
+        "HIGH: Determine if zero portfolio involvement is intentional or efficiency concern"
+      ],
+      "overall_assessment": {
+        "rating": "Unknown / Requires Urgent Clarification",
+        "summary": "Henry Bellew's complete absence from portfolio company involvement is a major red flag. For a GP to show zero documentation across 14 companies (including 5 with exceptional MOICs) is highly unusual. Urgent clarification needed on actual role, contribution, and value justification for GP economics.",
+        "critical_concern": "Significant value concentration risk if only Dillon actively engaged with portfolio. Henry absence reduces team redundancy and coverage."
+      }
+    }
+  ],
+  "gp_team_assessment": {
+    "team_dynamics": {
+      "dillon_involvement": "64% of companies (9/14)",
+      "henry_involvement": "0% of companies (0/14)",
+      "team_coverage": "POOR - Single GP carrying all portfolio work",
+      "redundancy": "NONE - No backup if Dillon unavailable"
+    },
+    "division_of_labor": {
+      "documented": false,
+      "concerns": [
+        "Division of labor unclear",
+        "Henry's contribution unknown",
+        "Single point of failure (Dillon only)"
+      ],
+      "recommended_clarification": "Interview both GPs to understand roles, responsibilities, and value distribution"
+    },
+    "value_concentration": {
+      "portfolio_value": "Figure AI >50% (single company)",
+      "gp_involvement": "Dillon 64%, Henry 0%",
+      "risk_level": "EXTREME - Double concentration (single company + single GP)"
+    },
+    "overall_team_rating": "5/10 (Concerning)",
+    "concerns": [
+      "Henry's zero involvement is major red flag",
+      "Team lacks redundancy and coverage",
+      "Value concentration risk (single GP, single company)",
+      "GP economics may not be justified by contribution distribution"
+    ],
+    "recommendations": [
+      "URGENT: Clarify Henry's role and contribution",
+      "HIGH: Assess team dynamics and communication",
+      "HIGH: Evaluate GP economics relative to contribution",
+      "MEDIUM: Establish expectations for GP involvement going forward"
+    ]
+  },
+  "notes": [
+    "Data based on 14 researched companies out of 24 total portfolio companies",
+    "All GP value-add claims from dataroom only - no independent verification",
+    "Henry Bellew's complete absence is highly unusual and requires urgent clarification",
+    "Dillon's portfolio involvement concentrated in Tier 1 companies (100% coverage)",
+    "Network data available only for Dillon, not Henry"
+  ]
+}
