@@ -105,17 +105,22 @@ Support versioning:
 Avoid introducing terms that need explanation:
 - ❌ Tier 1/2/3 evidence (requires glossary)
 - ❌ Phase 1/2/3/4 (requires workflow diagram)
-- ✅ Dataroom materials (GP-provided, clear intent)
+- ✅ Dataroom materials (private info provided by target)
 - ✅ Independent sources (journalism, verified databases - objective)
-- ✅ Company materials (company websites, press releases - target's own narrative)
+- ✅ Target sources (publicly accessible but target-controlled/influenced)
 
 **Source Type Hierarchy** (from most to least reliable):
-1. **Independent sources**: TechCrunch, Bloomberg, Crunchbase, verified journalism (objective)
-2. **Company materials**: Company websites, press releases, pitch decks (company's own narrative)
-3. **Dataroom materials**: GP-provided documents (GP's own narrative)
+1. **Independent sources**: TechCrunch, Bloomberg, Crunchbase, verified journalism (objective, third-party)
+2. **Target sources**: GP's LinkedIn, Substack, social media; company websites, press releases (externally acquired, target-influenced)
+3. **Dataroom materials**: GP-provided private documents, confidential materials (private, target-provided)
+
+**Key Distinction**:
+- **Dataroom materials**: Private information provided BY the target
+- **Target sources**: Public information controlled/influenced BY the target (but externally acquired)
+- **Independent sources**: Information created by third parties, not controlled by target
 
 Use terminology the industry already knows:
-- Dataroom, due diligence, reference checks, portfolio companies, co-investors, company materials
+- Dataroom, due diligence, reference checks, portfolio companies, co-investors, target sources
 
 ---
 
@@ -194,17 +199,17 @@ users/tam/hyperion/
 │   │                                   # - Links to drill down into details
 │
 ├── research/                           # 📚 RAW EVIDENCE (what we gathered)
-│   ├── dataroom/                       # GP-provided materials
+│   ├── dataroom/                       # Private materials provided by target
 │   │   ├── GP Bio.md
 │   │   ├── Fund I.md
 │   │   ├── Sourcing Differentiation.md
 │   │   ├── Portfolio Company Profiles.md
 │   │   └── [all dataroom files...]
 │   │
-│   ├── companies/                      # Independent research per company
+│   ├── companies/                      # Per-company research
 │   │   ├── figure/
-│   │   │   ├── company-research.md     # Public sources (TechCrunch, Bloomberg, etc.)
-│   │   │   ├── company-materials.md    # Company website, press releases, pitch deck
+│   │   │   ├── independent-research.md # Independent sources (TechCrunch, Bloomberg, etc.)
+│   │   │   ├── target-sources.md       # Company website, press releases, pitch deck
 │   │   │   └── funding-history.md      # Verified funding rounds from Crunchbase
 │   │   ├── quantinuum/
 │   │   ├── normal-computing/
@@ -212,11 +217,14 @@ users/tam/hyperion/
 │   │
 │   └── people/                         # GP and network raw data
 │       ├── dillon-dunteman/
-│       │   ├── linkedin-export/        # Raw CSV data
-│       │   │   ├── connections_1k.csv
-│       │   │   ├── connections_harvard.csv
-│       │   │   └── connections_deeptech.csv
-│       │   ├── substack-archive/       # Downloaded posts
+│       │   ├── independent-research.md # Third-party sources (Vista alumni, news)
+│       │   ├── target-sources/         # Target-controlled public info
+│       │   │   ├── linkedin-profile.md # GP's LinkedIn
+│       │   │   ├── linkedin-export/    # LinkedIn connection data (CSV)
+│       │   │   │   ├── connections_1k.csv
+│       │   │   │   ├── connections_harvard.csv
+│       │   │   │   └── connections_deeptech.csv
+│       │   │   └── substack-archive/   # GP's Substack posts
 │       │   └── background-sources.md   # Vista, Firmament research
 │       │
 │       └── henry-bellew/
@@ -269,8 +277,8 @@ Click → recommendations/critical/verify-gp-relationships.md
   ↓ "Why this matters"
 Links to → findings/claims-validation.md (ANALYSIS: "100% of value-add claims unverified")
   ↓ "Evidence reviewed"
-Links to → research/companies/figure/company-research.md (RAW: TechCrunch, Bloomberg articles - no GP mention)
-  AND → research/companies/figure/company-materials.md (RAW: Company website, press releases - no GP mention)
+Links to → research/companies/figure/independent-research.md (RAW: TechCrunch, Bloomberg - no GP mention)
+  AND → research/companies/figure/target-sources.md (RAW: Company website, press releases - no GP mention)
   AND → research/dataroom/GP Bio.md (RAW: GP claims of value-add)
   ↓ "Structured data"
 Can also view → findings/_data/claims.json (programmatic access to all claims + validation status)
@@ -418,15 +426,15 @@ All findings and supporting evidence are available:
 ## Methodology
 
 ### Data Sources Used
-- **Dataroom materials**: GP-provided documents (GP's narrative, requires verification)
-- **Company materials**: Company websites, press releases, pitch decks (company's narrative)
-- **Independent sources**: TechCrunch, Bloomberg, Crunchbase, verified journalism (objective, most reliable)
+- **Independent sources**: TechCrunch, Bloomberg, Crunchbase, verified journalism (objective, third-party - most reliable)
+- **Target sources**: GP's LinkedIn/Substack/social media, company websites, press releases (externally acquired, target-influenced)
+- **Dataroom materials**: GP-provided private documents, confidential materials (private, target-provided - requires verification)
 
 ### Evidence Quality
 - ✅ **Verified**: Claim supported by independent sources (high confidence)
-- ⚠️ **Partial**: Claim partially supported or only from company materials (medium confidence)
+- ⚠️ **Partial**: Claim partially supported or only from target sources (medium confidence)
 - ❓ **Unverified**: Claim from dataroom only, no external confirmation (requires validation)
-- ❌ **Contradicted**: Independent sources contradict dataroom/company claims (red flag)
+- ❌ **Contradicted**: Independent sources contradict dataroom/target source claims (red flag)
 
 ### How This Was Generated
 - **Workflows**: [vc-research.md](findings/_process/workflows-used.md), deal-prioritization.md, validator.md
@@ -710,7 +718,8 @@ status: pending
 **Finding**: [Claims Validation Analysis →](../../findings/claims-validation.md#gp-value-add)
 
 **Evidence**:
-- [Figure AI Research →](../../research/companies/figure/company-research.md) - No mention of Dillon in public sources
+- [Figure AI Independent Research →](../../research/companies/figure/independent-research.md) - No mention of Dillon in TechCrunch, Bloomberg
+- [Figure AI Target Sources →](../../research/companies/figure/target-sources.md) - Company website, press releases - no GP mention
 - [Portfolio Assessment →](../../findings/portfolio-assessment.md#gp-relationships) - 14 companies researched, zero value-add documented
 
 **Data**: [claims.json](../../findings/_data/claims.json) (see claim IDs: gp-value-add-1, gp-value-add-2, gp-value-add-3)
@@ -946,8 +955,8 @@ cp -r research/deals/tier-1/* research/companies/
 cp -r research/deals/tier-2/* research/companies/
 
 # Rename files within each company folder to match new structure
-# Example: figure/research-notes.md → figure/company-research.md
-#          figure/pitch-deck-notes.md → figure/company-materials.md
+# Example: figure/research-notes.md → figure/independent-research.md
+#          figure/pitch-deck-notes.md → figure/target-sources.md
 ```
 
 **Result**: All company research in `research/companies/`, originals preserved in `research/deals/`
@@ -1303,7 +1312,10 @@ rm -rf dataroom/
 
 ## Open Questions
 
-1. **Terminology** ✅ **RESOLVED**: Using "dataroom materials" (GP narrative), "company materials" (company's own narrative), and "independent sources" (objective journalism). Clear hierarchy without glossary needed.
+1. **Terminology** ✅ **RESOLVED**: Using three-tier source hierarchy without glossary needed:
+   - **Independent sources**: Third-party journalism, verified databases (objective)
+   - **Target sources**: Externally acquired but target-controlled/influenced (GP's LinkedIn/Substack, company websites, press releases)
+   - **Dataroom materials**: Private information provided by target (confidential documents)
 
 2. **Iteration Workflow**: When new data arrives, should there be a checklist of "analyses to review"? Or is the change log sufficient?
 
