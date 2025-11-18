@@ -271,7 +271,7 @@ Examples:
 
 **Red Flag**: Dataroom shows "24 total companies" but only highlights 5-6 winners. What about the other 18?
 
-**Recommendation**: Request full portfolio list with dates, amounts, valuations (see [portfolio audit recommendation](../recommendations/high-priority/portfolio-audit.md))
+**Recommendation**: Request full portfolio list with dates, amounts, valuations (see [portfolio audit recommendation](timeline.md#5-other-personal-investments-18-of-24-companies-missing))
 
 ---
 
@@ -290,7 +290,7 @@ Examples:
 
 **Selective Transparency**: Acknowledging failures without naming them provides selective disclosure. LPs can't verify or learn from mistakes.
 
-**Recommendation**: Request names, dates, post-mortems for failed investments (see [failed investment recommendation](../recommendations/high-priority/failed-investment-disclosure.md))
+**Recommendation**: Request names, dates, post-mortems for failed investments (see [failed investment recommendation](timeline.md#7-failed-investments))
 
 ---
 
@@ -375,10 +375,10 @@ Examples:
 
 ## Data Sources
 
-**Structured Data**: [portfolio.json](../_data/portfolio.json)
+**Structured Data**: [portfolio.json](_data/portfolio.json)
 **Individual Research**: [research/companies/](../../research/companies/)
 **Methodology**: [Research Methodology](_process/methodology.md)
-**Main Index**: [index.md](../../index.md)
+**Main Index**: [readme.md](../readme.md)
 
 ---
 
