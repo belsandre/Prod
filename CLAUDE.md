@@ -10,6 +10,10 @@ This is a **workflow and user data repository** for Claude Code processing. It c
 
 ```
 Prod/
+├── .claude/                # Claude Code configuration
+│   ├── settings.local.json # Permissions config
+│   └── skills/            # Project-scoped skills
+│
 ├── _eleventy/              # Eleventy SSG configuration and templates
 │   ├── config-template.js # Base Eleventy config
 │   └── templates/         # Shared layouts and templates
@@ -81,17 +85,27 @@ Markdown files containing prompts/instructions for LLM processing, located in `s
 
 ### Skills
 
-User-scoped Claude Code skills available via the Skill tool and located in `~/.claude/skills/`or `~/.claude/plugins/marketplaces/anthropic-agent-skills`:
-- **deck-to-pdf**: Download presentation slides from Pitch.com, Google Slides, Figma Slides, and Canva as searchable PDFs
+#### Project-Scoped Skills (`.claude/skills/`)
+
+Custom skills available to this project via the Skill tool:
+
+- **article-extractor**: Extract clean article content from URLs
 - **company-research**: Conduct thorough research on companies and key people using web search
-- **video-downloader**: Extract clean article content from URLs and save as readable text
-- **text-converter**: Convert folders with mixed media (images, PDFs, presentations) into faithful markdown
-- **notebooklm**: Query Google NotebookLM notebooks for source-grounded, citation-backed answers
 - **csv-data-summarizer**: Analyze CSV files, generate summary stats, and plot visualizations
+- **deck-to-pdf**: Download presentation slides from Pitch.com, Google Slides, Figma Slides, and Canva as searchable PDFs
 - **market-assessment**: Analyze companies, identify competitors, assess competitive threats, and build competitive matrices
+- **notebooklm**: Query Google NotebookLM notebooks for source-grounded, citation-backed answers
+- **text-converter**: Convert folders with mixed media (images, PDFs, presentations) into faithful markdown
+- **timeline-constructor**: Validate entity marketing narratives by comparing claims against objective timelines
+- **video-downloader**: Extract clean article content from URLs and save as readable text
 - **youtube-transcript**: Download YouTube video transcripts
-- **skill-creator**: Guide for creating effective skills that extend Claude's capabilities with specialized knowledge, workflows, or tool integrations
-- **document-skills (xlsx, docx, pptx, pdf)**: Comprehensive suite for creating, editing, and analyzing spreadsheets, documents, presentations, and PDFs with support for formulas, formatting, tracked changes, comments, and more
+
+#### User-Scoped Anthropic Plugins (`~/.claude/plugins/`)
+
+Official Anthropic skills available globally (managed by plugin system):
+
+- **example-skills**: skill-creator, mcp-builder, canvas-design, algorithmic-art, internal-comms, webapp-testing, artifacts-builder, slack-gif-creator, theme-factory, brand-guidelines
+- **document-skills**: xlsx, docx, pptx, pdf - Comprehensive suite for creating, editing, and analyzing spreadsheets, documents, presentations, and PDFs
 
 ## Development Workflow
 
