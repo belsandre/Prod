@@ -1,0 +1,12 @@
+# Page 6
+
+VENTURE CAPITAL
+TABLE OF CONTENTS AS OF MARCH 31, 2025
+EUROPE DEVELOPED VENTURE CAPITAL (USD & EUR)
+Fund Index Analysis 56
+Fund Since Inception Analysis 62
+CHINA VENTURE CAPITAL (USD-DENOMINATED FUNDS ONLY)
+Fund Index Analysis 65
+Fund Since Inception Analysis 69
+APPENDICES
+Methodology 74
