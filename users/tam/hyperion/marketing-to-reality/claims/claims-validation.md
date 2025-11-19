@@ -536,7 +536,7 @@ This analysis validates 30 sub-claims across 6 key GP marketing claims by cross-
 - When they were marked flat or shut down
 - What went wrong (investment thesis failure, execution issues, market timing)
 
-**Recommendation**: See [failed investment disclosure](timeline.md#7-failed-investments)
+**Recommendation**: See [failed investment disclosure](Prod/users/tam/hyperion/marketing-to-reality/timeline/objective-timeline.md#7-failed-investments)
 
 ---
 

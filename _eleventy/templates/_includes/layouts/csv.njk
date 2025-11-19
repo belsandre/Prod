@@ -14,31 +14,66 @@ layout: layouts/base.njk
     <p><strong>{{ csvData.length }}</strong> rows × <strong>{{ csvColumns.length }}</strong> columns</p>
 </div>
 
-<div class="table-wrapper">
-    <table class="csv-table">
-        <thead>
-            <tr>
-                {% for column in csvColumns %}
-                <th>{{ column }}</th>
+<div id="csv-list">
+    <div class="csv-controls">
+        <input class="search" placeholder="Filter rows..." />
+    </div>
+
+    <div class="table-wrapper">
+        <table class="csv-table">
+            <thead>
+                <tr>
+                    {% for column in csvColumns %}
+                    <th class="sort" data-sort="col-{{ loop.index0 }}">{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody class="list">
+                {% for row in csvData %}
+                <tr>
+                    {% for column in csvColumns %}
+                    <td class="col-{{ loop.index0 }}">{{ row[column] }}</td>
+                    {% endfor %}
+                </tr>
                 {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in csvData %}
-            <tr>
-                {% for column in csvColumns %}
-                <td>{{ row[column] }}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+<script>
+(function() {
+    var options = {
+        valueNames: [{% for column in csvColumns %}'col-{{ loop.index0 }}'{% if not loop.last %}, {% endif %}{% endfor %}]
+    };
+    var csvList = new List('csv-list', options);
+})();
+</script>
 {% else %}
 <p>No data available</p>
 {% endif %}
 
 <style>
+    .csv-controls {
+        margin-bottom: 1rem;
+    }
+
+    .csv-controls .search {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #e1e4e8;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+
+    .csv-controls .search:focus {
+        outline: none;
+        border-color: #0066cc;
+        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+    }
+
     .csv-info {
         background: #f6f8fa;
         border-left: 4px solid #0066cc;
@@ -98,6 +133,28 @@ layout: layouts/base.njk
         color: #24292e;
         border-bottom: 2px solid #e1e4e8;
         white-space: nowrap;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .csv-table th.sort:hover {
+        background: #eaecef;
+    }
+
+    .csv-table th.sort::after {
+        content: ' \2195';
+        opacity: 0.3;
+        font-size: 0.8em;
+    }
+
+    .csv-table th.sort.asc::after {
+        content: ' \2191';
+        opacity: 1;
+    }
+
+    .csv-table th.sort.desc::after {
+        content: ' \2193';
+        opacity: 1;
     }
 
     .csv-table td {
