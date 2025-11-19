@@ -4,7 +4,7 @@
 
 Most security teams are failing at threat modeling.
 
-I just spent 45 minutes with Sandesh Mysore Anand, who spent 12 years doing AppSec before starting CISO, and he completely reframed how I think about security coverage.
+I just spent 45 minutes with Sandesh Mysore Anand, who spent 12 years doing AppSec before starting Seezo, and he completely reframed how I think about security coverage.
 
 Here's what hit me: When your security activity has 10% coverage, are you really doing security at all?
 
@@ -18,7 +18,7 @@ But here's the nuanced part Sandesh taught me: The hardest problem isn't extract
 
 The opportunity is massive. When you can go from 10% coverage to 100% coverage, you're not just doing more security reviews. You're fundamentally changing what's possible in secure software development.
 
-In this episode, Sandesh breaks down how they're solving explainability, why security standards are finally becoming operational, and how the maker-checker model must evolve with AI-powered development.
+In this new episode of the DeFUD podcast, my cohost Chang and I dig into how Sandesh is solving explainability, why security standards are finally becoming operational, and how the maker-checker model must evolve with AI-powered development.
 
 Link in comments if you're thinking about how to scale AppSec in the AI era.
 
@@ -34,7 +34,7 @@ The people writing your code have never been trained in security.
 
 Not your developers. I'm talking about your product managers, designers, and sales engineers who are now generating code with AI tools.
 
-Sandesh Mysore Anand (founder of CISO, 12 years in AppSec) just explained something that should terrify every security team: We spent 15 years trying to teach developers to write secure code with mixed results. Now non-developers are mass-producing code, and we have no budget for new security engineers.
+Sandesh Mysore Anand (founder of Seezo, 12 years in AppSec) just explained something that should terrify every security team: We spent 15 years trying to teach developers to write secure code with mixed results. Now non-developers are mass-producing code, and we have no budget for new security engineers.
 
 The numbers tell the story. Companies are generating more PRs and more repos than ever. But they're not pushing more code to production. Why? Code reviews have become the bottleneck.
 
@@ -48,7 +48,7 @@ The counterintuitive part? Writing good security standards is suddenly a superpo
 
 We're in this weird moment where AI is both creating and solving the security problem.
 
-Full conversation covers how to measure "good enough" AI results, why makers and checkers can't be the same entity, and what happens when code generation outpaces code review.
+In this new episode of the DeFUD podcast, my cohost Chang and I cover how to measure "good enough" AI results, why makers and checkers can't be the same entity, and what happens when code generation outpaces code review.
 
 Worth a listen if you're rethinking AppSec for the AI era.
 
@@ -62,7 +62,7 @@ Worth a listen if you're rethinking AppSec for the AI era.
 
 We just added 100% security coverage without hiring anyone.
 
-That's what Sandesh Mysore Anand told me about the best users of CISO, his company that automates security design reviews using LLMs.
+That's what Sandesh Mysore Anand told me about the best users of Seezo, his company that automates security design reviews using LLMs.
 
 If you're struggling to scale threat modeling, here are the three metrics he tracks to know if automation is actually working:
 
@@ -80,7 +80,7 @@ Context is everything. Generic advice from an LLM is worthless. Company-specific
 
 Sandesh also explained why this matters more now than ever. The bottleneck in software development is shifting from writing code to reviewing code. AI is making code generation 10x faster, but code review hasn't caught up.
 
-In our conversation, he breaks down how to customize LLM outputs for your company's jargon, where to place humans in the loop based on your culture, and why 10% security coverage means you're not really doing security.
+In this new episode of the DeFUD podcast, my cohost Chang and I break down how to customize LLM outputs for your company's jargon, where to place humans in the loop based on your culture, and why 10% security coverage means you're not really doing security.
 
 Link in comments. Highly practical for anyone running AppSec or security engineering.
 
@@ -94,7 +94,7 @@ Link in comments. Highly practical for anyone running AppSec or security enginee
 
 Security is about to change as much as code generation just did.
 
-I just talked to Sandesh Mysore Anand, founder of CISO and 12-year AppSec veteran, about what happens when the entire software development lifecycle gets AI-powered.
+I just talked to Sandesh Mysore Anand, founder of Seezo and 12-year AppSec veteran, about what happens when the entire software development lifecycle gets AI-powered.
 
 His observation: AppSec has always evolved with SDLC changes. Waterfall had one security model. Agile forced us to work in two-week sprints. CI/CD meant scanning every pull request. Now we're entering the AI-powered SDLC era.
 
@@ -114,7 +114,7 @@ The maker-checker principle still applies. The entity that makes something can't
 
 One surprising GTM lesson: When selling security tools, geography matters less than maturity. Selling to an Indian fintech is more similar to selling to a US fintech than to an Indian bank. The patterns between Bangalore and Silicon Valley mirror each other more than the patterns within India.
 
-We covered how LLMs are finally making security standards operational, why 100% coverage should be the baseline, and how to balance automation with human judgment based on organizational culture.
+In this new episode of the DeFUD podcast, my cohost Chang and I cover how LLMs are finally making security standards operational, why 100% coverage should be the baseline, and how to balance automation with human judgment based on organizational culture.
 
 This is one of the best conversations I've had about where security is heading in the next 3-5 years.
 

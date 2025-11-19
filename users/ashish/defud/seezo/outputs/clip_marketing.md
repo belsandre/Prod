@@ -3,18 +3,18 @@
 ## Clip 1: The 10% Coverage Reality Check
 
 ### Extended Description (65 words)
-CISO founder Sandesh Mysore Anand challenges a fundamental assumption in security programs. After 12 years in AppSec roles from consulting to Head of Security, he asks the uncomfortable question that every security leader needs to hear: When your security activity only covers 10% of what developers ship, are you actually doing security? This moment crystallizes why traditional threat modeling approaches fail at scale.
+Seezo founder Sandesh Mysore Anand challenges a fundamental assumption in security programs. After 12 years in AppSec roles from consulting to Head of Security, he asks the uncomfortable question that every security leader needs to hear: When your security activity only covers 10% of what developers ship, are you actually doing security? This moment crystallizes why traditional threat modeling approaches fail at scale.
 
 ### Platform-Specific Captions
 
 **Instagram/TikTok:**
-10% security coverage isn't security. It's security theater. CISO founder explains why most threat modeling programs are failing. 🎯 #cybersecurity #security #tech
+10% security coverage isn't security. It's security theater. Seezo founder explains why most threat modeling programs are failing. 🎯 #cybersecurity #security #tech
 
 **LinkedIn:**
-Security leaders: If your threat modeling only covers 10% of what ships, you're not doing security. CISO founder Sandesh Mysore Anand on why coverage is the metric that matters most in AppSec.
+Security leaders: If your threat modeling only covers 10% of what ships, you're not doing security. Seezo founder Sandesh Mysore Anand on why coverage is the metric that matters most in AppSec.
 
 **YouTube Shorts:**
-After 12 years in AppSec, Sandesh Mysore Anand (CEO of CISO) asks the question that should make every security team uncomfortable: When you have 10% coverage of a security activity, are you really doing it? Learn why traditional threat modeling fails to scale and what's changing with LLMs in application security.
+After 12 years in AppSec, Sandesh Mysore Anand (CEO of Seezo) asks the question that should make every security team uncomfortable: When you have 10% coverage of a security activity, are you really doing it? Learn why traditional threat modeling fails to scale and what's changing with LLMs in application security.
 
 ### Hashtag Strategy
 
@@ -47,10 +47,10 @@ The security landscape is shifting in an unexpected way. While companies spent 1
 Plot twist: The people writing code at your company have zero security training. Not developers... PMs, designers, and sales engineers using AI. 😬 #AI #coding #security
 
 **LinkedIn:**
-We spent 15 years teaching developers security. Now PMs, designers, and sales engineers are generating code with AI tools, and they've had zero security training. CISO founder Sandesh Mysore Anand on the hidden security crisis in AI-powered development.
+We spent 15 years teaching developers security. Now PMs, designers, and sales engineers are generating code with AI tools, and they've had zero security training. Seezo founder Sandesh Mysore Anand on the hidden security crisis in AI-powered development.
 
 **YouTube Shorts:**
-"Product managers, designers, and sales engineers are writing code now, and we've never spent any time educating these people." Sandesh Mysore Anand, who spent 12 years in AppSec before founding CISO, explains how AI code generation is creating an unexpected security challenge. More code is being written, but not by trained developers. What does this mean for application security?
+"Product managers, designers, and sales engineers are writing code now, and we've never spent any time educating these people." Sandesh Mysore Anand, who spent 12 years in AppSec before founding Seezo, explains how AI code generation is creating an unexpected security challenge. More code is being written, but not by trained developers. What does this mean for application security?
 
 ### Hashtag Strategy
 
@@ -83,10 +83,10 @@ Every company has internal jargon that generic AI tools can't understand. Sandes
 Your company has a microservice called "Stark." Generic AI tools have no idea what that means. Here's why context matters in security. 💡 #AI #tech #security
 
 **LinkedIn:**
-Generic AI security tools fail because they don't understand your context. Every company has their own "Stark" microservice, their own jargon, their own architecture patterns. Sandesh Mysore Anand (CISO CEO) on why customization is the hardest problem in AI-powered security tools.
+Generic AI security tools fail because they don't understand your context. Every company has their own "Stark" microservice, their own jargon, their own architecture patterns. Sandesh Mysore Anand (Seezo CEO) on why customization is the hardest problem in AI-powered security tools.
 
 **YouTube Shorts:**
-"One of our customers has a microservice called Stark. The LLM does not know what Stark is." CISO founder Sandesh Mysore Anand explains why generic AI security tools produce useless results and why context is the most important unsolved problem in LLM-powered security automation. Real companies need AI that understands their specific infrastructure, not generic advice.
+"One of our customers has a microservice called Stark. The LLM does not know what Stark is." Seezo founder Sandesh Mysore Anand explains why generic AI security tools produce useless results and why context is the most important unsolved problem in LLM-powered security automation. Real companies need AI that understands their specific infrastructure, not generic advice.
 
 ### Hashtag Strategy
 
@@ -122,7 +122,7 @@ Can Cursor write secure code AND verify it? Security expert explains why the ans
 "The entity that's making something cannot be the entity that's also checking itself." Sandesh Mysore Anand on why AI code generation tools can't self-verify security. The maker-checker principle still applies in the AI era. AppSec teams must evolve as independent verification systems.
 
 **YouTube Shorts:**
-Why can't Cursor both write code and verify its security? Sandesh Mysore Anand, founder of CISO with 12 years in AppSec, explains the maker-checker principle in risk management. The same biases that go into creating something will appear when that same system tries to verify itself. This fundamental principle applies to governance, compliance, and security in the AI era.
+Why can't Cursor both write code and verify its security? Sandesh Mysore Anand, founder of Seezo with 12 years in AppSec, explains the maker-checker principle in risk management. The same biases that go into creating something will appear when that same system tries to verify itself. This fundamental principle applies to governance, compliance, and security in the AI era.
 
 ### Hashtag Strategy
 
@@ -155,7 +155,7 @@ For decades, security standards were shelfware. Security teams wrote comprehensi
 That security standards doc nobody reads? AI can now turn it into actionable advice for every feature you build. 📚→⚡ #AI #security #tech
 
 **LinkedIn:**
-"Humans don't need to read security standards anymore." Sandesh Mysore Anand (CISO CEO) on how LLMs are transforming security compliance from shelfware into operational guidance. Those 50-page security standards docs? LLMs can extract the 5 relevant rules for each feature and show developers exactly how to implement them. Writing good standards is suddenly a superpower.
+"Humans don't need to read security standards anymore." Sandesh Mysore Anand (Seezo CEO) on how LLMs are transforming security compliance from shelfware into operational guidance. Those 50-page security standards docs? LLMs can extract the 5 relevant rules for each feature and show developers exactly how to implement them. Writing good standards is suddenly a superpower.
 
 **YouTube Shorts:**
 Security standards are finally becoming operational. After spending 12 years in AppSec, Sandesh Mysore Anand explains how LLMs solve the impossible problem: helping developers find which of 275 security standards apply to their specific feature. Instead of 50-page documents that nobody reads, LLMs can translate standards into contextual, actionable requirements. This is why writing good security documentation is now a competitive advantage.
