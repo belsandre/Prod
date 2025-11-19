@@ -1,0 +1,34 @@
+# Page 44
+
+VENTURE GAPITAL
+US VENTURE CAPITAL HEALTH CARE AS OF MARCH 31, 2025
+FUND INDEX SUMMARY: HORIZON POOLED RETURN COMPARED TO CA MODIFIED PUBLIC MARKET EQUIVALENT (MPME)
+Net to Limited Partners
+US VENTURE CAPITAL HEALTH CARE INDEX? -6.06 0.13 9.56 9.84 11.81 8.88 7.26
+MPME ANALYSIS?
+mPME Constructed Index: MSCI World/MSCI All Country World Index? (gross) 7.60 7.97 15.70 9.31 9.45 8.13 7.50
+Value-Add (bps) -1,366 -784 -615 53 236 75 -23
+mPME Constructed Index: NASDAQ Composite Price Index/NASDAQ Composite 6.59 7.93 20.14 14.50 15.50 12.42 9.38
+Total Return
+Value-Add (bps) -1,265 -780 -1,059 -466 -369 -353 -211
+mPME Constructed Index: Russell 2000® Health Care (Legacy Sector)/Russell
+2000°® Health Care (RGS)/Russell 2000® HC (ICB)° -10.74 -4.7 3 2.4 6 3.07 12.337 10.43 9.56
+Value-Add (bps) 468 486 709 677 -56 -155 -230
+The index is a horizon calculation based on data compiled from 356 US venture capital health care funds, including fully liquidated partnerships, formed between 1986 and 2024.
+1 Pooled horizon return, net of fees, expenses, and carried interest.
+2CA Modified Public Market Equivalent (mPME) replicates private investment performance under public market conditions. The public index’s shares are purchased and sold according
+to the private fund cash flow schedule, with distributions calculated in the same proportion as the private fund, and mPME NAV is a function of mPME cash flows and public index
+returns. “Value-Add” shows (in basis points) the difference between the actual private investment return and the mPME calculated return. Refer to Methodology page for details.
+3 Constructed Index: MSCI World/MSCI All Country World Index: Data rom 1/1/1986 to 12/31/1987 represented by MSCI index gross total return. Data from 1/1/1988 to present
+represented by MSCI ACWI gross total return.
+4 Constructed Index: Data from 1/1/1981 to 10/31/2003 represented by NASDAQ Price Index. Data from 11/1/2003 to present represented by NASDAQ Composite. page| 43
+5 Constructed Index: Data from 1/1/1986 to 6/30/1996 represented by Russell 2000 Health Care (Legacy Sector) total return index. Data from 7/1/1996 to 6/30/2020 represented by Russell
+2000 Health Care (RGS) total return index. Data from 7/1/2020 to present represented by Russell 2000 Health Care (ICB) total return index.
+Sources: Cambridge Associates LLC, Frank Russell Company, MSCI Inc., S&P Dow Jones Indices and Thomson Reuters Datastream.
+See Notice on Third Party Index Disclosure
+MSCI data provided "as is" without any express or implied warranties. Total returns for MSCI Emerging Markets indexes are gross of dividend taxes. Total returns for MSCI Developed
+Markets indexes are net of dividend taxes.
+
+## Tables for this page
+
+- Best-effort header CSV: `table_page_44_headers_best_effort.csv`

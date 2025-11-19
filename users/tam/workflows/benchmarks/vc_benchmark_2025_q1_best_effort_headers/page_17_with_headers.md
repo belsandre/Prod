@@ -1,0 +1,39 @@
+# Page 17
+
+VENTURE CAPITAL
+VENTURE CAPITAL AS OF MARCH 31, 2025
+DISTRIBUTION TO PAID IN CAPITAL MULTIPLE (DPI)
+Net to Limited Partners
+VINTAGE YEAR POOLED RETURN ARITHMETIC MEAN | MEDIAN | TOP 5% UPPER QUARTILE LOWER QUARTILE BOTTOM 5% NUMBER OF FUNDS
+2000 0.99 0.94 0.84 1.83 1.24 0.55 0.21
+2001 1.25 1.35 1.11 3.33 1.67 0.73 0.23 84
+2002 1.08 1.05 1.02 1.79 1.40 0.76 0.36 35
+2003 1.68 1.51 1.20 3.75 1.62 0.69 0.27 37
+2004 1.53 1,51 1.00 4.07 1.75 0.61 0.13 58
+2005 1.81 1.77 1.33 4.69 1.83 0.94 0.21 78
+2006 1.77 1.65 1,27 3.12 1.90 0.82 0.29 102
+2007 2.04 2.03 1.48 6.16 2.30 0.87 0.11 101
+2008 2.22 2.26 1.49 5.36 2.54 0.81 0.42 75
+2009 2.06 1.75 1.58 4.10 2.38 1.07 0.29 36
+2010 2.75 2.39 1.85 5.80 3.19 0.96 0.39 46
+2011 2.79 2.42 1.65 4.47 2.60 0.81 0.19 78
+2012 2.67 2.73 1.55 9.62 2.72 0.92 0.38 75
+2013 1.93 2.00 1,14 7.10 2.35 0.64 0.11 69
+2014 1.64 1.50 1,14 4,28 2.06 0.44 0.01 116
+2015 1.02 0.91 0.59 2.71 1,22 0.24 0.02 133
+2016 0.89 0.73 0.39 2.58 1.00 0.10 0.00 116
+2017 0.60 0.64 0.23 2.17 0.67 0.05 0.00 130
+2018 0.37 0.80 0.12 1.39 0.45 0.00 0.00 165
+2019 0.15 0.15 0.03 0.64 0.18 0.00 0.00 157
+2020 0.09 0.13 0.00 0.30 0.06 0.00 0.00 157
+2021 0.03 0.03 0.00 0.19 0.01 0.00 0.00 241
+2022 0.05 0.03 0.00 0.20 0.00 0.00 0.00 176
+2023 0.01 0.01 0.00 0.01 0.00 0.00 0.00 85
+Notes: Based on data compiled from 2,522 venture capital funds, including fully liquidated partnerships, formed between 2000 and 2023. Internal rates of returns are net of fees, page| 16
+expenses and carried interest. CA research shows that most funds take at least six years to settle into their final quartile ranking, and previous to this settling they typically rank in 2-3
+other quartiles; therefore fund or benchmark performance metrics from more recent vintage years may be less meaningful. Benchmarks with “—” have an insufficient number of funds in
+the vintage year sample to produce a meaningful return.
+
+## Tables for this page
+
+- Best-effort header CSV: `table_page_17_headers_best_effort.csv`
