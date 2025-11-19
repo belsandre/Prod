@@ -4,7 +4,7 @@
 
 Most security teams are failing at threat modeling.
 
-I just spent 45 minutes with Sandesh Mysore Anand, who spent 12 years doing AppSec before starting CISO, and he completely reframed how I think about security coverage.
+I just spent 45 minutes with Sandesh Mysore Anand, who spent 12 years doing AppSec before starting Seezo, and he completely reframed how I think about security coverage.
 
 Here's what hit me: When your security activity has 10% coverage, are you really doing security at all?
 
@@ -34,7 +34,7 @@ The people writing your code have never been trained in security.
 
 Not your developers. I'm talking about your product managers, designers, and sales engineers who are now generating code with AI tools.
 
-Sandesh Mysore Anand (founder of CISO, 12 years in AppSec) just explained something that should terrify every security team: We spent 15 years trying to teach developers to write secure code with mixed results. Now non-developers are mass-producing code, and we have no budget for new security engineers.
+Sandesh Mysore Anand (founder of Seezo, 12 years in AppSec) just explained something that should terrify every security team: We spent 15 years trying to teach developers to write secure code with mixed results. Now non-developers are mass-producing code, and we have no budget for new security engineers.
 
 The numbers tell the story. Companies are generating more PRs and more repos than ever. But they're not pushing more code to production. Why? Code reviews have become the bottleneck.
 
@@ -62,7 +62,7 @@ Worth a listen if you're rethinking AppSec for the AI era.
 
 We just added 100% security coverage without hiring anyone.
 
-That's what Sandesh Mysore Anand told me about the best users of CISO, his company that automates security design reviews using LLMs.
+That's what Sandesh Mysore Anand told me about the best users of Seezo, his company that automates security design reviews using LLMs.
 
 If you're struggling to scale threat modeling, here are the three metrics he tracks to know if automation is actually working:
 
@@ -94,7 +94,7 @@ Link in comments. Highly practical for anyone running AppSec or security enginee
 
 Security is about to change as much as code generation just did.
 
-I just talked to Sandesh Mysore Anand, founder of CISO and 12-year AppSec veteran, about what happens when the entire software development lifecycle gets AI-powered.
+I just talked to Sandesh Mysore Anand, founder of Seezo and 12-year AppSec veteran, about what happens when the entire software development lifecycle gets AI-powered.
 
 His observation: AppSec has always evolved with SDLC changes. Waterfall had one security model. Agile forced us to work in two-week sprints. CI/CD meant scanning every pull request. Now we're entering the AI-powered SDLC era.
 

@@ -18,7 +18,7 @@
 Brutally simple question that challenges fundamental assumptions. Forces viewers to confront uncomfortable truth about their security programs. Creates immediate self-reflection. Perfect conversation starter for security leaders.
 
 **Suggested Caption:**
-10% security coverage = failure. CISO founder Sandesh explains why most companies aren't actually doing threat modeling. 🎯
+10% security coverage = failure. Seezo founder Sandesh explains why most companies aren't actually doing threat modeling. 🎯
 
 **Hashtags:** #cybersecurity #threatmodeling #appsec #securityleadership #CISO
 
@@ -133,5 +133,5 @@ That 50-page security standards doc nobody reads? LLMs can now translate it into
 ## File Reference
 
 **Source:** users/ashish/defud/seezo/zoom/GMT20251017-160517_Recording.transcript.vtt
-**Episode:** Default Podcast with Sandesh Mysore Anand (CISO CEO)
+**Episode:** Default Podcast with Sandesh Mysore Anand (Seezo CEO)
 **Date:** October 17, 2025
