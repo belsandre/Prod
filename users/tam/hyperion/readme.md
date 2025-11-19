@@ -75,7 +75,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 - **Competition risk**: Tesla Optimus, Boston Dynamics in humanoid robotics
 - **BMW pilot not production**: Deployment status unclear
 
-**Data**: [portfolio.json](findings/_data/portfolio.json) | [Portfolio Assessment](findings/portfolio-assessment.md)
+**Data**: [portfolio.json](/hyperion/findings/_data/portfolio/) | [Portfolio Assessment](/hyperion/findings/portfolio-assessment/)
 
 ---
 
@@ -99,7 +99,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 - Interview Faris Sbahi (Normal CEO) + referred hires to confirm value-add
 - Verify Tamarack relationship depth independently
 
-**Data**: [gp-profiles.json](findings/_data/gp-profiles.json) | [Claims Validation](findings/claims-validation.md)
+**Data**: [gp-profiles.json](/hyperion/findings/_data/gp-profiles/) | [Claims Validation](/hyperion/findings/claims-validation/)
 
 ---
 
@@ -126,7 +126,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Verification Priority**: **CRITICAL** - Require explanation before proceeding
 
-**Data**: [claims.json](findings/_data/claims.json) | [Red Flags Analysis](findings/claims-validation.md#funding-discrepancies)
+**Data**: [claims.json](/hyperion/findings/_data/claims/) | [Red Flags Analysis](/hyperion/findings/claims-validation/#funding-discrepancies)
 
 ---
 
@@ -149,7 +149,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Verification Priority**: **URGENT** - Interview both GPs to understand division of labor
 
-**Data**: [gp-profiles.json](findings/_data/gp-profiles.json#henry-bellew)
+**Data**: [gp-profiles.json](/hyperion/findings/_data/gp-profiles/#henry-bellew)
 
 ---
 
@@ -176,7 +176,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Implication**: Substack appears to document investments retrospectively rather than develop theses prospectively.
 
-**Data**: [timeline.json](findings/_data/timeline.json) | [Timeline Analysis](findings/timeline.md)
+**Data**: [timeline.json](/hyperion/findings/_data/timeline/) | [Timeline Analysis](/hyperion/findings/timeline/)
 
 ---
 
@@ -192,7 +192,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Assessment**: Network appears quality-driven (strategic relationships) over quantity-driven (connection count). However, **limited connections to key claimed deal sources** (Tamarack: 1, FF: 2) relative to importance.
 
-**Data**: [network.json](findings/_data/network.json) | [Network Analysis](findings/network-analysis.md)
+**Data**: [network.json](/hyperion/findings/_data/network/) | [Network Analysis](/hyperion/findings/network-analysis/)
 
 ---
 
@@ -225,7 +225,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Timeline**: 2-3 weeks
 **Owner**: [Investment Team]
-**Link**: [Critical Verification Plan](recommendations/critical/verify-gp-value-add.md)
+**Link**: [Critical Verification Plan](/hyperion/recommendations/critical/verify-gp-value-add/)
 
 ---
 
@@ -242,7 +242,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Timeline**: 1 week
 **Owner**: [Investment Team]
-**Link**: [Funding Discrepancy Investigation](recommendations/critical/resolve-funding-discrepancies.md)
+**Link**: [Funding Discrepancy Investigation](/hyperion/recommendations/critical/resolve-funding-discrepancies/)
 
 ---
 
@@ -258,7 +258,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Timeline**: 1 week
 **Owner**: [Investment Team]
-**Link**: [Henry Bellew Role Clarification](recommendations/critical/clarify-henry-role.md)
+**Link**: [Henry Bellew Role Clarification](/hyperion/recommendations/critical/clarify-henry-role/)
 
 ---
 
@@ -277,7 +277,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Timeline**: 2-3 weeks
 **Owner**: [Investment Team]
-**Link**: [Figure AI Valuation Analysis](recommendations/critical/figure-ai-deep-dive.md)
+**Link**: [Figure AI Valuation Analysis](/hyperion/recommendations/critical/figure-ai-deep-dive/)
 
 ---
 
@@ -289,7 +289,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Purpose**: Verify 6.7x TVPI claim independently (currently only 6 of 24 companies documented)
 
-**Link**: [Portfolio Audit Plan](recommendations/high-priority/portfolio-audit.md)
+**Link**: [Portfolio Audit Plan](/hyperion/recommendations/high-priority/portfolio-audit/)
 
 ---
 
@@ -302,7 +302,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Purpose**: Assess failure modes and validate lessons learned narrative
 
-**Link**: [Failed Investment Analysis](recommendations/high-priority/failed-investment-disclosure.md)
+**Link**: [Failed Investment Analysis](/hyperion/recommendations/high-priority/failed-investment-disclosure/)
 
 ---
 
@@ -312,7 +312,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Purpose**: Validate "early positioning" claim in fusion (article April 2022, but investment dates unknown)
 
-**Link**: [Fusion Timeline Verification](recommendations/high-priority/fusion-timeline-verification.md)
+**Link**: [Fusion Timeline Verification](/hyperion/recommendations/high-priority/fusion-timeline-verification/)
 
 ---
 
@@ -389,29 +389,29 @@ hyperion/
 
 **Critical Gap**: 100% of GP value-add claims are Tier 1 only (dataroom testimonials) with ZERO independent verification.
 
-**Link**: [Full Methodology](findings/_process/methodology.md)
+**Link**: [Full Methodology](/hyperion/findings/_process/methodology/)
 
 ---
 
 ## Quick Links
 
 ### By Priority
-- **Critical Recommendations**: [View All](recommendations/critical/)
-- **High-Priority Due Diligence**: [View All](recommendations/high-priority/)
-- **Medium-Priority Items**: [View All](recommendations/medium-priority/)
+- **Critical Recommendations**: [View All](/hyperion/recommendations/critical/)
+- **High-Priority Due Diligence**: [View All](/hyperion/recommendations/high-priority/)
+- **Medium-Priority Items**: [View All](/hyperion/recommendations/medium-priority/)
 
 ### By Topic
-- **Portfolio Companies**: [Research](research/companies/) | [Assessment](findings/portfolio-assessment.md) | [Data](findings/_data/portfolio.json)
-- **GP Analysis**: [Profiles](findings/gp-analysis.md) | [Data](findings/_data/gp-profiles.json)
-- **Claims Validation**: [Report](findings/claims-validation.md) | [Data](findings/_data/claims.json)
-- **Network Analysis**: [Report](findings/network-analysis.md) | [Data](findings/_data/network.json)
-- **Timeline**: [Narrative](findings/timeline.md) | [Data](findings/_data/timeline.json)
+- **Portfolio Companies**: [Research](/hyperion/research/companies/) | [Assessment](/hyperion/findings/portfolio-assessment/) | [Data](/hyperion/findings/_data/portfolio/)
+- **GP Analysis**: [Profiles](/hyperion/findings/gp-analysis/) | [Data](/hyperion/findings/_data/gp-profiles/)
+- **Claims Validation**: [Report](/hyperion/findings/claims-validation/) | [Data](/hyperion/findings/_data/claims/)
+- **Network Analysis**: [Report](/hyperion/findings/network-analysis/) | [Data](/hyperion/findings/_data/network/)
+- **Timeline**: [Narrative](/hyperion/findings/timeline/) | [Data](/hyperion/findings/_data/timeline/)
 
 ### Process & Methodology
-- **Evidence Framework**: [Methodology](findings/_process/methodology.md)
-- **Analysis Log**: [Work History](findings/_process/analysis-log.md)
-- **Workflows Used**: [Automation](findings/_process/workflows-used.md)
-- **Change Log**: [Migration History](findings/_process/change-log.md)
+- **Evidence Framework**: [Methodology](/hyperion/findings/_process/methodology/)
+- **Analysis Log**: [Work History](/hyperion/findings/_process/analysis-log/)
+- **Workflows Used**: [Automation](/hyperion/findings/_process/workflows-used/)
+- **Change Log**: [Migration History](/hyperion/findings/_process/change-log/)
 
 ---
 
@@ -433,7 +433,7 @@ hyperion/
 **Last Updated**: November 17, 2025
 **Next Review**: [After critical verification complete]
 **Questions**: Contact investment team
-**Original Research**: See [migration-reference/](migration-reference/) for preserved original analysis
+**Original Research**: See [migration-reference](/hyperion/migration-reference/) for preserved original analysis
 
 ---
 

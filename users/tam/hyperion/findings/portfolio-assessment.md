@@ -232,7 +232,7 @@ Examples:
 
 **Mitigation**: Limited - portfolio is concentrated by nature (~$1M across 24 companies, Figure is largest position)
 
-**Recommendation**: Conduct independent Figure AI valuation analysis (see [critical recommendation](../recommendations/critical/figure-ai-deep-dive.md))
+**Recommendation**: Conduct independent Figure AI valuation analysis (see [critical recommendation](/hyperion/recommendations/critical/figure-ai-deep-dive/))
 
 ---
 
@@ -375,10 +375,10 @@ Examples:
 
 ## Data Sources
 
-**Structured Data**: [portfolio.json](_data/portfolio.json)
-**Individual Research**: [research/companies/](../../research/companies/)
-**Methodology**: [Research Methodology](_process/methodology.md)
-**Main Index**: [readme.md](../readme.md)
+**Structured Data**: [portfolio.json](/hyperion/findings/_data/portfolio/)
+**Individual Research**: [research/companies/](/hyperion/research/companies/)
+**Methodology**: [Research Methodology](/hyperion/findings/_process/methodology/)
+**Main Index**: [Overview](/hyperion/overview/)
 
 ---
 

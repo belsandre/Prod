@@ -113,7 +113,7 @@
 1. Value-add is real but founders don't publicly acknowledge (unusual)
 2. Value-add is exaggerated for fundraising purposes (red flag)
 
-**Verification Priority**: **CRITICAL** - See [verify-gp-value-add.md](../recommendations/critical/verify-gp-value-add.md)
+**Verification Priority**: **CRITICAL** - See [verify-gp-value-add](/hyperion/recommendations/critical/verify-gp-value-add/)
 
 ---
 
@@ -415,7 +415,7 @@
 - Request documentation of Henry's contributions
 - Assess whether zero portfolio involvement is intentional or problematic
 
-**See**: [Clarify Henry Role Recommendation](../recommendations/critical/clarify-henry-role.md)
+**See**: [Clarify Henry Role Recommendation](/hyperion/recommendations/critical/clarify-henry-role/)
 
 ---
 
@@ -490,13 +490,13 @@
 
 ### CRITICAL (Before Investment)
 
-1. **Verify Dillon Value-Add** ✅ [Recommendation](../recommendations/critical/verify-gp-value-add.md)
+1. **Verify Dillon Value-Add** ✅ [Recommendation](/hyperion/recommendations/critical/verify-gp-value-add/)
    - Dirac-Founders Fund introduction (HIGHEST PRIORITY)
    - Normal advisory role and hiring referrals
    - Tamarack relationship depth
    - Quantinuum attribution (personal vs Firmament team)
 
-2. **Clarify Henry Role** ✅ [Recommendation](../recommendations/critical/clarify-henry-role.md)
+2. **Clarify Henry Role** ✅ [Recommendation](/hyperion/recommendations/critical/clarify-henry-role/)
    - Interview both GPs on division of labor
    - Understand Henry's contribution (portfolio vs firm operations)
    - Assess GP economics alignment
@@ -511,11 +511,11 @@
 
 ## Data Sources
 
-**Structured Data**: [gp-profiles.json](../_data/gp-profiles.json)
-**Claims Analysis**: [claims.json](../_data/claims.json)
-**Network Data**: [network.json](../_data/network.json)
-**Timeline**: [timeline.json](../_data/timeline.json)
-**Methodology**: [Research Methodology](_process/methodology.md)
+**Structured Data**: [gp-profiles.json](/hyperion/findings/_data/gp-profiles/)
+**Claims Analysis**: [claims.json](/hyperion/findings/_data/claims/)
+**Network Data**: [network.json](/hyperion/findings/_data/network/)
+**Timeline**: [timeline.json](/hyperion/findings/_data/timeline/)
+**Methodology**: [Research Methodology](/hyperion/findings/_process/methodology/)
 
 ---
 
