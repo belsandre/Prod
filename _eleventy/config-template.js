@@ -185,6 +185,15 @@ module.exports = function(eleventyConfig, username) {
     return str.replace(new RegExp(search, 'g'), replace);
   });
 
+  // Format arrays with proper spacing
+  eleventyConfig.addFilter("formatArray", function(arr, separator = ", ") {
+    if (!arr) return "";
+    if (Array.isArray(arr)) {
+      return arr.join(separator);
+    }
+    return arr;
+  });
+
   // Auto-discover collections from folder structure
   eleventyConfig.addCollection("allContent", function(collectionApi) {
     return collectionApi.getAll().filter(item => {
