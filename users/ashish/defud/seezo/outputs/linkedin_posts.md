@@ -18,7 +18,7 @@ But here's the nuanced part Sandesh taught me: The hardest problem isn't extract
 
 The opportunity is massive. When you can go from 10% coverage to 100% coverage, you're not just doing more security reviews. You're fundamentally changing what's possible in secure software development.
 
-In this episode, Sandesh breaks down how they're solving explainability, why security standards are finally becoming operational, and how the maker-checker model must evolve with AI-powered development.
+In this new episode of the DeFUD podcast, my cohost Chong and I dig into how Sandesh is solving explainability, why security standards are finally becoming operational, and how the maker-checker model must evolve with AI-powered development.
 
 Link in comments if you're thinking about how to scale AppSec in the AI era.
 
@@ -48,7 +48,7 @@ The counterintuitive part? Writing good security standards is suddenly a superpo
 
 We're in this weird moment where AI is both creating and solving the security problem.
 
-Full conversation covers how to measure "good enough" AI results, why makers and checkers can't be the same entity, and what happens when code generation outpaces code review.
+In this new episode of the DeFUD podcast, my cohost Chong and I cover how to measure "good enough" AI results, why makers and checkers can't be the same entity, and what happens when code generation outpaces code review.
 
 Worth a listen if you're rethinking AppSec for the AI era.
 
@@ -80,7 +80,7 @@ Context is everything. Generic advice from an LLM is worthless. Company-specific
 
 Sandesh also explained why this matters more now than ever. The bottleneck in software development is shifting from writing code to reviewing code. AI is making code generation 10x faster, but code review hasn't caught up.
 
-In our conversation, he breaks down how to customize LLM outputs for your company's jargon, where to place humans in the loop based on your culture, and why 10% security coverage means you're not really doing security.
+In this new episode of the DeFUD podcast, my cohost Chong and I break down how to customize LLM outputs for your company's jargon, where to place humans in the loop based on your culture, and why 10% security coverage means you're not really doing security.
 
 Link in comments. Highly practical for anyone running AppSec or security engineering.
 
@@ -114,7 +114,7 @@ The maker-checker principle still applies. The entity that makes something can't
 
 One surprising GTM lesson: When selling security tools, geography matters less than maturity. Selling to an Indian fintech is more similar to selling to a US fintech than to an Indian bank. The patterns between Bangalore and Silicon Valley mirror each other more than the patterns within India.
 
-We covered how LLMs are finally making security standards operational, why 100% coverage should be the baseline, and how to balance automation with human judgment based on organizational culture.
+In this new episode of the DeFUD podcast, my cohost Chong and I cover how LLMs are finally making security standards operational, why 100% coverage should be the baseline, and how to balance automation with human judgment based on organizational culture.
 
 This is one of the best conversations I've had about where security is heading in the next 3-5 years.
 
