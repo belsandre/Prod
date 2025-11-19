@@ -1,0 +1,47 @@
+# Page 14
+
+VENTURE GAPITAL
+VENTURE CAPITAL AS OF MARCH 31, 2025
+SINCE INCEPTION IRR & MULTIPLES COMPARED TO CA MODIFIED PUBLIC MARKET EQUIVALENT (MPME)
+Net to Limited Partners
+POOLED IRR (%) AND IRR-BASED VALUE-ADD (BPS) TOTAL VALUE TO PAID IN (TVPI) DISTRIBUTIONS TO PAID IN (DPI)
+CA CA MPME MSCI MPME MSCI CA MPME MSCI MPME MSCI
+BENCHMARK MPME MSCI EUROPE INDEX BENCHMARK EAFE INDEX EUROPE BENCHMARK EAFE INDEX EUROPE
+MInTRGe SOMpen INDEX | MPME MSCI EAFE INDEX (NET) (NET) INDEX (NET) INDEX (NET) INDEX (NET) INDEX (NET)
+2000 172 -0.07 6.25 -632 6.58 -665 0.99 1.51 1.53 0.99 1.49 1.52
+2001 84 3.79 7.05 -325 7.26 -347 1.29 1.50 1.51 1.25 1.46 1.47
+2002 35 1.28 6.14 -486 6.34 -507 1.09 1.49 1.51 1.08 1.47 1,48
+2003 37 8.63 4.49 414 4.72 391 1.69 1.30 1,32 1.68 1.28 1.29
+2004 58 6.99 4.13 286 4.25 274 1.63 1.33 1.34 1.53 1.22 1,22
+2005 78 9.43 2.91 652 2.84 659 1.90 1.21 1.21 1.81 1.16 1,15
+2006 102 8.98 3.52 546 3.42 557 1,98 1,29 1.28 1.77 1.17 1.16
+2007 101 13.94 4.65 930 4.57 937 2.73 1.36 1.35 2.04 1.16 1.15
+2008 75 14.62 5.87 874 5.83 878 2.39 1.44 1.44 2.22 1.30 1.30
+2009 36 14.42 6.03 840 6.03 840 2.45 1.46 1.46 2.06 1.23 1,22
+2010 46 23.23 6.05 1,718 6.14 1,709 3.93 1.43 1.44 2.75 1.09 1.09
+2011 78 21.45 5.75 1,570 5.71 1,573 3.71 1.46 1.46 2.79 1.06 1.05
+2012 75 22.20 5.36 1,685 5.22 1,699 3.81 1.40 1.39 2.67 1.00 0.98
+2013 69 18.57 5.39 1,318 5.30 1,327 2.88 1.39 1.39 1.93 0.89 0.88
+2014 116 19.36 5.72 1,365 5.80 1,357 3.10 1.43 1.44 1.64 0.73 0.72
+2015 133 16.65 6.28 1,036 6.68 997 2.52 1.46 1.49 1.02 0.53 0.53
+2016 116 17.98 6.33 1,166 6.92 1,107 2.44 1.41 1.46 0.89 0.46 0.46
+2017 130 17.30 6.45 1,085 7.21 1,009 2.18 1.37 1.42 0.60 0.34 0.35
+2018 165 15.46 6.92 854 7.94 752 1.88 1.35 1.41 0.37 0.23 0.24
+2019 157 10.08 7.03 304 8.24 183 1.45 1.30 1.36 0.15 0.12 0.12
+2020 157 9.39 6.65 274 7.99 140 1.34 1.23 1.28 0.09 0.08 0.08
+2021 241 3.10 6.64 -355 7.90 -480 1.08 1.18 1.21 0.03 0.04 0.04
+2022 176 12.02 10.54 147 12.06 -4 1.19 1.17 1.19 0.05 0.05 0.05
+2023 85 12.33 8.97 336 10.84 148 1,11 1.08 1.10 0.01 0.01 0.01
+Notes: Based on data compiled from 2,522 venture capital funds, including fully liquidated partnerships, formed between 2000 and 2023. Internal rates of returns are net of fees,
+expenses and carried interest. CA research shows that most funds take at least six years to settle into their final quartile ranking, and previous to this settling they typically rank in 2-3
+other quartiles; therefore fund or benchmark performance metrics from more recent vintage years may be less meaningful. Benchmarks with “—” have an insufficient number of funds in
+the vintage year sample to produce a meaningful return. page| 13
+mPME Note: Refer to Methodology page for further details on Cambridge Associates Modified PME (mPME).
+Sources: Cambridge Associates LLC, MSCI Inc., S&P Dow Jones Indices and Thomson Reuters Datastream.
+See Notice on Third Party Index Disclosure
+MSCI data provided "as is" without any express or implied warranties. Total returns for MSCI Emerging Markets indexes are gross of dividend taxes. Total returns for MSCI Developed
+Markets indexes are net of dividend taxes.
+
+## Tables for this page
+
+- Cleaned data table CSV: `table_page_14_clean.csv`

@@ -1,0 +1,18 @@
+# Page 56
+
+VENTURE CAPITAL
+US VENTURE CAPITAL HEALTH CARE AS OF MARCH 31, 2025
+SINCE INCEPTION IRR BASED ON COMPANY INITIAL INVESTMENT YEAR
+By GICS Industry Groups
+POOLED GROSS IRR (%) OF COMPANIES RECEIVING INITIAL INVESTMENT IN:
+SUBGROUP | 2005 |2006200]7 | 2008 SESS SEs Ee
+Health Care Equipment & Services _-1.06 5.20 0.69 3.01 3.37 14.33 16.91 6.29 5.28 9.78 15.97 23.41 -1.94 13.56 8.15 9.55 16.12 36.63
+Pparmaceuticals, Biotechnology& 179 758 1858 12.76 30.79 2450 3143 60.99 101.22 32.19 2814 1829 24.46 2625 30.41 1145 10.34 30.20 35.56
+TOTAL HEALTH CARE 0.76 6.62 13.66 8.84 21.09 20.13 25.91 33.93 69.74 2834 26.33 19.29 21.47 24.14 27.12 10.96 10.21 28.54 35.69
+NON - HEALTH CARE RELATED 5.73 -6.00 -3.33 -8.42 -16.56 6.31 14.94 41.81 6.80 34.36 18.68 217.43 2.60 20.20 — -438 49.72 70.91 193.56
+ALL COMPANIES 0.96 6.33 12.72 7.95 19.44 19.80 25.17 34.21 67.93 28.40 25.91 19.47 20.65 23.97 26.82 10.52 13.03 37.62 39.07
+NUMBER OF COMPANIES 286 309 332 259 202 197 192 165 147 144 162 160 156 203 209 321 326 211 246
+| “_” indicates inadequate number of companies in sample. page| 55
+C | Note: The Global Industry Classification Standard (“GICS®”) was developed by andis the exclusive property and a service mark of MSCI, Inc. (“MSCI”) and S&P Global Market Intelligence
+LLC (“S&P”) andis licensed for use by Cambridge Associates.
+Values are “N/A” where information is unavailable or not able to be calculated.

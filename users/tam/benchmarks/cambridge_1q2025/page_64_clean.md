@@ -1,0 +1,41 @@
+# Page 64
+
+VENTURE GAPITAL
+EUROPE DEVELOPED VENTURE CAPITAL AS OF MARCH 31, 2025
+SINCE INCEPTION IRR & MULTIPLES BY FUND VINTAGE YEAR
+Net to Limited Partners
+POOLED | ARITHMETIC EQUAL-WEIGHTED UPPER LOWER STANDARD
+VINTAGE MEDIAN | POOLED RETURN TOP 5% QUARTILE QUARTILE | BOTTOM5% | DEVIATION NUMBER
+YEAR (%) (%) (%) (%) (%) (%) (%) OF FUNDS
+2000 -1.10 -10.20 -3.70 -2.09 6.18 3.06 -9.08 -43.72 25.90 0.92 0.00 0.92
+2001 3.07 2.89 3.55 3.12 25.56 8.66 -3.61 -20.52 15.35 1.20 0.01 1.20 11
+2002 _ _ _ _ _ _ _ _ _ _ _ _ 2
+2003 _ _ _ _ _ _ _ _ _ _ _ _ 2
+2004 _ _ _ _ _ _ _ _ _ _ _ _ 0
+2005 9.67 5.90 8.88 8.19 19.61 13.65 -1.98 -11.49 12.09 1.85 0.07 1.93 8
+2006 6.47 6.28 6.76 8.15 17.15 8.56 2.29 -3.19 7.59 1.42 0.44 1.86 10
+2007 9.64 1.56 1.85 5.04 _ _ _ _ _ 1.64 0.11 1.75 7
+2008 _ _ _ _ _ _ _ _ _ _ _ _ 1
+2009 19.70 16.00 13.68 17.28 — — — — — 3.08 0.61 3.69 5
+2010 12.55 12.88 — 12.19 — — — — — 1.80 0.04 1.84 3
+2011 14.60 13.04 — 9.30 — — — — — 1.48 0.08 1.55 3
+2012 26.70 17.84 15.90 22.61 36.98 28.27 6.24 0.31 14.22 3.36 0.98 4.34 10
+2013 10.18 9.28 5.96 9.14 — — — — — 1.24 0.61 1.85 5
+2014 21.37 12.69 9.71 17.76 28.45 16.15 9.08 -0.72 9.97 1.08 3.23 4.32 11
+2015 12,22 11.95 16.19 12.85 19.96 17.67 5.32 -0.13 8.01 0.43 1.55 1.99 11
+2016 24.93 40.01 17.81 24.50 150.59 22.20 11.15 6.28 68.82 0.97 2.34 3.31 10
+2017 18.67 21,11 22.03 21.13 _ _ _ _ _ 0.28 2.40 2.68 5
+2018 16.00 15.82 15.51 17.36 30.81 21.00 10.54 2.68 9.58 0.42 1.39 1.80 14
+2019 6.62 6.45 8.28 7.21 11.86 10.03 4.11 -1.44 5.70 0.03 1.25 1.28 16
+2020 12.52 8.16 6.45 8.79 23.73 8.96 4.07 0.33 7.34 0.02 1.43 1.45 16
+2021 2.57 2.51 2.97 3.11 12.60 447 -0.50 -5.94 5.75 0.03 1.03 1.06 14
+2022 0.74 3.77 4.07 8.69 25.52 17.50 -9.35 -15.91 15.54 0.01 1.00 1.01 15
+2023 28.32 23.17 _ 22.27 _ _ _ _ _ 0.16 1.07 1,23 4
+Notes: Based on data compiled from 199 Europe Developed venture capital funds, including fully liquidated partnerships, formed between 2000 and 2023. Internal rates of returns are page| 63
+net of fees, expenses and carried interest. CA research shows that most funds take at least six years to settle into their final quartile ranking, and previous to this settling they typically
+rank in 2-3 other quartiles; therefore fund or benchmark performance metrics from more recent vintage years may be less meaningful. Benchmarks with “—” have an insufficient number
+of funds in the vintage year sample to produce a meaningful return.
+
+## Tables for this page
+
+- Cleaned data table CSV: `table_page_64_clean.csv`

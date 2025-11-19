@@ -1,0 +1,39 @@
+# Page 18
+
+VENTURE CAPITAL
+VENTURE CAPITAL AS OF MARCH 31, 2025
+RESIDUAL VALUE TO PAID IN CAPITAL MULTIPLE (RVPI)
+Net to Limited Partners
+VINTAGE YEAR POOLED RETURN ARITHMETIC MEAN | MEDIAN | TOP 5% UPPER QUARTILE LOWER QUARTILE BOTTOM 5% NUMBER OF FUNDS
+2000 0.01 0.01 0.00 0.02 0.00 0.00 0.00
+2001 0.04 0.02 0.00 0.09 0.00 0.00 0.00 84
+2002 0.01 0.01 0.00 0.04 0.00 0.00 0.00 35
+2003 0.01 0.01 0.00 0.04 0.00 0.00 0.00 37
+2004 0.10 0.09 0.00 0.47 0.06 0.00 0.00 58
+2005 0.09 0.09 0.00 0.37 0.07 0.00 0.00 78
+2006 0.21 0.22 0.05 0.78 0.17 0.00 0.00 102
+2007 0.69 0.60 0.10 1.22 0.27 0.00 0.00 101
+2008 0.17 0.24 0.09 0.88 0.31 0.00 0.00 75
+2009 0.39 0.41 0.16 1.40 0.42 0.03 0.00 36
+2010 1,18 1.11 0.20 5.07 1.08 0.02 0.00 46
+2011 0.93 0.97 0.67 3.16 1.23 0.17 0.00 78
+2012 1,14 1.04 0.56 3.62 1.19 0.23 0.00 75
+2013 0.95 1.53 0.98 2.99 1.57 0.44 0.18 69
+2014 1.46 1.57 1.18 4.21 1.99 0.53 0.14 116
+2015 1.50 1.74 1.34 4.32 2.18 0.84 0.30 133
+2016 1.55 1.64 1.39 3.14 2.12 1.03 0.56 116
+2017 1.58 1.64 1.38 3.60 2.23 0.81 0.38 130
+2018 1.51 1.46 1.28 2.79 1.73 1.00 0.55 165
+2019 1.30 1.38 1.25 2.52 1.61 0.97 0.63 157
+2020 1,25 1.18 1.14 1.79 1.30 0.92 0.71 157
+2021 1.05 1.03 0.99 1.48 1.14 0.87 0.65 241
+2022 1,15 1.06 1.01 1.50 1.20 0.89 0.70 176
+2023 1.10 1.04 0.99 1.47 1.16 0.86 0.69 85
+Notes: Based on data compiled from 2,522 venture capital funds, including fully liquidated partnerships, formed between 2000 and 2023. Internal rates of returns are net of fees, page| 17
+expenses and carried interest. CA research shows that most funds take at least six years to settle into their final quartile ranking, and previous to this settling they typically rank in 2-3
+other quartiles; therefore fund or benchmark performance metrics from more recent vintage years may be less meaningful. Benchmarks with “—” have an insufficient number of funds in
+the vintage year sample to produce a meaningful return.
+
+## Tables for this page
+
+- Cleaned data table CSV: `table_page_18_clean.csv`
