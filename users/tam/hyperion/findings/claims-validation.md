@@ -633,8 +633,8 @@ To be created:
 ---
 
 **Related Documents**:
-- [Portfolio Assessment](Prod/users/tam/hyperion/findings/portfolio-assessment.md) — Company-by-company quality analysis
-- [GP Analysis](gp-analysis.md) — Detailed assessment of both General Partners
-- [Network Analysis](Prod/users/tam/hyperion/findings/network-analysis.md) — LinkedIn connections and deal flow relationships
-- [Timeline](timeline.md) — Chronological events with source verification
-- [Claims Data](/_data/claims.json) — Complete structured data
+- [Portfolio Assessment](/hyperion/findings/portfolio-assessment/) — Company-by-company quality analysis
+- [GP Analysis](/hyperion/findings/gp-analysis/) — Detailed assessment of both General Partners
+- [Network Analysis](/hyperion/findings/network-analysis/) — LinkedIn connections and deal flow relationships
+- [Timeline](/hyperion/findings/timeline/) — Chronological events with source verification
+- [Claims Data](/hyperion/findings/_data/claims/) — Complete structured data

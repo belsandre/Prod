@@ -438,10 +438,10 @@ Figure AI represents **>50% of Hyperion's portfolio value** with a 94x paper MOI
 
 ## Related Documents
 
-- [Portfolio Data](../../findings/_data/portfolio.json#figure-ai)
-- [Main Index](../../index.md#figure-ai-concentration)
-- [GP Value-Add Verification](verify-gp-value-add.md) (includes Figure-Tamarack relationship)
-- [Portfolio Assessment](../../findings/portfolio-assessment.md)
+- [Portfolio Data](/hyperion/findings/_data/portfolio/#figure-ai)
+- [Main Index](/hyperion/overview/#figure-ai-concentration)
+- [GP Value-Add Verification](/hyperion/recommendations/critical/verify-gp-value-add/) (includes Figure-Tamarack relationship)
+- [Portfolio Assessment](/hyperion/findings/portfolio-assessment/)
 
 ---
 

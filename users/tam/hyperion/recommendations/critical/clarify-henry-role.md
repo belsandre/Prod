@@ -422,10 +422,10 @@ If you can't provide clarity on Henry's role and contribution, we cannot proceed
 
 ## Related Documents
 
-- [GP Profiles](../../findings/_data/gp-profiles.json)
-- [GP Value-Add Verification](verify-gp-value-add.md)
-- [Portfolio Assessment](../../findings/portfolio-assessment.md)
-- [Main Index](../../index.md#henry-bellew-zero-involvement)
+- [GP Profiles](/hyperion/findings/_data/gp-profiles/)
+- [GP Value-Add Verification](/hyperion/recommendations/critical/verify-gp-value-add/)
+- [Portfolio Assessment](/hyperion/findings/portfolio-assessment/)
+- [Main Index](/hyperion/overview/#henry-bellew-zero-involvement)
 
 ---
 

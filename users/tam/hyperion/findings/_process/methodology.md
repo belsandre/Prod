@@ -340,4 +340,4 @@ All research findings are categorized using a **3-tier evidence classification s
 **Version**: 1.0
 **Last Updated**: November 17, 2025
 **Next Review**: After independent verification complete
-**Related Documents**: [timeline.json](../_data/timeline.json), [claims.json](../_data/claims.json), [index.md](../../index.md)
+**Related Documents**: [timeline.json](/hyperion/findings/_data/timeline/), [claims.json](/hyperion/findings/_data/claims/), [Overview](/hyperion/overview/)
