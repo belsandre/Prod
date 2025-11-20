@@ -334,7 +334,7 @@ Best regards,
 ## Related Documents
 
 - [GP Value-Add Verification](verify-gp-value-add.md)
-- [Claims Validation Report](../../findings/claims-validation.md)
+- [Claims Validation Report](../../findings/claims-analysis.md)
 - [Portfolio Data](../../findings/_data/portfolio.json)
 - [Main Index](../../index.md#funding-discrepancies)
 

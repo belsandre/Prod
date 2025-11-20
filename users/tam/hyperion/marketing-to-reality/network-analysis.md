@@ -1,7 +1,7 @@
 # Hyperion Ventures Network Analysis
 
 **Last Updated**: {{ hyperionNetwork.metadata.extraction_date }}
-**Data Source**: [network.json](/_data/network.json)
+**Data Source**: [network.json](/hyperion/marketing-to-reality/_data/network/)
 **Methodology**: Analysis of Dillon Dunteman's {{ hyperionNetwork.metadata.total_connections }} LinkedIn connections mapped to investment firms and deal flow patterns
 
 ---
@@ -177,7 +177,7 @@ Dataroom claims strategic "Central Hub" relationships for filtering too-early de
 
 ## Recommendations
 
-1. **Verify Top 3 Deal Sources** (Tamarack, Founders Fund, Coatue) — See [verify-gp-value-add.md](/recommendations/critical/verify-gp-value-add/)
+1. **Verify Top 3 Deal Sources** (Tamarack, Founders Fund, Coatue) — See [verify-gp-value-add.md](/hyperion/recommendations/critical/verify-gp-value-add/)
 
 2. **Request Detailed Deal Flow Log**:
    - Source of each portfolio company (which relationship?)
@@ -198,7 +198,7 @@ Dataroom claims strategic "Central Hub" relationships for filtering too-early de
 ---
 
 **Related Documents**:
-- [Claims Validation](/hyperion/findings/claims-validation/) — Cross-reference claimed relationships against evidence
-- [GP Analysis](/hyperion/findings/gp-analysis/) — Dillon assessment including network-based deal flow claims
-- [Portfolio Assessment](/hyperion/findings/portfolio-assessment/) — Company-by-company sourcing analysis
-- [Network Data](/hyperion/findings/_data/network/) — Complete connection mappings and firm categorizations
+- [Claims Validation](/hyperion/marketing-to-reality/claims-analysis/) — Cross-reference claimed relationships against evidence
+- [GP Analysis](/hyperion/marketing-to-reality/people-analysis/) — Dillon assessment including network-based deal flow claims
+- [Portfolio Assessment](/hyperion/marketing-to-reality/portfolio-assessment/) — Company-by-company sourcing analysis
+- [Network Data](/hyperion/marketing-to-reality/_data/network/) — Complete connection mappings and firm categorizations

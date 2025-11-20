@@ -71,7 +71,7 @@ users/tam/hyperion/
 │   └── gp-relationships.json       # GP-company relationships
 │
 ├── analyses/                       # Markdown analyses (presentation)
-│   ├── claims-validation.md        # Renders from data/claims.json
+│   ├── claims-analysis.md        # Renders from data/claims.json
 │   └── portfolio-assessment.md     # Renders from data/portfolio.json
 │
 └── supporting-research/            # Evidence (unchanged)
@@ -429,28 +429,28 @@ workflows:
       portfolio_json: users/tam/hyperion/data/portfolio.json
       research_summary: users/tam/hyperion/analyses/portfolio-assessment.md
 
-  - id: claims-validation
-    workflow: claims-validation.md
+  - id: claims-analysis
+    workflow: claims-analysis.md
     depends_on: [vc-research]
     inputs:
       dataroom: users/tam/hyperion/dataroom/
       portfolio_data: ${{ outputs.vc-research.portfolio_json }}
     outputs:
       claims_json: users/tam/hyperion/data/claims.json
-      validation_report: users/tam/hyperion/analyses/claims-validation.md
+      validation_report: users/tam/hyperion/analyses/claims-analysis.md
 
   - id: network-analysis
     workflow: linkedin-network-checker.md
-    depends_on: [vc-research, claims-validation]
+    depends_on: [vc-research, claims-analysis]
     inputs:
       linkedin_csv: users/tam/hyperion/research/people/linkedin/connections_1k.csv
-      claims_json: ${{ outputs.claims-validation.claims_json }}
+      claims_json: ${{ outputs.claims-analysis.claims_json }}
     outputs:
       network_json: users/tam/hyperion/data/network.json
 
   - id: validation
     workflow: validator.md
-    depends_on: [vc-research, claims-validation, network-analysis]
+    depends_on: [vc-research, claims-analysis, network-analysis]
     inputs:
       workflow_file: users/tam/workflows/vc-research.md
       output_location: users/tam/hyperion/
@@ -498,7 +498,7 @@ async function runPipeline(pipelineFile) {
 
 **Benefits**:
 - ✅ One command to run entire pipeline
-- ✅ Automatic parallelization (network-analysis doesn't wait for claims-validation unnecessarily)
+- ✅ Automatic parallelization (network-analysis doesn't wait for claims-analysis unnecessarily)
 - ✅ Incremental re-execution (only re-run changed steps)
 - ✅ Clear dependency visualization
 
@@ -586,7 +586,7 @@ Processing Time: 8.2 hours
 1. Create `users/tam/hyperion/data/` folder
 2. Extract structured data from existing analyses:
    - `data/portfolio.json` ← vc-research-summary.md
-   - `data/claims.json` ← claims-validation.md
+   - `data/claims.json` ← claims-analysis.md
    - `data/network.json` ← network-analysis.md
    - `data/timeline.json` ← objective-timeline.md
 3. Update analyses to reference JSON data (e.g., "See [portfolio data](../data/portfolio.json)")
@@ -772,7 +772,7 @@ Based on advisor feedback, prioritize these 3 tasks:
 **Action**:
 - Create `users/tam/hyperion/data/portfolio.json`
 - Extract company data from vc-research-summary.md
-- Extract claims data from claims-validation.md
+- Extract claims data from claims-analysis.md
 - Validate JSON with schema
 
 **Output**: Structured data that can be queried/compared

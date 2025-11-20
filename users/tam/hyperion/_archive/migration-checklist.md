@@ -303,7 +303,7 @@ cp -r research/deals/ migration-reference/old-company-structure/
 
 **Files to create**:
 - [ ] `findings/portfolio-assessment.md` (from migration-reference/vc-research-summary.md)
-- [ ] `findings/claims-validation.md` (from migration-reference/claims-validation.md)
+- [ ] `findings/claims-analysis.md` (from migration-reference/claims-analysis.md)
 - [ ] `findings/network-analysis.md` (from migration-reference/network-analysis.md)
 - [ ] `findings/timeline.md` (create new)
 - [ ] `findings/gp-analysis.md` (consolidate from old files)

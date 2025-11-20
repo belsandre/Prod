@@ -267,7 +267,7 @@ cp -r research/deals/ migration-reference/old-company-structure/
 **Notes**:
 ```
 Successfully preserved all old structure for reference:
-- Copied 6 output files from outputs/ (vc-research-summary, claims-validation, network-analysis, etc.)
+- Copied 6 output files from outputs/ (vc-research-summary, claims-analysis, network-analysis, etc.)
 - Copied entire research/deals/ structure (tier-1, tier-2, validation-report, 14 company folders)
 - Total: 90 files preserved in migration-reference/
 - All original files remain intact in current structure
@@ -316,7 +316,7 @@ Created comprehensive executive summary with:
 
 **Files created**:
 - [x] `findings/portfolio-assessment.md` (comprehensive rewrite from vc-research-summary.md using portfolio.json)
-- [x] `findings/claims-validation.md` (comprehensive rewrite using claims.json - detailed 30 sub-claim analysis)
+- [x] `findings/claims-analysis.md` (comprehensive rewrite using claims.json - detailed 30 sub-claim analysis)
 - [x] `findings/network-analysis.md` (comprehensive rewrite using network.json - 637 connections analyzed)
 - [x] `findings/timeline.md` (created new narrative timeline from timeline.json - 47 events)
 - [x] `findings/gp-analysis.md` (new comprehensive GP assessment using gp-profiles.json)
@@ -335,7 +335,7 @@ Created comprehensive executive summary with:
 All findings documents significantly enhanced compared to migration-reference originals:
 
 1. portfolio-assessment.md - Company-by-company analysis with 4 winners, 5 steady performers, 2 red flags, 3 too early
-2. claims-validation.md - Detailed validation of 30 sub-claims across 6 key categories (33% verified, 38% partial, 21% unverified, 4% conflicting, 4% timing issues)
+2. claims-analysis.md - Detailed validation of 30 sub-claims across 6 key categories (33% verified, 38% partial, 21% unverified, 4% conflicting, 4% timing issues)
 3. network-analysis.md - Deep analysis of 637 LinkedIn connections, strategic relationships, critical verification gaps (Tamarack 1 connection, FF 2 connections)
 4. timeline.md - Chronological narrative of 47 events (2015-2025) highlighting retroactive framing patterns, timing concerns
 5. gp-analysis.md - Comprehensive GP profiles (Dillon 7.5/10 conditional, Henry 0% involvement red flag)

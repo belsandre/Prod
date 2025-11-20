@@ -233,7 +233,7 @@ users/tam/hyperion/
 ├── findings/                           # 📊 ANALYSIS (how we interpreted the evidence)
 │   ├── portfolio-assessment.md         # ANALYSIS: Portfolio quality, winners, concerns
 │   ├── network-analysis.md             # ANALYSIS: GP network depth and relationship validation
-│   ├── claims-validation.md            # ANALYSIS: Which GP claims verified/unverified
+│   ├── claims-analysis.md            # ANALYSIS: Which GP claims verified/unverified
 │   ├── timeline.md                     # ANALYSIS: Chronological fund narrative with interpretation
 │   ├── gp-analysis.md                  # ANALYSIS: Dillon background, Henry absence
 │   │
@@ -275,7 +275,7 @@ Critical Recommendation: "Verify GP relationships"
   ↓
 Click → recommendations/critical/verify-gp-relationships.md
   ↓ "Why this matters"
-Links to → findings/claims-validation.md (ANALYSIS: "100% of value-add claims unverified")
+Links to → findings/claims-analysis.md (ANALYSIS: "100% of value-add claims unverified")
   ↓ "Evidence reviewed"
 Links to → research/companies/figure/independent-research.md (RAW: TechCrunch, Bloomberg - no GP mention)
   AND → research/companies/figure/target-sources.md (RAW: Company website, press releases - no GP mention)
@@ -322,7 +322,7 @@ The `index.md` file is the starting point for all users. It should answer three 
 ### Analysis Completed
 - ✅ **Portfolio Assessment**: 14/24 companies researched ([view →](findings/portfolio-assessment.md))
 - ✅ **Network Analysis**: Dillon's connections quantified ([view →](findings/network-analysis.md))
-- ✅ **Claims Validation**: GP claims verified against independent sources ([view →](findings/claims-validation.md))
+- ✅ **Claims Validation**: GP claims verified against independent sources ([view →](findings/claims-analysis.md))
 - ✅ **Timeline**: Objective chronology of fund events ([view →](findings/timeline.md))
 - ⏳ **Incomplete**: 10 companies not yet researched, Henry Bellew analysis partial
 
@@ -353,7 +353,7 @@ The `index.md` file is the starting point for all users. It should answer three 
 - **100% of GP value-add claims unverified** (hiring help, VC intros, advisory)
 - **Missing data**: 18/24 investment dates, amounts, or details not provided
 - **Red flag**: Henry Bellew (co-GP) has zero documented portfolio involvement
-- [View full claims validation →](findings/claims-validation.md)
+- [View full claims validation →](findings/claims-analysis.md)
 
 ### GP Background: Dillon Strong, Henry Absent
 - **Dillon Dunteman**: Harvard MBA, 5 years at Vista Equity, Firmament Capital experience
@@ -415,7 +415,7 @@ The `index.md` file is the starting point for all users. It should answer three 
 
 All findings and supporting evidence are available:
 
-- **Findings**: [portfolio-assessment.md](findings/portfolio-assessment.md), [network-analysis.md](findings/network-analysis.md), [claims-validation.md](findings/claims-validation.md)
+- **Findings**: [portfolio-assessment.md](findings/portfolio-assessment.md), [network-analysis.md](findings/network-analysis.md), [claims-analysis.md](findings/claims-analysis.md)
 - **Recommendations**: [critical/](recommendations/critical/), [high-priority/](recommendations/high-priority/), [medium-priority/](recommendations/medium-priority/)
 - **Company Research**: [research/companies/](research/companies/)
 - **GP Research**: [research/people/](research/people/)
@@ -715,7 +715,7 @@ status: pending
 - VC introductions
 - Advisory support
 
-**Finding**: [Claims Validation Analysis →](../../findings/claims-validation.md#gp-value-add)
+**Finding**: [Claims Validation Analysis →](../../findings/claims-analysis.md#gp-value-add)
 
 **Evidence**:
 - [Figure AI Independent Research →](../../research/companies/figure/independent-research.md) - No mention of Dillon in TechCrunch, Bloomberg
@@ -818,7 +818,7 @@ Track what changed and why in `findings/_process/change-log.md`:
 **Analyses Updated**:
 - `findings/portfolio-assessment.md` - Added 6 missing investment dates
 - `findings/_data/portfolio.json` - Updated funding rounds for 10 companies
-- `findings/claims-validation.md` - Verified 2 additional GP claims
+- `findings/claims-analysis.md` - Verified 2 additional GP claims
 
 **Key Changes**:
 - Figure AI investment date corrected: 2023-04-01 (was estimated as Q2 2023)
@@ -844,7 +844,7 @@ Track what changed and why in `findings/_process/change-log.md`:
 **Data Source Added**: Phone call with Brett Adcock (Figure AI founder)
 
 **Analyses Updated**:
-- `findings/claims-validation.md` - Updated GP value-add claims
+- `findings/claims-analysis.md` - Updated GP value-add claims
 - `recommendations/critical/verify-gp-relationships.md` - Marked as in-progress
 
 **Key Changes**:
@@ -861,7 +861,7 @@ Track what changed and why in `findings/_process/change-log.md`:
 - `verify-gp-relationships.md` updated: 5 remaining founders to check
 
 **Archived Versions**:
-- `findings/_archive/claims-validation-2025-11-14.md`
+- `findings/_archive/claims-analysis-2025-11-14.md`
 ```
 
 **3. Data Update Tracking**
@@ -873,8 +873,8 @@ Track when new data sources arrive in `findings/_process/data-updates.md`:
 
 | Date | Source | Files Added | Analyses Affected |
 |------|--------|-------------|-------------------|
-| 2025-11-17 | Crunchbase export | `research/dataroom/crunchbase-export.csv` | portfolio-assessment, claims-validation |
-| 2025-11-15 | Reference check (Brett Adcock) | `research/companies/figure/reference-check-founder.md` | claims-validation |
+| 2025-11-17 | Crunchbase export | `research/dataroom/crunchbase-export.csv` | portfolio-assessment, claims-analysis |
+| 2025-11-15 | Reference check (Brett Adcock) | `research/companies/figure/reference-check-founder.md` | claims-analysis |
 | 2025-11-10 | Meeting notes (Dillon) | `research/people/dillon-dunteman/meeting-notes-2025-11-10.md` | gp-analysis |
 ```
 
@@ -889,7 +889,7 @@ When new data arrives, identify which analyses need updating:
 - ❌ `findings/network-analysis.md` (not affected)
 
 **Reference check** affects:
-- ✅ `findings/claims-validation.md` (GP claims)
+- ✅ `findings/claims-analysis.md` (GP claims)
 - ✅ `findings/portfolio-assessment.md` (GP relationship quality)
 - ✅ `recommendations/critical/verify-gp-relationships.md` (progress update)
 - ❌ `findings/network-analysis.md` (not affected)
@@ -1061,7 +1061,7 @@ cp -r research/deals/ migration-reference/old-company-structure/
 **What to do**:
 For each old output file, create new finding:
 - `migration-reference/vc-research-summary.md` → `findings/portfolio-assessment.md`
-- `migration-reference/claims-validation.md` → `findings/claims-validation.md`
+- `migration-reference/claims-analysis.md` → `findings/claims-analysis.md`
 - `migration-reference/network-analysis.md` → `findings/network-analysis.md`
 - Etc.
 
@@ -1248,7 +1248,7 @@ rm -rf dataroom/
 
 **Before**:
 - Start in `users/tam/hyperion/outputs/` (3 levels deep)
-- Read `claims-validation.md`, `portfolio-assessment.md`, `network-analysis.md` separately
+- Read `claims-analysis.md`, `portfolio-assessment.md`, `network-analysis.md` separately
 - Manually synthesize findings
 - Hunt for recommendations scattered across files
 

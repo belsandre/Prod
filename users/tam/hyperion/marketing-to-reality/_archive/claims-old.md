@@ -166,8 +166,8 @@ This analysis validates {{ hyperionClaims.metadata.total_claims }} sub-claims ac
 ---
 
 **Related Documents**:
-- [Portfolio Assessment](/hyperion/findings/portfolio-assessment/) — Company-by-company quality analysis
-- [GP Analysis](/hyperion/findings/gp-analysis/) — Detailed assessment of both General Partners
-- [Network Analysis](/hyperion/findings/network-analysis/) — LinkedIn connections and deal flow relationships
-- [Timeline](/hyperion/findings/timeline/) — Chronological events with source verification
-- [Claims Data](/hyperion/findings/_data/claims/) — Complete structured data
+- [Portfolio Assessment](/hyperion/marketing-to-reality/portfolio-assessment/) — Company-by-company quality analysis
+- [GP Analysis](/hyperion/marketing-to-reality/people-analysis/) — Detailed assessment of both General Partners
+- [Network Analysis](/hyperion/marketing-to-reality/network-analysis/) — LinkedIn connections and deal flow relationships
+- [Timeline](/hyperion/marketing-to-reality/objective-timeline/) — Chronological events with source verification
+- [Claims Data](/hyperion/marketing-to-reality/_data/claims/) — Complete structured data

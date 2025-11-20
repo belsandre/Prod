@@ -1,7 +1,7 @@
 # Hyperion Ventures: Objective Timeline
 
 **Last Updated**: {{ hyperionTimeline.metadata.extraction_date }}
-**Data Source**: [timeline.json](/_data/timeline.json)
+**Data Source**: [timeline.json](/hyperion/marketing-to-reality/_data/timeline/)
 **Coverage**: {{ hyperionTimeline.metadata.coverage_period }} ({{ hyperionTimeline.metadata.total_events }} events)
 **Methodology**: Cross-referenced public sources (Tier 3), affiliated sources (Tier 2), and dataroom claims (Tier 1)
 
@@ -173,7 +173,7 @@ This chronological timeline reconstructs the development of Dillon Dunteman's in
    - Normal advisory role and equity award (July 2024)
    - Tamarack-Figure AI sourcing (April 2023)
 
-   **See**: [verify-gp-value-add.md](/recommendations/critical/verify-gp-value-add/)
+   **See**: [verify-gp-value-add.md](/hyperion/recommendations/critical/verify-gp-value-add/)
 
 2. **Resolve Timing Conflicts**:
    - Request fusion investment dates to assess thought leadership timing
@@ -182,7 +182,7 @@ This chronological timeline reconstructs the development of Dillon Dunteman's in
 
 3. **Address Funding Discrepancies**:
    - Request GP explanation for Dirac (-44%) and Normal (-51%) gaps
-   - **See**: [resolve-funding-discrepancies.md](/recommendations/critical/resolve-funding-discrepancies/)
+   - **See**: [resolve-funding-discrepancies.md](/hyperion/recommendations/critical/resolve-funding-discrepancies/)
 
 4. **Fill Portfolio Gaps**:
    - Request timeline events for remaining 18 companies
@@ -199,8 +199,8 @@ This chronological timeline reconstructs the development of Dillon Dunteman's in
 ---
 
 **Related Documents**:
-- [Claims Validation](/hyperion/findings/claims-validation/) — Cross-reference timeline against GP marketing claims
-- [GP Analysis](/hyperion/findings/gp-analysis/) — Dillon assessment with timeline-based concerns
-- [Portfolio Assessment](/hyperion/findings/portfolio-assessment/) — Company outcomes with timeline context
-- [Network Analysis](/hyperion/findings/network-analysis/) — LinkedIn connections mapped to deal flow timing
-- [Timeline Data](/hyperion/findings/_data/timeline/) — Complete {{ hyperionTimeline.metadata.total_events }}-event structured timeline
+- [Claims Validation](/hyperion/marketing-to-reality/claims-analysis/) — Cross-reference timeline against GP marketing claims
+- [GP Analysis](/hyperion/marketing-to-reality/people-analysis/) — Dillon assessment with timeline-based concerns
+- [Portfolio Assessment](/hyperion/marketing-to-reality/portfolio-assessment/) — Company outcomes with timeline context
+- [Network Analysis](/hyperion/marketing-to-reality/network-analysis/) — LinkedIn connections mapped to deal flow timing
+- [Timeline Data](/hyperion/marketing-to-reality/_data/timeline/) — Complete {{ hyperionTimeline.metadata.total_events }}-event structured timeline

@@ -511,11 +511,11 @@
 
 ## Data Sources
 
-**Structured Data**: [gp-profiles.json](/hyperion/findings/_data/gp-profiles/)
-**Claims Analysis**: [claims.json](/hyperion/findings/_data/claims/)
-**Network Data**: [network.json](/hyperion/findings/_data/network/)
-**Timeline**: [timeline.json](/hyperion/findings/_data/timeline/)
-**Methodology**: [Research Methodology](/hyperion/findings/_process/methodology/)
+**Structured Data**: [gp-profiles.json](/hyperion/marketing-to-reality/_data/gp-profiles/)
+**Claims Analysis**: [claims.json](/hyperion/marketing-to-reality/_data/claims/)
+**Network Data**: [network.json](/hyperion/marketing-to-reality/_data/network/)
+**Timeline**: [timeline.json](/hyperion/marketing-to-reality/_data/timeline/)
+**Methodology**: [Research Methodology](/hyperion/marketing-to-reality/_process/methodology/)
 
 ---
 

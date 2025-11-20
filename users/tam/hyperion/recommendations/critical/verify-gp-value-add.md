@@ -263,7 +263,7 @@ Hyperion's differentiation narrative is built on Dillon's ability to:
 
 ## Related Documents
 
-- [Claims Validation Report](../../findings/claims-validation.md)
+- [Claims Validation Report](../../findings/claims-analysis.md)
 - [GP Profiles](../../findings/_data/gp-profiles.json)
 - [Funding Discrepancy Investigation](resolve-funding-discrepancies.md)
 - [Portfolio Assessment](../../findings/portfolio-assessment.md)

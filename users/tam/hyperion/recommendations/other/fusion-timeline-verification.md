@@ -199,7 +199,7 @@ For each company:
 
 ## Related Documents
 
-- [Timeline Analysis](/hyperion/marketing-to-reality/timeline/)
+- [Timeline Analysis](/hyperion/marketing-to-reality/timeline/objective-timeline/)
 - [Claims Validation](/hyperion/marketing-to-reality/claims/)
 - [GP Analysis](/hyperion/marketing-to-reality/people/)
 

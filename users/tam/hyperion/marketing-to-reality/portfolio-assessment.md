@@ -271,7 +271,7 @@ Examples:
 
 **Red Flag**: Dataroom shows "24 total companies" but only highlights 5-6 winners. What about the other 18?
 
-**Recommendation**: Request full portfolio list with dates, amounts, valuations (see [portfolio audit recommendation](Prod/users/tam/hyperion/marketing-to-reality/timeline/objective-timeline.md#5-other-personal-investments-18-of-24-companies-missing))
+**Recommendation**: Request full portfolio list with dates, amounts, valuations (see [portfolio audit recommendation](/hyperion/marketing-to-reality/objective-timeline/#5-other-personal-investments-18-of-24-companies-missing))
 
 ---
 
@@ -290,7 +290,7 @@ Examples:
 
 **Selective Transparency**: Acknowledging failures without naming them provides selective disclosure. LPs can't verify or learn from mistakes.
 
-**Recommendation**: Request names, dates, post-mortems for failed investments (see [failed investment recommendation](Prod/users/tam/hyperion/marketing-to-reality/timeline/objective-timeline.md#7-failed-investments))
+**Recommendation**: Request names, dates, post-mortems for failed investments (see [failed investment recommendation](/hyperion/marketing-to-reality/objective-timeline/#7-failed-investments))
 
 ---
 
@@ -375,10 +375,10 @@ Examples:
 
 ## Data Sources
 
-**Structured Data**: [portfolio.json](/hyperion/findings/_data/portfolio/)
+**Structured Data**: [portfolio.json](/hyperion/marketing-to-reality/_data/portfolio/)
 **Individual Research**: [research/companies/](/hyperion/research/companies/)
-**Methodology**: [Research Methodology](/hyperion/findings/_process/methodology/)
-**Main Index**: [Overview](/hyperion/overview/)
+**Methodology**: [Research Methodology](/hyperion/marketing-to-reality/_process/methodology/)
+**Main Index**: [Overview](/hyperion/marketing-to-reality/executive-summary/)
 
 ---
 

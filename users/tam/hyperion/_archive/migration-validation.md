@@ -31,7 +31,7 @@ hyperion/
 │       └── tier-2/        # 8 lower-priority companies
 ├── outputs/               # 6 analysis files
 │   ├── vc-research-summary.md
-│   ├── claims-validation.md
+│   ├── claims-analysis.md
 │   ├── network-analysis.md
 │   ├── objective-timeline.md
 │   ├── investor-mention-map.csv
@@ -64,7 +64,7 @@ hyperion/
 │   │   ├── methodology.md
 │   │   └── change-log.md
 │   ├── portfolio-assessment.md    # ✏️ Enhanced
-│   ├── claims-validation.md       # ✏️ Enhanced
+│   ├── claims-analysis.md       # ✏️ Enhanced
 │   ├── network-analysis.md        # ✏️ Enhanced
 │   ├── timeline.md                # 🆕 New narrative
 │   └── gp-analysis.md             # 🆕 New comprehensive GP assessment
@@ -119,13 +119,13 @@ hyperion/
 
 ### 2. Claims Validation
 
-**Old**: `outputs/claims-validation.md`
+**Old**: `outputs/claims-analysis.md`
 - 6 key claims analyzed
 - 24 sub-claims validated
 - Verification status tracked
 - Critical issues documented
 
-**New**: `findings/claims-validation.md`
+**New**: `findings/claims-analysis.md`
 - ✅ All 6 key claims preserved
 - ✅ All 24 sub-claims preserved (expanded to 30)
 - ✅ All verification statuses preserved

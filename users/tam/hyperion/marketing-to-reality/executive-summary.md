@@ -1,8 +1,3 @@
----
-title: "Hyperion Ventures I LP - Due Diligence Research"
-permalink: /hyperion/overview/
----
-
 # Hyperion Ventures I LP - Due Diligence Research
 
 **Fund**: Hyperion Ventures I LP
@@ -75,7 +70,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 - **Competition risk**: Tesla Optimus, Boston Dynamics in humanoid robotics
 - **BMW pilot not production**: Deployment status unclear
 
-**Data**: [portfolio.json](/hyperion/findings/_data/portfolio/) | [Portfolio Assessment](/hyperion/findings/portfolio-assessment/)
+**Data**: [portfolio.json](/hyperion/marketing-to-reality/_data/portfolio/) | [Portfolio Assessment](/hyperion/marketing-to-reality/portfolio-assessment/)
 
 ---
 
@@ -99,7 +94,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 - Interview Faris Sbahi (Normal CEO) + referred hires to confirm value-add
 - Verify Tamarack relationship depth independently
 
-**Data**: [gp-profiles.json](/hyperion/findings/_data/gp-profiles/) | [Claims Validation](/hyperion/findings/claims-validation/)
+**Data**: [gp-profiles.json](/hyperion/marketing-to-reality/_data/gp-profiles/) | [Claims Validation](/hyperion/marketing-to-reality/claims-analysis/)
 
 ---
 
@@ -126,7 +121,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Verification Priority**: **CRITICAL** - Require explanation before proceeding
 
-**Data**: [claims.json](/hyperion/findings/_data/claims/) | [Red Flags Analysis](/hyperion/findings/claims-validation/#funding-discrepancies)
+**Data**: [claims.json](/hyperion/marketing-to-reality/_data/claims/) | [Red Flags Analysis](/hyperion/marketing-to-reality/claims-analysis/#funding-discrepancies)
 
 ---
 
@@ -149,7 +144,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Verification Priority**: **URGENT** - Interview both GPs to understand division of labor
 
-**Data**: [gp-profiles.json](/hyperion/findings/_data/gp-profiles/#henry-bellew)
+**Data**: [gp-profiles.json](/hyperion/marketing-to-reality/_data/gp-profiles/#henry-bellew)
 
 ---
 
@@ -176,7 +171,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Implication**: Substack appears to document investments retrospectively rather than develop theses prospectively.
 
-**Data**: [timeline.json](/hyperion/findings/_data/timeline/) | [Timeline Analysis](/hyperion/findings/timeline/)
+**Data**: [timeline.json](/hyperion/marketing-to-reality/_data/timeline/) | [Timeline Analysis](/hyperion/marketing-to-reality/objective-timeline/)
 
 ---
 
@@ -192,7 +187,7 @@ Hyperion Ventures I LP presents a **high-quality, highly concentrated deeptech p
 
 **Assessment**: Network appears quality-driven (strategic relationships) over quantity-driven (connection count). However, **limited connections to key claimed deal sources** (Tamarack: 1, FF: 2) relative to importance.
 
-**Data**: [network.json](/hyperion/findings/_data/network/) | [Network Analysis](/hyperion/findings/network-analysis/)
+**Data**: [network.json](/hyperion/marketing-to-reality/_data/network/) | [Network Analysis](/hyperion/marketing-to-reality/network-analysis/)
 
 ---
 
@@ -341,7 +336,7 @@ hyperion/
 │   │   └── change-log.md           # Migration documentation
 │   │
 │   ├── portfolio-assessment.md      # Company quality analysis
-│   ├── claims-validation.md         # GP claims cross-reference
+│   ├── claims-analysis.md         # GP claims cross-reference
 │   ├── network-analysis.md          # Relationships and deal flow
 │   ├── timeline.md                  # Chronological narrative
 │   └── gp-analysis.md               # GP backgrounds and involvement
@@ -353,7 +348,7 @@ hyperion/
 │
 └── migration-reference/              # Old structure (preserved for reference)
     ├── vc-research-summary.md       # Original executive summary
-    ├── claims-validation.md         # Original claims analysis
+    ├── claims-analysis.md         # Original claims analysis
     └── old-company-structure/       # Original tier-1/tier-2 folders
 ```
 
@@ -389,7 +384,7 @@ hyperion/
 
 **Critical Gap**: 100% of GP value-add claims are Tier 1 only (dataroom testimonials) with ZERO independent verification.
 
-**Link**: [Full Methodology](/hyperion/findings/_process/methodology/)
+**Link**: [Full Methodology](/hyperion/marketing-to-reality/_process/methodology/)
 
 ---
 
@@ -401,17 +396,17 @@ hyperion/
 - **Medium-Priority Items**: [View All](/hyperion/recommendations/medium-priority/)
 
 ### By Topic
-- **Portfolio Companies**: [Research](/hyperion/research/companies/) | [Assessment](/hyperion/findings/portfolio-assessment/) | [Data](/hyperion/findings/_data/portfolio/)
-- **GP Analysis**: [Profiles](/hyperion/findings/gp-analysis/) | [Data](/hyperion/findings/_data/gp-profiles/)
-- **Claims Validation**: [Report](/hyperion/findings/claims-validation/) | [Data](/hyperion/findings/_data/claims/)
-- **Network Analysis**: [Report](/hyperion/findings/network-analysis/) | [Data](/hyperion/findings/_data/network/)
-- **Timeline**: [Narrative](/hyperion/findings/timeline/) | [Data](/hyperion/findings/_data/timeline/)
+- **Portfolio Companies**: [Research](/hyperion/research/companies/) | [Assessment](/hyperion/marketing-to-reality/portfolio-assessment/) | [Data](/hyperion/marketing-to-reality/_data/portfolio/)
+- **GP Analysis**: [Profiles](/hyperion/marketing-to-reality/people-analysis/) | [Data](/hyperion/marketing-to-reality/_data/gp-profiles/)
+- **Claims Validation**: [Report](/hyperion/marketing-to-reality/claims-analysis/) | [Data](/hyperion/marketing-to-reality/_data/claims/)
+- **Network Analysis**: [Report](/hyperion/marketing-to-reality/network-analysis/) | [Data](/hyperion/marketing-to-reality/_data/network/)
+- **Timeline**: [Narrative](/hyperion/marketing-to-reality/objective-timeline/) | [Data](/hyperion/marketing-to-reality/_data/timeline/)
 
 ### Process & Methodology
-- **Evidence Framework**: [Methodology](/hyperion/findings/_process/methodology/)
-- **Analysis Log**: [Work History](/hyperion/findings/_process/analysis-log/)
-- **Workflows Used**: [Automation](/hyperion/findings/_process/workflows-used/)
-- **Change Log**: [Migration History](/hyperion/findings/_process/change-log/)
+- **Evidence Framework**: [Methodology](/hyperion/marketing-to-reality/_process/methodology/)
+- **Analysis Log**: [Work History](/hyperion/marketing-to-reality/_process/analysis-log/)
+- **Workflows Used**: [Automation](/hyperion/marketing-to-reality/_process/workflows-used/)
+- **Change Log**: [Migration History](/hyperion/marketing-to-reality/_process/change-log/)
 
 ---
 

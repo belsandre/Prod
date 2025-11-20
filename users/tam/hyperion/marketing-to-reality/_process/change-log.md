@@ -165,7 +165,7 @@ hyperion/
 
 **Files Preserved**:
 - vc-research-summary.md
-- claims-validation.md
+- claims-analysis.md
 - objective-timeline.md
 - network-analysis.md
 - network-analysis-deeptech.md
@@ -215,7 +215,7 @@ hyperion/
 
 **Planned Files**:
 - [ ] `findings/portfolio-assessment.md` (from migration-reference/vc-research-summary.md)
-- [ ] `findings/claims-validation.md` (from migration-reference/claims-validation.md)
+- [ ] `findings/claims-analysis.md` (from migration-reference/claims-analysis.md)
 - [ ] `findings/network-analysis.md` (from migration-reference/network-analysis.md)
 - [ ] `findings/timeline.md` (create new from timeline.json)
 - [ ] `findings/gp-analysis.md` (consolidate from old files)
@@ -380,7 +380,7 @@ hyperion/
 - [ ] Update migration-checklist.md with Phase 3 progress
 
 ### Short-term (Next Session)
-- [ ] Create findings markdown files (portfolio-assessment.md, claims-validation.md, etc.)
+- [ ] Create findings markdown files (portfolio-assessment.md, claims-analysis.md, etc.)
 - [ ] Create remaining recommendations by priority
 - [ ] Validate migration completeness
 

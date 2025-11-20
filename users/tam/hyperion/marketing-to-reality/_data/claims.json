@@ -1,645 +1,250 @@
 {
-  "metadata": {
-    "extraction_date": "2025-11-17",
-    "source": "claims-validation.md",
-    "analyst": "Timeline Constructor Skill",
-    "methodology": "Cross-reference marketing claims (dataroom) against objective timeline (research)",
-    "total_claims": 30,
-    "key_claims": 6
-  },
-  "executive_summary": {
-    "verified": {"count": 8, "percentage": "33%"},
-    "partially_verified": {"count": 9, "percentage": "38%"},
-    "unverified": {"count": 5, "percentage": "21%"},
-    "conflicting": {"count": 1, "percentage": "4%"},
-    "timing_issues": {"count": 1, "percentage": "4%"}
-  },
-  "critical_issues": [
-    "Funding Discrepancies: Dirac ($6M vs $10.7M), Normal ($17M vs $35M)",
-    "Unverifiable Value-Add: All claims from Tier 1 (dataroom) sources only",
-    "Customer Claims Contradicted: Dirac pilots with Anduril, Stellantis, Lockheed have NO public evidence",
-    "Missing Investment Details: 18 of 24 portfolio companies lack timeline events",
-    "Failed Investment Opacity: 3 underperformers acknowledged but NOT named or dated",
-    "Retroactive Framing Risk: Thought leadership launched ~2021 AFTER first investment (March 2020)"
+  "entity_name": "Hyperion Ventures Fund I (Hyperion Investment Management, LLC)",
+  "entity_gp": "Dillon Dunteman (Founder & GP), Henry Bellew (Co-GP)",
+  "analysis_date": "2025-11-19",
+  "data_room_sources": [
+    "Hyperion - Fund I.md (30-page pitch deck)",
+    "Hyperion - Letter to Prospective LPs.md",
+    "GP Bio.md",
+    "Case Studies - Outperforming Investments.md",
+    "Case Studies - Recent Investments.md",
+    "Case Studies - Underperforming Investments.md",
+    "Deeptech perspectives.md",
+    "Sourcing Differentiation.md",
+    "Diligence Process.md",
+    "Hyperion - Founder References.md",
+    "Service Providers.md",
+    "Hyperion Ventures I LP - Portfolio Summary (10.26.25).xlsx"
   ],
   "key_claims": [
     {
-      "claim_id": 1,
-      "claim_name": "Sourcing Differentiation (Proprietary Deal Flow)",
-      "main_claim": "Hyperion is a leading deeptech partner receiving high-quality deal flow for distinct reasons. 50+ passive deeptech founder referrals per year, potential to ramp to 300+ per year.",
-      "overall_assessment": "unverified",
-      "status_icon": "❓",
-      "sub_claims": [
-        {
-          "id": "1.1",
-          "claim": "Youngest Harvard-led GP with most privileged access to upstart Harvard founders",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "evidence": {
-            "verified": ["Harvard degree (2015-2019, Mechanical Engineering)"],
-            "unverified": [
-              "'Youngest Harvard-led GP' - no independent benchmark",
-              "'Most privileged access' - no verification",
-              "Relationships with Cursor, Mercor, Devin founders - none in portfolio, aspirational"
-            ]
-          },
-          "sources": {
-            "tier_2": ["LinkedIn confirms Harvard degree"],
-            "tier_1": ["Dataroom claims relationships with mega-unicorn founders"],
-            "tier_3": ["No independent verification of relationships"]
-          },
-          "critical_gap": "No timeline events showing HOW or WHEN relationships built with claimed founders"
-        },
-        {
-          "id": "1.2",
-          "claim": "First referral for founders in ecosystem with 50+ passive referrals/year ramping to 300+/year",
-          "status": "unverified",
-          "status_icon": "❓",
-          "evidence": {
-            "verified": [],
-            "unverified": ["Referral volume claims", "50+ referrals/year", "300+ projected"]
-          },
-          "sources": {
-            "tier_1": ["Fund I.md claims referral volume"],
-            "tier_3": ["No public mentions, founder testimonials, or evidence"]
-          },
-          "critical_gap": "Zero timeline events for referral flow, volumes, or 'first call' status"
-        },
-        {
-          "id": "1.3",
-          "claim": "Top deeptech resource for multi-stage VCs & key collaborator for early-stage deeptech VCs",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "evidence": {
-            "verified": ["Tamarack Global participation in Figure Series C"],
-            "partial": [
-              "Oct 2023: Introduced to Dirac CEO by VC who passed (recipient of deal, not provider)",
-              "Nov 2023: Introduces Dirac to 'friend at Founders Fund'",
-              "April 2023: Figure sourced 'through close relationship with Tamarack partners'"
-            ],
-            "unverified": ["No independent VC testimonials"]
-          },
-          "sources": {
-            "tier_1": ["Dataroom lists 40+ VC firms as deal flow partners"],
-            "tier_3": ["Tamarack Series C participation verified", "No VC testimonials found"]
-          },
-          "critical_gap": "Directionality unclear - receiving deal flow FROM VCs or providing TO VCs?"
-        },
-        {
-          "id": "1.4",
-          "claim": "Embedded in portfolio company networks generating spin-outs and referrals",
-          "status": "unverified",
-          "status_icon": "❓",
-          "claimed_examples": [
-            "Quantinuum → GR Moth/Aqora",
-            "Normal → Primitive Instruments/Outtake",
-            "Figure → Scout AI/Titan Dynamics",
-            "Dirac → Durin/Valar Atomics"
-          ],
-          "evidence": {
-            "verified": [],
-            "unverified": ["All 8 claimed spin-out companies"]
-          },
-          "sources": {
-            "tier_1": ["All spin-out claims from dataroom"],
-            "tier_3": ["No timeline events, company announcements, founder testimonials"]
-          },
-          "critical_gap": "Cannot verify if companies exist, are actual spin-outs, or if Dillon invested"
-        }
-      ]
+      "claim_id": "TRACK_RECORD"
     },
     {
-      "claim_id": 2,
-      "claim_name": "Right to Win (Founder Selection & Value-Add)",
-      "main_claim": "We deeply understand business models, unit economics, and commercial value creation strategies. We rigorously apply this lens to deeptech startups... and we do it better than any other early-stage deeptech venture firm.",
-      "overall_assessment": "partially_verified",
-      "status_icon": "⚠️",
-      "sub_claims": [
-        {
-          "id": "2.1",
-          "claim": "Deployed >$1 billion into growth-stage technology companies at Vista demonstrating financial rigor",
-          "status": "unverified",
-          "status_icon": "❓",
-          "evidence": {
-            "verified": ["Vista employment (Sept 2021 - ongoing)"],
-            "unverified": [
-              "$1.0+ billion deployment amount",
-              "Individual attribution vs team effort",
-              "Specific role in 15+ deals"
-            ]
-          },
-          "sources": {
-            "tier_2": ["LinkedIn confirms Vista employment"],
-            "tier_1": ["GP Bio claims '$1.0+ billion across 15+ deals' and '$320M cybersecurity'"],
-            "tier_3": ["No public Vista press releases mentioning Dillon"]
-          },
-          "critical_gap": "Vista is $100B+ AUM firm. Individual attribution unclear without role specifics"
-        },
-        {
-          "id": "2.2",
-          "claim": "Complete at least 15-20 references across customers, partners, former colleagues, investors, competitors",
-          "status": "unverified",
-          "status_icon": "❓",
-          "note": "Process claim, not outcome - cannot be validated from external timeline"
-        },
-        {
-          "id": "2.3",
-          "claim": "Intensely focus on founders' stated top priority and over-deliver relative to expectations",
-          "status": "unverified",
-          "status_icon": "❓",
-          "claimed_activities": [
-            "Normal: 2 key hires, commercial strategy, financial modeling (2H 2023-Q1 2024)",
-            "Normal: Advisory role with ~$80K equity award (July 2024)",
-            "Dirac: Introducing to VCs, advisors, hires (Nov 2023-Q1 2024)",
-            "Dirac: Advising to pass on <$20M term sheet (Jan 2024)"
-          ],
-          "evidence": {
-            "verified": [],
-            "unverified": ["All value-add claims"]
-          },
-          "sources": {
-            "tier_1": ["All value-add claims from dataroom case studies"],
-            "tier_3": ["ZERO public founder testimonials or mentions"]
-          },
-          "critical_gap": "ALL evidence from dataroom only. No independent founder testimonials in press, LinkedIn, interviews"
-        },
-        {
-          "id": "2.4",
-          "claim": "Engineering background from Harvard and specialized networks drive ability to unpack technically complex startups",
-          "status": "verified",
-          "status_icon": "✅",
-          "evidence": {
-            "verified": [
-              "Harvard B.S. Mechanical Engineering (2015-2019)",
-              "Senior thesis on vision software for micro-robotic bees",
-              "Quantum computing coursework"
-            ]
-          },
-          "sources": {
-            "tier_2": ["LinkedIn confirms Harvard ME degree"],
-            "tier_1": ["GP Bio provides thesis details"]
-          },
-          "note": "Educational credentials verified. Technical capability inference reasonable but subjective"
-        }
-      ]
+      "claim_id": "SOURCING_EDGE"
     },
     {
-      "claim_id": 3,
-      "claim_name": "Track Record / Investment Performance",
-      "main_claim": "Built a personal venture portfolio marked at 6.7x TVPI / 77% IRR by spending time outside of Vista supporting and investing in some of the best deeptech founders.",
-      "overall_assessment": "partially_verified",
-      "status_icon": "⚠️",
-      "caveats": [
-        "Performance based on latest-round markups, not exits",
-        "Self-reported valuations",
-        "~$1M total deployed (small sample size)",
-        "Unknown holding period mix"
-      ],
-      "sub_claims": [
-        {
-          "id": "3.1",
-          "claim": "Personal portfolio: 6.7x net TVPI / 77% net IRR",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "evidence": {
-            "verified": [
-              "Quantinuum: March 2020 entry at $244M → Sept 2025 at $10.6B = 43.4x",
-              "Figure AI: April 2023 at $420M → Sept 2025 at $39B = 92.9x",
-              "Valuations confirmed by Tier 3 sources (public funding announcements)"
-            ],
-            "concerns": [
-              "Performance based on unrealized markups, not exits",
-              "Valuations are latest-round pricing, often inflated",
-              "Figure $39B for pre-revenue company is aspirational",
-              "Small sample size (~$1M deployed, ~$42K avg check)",
-              "IRR depends on exact dates/holding periods, not verified",
-              "No independent audit"
-            ]
-          },
-          "critical_gap": "Only 6 of 24 portfolio companies documented. Cannot verify performance of remaining 18"
-        },
-        {
-          "id": "3.2",
-          "claim": "8.2x net TVPI including only early-stage investments (Pre-seed through Series A)",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "note": "Same methodology issues as 3.1 - unrealized markups, small sample"
-        },
-        {
-          "id": "3.3",
-          "claim": "2 companies now valued at $10+ billion that were first backed at early stages",
-          "status": "verified",
-          "status_icon": "✅",
-          "evidence": {
-            "verified": [
-              "Quantinuum: March 2020 entry at $244M → Sept 2025 $10.6B",
-              "Figure AI: April 2023 at $420M → Sept 2025 $39B"
-            ]
-          },
-          "sources": {
-            "tier_3": ["Both valuations confirmed by public funding announcements"]
-          }
-        },
-        {
-          "id": "3.4",
-          "claim": "Of 16 startups where investor for 15+ months: 12 marked up (75%), 2 flat, 2 shut down",
-          "status": "unverified",
-          "status_icon": "❓",
-          "critical_gap": [
-            "Which 16 companies meet '15 months' threshold?",
-            "Which 12 marked up?",
-            "Which 2 flat?",
-            "Which 2 shut down (not named in dataroom)?",
-            "Why filter by holding period?"
-          ]
-        },
-        {
-          "id": "3.5",
-          "claim": "Outperforming top-decile venture across all recent vintages (2017-2021 comparison chart)",
-          "status": "timing_issue",
-          "status_icon": "🕐",
-          "timing_problem": {
-            "chart_compares_to": "2017-2021 vintages",
-            "dillon_portfolio_started": "Mid-2022 per LP Letter",
-            "quantinuum": "March 2020 was Firmament institutional, not personal",
-            "issue": "Comparing 2022+ vintage to 2017-2021 is apples-to-oranges (different market environments)"
-          },
-          "methodology_issue": "2017-2021 vintages had 4-8 years to mature. Dillon's 2022 vintage has ~3 years with unrealized markups from 2024-2025 bull market"
-        },
-        {
-          "id": "3.6",
-          "claim": "Backed market leaders across deeptech categories: Quantinuum (quantum), Figure AI (robotics), Zap Energy (fusion)",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "evidence": {
-            "quantinuum": "✅ Market leader status verified (largest quantum valuation)",
-            "figure_ai": "⚠️ High valuation but pre-revenue, leadership unproven vs Boston Dynamics, Tesla Optimus",
-            "zap_energy": "❓ No independent verification of $1.1B valuation or market position"
-          }
-        }
-      ]
+      "claim_id": "TECHNICAL_EXPERTISE"
     },
     {
-      "claim_id": 4,
-      "claim_name": "Early Positioning / Thought Leadership",
-      "main_claim": "Since 2019, I've purposefully built early positioning, technical rigor, and a nascent investing track record in the frontier technologies where I had high conviction.",
-      "overall_assessment": "timing_issues",
-      "status_icon": "🕐",
-      "timing_concerns": "Substack launched ~2021 AFTER first investment (Quantinuum March 2020), challenging 'purposeful early positioning since 2019' narrative",
-      "sub_claims": [
-        {
-          "id": "4.1",
-          "claim": "Quantinuum (CQC) was 'first venture investment I personally sourced and underwrote' at Firmament in 2020",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "evidence": {
-            "verified": ["CQC/Quantinuum exists and achieved $10.6B valuation", "March 2020 timing plausible"],
-            "unverified": [
-              "'Personally sourced and underwrote' relies on Dillon attribution only",
-              "Firmament was institutional firm; attribution unclear",
-              "'120+ cold outreach' claim unverified",
-              "No independent founder testimonial from Ilyas Khan"
-            ]
-          },
-          "critical_gap": "No Tier 3 sources confirm Dillon's individual role vs Firmament team effort"
-        },
-        {
-          "id": "4.2",
-          "claim": "Dillon originally started researching fusion energy in 2021 while at Firmament",
-          "status": "timing_issue",
-          "status_icon": "🕐",
-          "timing_problem": {
-            "dataroom_claim": "Research started 'in 2021 while at Firmament'",
-            "timeline": "Dillon joined Vista Sept 2021",
-            "fusion_article": "Published April 2022",
-            "issue": "If 'late 2021', Dillon was at Vista, not Firmament"
-          },
-          "critical_gap": [
-            "When did Dillon meet Zap Energy CEO?",
-            "When did Zap, Avalanche, Hephaestus, Marathon investments occur?",
-            "Did fusion research precede or follow investments?",
-            "Did April 2022 article precede or follow investments?"
-          ]
-        },
-        {
-          "id": "4.3",
-          "claim": "Figure AI investment in 'early 2023' was 'high-conviction, non-consensus early investment'",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "timing_analysis": {
-            "dillon_investment": "April 2023",
-            "series_a_announcement": "May 2023 (1 month after)",
-            "series_b_consensus": "Feb 2024 (10 months after)"
-          },
-          "assessment": {
-            "early": "✅ Pre-consensus (10 months before Series B institutional backing)",
-            "but_not_founding": "⚠️ Brett Adcock self-funded $100M in 2022, already well-capitalized",
-            "non_consensus_questionable": "⚠️ Series A closed May 2023, just 1 month after Dillon. Tamarack was Series A lead, suggests Dillon participated IN institutional round, not ahead"
-          },
-          "critical_issue": "1-month gap suggests participation in Series A closing, not pre-Series A 'non-consensus' bet",
-          "thought_leadership": "❓ No robotics Substack articles before investment. Thought leadership appears to follow, not precede"
-        },
-        {
-          "id": "4.4",
-          "claim": "Fusion energy CEOs cite his deep-dive blog post on market and reactor architectures",
-          "status": "unverified",
-          "status_icon": "❓",
-          "evidence": {
-            "verified": ["April 2022 fusion Substack article exists"],
-            "unverified": ["Fusion CEOs citing article", "No timeline events for CEOs citing", "No public founder testimonials"]
-          },
-          "critical_gap": [
-            "Was article published BEFORE or AFTER fusion investments?",
-            "Which CEOs cited it? (no quotes, no names, no timestamps)",
-            "When did Dillon invest in fusion companies?"
-          ]
-        }
-      ]
+      "claim_id": "COMPETITIVE_POSITIONING"
     },
     {
-      "claim_id": 5,
-      "claim_name": "Specific Investment Wins & Value Creation",
-      "main_claim": "The first venture investment that I personally sourced and underwrote was CQC (now Quantinuum), which became the market leader in quantum computing",
-      "overall_assessment": "partially_verified",
-      "status_icon": "⚠️",
-      "note": "Quantinuum outcome verified, but individual attribution and value-add claims unverified",
-      "sub_claims": [
-        {
-          "id": "5.1",
-          "claim": "Quantinuum investment details",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "verified": [
-            "Quantinuum exists and achieved $10.6B valuation",
-            "Company is market leader in quantum computing",
-            "Valuation growth: $244M → $10.6B = 43.4x markup"
-          ],
-          "unverified": [
-            "Dillon's individual sourcing role vs Firmament team",
-            "$660K and $76K investment amounts",
-            "'Personally sourced and underwrote' attribution"
-          ]
-        },
-        {
-          "id": "5.2",
-          "claim": "Figure AI investment details",
-          "status": "partially_verified",
-          "status_icon": "⚠️",
-          "verified": [
-            "Figure AI exists and achieved $39B valuation",
-            "Tamarack participation in Series C confirms relationship",
-            "Valuation growth: $420M → $39B = 92.9x markup"
-          ],
-          "unverified": ["$40K investment amount", "Deal sourced 'through close Tamarack relationship'"],
-          "timing_caveat": "Investment April 2023, Series A May 2023 = participated in institutional round, not meaningfully ahead"
-        },
-        {
-          "id": "5.3",
-          "claim": "Normal Computing advisory role with ~$80K equity award",
-          "status": "unverified",
-          "status_icon": "❓",
-          "funding_discrepancy": {
-            "dataroom": "$17M Series A (April 2024) led by Drive Capital",
-            "public_sources": "$35M total seed capital",
-            "gap": "$18M discrepancy OR round designation mismatch"
-          },
-          "unverified": [
-            "All value-add claims (hiring, modeling, negotiations) from Tier 1 only",
-            "$80K equity award amount (private agreement)",
-            "Sourcing story (networking event)"
-          ],
-          "red_flag": "Funding discrepancy undermines dataroom credibility"
-        },
-        {
-          "id": "5.4",
-          "claim": "Dirac pre-seed → Founders Fund introduction",
-          "status": "unverified",
-          "status_icon": "❓",
-          "funding_discrepancy": {
-            "dataroom": "$6M seed (April 2024)",
-            "public_pr": "$10.7M seed (April 2024)",
-            "gap": "$4.7M discrepancy (78% larger than claimed)"
-          },
-          "customer_claims_contradicted": {
-            "dataroom": "Pilots with Anduril, Stellantis, Lockheed Martin",
-            "research": "NO public verification found despite comprehensive research",
-            "red_flag": "High-profile defense customers should have public announcements"
-          },
-          "all_value_add_unverified": [
-            "Founders Fund introduction (no independent confirmation from FF or CEO)",
-            "Advisory activities (VC intros, hiring, term sheet advice) all from Tier 1"
-          ],
-          "verification_priority": "CRITICAL - Founders Fund intro claim is key for GP value-add validation"
-        },
-        {
-          "id": "5.5",
-          "claim": "Zap Energy Series D allocation (~$140K)",
-          "status": "unverified",
-          "status_icon": "❓",
-          "critical_gap": [
-            "When did Dillon meet Zap CEO?",
-            "When did Series D occur?",
-            "Did relationship predate or follow investment opportunity?"
-          ],
-          "note": "ZERO timeline events for Zap Energy"
-        }
-      ]
-    },
-    {
-      "claim_id": 6,
-      "claim_name": "Transparency / Lessons Learned",
-      "main_claim": "Early Quantinuum win gave me false confidence, and 3 of next 4 investments in 2020-2021 were underperformers. One fire-sold for pennies on the dollar.",
-      "overall_assessment": "partially_verified",
-      "status_icon": "⚠️",
-      "note": "Transparency acknowledged, but failures not named or dated, limiting verifiability",
-      "sub_claims": [
-        {
-          "id": "6.1",
-          "claim": "3 of next 4 investments in 2020-2021 were underperformers",
-          "status": "unverified",
-          "status_icon": "❓",
-          "critical_gap": "No events for failed investments, no company names, no dates, no definition of 'underperformer'"
-        },
-        {
-          "id": "6.2",
-          "claim": "One company fire-sold for pennies on the dollar ~1 year after investment",
-          "status": "unverified",
-          "status_icon": "❓",
-          "critical_gap": "No company name, no investment date, no exit date"
-        },
-        {
-          "id": "6.3",
-          "claim": "Of 16 startups where investor for 15+ months: 2 are shut down",
-          "status": "unverified",
-          "status_icon": "❓",
-          "critical_gap": "No company names, no shut-down dates",
-          "transparency_caveat": "Acknowledging failures without naming them provides selective transparency. Cannot verify failure modes or lessons learned."
-        }
-      ]
+      "claim_id": "MARKET_TIMING"
     }
   ],
-  "critical_omissions": [
+  "conspicuous_gaps": [
     {
-      "omission": "Failed Investments (Not Named)",
-      "dataroom_acknowledgment": [
-        "3 of next 4 investments in 2020-2021 were underperformers",
-        "One fire-sold for pennies on the dollar",
-        "2 of 16 companies shut down"
+      "gap_type": "co_gp_underrepresentation",
+      "description": "Henry Bellew listed as Co-General Partner but appears only on one page of 30-page pitch deck (Page 6). No case studies feature Henry's involvement, no founder testimonials mention him, and no clear articulation of his role, responsibilities, or contribution to fund strategy.",
+      "significance": "Is this truly a two-GP partnership, or is Henry a junior partner with limited operating role? Material for assessing team capability and capacity.",
+      "risk_severity": "yellow_flag",
+      "risk_level": "Moderate concern - impacts team assessment and capacity planning"
+    },
+    {
+      "gap_type": "stale_data",
+      "description": "Portfolio Summary spreadsheet dated 10.26.25 (late October 2025) but contains 2024 data. Case Studies reference speculative 2024 rounds ('Q3-25 Series B,' '2H-25 Series A') that should now be actuals if analyzing in late 2025. Missing ~1 year of portfolio updates between data snapshot (2024) and analysis date (Nov 2025).",
+      "significance": "Cannot assess current portfolio performance, recent markups/markdowns, or whether 2024 projections materialized. Material gap for understanding real-time performance.",
+      "risk_severity": "red_flag",
+      "risk_level": "Material concern - prevents assessment of current performance"
+    },
+    {
+      "gap_type": "role_ambiguity",
+      "description": "Claim: 'Deployed $1.0+ billion across 15+ deals' at Vista (2021-2025). Unclear what 'deployed' means: Did Dillon source, lead, sit on boards, or participate? No clarification of specific role or contribution to cited deals (Databricks, Fivetran, Acronis). Vista is a large firm with multiple deal teams—how much credit should Dillon claim?",
+      "significance": "Risk of overstating contribution to institutional track record. Material for assessing actual deal experience vs. affiliation credit.",
+      "risk_severity": "yellow_flag",
+      "risk_level": "Moderate concern - affects evaluation of institutional experience"
+    },
+    {
+      "gap_type": "material_footnote",
+      "description": "'Digital assets excluded' + 'non-core investments omitted' per 'subjective view of Mr. Dunteman' with no disclosure of how many investments excluded or their performance. Quantinuum valuation marked at $10.6B secondary transaction (March 2025) vs. $5.3B last institutional round (Feb 2024). Secondary transactions can be illiquid, non-representative, upward biased—material for TVPI calculation.",
+      "significance": "Selective performance reporting + aggressive valuation methodology may overstate track record. If Quantinuum marked at $5.3B instead of $10.6B, TVPI would materially decline.",
+      "risk_severity": "red_flag",
+      "risk_level": "Material concern - directly impacts TVPI accuracy and portfolio representation"
+    },
+    {
+      "gap_type": "timing_contradiction",
+      "description": "Founder letter claims 'since 2019' positioning in deeptech, but no public thought leadership archive included. Fusion blog post mentioned in Deeptech Perspectives but not in dataroom—when was it written relative to fusion investments? Figure AI timing: Invested April 2023, ~5 months after ChatGPT (Nov 2022) sparked AI robotics hype—early or reactive?",
+      "significance": "Risk of retroactive narrative construction if theses were written after investments. Material for distinguishing predictive insight from post-hoc rationalization.",
+      "risk_severity": "red_flag",
+      "risk_level": "Material concern - questions authenticity of 'early positioning' narrative"
+    }
+  ],
+  "source_tier_summary": {
+    "data_room_sources": 12,
+    "affiliated_sources": 12,
+    "independent_sources": 0
+  },
+  "narrative_analysis": {
+    "hero_journey": {
+      "summary": "The dataroom constructs a classic founder origin story",
+      "claim_ref": "COMPETITIVE_POSITIONING",
+      "phases": [
+        {
+          "name": "Inspiration",
+          "years": "childhood",
+          "description": "Science fiction → Harvard engineering → deeptech passion"
+        },
+        {
+          "name": "Early lessons",
+          "years": "Firmament 2019-2021",
+          "description": "Quantinuum win at age 23, followed by 3 underperformers teaching humility"
+        },
+        {
+          "name": "Discipline",
+          "years": "Vista 2021-2025",
+          "description": "Learning rigor from \"most respected enterprise software PE firm,\" deploying $1B+"
+        },
+        {
+          "name": "Opportunity",
+          "years": "2025",
+          "description": "Deeptech inflection points arrive, time to build Hyperion with proven track record"
+        }
       ],
-      "timeline_gap": "ZERO events for failed investments",
-      "significance": "Cannot assess failure modes, poor selection vs bad timing, or verify lessons learned narrative"
+      "positioning": "This narrative positions Dillon as uniquely qualified: technical depth (Harvard Mechanical Engineering), financial rigor (Vista training), early positioning (investing since 2020), and authentic founder relationships (12 glowing testimonials)."
     },
-    {
-      "omission": "18 Missing Portfolio Companies",
-      "dataroom_claims": "24 total portfolio companies",
-      "timeline_coverage": "Only 6 companies have events",
-      "significance": "Cannot verify portfolio performance claims (6.7x TVPI, 75% markup rate) without full visibility"
-    },
-    {
-      "omission": "Fusion Investments (Zap, Avalanche, Hephaestus, Marathon)",
-      "dataroom_claims": [
-        "Met nearly 20 fusion startups",
-        "Investing in 3 reactor players + 1 infrastructure player",
-        "Maintained Zap relationship from 2021",
-        "Won ~$140K Zap Series D allocation"
-      ],
-      "timeline_gap": "ZERO events for any fusion investments",
-      "significance": "Cannot verify if research preceded investments or if article (Apr 2022) preceded investments"
-    },
-    {
-      "omission": "Vista Deal Details",
-      "dataroom_claims": [
-        "Deployed >$1 billion across 15+ deals",
-        "Deployed ~$320M across 3 cybersecurity companies",
-        "Spearheaded AI research and strategy 2023-2025"
-      ],
-      "timeline_gap": "ZERO events for Vista deals or AI strategy work",
-      "significance": "Cannot verify individual attribution vs team effort at $100B+ AUM firm"
-    },
-    {
-      "omission": "Thought Leadership Timing",
-      "critical_question": "Did thought leadership precede or follow investments?",
-      "timeline_analysis": {
-        "quantinuum_investment": "March 2020",
-        "substack_launch": "~2021",
-        "first_article": "October 2021",
-        "fusion_article": "April 2022"
+    "emphasis_areas": {
+      "performance_outliers": {
+        "summary": "Performance outliers dominate the narrative",
+        "claim_ref": "TRACK_RECORD",
+        "details": [
+          "Quantinuum: $660K check at $244M entry valuation → $10.6B current valuation = 43.4x return (though footnote reveals $10.6B is secondary transaction, last institutional round was $5.3B = 21.7x on entry)",
+          "Figure AI: $40K check at $420M entry valuation → $39.5B current valuation = 94x return (April 2023 Series A investment)",
+          "Portfolio-level: 6.7x TVPI / 77% IRR outperforming top-decile venture across 2017-2021 vintages",
+          "Claims 8.2x net TVPI for early-stage investments only (Pre-seed through Series A)"
+        ]
       },
-      "timing_issue": "Substack launched AFTER Quantinuum, fusion article timing vs investments unknown, no robotics articles BEFORE Figure (April 2023)",
-      "significance": "Cannot verify if thought leadership drove thesis or was retrospectively constructed"
-    },
-    {
-      "omission": "Founder Testimonials (Public Absence)",
-      "dataroom_claims": "Multiple founder testimonials for value-add",
-      "timeline_gap": "ZERO public founder testimonials found",
-      "significance": [
-        "No mentions in company press releases, announcements, interviews",
-        "No LinkedIn posts or public acknowledgments",
-        "ALL testimonials in dataroom only (solicited for fundraising)"
-      ],
-      "pattern": "Suggests testimonials requested for dataroom rather than unprompted public endorsements"
-    },
-    {
-      "omission": "Funding Discrepancies",
-      "discrepancies": [
-        {"company": "Dirac", "dataroom": "$6M seed", "public": "$10.7M seed", "gap": "$4.7M (78% larger)"},
-        {"company": "Normal", "dataroom": "$17M Series A", "public": "$35M total seed", "gap": "$18M OR round mismatch"}
-      ],
-      "significance": "Undermines dataroom accuracy. Are other figures (valuations, check sizes, performance) similarly misreported?"
+      "sourcing_differentiators": {
+        "summary": "Sourcing differentiators as competitive moat",
+        "claim_ref": "SOURCING_EDGE",
+        "details": [
+          "Founder network: \"50+ passive referrals/year\" while at Vista, ramping to \"300+ per year\" with Hyperion",
+          "Harvard ecosystem: \"Youngest Harvard-led GP\" with Prod accelerator access (Cursor $9.9B, Mercor $10B, Devin $10B valuations)",
+          "VC partnerships: Collaborators with 14 early-stage deeptech VCs + partnerships with 40+ generalist VCs across tiers",
+          "Founder referral flywheel: Portfolio companies refer peers (Quantinuum → aqora; Normal → Primitive Instruments, Outtake)"
+        ]
+      },
+      "technical_credibility": {
+        "summary": "Technical credibility as founder magnet",
+        "claim_ref": "TECHNICAL_EXPERTISE",
+        "details": [
+          "Harvard B.S. Mechanical Engineering: Senior thesis on micro-robotic bees, quantum computing algorithms, grid storage power systems",
+          "Vista Equity Partners: Helped deploy $1.0+ billion across 15+ deals (Databricks $62B, Fivetran $5.6B, Acronis $4.5B valuations)",
+          "Deep vertical networks: Quantum (120+ founders contacted, 23 calls), fusion (met 20 startups), cybersecurity ($320M deployed across 3 Vista companies)",
+          "Spearheaded AI research and strategy for Vista team from '23-'25"
+        ]
+      },
+      "market_timing": {
+        "summary": "Market timing as value creation catalyst",
+        "claim_ref": "MARKET_TIMING",
+        "details": [
+          "\"AI catalyzing underappreciated deeptech categories\" with 2025 inflection points",
+          "Claims \"early positioning since 2019\" before commercial inflection points across quantum, fusion, robotics",
+          "Large TAMs: $170B quantum (2040), $1T fusion, $350B robotics per cited research (McKinsey, Bloomberg, Morgan Stanley)"
+        ]
+      }
     }
-  ],
-  "verification_priorities": {
-    "critical": [
-      "Verify Dirac-Founders Fund introduction (Nov 2023) - key GP value-add claim",
-      "Verify Tamarack Global relationship depth (primary Figure AI source)",
-      "Resolve Dirac funding discrepancy ($6M vs $10.7M)",
-      "Resolve Normal funding discrepancy ($17M vs $35M)",
-      "Verify Dirac customer claims (Anduril, Stellantis, Lockheed)"
-    ],
-    "high": [
-      "Verify Normal advisory role and $80K equity award",
-      "Verify when fusion investments occurred relative to April 2022 article",
-      "Portfolio audit: Request full 24-company list with dates, amounts, valuations",
-      "Failed investment disclosure: Names, dates, post-mortems",
-      "Conduct founder reference calls (Normal, Dirac, Quantinuum, Zap CEOs)"
-    ],
-    "medium": [
-      "Verify Quantinuum attribution (Firmament team vs Dillon individual)",
-      "Verify Vista deployment claims and role specifics",
-      "Verify exact Substack launch date vs Quantinuum investment timing",
-      "Verify spin-out companies existence (8 claimed companies)",
-      "Verify Harvard network claims (Cursor, Mercor, Devin founders)"
+  },
+  "risk_synthesis": {
+    "red_flags": "Three red flags (stale data, aggressive valuation, timing ambiguities) directly affect track record accuracy and narrative authenticity.",
+    "yellow_flags": "Two yellow flags (Co-GP underrepresentation, Vista role ambiguity) raise questions about team structure and credit attribution but are less immediately material.",
+    "mitigating_factors": [
+      "Transparent failure disclosure (2 underperforming case studies)",
+      "Consistent founder testimonials (12 references)",
+      "Verifiable institutional affiliations (Vista, Firmament, Harvard)",
+      "Detailed case studies demonstrate honesty and process transparency"
     ]
   },
-  "retroactive_framing_assessment": {
-    "pattern_1": {
-      "name": "Thought Leadership Follows Action",
-      "evidence": [
-        "Quantinuum (March 2020) → Substack launch (~2021) → Quantum article (not found)",
-        "Figure AI (April 2023) → No robotics article found",
-        "Fusion investments (dates unknown) → Fusion article (April 2022)"
-      ],
-      "implication": "Substack appears to retrospectively document investments rather than prospectively develop theses"
-    },
-    "pattern_2": {
-      "name": "'Since 2019' Framing Contradicted",
-      "lp_letter_claim": "Early positioning since 2019",
-      "timeline_shows": [
-        "First investment: March 2020 (15 months after 2019 start)",
-        "Substack launch: ~2021 (24 months after 2019 start)",
-        "No 2019 timeline events support claim"
+  "validation_tiers": [
+    {
+      "tier": 1,
+      "priority": "High Priority, High Feasibility",
+      "goal": "Address stale data, valuation methodology, and role clarity",
+      "actions": [
+        {
+          "action_number": 1,
+          "title": "Review Portfolio Summary spreadsheet (10.26.25) first",
+          "bullets": [
+            "Extract all 24 companies with investment dates, entry valuations, current valuations, status",
+            "Verify data recency: Is this actually 2024 data or current as of late 2025?",
+            "Calculate TVPI sensitivity: What if Quantinuum marked at $5.3B (institutional) vs. $10.6B (secondary)?"
+          ]
+        },
+        {
+          "action_number": 2,
+          "title": "Verify key valuations via Crunchbase, PitchBook, news archives",
+          "bullets": [
+            "Quantinuum: Footnote reveals $10.6B is secondary transaction vs. $5.3B last institutional round",
+            "Figure AI $39.5B Series C valuation (April 2025), Zap Energy ~$1.1B valuation",
+            "Check other footnotes for material caveats (SAFE caps, convertible notes)"
+          ]
+        },
+        {
+          "action_number": 3,
+          "title": "Clarify Vista role and contribution",
+          "bullets": [
+            "Web search: News, PitchBook for Vista's participation in cited deals (Databricks, Fivetran, Acronis)",
+            "LinkedIn: Dillon's role, tenure, team at Vista (2021-2025)",
+            "Determine: Did he source, lead, board seat, or participate? How much credit is appropriate?"
+          ]
+        },
+        {
+          "action_number": 4,
+          "title": "Timing verification for \"early positioning\" claims",
+          "bullets": [
+            "Web search: Dillon's public thought leadership 2019-2023 (blog posts, articles, talks, tweets, Medium, Substack)",
+            "Find fusion blog post mentioned in Deeptech Perspectives—when published vs. when invested?",
+            "Figure AI: April 2023 investment was 5 months after ChatGPT (Nov 2022)—early or reactive per market consensus?"
+          ]
+        }
       ]
     },
-    "pattern_3": {
-      "name": "'First Investment' Attribution Ambiguity",
-      "dataroom": "Quantinuum was first venture investment I personally sourced and underwrote",
-      "timeline": [
-        "Quantinuum was Firmament institutional investment (Dillon was employee)",
-        "'Began angel investing mid-2022' suggests personal investing started 2022, not 2020"
-      ],
-      "implication": "Dillon may be claiming individual credit for institutional investment at Firmament"
+    {
+      "tier": 2,
+      "priority": "High Priority, Medium Feasibility",
+      "goal": "Characterize networks and validate institutional affiliations",
+      "actions": [
+        {
+          "action_number": 5,
+          "title": "Characterize Dillon's networks by category with relationship depth assessment",
+          "bullets": [
+            "Harvard: LinkedIn connections to Prod founders (Cursor, Mercor, Devin), Prod accelerator relationship",
+            "Deeptech: Quantum (Quantinuum, 120+ founders contacted), fusion (20+ startups met), robotics",
+            "VCPE: Vista colleagues, Firmament partners, 50+ VC collaborators",
+            "Assess depth: Advisory roles, board seats, co-investment patterns"
+          ]
+        },
+        {
+          "action_number": 6,
+          "title": "Independent validation via web search, LinkedIn, co-investor references",
+          "bullets": [
+            "Web search: Vista Equity Partners press releases, news mentioning Dillon (2021-2025)",
+            "LinkedIn: Verify employment at Vista (2021-2025) and Firmament (2019-2021)",
+            "Contact co-investors in Dillon's deals (not just portfolio founders) for perspective"
+          ]
+        }
+      ]
     },
-    "pattern_4": {
-      "name": "Substack 'Precursor to Hyperion' Tagline",
-      "tagline": "Prescience: Precursor to Hyperion",
-      "timeline": "Substack launched ~2021, Hyperion fundraising ~2025",
-      "implication": "Tagline may have been added after Hyperion brand created, creating appearance of long-term planning"
+    {
+      "tier": 3,
+      "priority": "Lower Priority",
+      "goal": "Clarify Henry Bellew's role as Co-GP",
+      "actions": [
+        {
+          "action_number": 7,
+          "title": "Understand Co-GP Henry Bellew's contribution",
+          "bullets": [
+            "LinkedIn: Henry's background (The Raine Group, Bedrock advisory, Harvard)",
+            "Dataroom review: Where does Henry appear? What responsibilities mentioned?",
+            "Is this a true partnership or is Henry a junior/support role?"
+          ]
+        }
+      ]
     }
-  },
+  ],
   "conclusion": {
-    "strengths": [
-      "Dillon has genuine technical background (Harvard ME)",
-      "Portfolio includes two major winners (Quantinuum $10.6B, Figure $39B)",
-      "Investment timing was favorable (entered before 2024 mega-rounds)",
-      "Acknowledges failures (though doesn't name them)"
-    ],
-    "weaknesses": [
-      "Performance claims based on unrealized markups, not exits",
-      "Only 6 of 24 portfolio companies documented",
-      "Value-add claims have NO independent verification (all from dataroom)",
-      "Sourcing claims unverified",
-      "Thought leadership appears retroactive",
-      "Multiple discrepancies (funding amounts, customer claims) undermine credibility"
-    ],
-    "risk_factors": [
-      "Small sample size (~$1M deployed) with high concentration in 2 mega-winners",
-      "Attribution ambiguity (individual vs Firmament/Vista institutional credit)",
-      "Failed investments not disclosed",
-      "Funding discrepancies raise accuracy concerns",
-      "Public founder testimonials absent"
-    ],
-    "overall_assessment": "Hyperion's track record shows opportunistic timing in bull market with access to quality deals, but claims of 'early positioning since 2019,' rigorous value-add, and proprietary sourcing are weakly supported by objective evidence."
-  },
-  "recommendations": [
-    "Conduct LP reference calls with portfolio founders independently",
-    "Request full portfolio list with investment dates, amounts, valuations",
-    "Interview Firmament and Vista colleagues to understand Dillon's role",
-    "Require explanation for funding discrepancies",
-    "Request names and post-mortems for failed investments",
-    "Verify investment dates for fusion companies",
-    "Verify Substack launch date and article timing",
-    "Request evidence beyond testimonials (emails, intros, board minutes)",
-    "Verify Dirac customer claims with customer references",
-    "Request evidence for referral volume claims"
-  ]
+    "summary": "Hyperion Ventures presents a strong performance narrative (6.7x TVPI / 77% IRR) driven by two major outliers (Quantinuum 43.4x, Figure AI 94x), with systematic sourcing advantages (\"50+ passive referrals/year\" ramping to \"300+\") and technical credibility from elite institutions (Harvard engineering, Vista $1B+ deployment).",
+    "critical_gaps_summary": "However, five critical gaps materially impact assessment: stale portfolio data (2024 data presented in late 2025), aggressive valuation methodology with material exclusions ($10.6B secondary vs. $5.3B institutional for Quantinuum), timing ambiguities around \"early positioning since 2019\" claims, Co-GP underrepresentation (Henry Bellew minimal presence), and Vista role ambiguity ($1B+ deployment without role clarity).",
+    "recommendation": "Address critical gaps via Tier 1 validation (Section 3). Central question: Are these gaps explainable (standard VC practices, dataroom timing), or do they indicate material issues with track record representation, team capability, or narrative construction?"
+  }
 }
