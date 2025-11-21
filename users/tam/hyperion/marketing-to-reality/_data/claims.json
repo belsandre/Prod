@@ -35,25 +35,11 @@
   ],
   "conspicuous_gaps": [
     {
-      "gap_type": "co_gp_underrepresentation",
-      "description": "Henry Bellew listed as Co-General Partner but appears only on one page of 30-page pitch deck (Page 6). No case studies feature Henry's involvement, no founder testimonials mention him, and no clear articulation of his role, responsibilities, or contribution to fund strategy.",
-      "significance": "Is this truly a two-GP partnership, or is Henry a junior partner with limited operating role? Material for assessing team capability and capacity.",
-      "risk_severity": "yellow_flag",
-      "risk_level": "Moderate concern - impacts team assessment and capacity planning"
-    },
-    {
       "gap_type": "stale_data",
       "description": "Portfolio Summary spreadsheet dated 10.26.25 (late October 2025) but contains 2024 data. Case Studies reference speculative 2024 rounds ('Q3-25 Series B,' '2H-25 Series A') that should now be actuals if analyzing in late 2025. Missing ~1 year of portfolio updates between data snapshot (2024) and analysis date (Nov 2025).",
       "significance": "Cannot assess current portfolio performance, recent markups/markdowns, or whether 2024 projections materialized. Material gap for understanding real-time performance.",
       "risk_severity": "red_flag",
       "risk_level": "Material concern - prevents assessment of current performance"
-    },
-    {
-      "gap_type": "role_ambiguity",
-      "description": "Claim: 'Deployed $1.0+ billion across 15+ deals' at Vista (2021-2025). Unclear what 'deployed' means: Did Dillon source, lead, sit on boards, or participate? No clarification of specific role or contribution to cited deals (Databricks, Fivetran, Acronis). Vista is a large firm with multiple deal teams—how much credit should Dillon claim?",
-      "significance": "Risk of overstating contribution to institutional track record. Material for assessing actual deal experience vs. affiliation credit.",
-      "risk_severity": "yellow_flag",
-      "risk_level": "Moderate concern - affects evaluation of institutional experience"
     },
     {
       "gap_type": "material_footnote",
@@ -68,6 +54,20 @@
       "significance": "Risk of retroactive narrative construction if theses were written after investments. Material for distinguishing predictive insight from post-hoc rationalization.",
       "risk_severity": "red_flag",
       "risk_level": "Material concern - questions authenticity of 'early positioning' narrative"
+    },
+    {
+      "gap_type": "co_gp_underrepresentation",
+      "description": "Henry Bellew listed as Co-General Partner but appears only on one page of 30-page pitch deck (Page 6). No case studies feature Henry's involvement, no founder testimonials mention him, and no clear articulation of his role, responsibilities, or contribution to fund strategy.",
+      "significance": "Is this truly a two-GP partnership, or is Henry a junior partner with limited operating role? Material for assessing team capability and capacity.",
+      "risk_severity": "yellow_flag",
+      "risk_level": "Moderate concern - impacts team assessment and capacity planning"
+    },
+    {
+      "gap_type": "role_ambiguity",
+      "description": "Claim: 'Deployed $1.0+ billion across 15+ deals' at Vista (2021-2025). Unclear what 'deployed' means: Did Dillon source, lead, sit on boards, or participate? No clarification of specific role or contribution to cited deals (Databricks, Fivetran, Acronis). Vista is a large firm with multiple deal teams—how much credit should Dillon claim?",
+      "significance": "Risk of overstating contribution to institutional track record. Material for assessing actual deal experience vs. affiliation credit.",
+      "risk_severity": "yellow_flag",
+      "risk_level": "Moderate concern - affects evaluation of institutional experience"
     }
   ],
   "source_tier_summary": {

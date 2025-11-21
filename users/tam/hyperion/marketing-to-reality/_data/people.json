@@ -1,0 +1,415 @@
+{
+  "entity_name": "Hyperion Investment Management, LLC",
+  "fund_name": "Hyperion Ventures Fund I",
+  "analysis_date": "2025-11-19",
+  "analysis_goal": "Validate GP credentials, networks, personal attribution, and team structure against independent evidence",
+
+  "sources": {
+    "dataroom": "12 files: GP Bio, pitch deck, case studies, testimonials",
+    "research_people": "LinkedIn profiles, partial network data captures, Harvard/Vista/Firmament/Raine verification",
+    "claims_files": "claims-analysis.md, claims.json",
+    "independent": "Harvard records, news, transaction announcements",
+    "process": "Extracted GP claims → mapped evidence by source (independent/affiliated/dataroom) → validated credentials/attribution → identified 5 critical people gaps → synthesized team assessment"
+  },
+
+  "general_partners": [
+    {
+      "name": "Dillon Dunteman",
+      "role": "Founder & General Partner",
+      "age_range": "26-27 years old",
+      "years_experience": 6,
+
+      "verified_credentials": {
+        "education": {
+          "institution": "Harvard College",
+          "degree": "S.B. Mechanical Engineering",
+          "graduation_year": "2019",
+          "additional": "Walk-on athlete for Men's Lightweight Rowing",
+          "verification_tier": "independent",
+          "verification_sources": "Harvard athletics, LinkedIn"
+        },
+        "employment": [
+          {
+            "company": "Vista Equity Partners",
+            "years": "2021-2025",
+            "description": "Exposure to growth-stage software deals",
+            "verification_tier": "independent",
+            "verification_sources": "LinkedIn, PitchBook"
+          },
+          {
+            "company": "Firmament Group",
+            "years": "2019-2021",
+            "period": "Jan 2019 - Jan 2021",
+            "description": "Working on buyouts",
+            "verification_tier": "independent",
+            "verification_sources": "LinkedIn, PitchBook"
+          }
+        ]
+      },
+
+      "thought_leadership": {
+        "platform": "Substack 'Prescience'",
+        "launch_date": "~2021",
+        "label": "Precursor to Hyperion",
+        "total_posts": 4,
+        "time_period": "10/2021 - 5/2025",
+        "duration_years": 3.5,
+        "assessment": "Minimal activity—insufficient for credible thought leadership",
+        "verification_tier": "independent",
+        "verification_sources": "Archived posts"
+      },
+
+      "network_validation": {
+        "data_source": "Partial connection captures",
+        "categories_captured": ["Harvard", "VC/PE", "deeptech"],
+        "note": "Represents only a partial subset—total network size unknown",
+        "verification_tier": "affiliated",
+        "verification_sources": "LinkedIn, partial data"
+      },
+
+      "personal_portfolio": {
+        "total_companies": 24,
+        "time_period": "2020-2025",
+        "claimed_tvpi": "6.7x",
+        "claimed_irr": "77%",
+        "verification_status": "Unverifiable—standard for personal investments",
+        "verification_tier": "dataroom_only"
+      },
+
+      "key_attribution_claims": [
+        {
+          "claim_id": "HARVARD_ENGINEERING",
+          "claim": "Harvard S.B. Mechanical Engineering 2019",
+          "verification_tier": "Independent (Harvard athletics, LinkedIn)",
+          "status_text": "✓ Verified"
+        },
+        {
+          "claim_id": "VISTA_EMPLOYMENT",
+          "claim": "Vista Equity Partners 2021-2025",
+          "verification_tier": "Independent (LinkedIn, PitchBook)",
+          "status_text": "✓ Employment confirmed"
+        },
+        {
+          "claim_id": "VISTA_DEPLOYMENT",
+          "claim": "Deployed $1.0+ billion across 15+ deals at Vista",
+          "verification_tier": "Dataroom only",
+          "status_text": "⚠️ Personal role unclear"
+        },
+        {
+          "claim_id": "FIRMAMENT_EXITS",
+          "claim": "Firmament buyouts leading to 2 exits",
+          "verification_tier": "Independent partial (Exits confirmed via news)",
+          "status_text": "⚠️ Exits 14-22 months post-departure",
+          "exit_details": [
+            {
+              "company": "Envase",
+              "buyer": "WiseTech (ASX: WTC)",
+              "amount": "$230M",
+              "date": "Jan 2023",
+              "months_after_departure": 22
+            },
+            {
+              "company": "Logistyx",
+              "buyer": "E2open (NYSE: ETWO)",
+              "amount": "$185M",
+              "date": "Mar 2022",
+              "months_after_departure": 14
+            }
+          ]
+        },
+        {
+          "claim_id": "EARLY_POSITIONING",
+          "claim": "Early positioning since 2019",
+          "verification_tier": "Dataroom only",
+          "status_text": "⚠️ No pre-2020 public evidence"
+        },
+        {
+          "claim_id": "THOUGHT_LEADERSHIP",
+          "claim": "Thought leadership (Substack since 2021)",
+          "verification_tier": "Independent (Archived posts)",
+          "status_text": "⚠️ Minimal activity (4 posts in 3.5 years)"
+        },
+        {
+          "claim_id": "NETWORK_BREADTH",
+          "claim": "Network breadth across Harvard/VC/deeptech",
+          "verification_tier": "Affiliated (LinkedIn, partial data)",
+          "status_text": "? Partial capture only, total size unknown"
+        },
+        {
+          "claim_id": "PERSONAL_TRACK_RECORD",
+          "claim": "24 angel investments, 6.7x TVPI",
+          "verification_tier": "Dataroom only",
+          "status_text": "Standard unverifiable personal returns"
+        }
+      ],
+
+      "material_concerns": [
+        {
+          "concern_id": "VISTA_ROLE_AMBIGUITY",
+          "title": "Vista role ambiguity",
+          "description": "\"Deployed $1B+\" uses passive language (\"helped deploy\"), lacks personal attribution (did he source, lead, board, or participate passively?). Critical for assessing institutional experience quality."
+        },
+        {
+          "concern_id": "TIMELINE_CAPACITY",
+          "title": "Timeline overlap capacity",
+          "description": "24 angel investments while full-time at Vista (2021-2025) raises bandwidth questions—either limited attention per company OR Vista role less intensive than claimed."
+        },
+        {
+          "concern_id": "EARLY_POSITIONING_TIMING",
+          "title": "\"Early positioning since 2019\" timing",
+          "description": "Substack launched ~2021, no archived pre-2020 public evidence of deeptech positioning—potential retroactive narrative construction."
+        },
+        {
+          "concern_id": "FIRMAMENT_ATTRIBUTION",
+          "title": "Firmament attribution timing",
+          "description": "Both exits (Envase $230M Jan 2023, Logistyx $185M Mar 2022) occurred 14-22 months after departure—plausible he worked on acquisitions, but personal contribution unclear."
+        },
+        {
+          "concern_id": "FUTURE_CAPACITY",
+          "title": "Future capacity",
+          "description": "Can one GP realistically support 20-30 deeptech companies given single-GP operational model?"
+        }
+      ]
+    },
+    {
+      "name": "Henry Bellew",
+      "role": "Co-General Partner",
+      "age_range": "23-24 years old",
+      "years_experience": 2,
+
+      "verified_credentials": {
+        "education": {
+          "institution": "Harvard College",
+          "degree": "A.B. in History and Government",
+          "secondary": "Economics",
+          "graduation_year": "2023",
+          "honors": "cum laude",
+          "additional_coursework": "Innovation in Science & Engineering (hardware commercialization, cost-curve modeling)",
+          "activities": "Harvard Investment Association, European Business Group, Real Estate Club, Lightweight Crew (2019-2023)",
+          "athletic_achievements": "Head of the Charles 2022 win",
+          "verification_tier": "independent",
+          "verification_sources": "Research notes, Harvard Crimson"
+        },
+        "employment": [
+          {
+            "company": "The Raine Group",
+            "role": "Advisor",
+            "years": "~2023-present",
+            "verification_status": "ambiguous",
+            "verification_tier": "affiliated",
+            "note": "Not on current team roster, suggests consultant/intern vs. full employee",
+            "claimed_work": "Supported Bedrock, Garden, Foursquare on market analysis and GTM strategy (unverifiable)"
+          }
+        ],
+        "current_status": "Stealth on LinkedIn"
+      },
+
+      "key_attribution_claims": [
+        {
+          "claim_id": "HARVARD_EDUCATION",
+          "claim": "Harvard A.B. 2023, cum laude",
+          "verification_tier": "Independent (Research notes)",
+          "status_text": "✓ Verified"
+        },
+        {
+          "claim_id": "HARVARD_ATHLETICS",
+          "claim": "Harvard Lightweight Crew, Head of the Charles 2022 win",
+          "verification_tier": "Independent (Harvard Crimson)",
+          "status_text": "✓ Verified"
+        },
+        {
+          "claim_id": "RAINE_ADVISOR",
+          "claim": "Raine Group venture capital \"advisor\"",
+          "verification_tier": "Affiliated (mentions but not on roster)",
+          "status_text": "? Role ambiguous"
+        },
+        {
+          "claim_id": "VC_ADVISORY",
+          "claim": "Advised top VCs, supported Bedrock/Garden/Foursquare",
+          "verification_tier": "Dataroom only",
+          "status_text": "Unverifiable"
+        },
+        {
+          "claim_id": "HENLEY_REGATTA",
+          "claim": "Henley Royal Regatta \"Semi-Finalist\"",
+          "verification_tier": "Independent",
+          "status_text": "⚠️ Evidence shows 2024 (post-graduation 2023)"
+        }
+      ],
+
+      "dataroom_presence": {
+        "pages": "1/30",
+        "case_studies": 0,
+        "testimonials": 0,
+        "role_definition": "None—zero articulation of responsibilities"
+      },
+
+      "material_concerns": [
+        {
+          "concern_id": "DATAROOM_ABSENCE",
+          "title": "Virtually absent from dataroom",
+          "description": "Appears on 1/30 pages (bio only), zero case studies, zero testimonials, zero role definition—raises questions about true partnership vs. junior support role."
+        },
+        {
+          "concern_id": "LIMITED_EXPERIENCE",
+          "title": "Very limited professional experience",
+          "description": "~2 years post-graduation with ambiguous \"advisor\" role (not analyst/associate)—extremely thin for Co-GP of institutional fund."
+        },
+        {
+          "concern_id": "UNDEFINED_ROLE",
+          "title": "Role completely undefined",
+          "description": "No articulation of specific responsibilities, decision-making authority, carry allocation, or how non-technical background (History/Gov/Econ) supports deeptech portfolio."
+        }
+      ]
+    }
+  ],
+
+  "team_structure_assessment": {
+    "effective_model": "Single-GP fund with Dillon handling all critical functions (sourcing, technical diligence, portfolio support), Henry in undefined support role",
+
+    "single_point_of_failure": {
+      "sourcing": "Dillon's networks only",
+      "technical_diligence": "Dillon's engineering background only",
+      "portfolio_support": "Dillon's testimonials only (12 vs. 0)",
+      "case_studies": "Dillon's involvement only (6 vs. 0)",
+      "redundancy": "Henry's role provides no redundancy"
+    },
+
+    "capacity_constraints": {
+      "active_gps": 1,
+      "target_portfolio_size": "20-30 companies",
+      "sector_intensity": "High-touch deeptech",
+      "typical_ratio": "1 GP per 10-15 companies for high-touch deeptech",
+      "concern": "One active GP supporting 20-30 deeptech companies is challenging for first-time fund manager in capital-intensive sector"
+    },
+
+    "economics_alignment": {
+      "dillon_experience": "6 years",
+      "henry_experience": "2 years",
+      "dillon_testimonials": 12,
+      "henry_testimonials": 0,
+      "dillon_case_studies": 6,
+      "henry_case_studies": 0,
+      "dillon_background": "Technical (engineering)",
+      "henry_background": "Non-technical (History/Gov/Econ)",
+      "concern": "If carry split is equal/near-equal, would not align with apparent contribution disparity"
+    },
+
+    "co_gp_underrepresentation": {
+      "title": "Co-General Partner",
+      "dataroom_pages": "1/30",
+      "concern": "Material gap between title and minimal presence suggests either (a) dataroom doesn't reflect true team structure, or (b) title inflates actual role"
+    },
+
+    "strengths": [
+      "Both have Harvard networks and legitimate pedigrees",
+      "Dillon has relevant technical background and demonstrated commitment",
+      "No negative information found"
+    ],
+
+    "weaknesses": [
+      "Very junior team (6 and 2 years experience)",
+      "First-time institutional fund managers",
+      "No proven team redundancy",
+      "Undefined Co-GP role",
+      "Non-technical Co-GP in deeptech fund"
+    ]
+  },
+
+  "critical_people_gaps": [
+    {
+      "gap_id": "HENRY_ROLE",
+      "gap_type": "co_gp_underrepresentation",
+      "person": "Henry Bellew",
+      "title": "Clarify Henry Bellew's role and economics",
+      "description": "\"Co-GP\" title with 1/30 page dataroom presence and zero evidence of contribution suggests potential title inflation or misleading team structure.",
+      "why_it_matters": "\"Co-GP\" title with 1/30 page dataroom presence and zero evidence of contribution suggests potential title inflation or misleading team structure.",
+      "what_to_ask": "Specific responsibilities, carry allocation, decision-making authority, how non-technical background supports deeptech portfolio. Request references from Raine, Bedrock, Garden, Foursquare.",
+      "risk_severity": "red_flag",
+      "priority": "critical"
+    },
+    {
+      "gap_id": "VISTA_ROLE",
+      "gap_type": "vista_role_ambiguity",
+      "person": "Dillon Dunteman",
+      "title": "Vista Equity Partners reference checks on Dillon",
+      "description": "\"$1B+ deployed\" lacks personal attribution—critical to understand if he sourced/led deals or participated passively as junior analyst.",
+      "why_it_matters": "\"$1B+ deployed\" lacks personal attribution—critical to understand if he sourced/led deals or participated passively as junior analyst.",
+      "what_to_ask": "Contact Vista colleagues/managers for specific role, deal sourcing vs. execution, board seats vs. support, reputation within firm, departure circumstances.",
+      "risk_severity": "yellow_flag",
+      "priority": "critical"
+    },
+    {
+      "gap_id": "EARLY_POSITIONING",
+      "gap_type": "early_positioning_timing",
+      "person": "Dillon Dunteman",
+      "title": "Validate \"early positioning since 2019\" claim",
+      "description": "Substack launched ~2021, no pre-2020 public evidence—potential retroactive narrative (hindsight vs. foresight).",
+      "why_it_matters": "Substack launched ~2021, no pre-2020 public evidence—potential retroactive narrative (hindsight vs. foresight).",
+      "what_to_ask": "Request archived thought leadership from 2019-2020 (blog posts, articles, talks), investment memos with timestamps, fusion blog post date mentioned in materials.",
+      "risk_severity": "red_flag",
+      "priority": "critical"
+    },
+    {
+      "gap_id": "TIMELINE_CAPACITY",
+      "gap_type": "timeline_capacity_overlap",
+      "person": "Dillon Dunteman",
+      "title": "Understand timeline overlap capacity (2021-2025)",
+      "description": "24 angel investments while Vista full-time suggests either (a) limited attention per company, or (b) Vista role less intensive than claimed.",
+      "why_it_matters": "24 angel investments while Vista full-time suggests either (a) limited attention per company, or (b) Vista role less intensive than claimed.",
+      "what_to_ask": "Time allocation between Vista and personal portfolio, attention per portfolio company, plans for supporting 20-30 Fund I companies with minimal team, portfolio tiering/coverage strategy.",
+      "risk_severity": "yellow_flag",
+      "priority": "critical"
+    },
+    {
+      "gap_id": "FIRMAMENT_ATTRIBUTION",
+      "gap_type": "firmament_attribution_timing",
+      "person": "Dillon Dunteman",
+      "title": "Firmament Group reference checks on Dillon",
+      "description": "Both exits occurred 14-22 months after departure—personal contribution attribution unclear.",
+      "why_it_matters": "Both exits occurred 14-22 months after departure—personal contribution attribution unclear.",
+      "what_to_ask": "Contact Firmament colleagues for specific contributions to Envase/Logistyx, role in acquisitions vs. ongoing operations, credit for post-departure exits.",
+      "risk_severity": "yellow_flag",
+      "priority": "critical"
+    }
+  ],
+
+  "important_validations": [
+    "Request additional portfolio founder references beyond 12 in dataroom; contact co-investors for independent perspective",
+    "Verify Harvard accelerator access (real vs. aspirational), request specific examples of VC referrals received",
+    "Clarify Henley timing inconsistency, verify Raine Group role details, confirm athletic championship claims",
+    "Survey deeptech founders outside portfolio and other deeptech VCs for market reputation"
+  ],
+
+  "risk_synthesis": {
+    "summary": "Hyperion Ventures presents a typical emerging manager profile with legitimate credentials but significant structural and attribution concerns. Both GPs have verified Harvard backgrounds and institutional experience, but this is effectively a single-GP fund with highly ambiguous personal contribution attribution and undefined co-GP role.",
+
+    "red_flags_count": 2,
+    "red_flags_summary": "Two red flags: (1) Early positioning timing ambiguity—no pre-2020 evidence despite '2019' claims, (2) Co-GP virtual absence from dataroom despite title",
+
+    "yellow_flags_count": 3,
+    "yellow_flags_summary": "Three yellow flags: (1) Vista role ambiguity on $1B+ deployment, (2) Timeline capacity overlap—24 angels + Vista full-time, (3) Firmament attribution timing—exits 14-22 months post-departure",
+
+    "mitigating_factors": [
+      "Both GPs have verified Harvard credentials",
+      "Dillon has confirmed institutional experience at Vista and Firmament",
+      "No negative information discovered",
+      "Transparent about some portfolio involvement (testimonials, case studies)"
+    ],
+
+    "structural_concerns": [
+      "Effectively single-GP fund creates capacity constraints",
+      "No team redundancy",
+      "Single point of failure for sourcing, diligence, and support",
+      "One active GP for 20-30 deeptech companies"
+    ]
+  },
+
+  "executive_summary": {
+    "dillon_summary": "Verified Harvard engineering credentials (S.B. 2019), confirmed Vista Equity Partners (2021-2025) and Firmament Group (2019-2021) employment, minimal thought leadership via Substack (only 4 posts from 10/2021-5/2025, insufficient for credible expertise claims), and network data showing connections across relevant categories (partial capture only—total network size unknown). However, **four critical attribution gaps**: (1) Vista role unclear (sourcer/leader vs. passive participant on $1B+ deployed), (2) Firmament exits occurred 14-22 months after his departure, (3) 24 angel investments while full-time at Vista raises bandwidth questions, (4) \"early positioning since 2019\" lacks pre-2020 public evidence.",
+
+    "henry_summary": "Excellent Harvard academic credentials (A.B. 2023, cum laude) but **extremely limited professional experience** (~2 years) and **virtually absent from dataroom** (1/30 pages, zero case studies, zero testimonials). This raises fundamental questions about true partnership vs. junior support role, creating **single point of failure risk** and **capacity constraints** (one active GP for 20-30 deeptech companies).",
+
+    "investment_recommendation": "**CONDITIONAL PROCEED** requiring comprehensive validation. Success depends entirely on resolving five critical gaps through reference checks (Vista, Firmament) and direct conversations (Henry's role, timeline capacity, early positioning evidence). Appropriate for LPs with emerging manager appetite and willingness to provide close oversight; **NOT appropriate** for LPs requiring proven teams or minimal oversight."
+  }
+}

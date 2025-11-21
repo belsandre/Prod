@@ -434,7 +434,9 @@
     {
       "gap": "Henry Bellew Events",
       "note": "No timeline events for co-GP Henry Bellew",
-      "missing_data": "Any portfolio company involvement",
+      "missing_data": [
+        "Any portfolio company involvement"
+      ],
       "significance": "Zero documented involvement raises questions about team contribution"
     },
     {

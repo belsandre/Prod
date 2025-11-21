@@ -1,859 +1,441 @@
 {
-  "metadata": {
-    "fund_name": "Hyperion Ventures I LP",
-    "extraction_date": "2025-11-17",
-    "source": "Dataroom materials, public research, vc-research-summary.md",
-    "total_companies": 24,
-    "companies_researched": 14,
-    "gp_performance_claim": {
-      "tvpi": "6.7x",
-      "irr": "77%",
-      "note": "Net of fees and expenses, based on latest-round markups, not realized exits"
-    }
-  },
+  "fund_name": "Hyperion Ventures I LP",
+  "analysis_date": "2025-01-20",
+  "total_companies": 34,
+  "companies_with_research": 13,
+  "research_coverage": "38%",
   "companies": [
     {
-      "name": "Figure AI",
-      "tier": 1,
-      "sector": "AI Robotics",
-      "description": "Humanoid robots for manufacturing and warehouses",
-      "founded": "2022",
-      "founder": "Brett Adcock (serial entrepreneur: Vettery, Archer Aviation)",
-      "website": "https://www.figure.ai",
-      "investment_details": {
-        "entry_date": "2023-04",
-        "entry_valuation": "$420M post-money",
-        "entry_amount": "$40K",
-        "entry_round": "Series A",
-        "sourcing": "Via close relationship with Tamarack Global partners"
-      },
-      "current_status": {
-        "latest_valuation": "$39.5B",
-        "latest_round": "Series C",
-        "latest_round_date": "2025-09",
-        "latest_round_amount": "$1B+",
-        "paper_moic": "94x",
-        "revenue_status": "Pre-revenue / minimal revenue"
-      },
-      "key_investors": [
-        "Tamarack Global",
-        "Parkway Venture Capital (Series A lead)",
-        "Jeff Bezos ($100M in Series B)",
-        "Microsoft ($95M in Series B)",
-        "NVIDIA ($50M in Series B)",
-        "OpenAI Startup Fund",
-        "Intel Capital",
-        "Align Ventures"
-      ],
-      "milestones": [
-        {
-          "date": "2023-05",
-          "event": "Series A announced ($70M)",
-          "source": "Public announcement"
-        },
-        {
-          "date": "2024-02",
-          "event": "Series B ($675M at $2.6B valuation)",
-          "source": "TechCrunch, Bloomberg"
-        },
-        {
-          "date": "2024-08",
-          "event": "Figure 02 humanoid robot unveiled",
-          "source": "Company announcement"
-        },
-        {
-          "date": "2025-09",
-          "event": "Series C ($1B+ at $39B valuation)",
-          "source": "Public announcement"
-        }
-      ],
-      "traction": {
-        "customers": ["BMW (manufacturing pilot)"],
-        "deployment_status": "Pilot, not yet production",
-        "technical_progress": "Figure 02 with enhanced capabilities released Aug 2024"
-      },
-      "risks": [
-        "Extreme valuation ($39B on minimal revenue)",
-        "Competition from Tesla Optimus, Boston Dynamics",
-        "BMW pilot not yet production deployment",
-        "Mark-to-market compression risk"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Full case study in dataroom, sourced via Tamarack relationship",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "research/companies/figure/independent-research.md",
-        "Case Studies - Outperforming Investments.md",
-        "Public funding announcements (TechCrunch, Bloomberg)"
-      ]
-    },
-    {
       "name": "Quantinuum",
-      "tier": 1,
+      "category": "winner",
       "sector": "Quantum Computing",
-      "description": "Quantum computing hardware and software platform (formed from CQC-Honeywell merger)",
-      "founded": "2021 (merger), Cambridge Quantum Computing founded earlier",
-      "founder": "Ilyas Khan (CEO)",
-      "website": "https://www.quantinuum.com",
-      "investment_details": {
-        "entry_date": "2020-03",
-        "entry_valuation": "$20M round (convertible note)",
-        "entry_amount": "~$660K (Firmament institutional)",
-        "entry_round": "Convertible note",
-        "sourcing": "Dillon researched quantum computing at Firmament, cold-emailed 120+ founders",
-        "conversion_details": {
-          "date": "2021-07",
-          "valuation": "$244M",
-          "personal_investment": "~$76K pro-rata"
-        }
+      "entry_valuation": "$542M",
+      "current_valuation": "$10.6B",
+      "moic": 10.14,
+      "revenue_status": "Commercial",
+      "primary_moat": "Technical",
+      "moat_strength": "Strong",
+      "source_quality": "independent",
+      "risks": {
+        "valuation": "Moderate",
+        "competitive": "High",
+        "market": "Moderate"
       },
-      "current_status": {
-        "latest_valuation": "$10.6B",
-        "latest_round": "Series funding",
-        "latest_round_date": "2025-09",
-        "latest_round_amount": "$600M",
-        "paper_moic": "6.7x (verified)",
-        "revenue_status": "Generating revenue, enterprise customers"
-      },
-      "key_investors": [
-        "Honeywell (merged with, strategic partner)",
-        "IBM",
-        "JPMorgan Chase",
-        "Mitsui",
-        "DCVC"
+      "red_flags": [
+        "Valuation pace: $5.3B → $10.6B in 18 months (high expectations)",
+        "Quantum computing market timing uncertain",
+        "Competitive intensity from IonQ M&A, Google research"
       ],
-      "milestones": [
-        {
-          "date": "2020-03",
-          "event": "Firmament invests ~$660K in CQC convertible note",
-          "source": "Dataroom case study"
-        },
-        {
-          "date": "2021-07",
-          "event": "Note converts at $244M valuation",
-          "source": "Dataroom"
-        },
-        {
-          "date": "2021-11",
-          "event": "CQC merges with Honeywell Quantum to form Quantinuum",
-          "source": "Public announcement"
-        },
-        {
-          "date": "2024-02",
-          "event": "Raises $300M at $5.3B valuation",
-          "source": "Public announcement"
-        },
-        {
-          "date": "2025-09",
-          "event": "Raises $600M at $10.6B valuation",
-          "source": "Public announcement"
-        }
+      "key_strengths": [
+        "Industry-leading 99.921% two-qubit gate fidelity",
+        "Fortune 500 customers: Amgen, BMW, JPMorgan Chase, SoftBank",
+        "Helios product launched Nov 2025 with 48 error-corrected logical qubits",
+        "Strategic investors: NVIDIA, JPMorgan, Fidelity, Honeywell (54% owner)"
       ],
-      "traction": {
-        "customers": ["Enterprise customers in finance, pharma, materials science"],
-        "deployment_status": "Commercial, market leader in quantum computing",
-        "technical_progress": "World's highest-performing quantum computers (H-Series)"
-      },
-      "risks": [
-        "Quantum commercialization timeline uncertain",
-        "Competition from IBM, Google, IonQ",
-        "Valuation based on future promise, not current revenue scale"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Full case study, claims 'personally sourced and underwrote' at Firmament",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "research/companies/quantinuum/ (if exists)",
-        "Case Studies - Outperforming Investments.md",
-        "Public funding announcements",
-        "objective-timeline.md"
-      ]
+      "customer_traction": "Production - Multiple Fortune 500 deployments",
+      "notes": "Entry via Firmament (Dillon, March 2020), before Hyperion founding. #2 by absolute value, #1 by MOIC among researched companies."
     },
     {
-      "name": "Normal Computing",
-      "tier": 1,
-      "sector": "Semiconductors / AI Hardware",
-      "description": "Thermodynamic AI chips + agentic verification software",
-      "founded": "2022",
-      "founder": "Faris Sbahi",
-      "website": "https://www.normalcomputing.ai",
-      "investment_details": {
-        "entry_date": "2023-05",
-        "entry_valuation": "Unknown",
-        "entry_amount": "$40K",
-        "entry_round": "Early stage",
-        "sourcing": "Met CEO at NYC networking event"
+      "name": "Figure AI",
+      "category": "winner",
+      "sector": "AI Robotics / Humanoid Robots",
+      "entry_valuation": "$420M",
+      "current_valuation": "$39.5B",
+      "moic": 94.05,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Technical",
+      "moat_strength": "Strong",
+      "source_quality": "independent",
+      "risks": {
+        "valuation": "High",
+        "competitive": "High",
+        "market": "Moderate"
       },
-      "current_status": {
-        "latest_valuation": "Preparing Series B ($50M+ expected)",
-        "latest_round": "Series A",
-        "latest_round_date": "2024-04",
-        "latest_round_amount": "$17M (dataroom) OR $35M total seed (public sources) - DISCREPANCY",
-        "paper_moic": "Unknown",
-        "revenue_status": "Fortune 500 customers"
-      },
-      "key_investors": [
-        "Drive Capital (Series A lead)",
-        "First Spark Ventures",
-        "Celesta"
+      "red_flags": [
+        "$39B valuation for pre-revenue company (minimal deployment: 1 robot)",
+        "CEO promotional claims vs. operational reality discrepancy",
+        "Gap: current state (1 robot) vs. projections (100K over 4 years)"
       ],
-      "milestones": [
-        {
-          "date": "2023-05",
-          "event": "Dillon meets CEO at NYC networking event",
-          "source": "Dataroom case study"
-        },
-        {
-          "date": "2023-H2 to 2024-Q1",
-          "event": "Dillon assists with hiring (2 key hires), commercial strategy, financial modeling",
-          "source": "Dataroom case study (unverified)"
-        },
-        {
-          "date": "2024-04",
-          "event": "Series A closes",
-          "source": "Dataroom + public sources"
-        },
-        {
-          "date": "2024-07",
-          "event": "CEO offers Dillon advisory role with ~$80K equity award",
-          "source": "Dataroom case study (unverified)"
-        },
-        {
-          "date": "2025-08",
-          "event": "CN101 thermodynamic chip tapes out (claimed 'world's first')",
-          "source": "Public announcement"
-        }
+      "key_strengths": [
+        "First-mover: BMW deployment before Tesla Optimus",
+        "Exceptional fundraising: $2B from Microsoft, NVIDIA, Bezos, Intel",
+        "Founder track record: Brett Adcock (Vettery $110M exit, Archer $2.7B IPO)",
+        "BotQ manufacturing facility: 12K annual capacity"
       ],
-      "traction": {
-        "customers": ["Fortune 500 customers (unnamed)"],
-        "deployment_status": "Early commercial traction",
-        "technical_progress": "CN101 chip taped out, performance unproven"
-      },
-      "risks": [
-        "Funding discrepancy ($17M vs $35M) undermines dataroom accuracy",
-        "Thermodynamic computing unproven at scale",
-        "Fortune 500 customer names not disclosed"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Full case study, advisory role with equity award (unverified)",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "research/companies/normal-computing/independent-research.md",
-        "Case Studies - Outperforming Investments.md",
-        "vc-research-summary.md"
-      ],
-      "notes": "FUNDING DISCREPANCY: Dataroom claims $17M Series A, public sources say $35M total seed. Requires clarification."
-    },
-    {
-      "name": "Dirac",
-      "tier": 1,
-      "sector": "Manufacturing AI",
-      "description": "AI-generated manufacturing instructions for complex assemblies",
-      "founded": "2023",
-      "founder": "Fil Aronshtein (CEO)",
-      "website": "https://www.dirac.ai",
-      "investment_details": {
-        "entry_date": "2023-11",
-        "entry_valuation": "$15M cap (SAFE)",
-        "entry_amount": "$20K",
-        "entry_round": "Pre-seed",
-        "sourcing": "Introduced by VC who passed on investment"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Seed",
-        "latest_round_date": "2024-04",
-        "latest_round_amount": "$6M (dataroom) OR $10.7M (public PR) - DISCREPANCY",
-        "paper_moic": "Unknown",
-        "revenue_status": "Early pilots"
-      },
-      "key_investors": [
-        "Founders Fund (co-lead)",
-        "Coatue (co-lead)"
-      ],
-      "milestones": [
-        {
-          "date": "2023-10",
-          "event": "Dillon introduced to CEO by VC who passed",
-          "source": "Dataroom case study"
-        },
-        {
-          "date": "2023-11",
-          "event": "Dillon invests $20K pre-seed at $15M cap",
-          "source": "Dataroom"
-        },
-        {
-          "date": "2023-11",
-          "event": "Dillon introduces CEO to 'friend at Founders Fund'",
-          "source": "Dataroom (unverified)"
-        },
-        {
-          "date": "2023-Q4 to 2024-Q1",
-          "event": "Multiple introductions to VCs, advisors, hires",
-          "source": "Dataroom (unverified)"
-        },
-        {
-          "date": "2024-01",
-          "event": "Advises CEO to pass on <$20M term sheet",
-          "source": "Dataroom (unverified)"
-        },
-        {
-          "date": "2024-04",
-          "event": "Seed closes (Coatue/Founders Fund co-lead)",
-          "source": "Dataroom + public PR"
-        }
-      ],
-      "traction": {
-        "customers": ["Claimed: Anduril, Stellantis, Lockheed Martin pilots - NO PUBLIC VERIFICATION"],
-        "deployment_status": "Pilots (unverified)",
-        "technical_progress": "AI manufacturing instructions platform"
-      },
-      "risks": [
-        "CRITICAL: Funding discrepancy ($6M vs $10.7M, 78% gap)",
-        "CRITICAL: Customer claims (Anduril, Stellantis, Lockheed) have NO public verification",
-        "All value-add claims (FF intro, VC intros, hiring) from dataroom only"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Full case study, claims Founders Fund introduction (CRITICAL TO VERIFY)",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "research/companies/dirac/independent-research.md",
-        "Case Studies - Outperforming Investments.md",
-        "Public seed announcement"
-      ],
-      "notes": "RED FLAG: Multiple discrepancies. Founders Fund intro claim is critical for GP value-add validation."
+      "customer_traction": "Pilot - Single robot at BMW Spartanburg plant",
+      "notes": "#1 by absolute value ($3.76M), #1 by MOIC (94x) in portfolio. Sourced via Tamarack Global (April 2023 Series A)."
     },
     {
       "name": "Scout AI",
-      "tier": 1,
-      "sector": "Sales/GTM AI",
-      "description": "AI-powered sales and go-to-market tools",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Unknown",
-        "sourcing": "Unknown"
+      "category": "emerging",
+      "sector": "Sales SaaS / AI Prospecting",
+      "entry_valuation": "$3.3M",
+      "current_valuation": "$20M",
+      "moic": 6.06,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Network Effects",
+      "moat_strength": "Weak",
+      "source_quality": "dataroom",
+      "risks": {
+        "valuation": "High",
+        "competitive": "High",
+        "market": "Moderate"
       },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Unknown",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [],
-      "milestones": [],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [
-        "Very limited public information",
-        "Possible naming conflict with Scout (Tier 2 company)"
+      "red_flags": [
+        "Seed round projected Q1 '24 NOT publicly announced (1 year overdue)",
+        "Minimal public presence after 2 years (no press, no customer names)",
+        "Tiny team (7 people), limited execution capacity",
+        "Severe external validation gaps"
       ],
-      "gp_involvement": {
-        "dillon_dunteman": "Testimonial in dataroom",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "Dataroom mention only"
+      "key_strengths": [
+        "Strong MOIC (6x) on paper valuation",
+        "AI prospecting is growing market segment"
       ],
-      "notes": "CONFLICT: Scout AI (T1) vs Scout (T2) - same company or different? Requires clarification."
-    },
-    {
-      "name": "Zap Energy",
-      "tier": 1,
-      "sector": "Fusion Energy",
-      "description": "Z-pinch fusion reactor (sheared-flow stabilization)",
-      "founded": "2017",
-      "founder": "Uri Shumlak, Brian Nelson (UW spinout)",
-      "website": "https://www.zapenergy.com",
-      "investment_details": {
-        "entry_date": "Unknown (claimed 'relationship from 2021 onward')",
-        "entry_valuation": "Series D (~$1.1B claimed)",
-        "entry_amount": "~$140K (claimed)",
-        "entry_round": "Series D",
-        "sourcing": "Maintained relationship from fusion research"
-      },
-      "current_status": {
-        "latest_valuation": "~$1.1B (dataroom claim, unverified)",
-        "latest_round": "Series D (date unknown)",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Pre-revenue (research stage)"
-      },
-      "key_investors": [
-        "Lowercarbon Capital",
-        "Addition",
-        "Soros Fund Management"
-      ],
-      "milestones": [],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Research/development stage",
-        "technical_progress": "Z-pinch reactor development"
-      },
-      "risks": [
-        "CRITICAL: Zero timeline events - cannot verify investment timing, valuation, or relationship",
-        "Fusion commercialization 10-20+ years away",
-        "No public verification of Dillon's involvement"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Dataroom mentions (unverified), fusion article published Apr 2022",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "Deeptech perspectives.md (dataroom)",
-        "GP Bio.md"
-      ],
-      "notes": "CRITICAL GAP: No timeline events. Cannot verify if fusion article (Apr 2022) preceded or followed investment."
-    },
-    {
-      "name": "Haiqu",
-      "tier": 2,
-      "sector": "Quantum Computing",
-      "description": "Quantum algorithm platform",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "$10M seed round",
-        "entry_amount": "$20K",
-        "entry_round": "Seed",
-        "sourcing": "Unknown"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Seed",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "$10M",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [
-        "Primary Ventures (lead)",
-        "Soma Capital"
-      ],
-      "milestones": [],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [
-        "Very limited public information"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Testimonial in dataroom",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "Case Studies - Recent Investments.md"
-      ]
-    },
-    {
-      "name": "Hephaestus",
-      "tier": 2,
-      "sector": "Fusion Energy",
-      "description": "Fusion energy reactor development",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Unknown",
-        "sourcing": "Fusion research network"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Unknown",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [],
-      "milestones": [],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [
-        "Extremely limited public information",
-        "Fusion commercialization timeline uncertain"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Research files exist",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "research/companies/hephaestus/independent-research.md"
-      ]
-    },
-    {
-      "name": "Marathon Fusion",
-      "tier": 2,
-      "sector": "Fusion Energy",
-      "description": "Fusion energy infrastructure/tritium technology",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Seed",
-        "sourcing": "Fusion research network"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Seed",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [],
-      "milestones": [
-        {
-          "date": "Unknown",
-          "event": "Seed funding announcement",
-          "source": "TechCrunch mention"
-        }
-      ],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Research stage",
-        "technical_progress": "Tritium technology development"
-      },
-      "risks": [
-        "Limited public information",
-        "Fusion infrastructure market nascent"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Research files exist",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "research/companies/marathon-fusion/independent-research.md"
-      ]
-    },
-    {
-      "name": "Scout",
-      "tier": 2,
-      "sector": "Sales/GTM AI (unconfirmed)",
-      "description": "Unknown",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Unknown",
-        "sourcing": "Unknown"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Unknown",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [],
-      "milestones": [],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [
-        "Naming conflict with Scout AI (Tier 1)"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Research files exist",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "research/companies/scout/independent-research.md"
-      ],
-      "notes": "CONFLICT: Scout (T2) vs Scout AI (T1) - same company or different? Requires clarification."
-    },
-    {
-      "name": "Biofire",
-      "tier": 2,
-      "sector": "Smart Firearms",
-      "description": "Biometric smart firearms",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Unknown",
-        "sourcing": "Unknown"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Unknown",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [],
-      "milestones": [],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [
-        "Very limited public information"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "Unknown",
-        "henry_bellew": "None documented"
-      },
-      "sources": []
-    },
-    {
-      "name": "Emerge",
-      "tier": 2,
-      "sector": "Haptic Technology",
-      "description": "Ultrasonic haptic feedback technology",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Unknown",
-        "sourcing": "Unknown"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Unknown",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [],
-      "milestones": [],
-      "traction": {
-        "customers": ["CLAIMED: Apple/Meta acquisition interest - UNVERIFIED"],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [
-        "RED FLAG: Apple/Meta acquisition claim unverified"
-      ],
-      "gp_involvement": {
-        "dillon_dunteman": "None documented",
-        "henry_bellew": "None documented"
-      },
-      "sources": [],
-      "notes": "RED FLAG: Acquisition claim in dataroom has no public verification."
-    },
-    {
-      "name": "Innerworks",
-      "tier": 2,
-      "sector": "Cybersecurity",
-      "description": "Agentic cybersecurity",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Unknown",
-        "sourcing": "Unknown"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Unknown",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [],
-      "milestones": [],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [],
-      "gp_involvement": {
-        "dillon_dunteman": "Testimonial in dataroom",
-        "henry_bellew": "None documented"
-      },
-      "sources": []
-    },
-    {
-      "name": "Mesh Optical",
-      "tier": 2,
-      "sector": "Optics/Photonics",
-      "description": "Data center optical networking",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Seed",
-        "sourcing": "Unknown"
-      },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Seed",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [
-        "Thrive Capital (lead)",
-        "Also Capital (Mike Annunziata - key mentor to Dillon)"
-      ],
-      "milestones": [],
-      "traction": {
-        "customers": [],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [],
-      "gp_involvement": {
-        "dillon_dunteman": "Mike Annunziata (Also Capital) described as 'key mentor'",
-        "henry_bellew": "None documented"
-      },
-      "sources": [
-        "Case Studies - Recent Investments.md"
-      ]
+      "customer_traction": "Pilot - Referrals claimed, but no named customers",
+      "notes": "Combined 2 rounds: Pre-Seed 1 ($3.3M) + Pre-Seed 2 ($7.5M). Concerning lack of seed round materialization."
     },
     {
       "name": "Natrion",
-      "tier": 2,
-      "sector": "Battery Technology",
-      "description": "Solid-state lithium metal batteries",
-      "founded": "Unknown",
-      "founder": "Unknown",
-      "website": "Unknown",
-      "investment_details": {
-        "entry_date": "Unknown",
-        "entry_valuation": "Unknown",
-        "entry_amount": "Unknown",
-        "entry_round": "Unknown",
-        "sourcing": "Unknown"
+      "category": "red_flag",
+      "sector": "Solid-State Battery Technology",
+      "entry_valuation": "$12M",
+      "current_valuation": "$40M",
+      "moic": 3.33,
+      "revenue_status": "Commercial",
+      "primary_moat": "Technical",
+      "moat_strength": "Moderate",
+      "source_quality": "affiliated",
+      "risks": {
+        "valuation": "High",
+        "competitive": "High",
+        "market": "High"
       },
-      "current_status": {
-        "latest_valuation": "Unknown",
-        "latest_round": "Unknown",
-        "latest_round_date": "Unknown",
-        "latest_round_amount": "Unknown",
-        "paper_moic": "Unknown",
-        "revenue_status": "Unknown"
-      },
-      "key_investors": [],
-      "milestones": [],
-      "traction": {
-        "customers": ["CLAIMED: General Motors - FALSE/MISLEADING"],
-        "deployment_status": "Unknown",
-        "technical_progress": "Unknown"
-      },
-      "risks": [
-        "RED FLAG: GM customer claim false or misleading"
+      "red_flags": [
+        "CRITICAL: Expected $60M-$100M GM deal did NOT materialize",
+        "Funding shortfall: Only $4.4M raised in 2024 vs. $60M-$100M projection (93% shortfall)",
+        "Major catalyst failure calls into question commercial viability"
       ],
-      "gp_involvement": {
-        "dillon_dunteman": "None documented",
-        "henry_bellew": "None documented"
+      "key_strengths": [
+        "Product launched (Gen-1 separator taking orders)",
+        "Air Force contracts validate technology",
+        "Mark Cuban seed investor"
+      ],
+      "customer_traction": "Production - Air Force contracts, commercial orders",
+      "notes": "Major red flag: Projected breakthrough deal with GM did not happen. Funding trajectory concerning."
+    },
+    {
+      "name": "Hephaestus",
+      "category": "emerging",
+      "sector": "Fusion Energy / AI Simulation",
+      "entry_valuation": "$12M",
+      "current_valuation": "$40M",
+      "moic": 3.33,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Technical",
+      "moat_strength": "Moderate",
+      "source_quality": "dataroom",
+      "risks": {
+        "valuation": "Moderate",
+        "competitive": "Moderate",
+        "market": "High"
       },
-      "sources": [],
-      "notes": "RED FLAG: Dataroom claims GM customer relationship, but research found this to be false or misleading."
+      "red_flags": [
+        "Timeline discrepancy: Investment date (July 2023) precedes pre-seed announcement (Sept 2023)",
+        "Expected $40M-$50M raise (Q1 '24) did not materialize",
+        "Long commercialization timelines (fusion industry 5-10+ years)"
+      ],
+      "key_strengths": [
+        "AI simulation for fusion (addresses capital intensity of physical testing)",
+        "Imperial College partnership",
+        "Targets $40M valuation"
+      ],
+      "customer_traction": "No customers - Imperial College partnership claimed",
+      "notes": "Very early stage. Simulation software, not actual fusion reactor. Timeline/funding discrepancies warrant investigation."
+    },
+    {
+      "name": "Innerworks",
+      "category": "emerging",
+      "sector": "Cybersecurity / AI Fraud Detection",
+      "entry_valuation": "$6.5M",
+      "current_valuation": "$20M",
+      "moic": 3.08,
+      "revenue_status": "Commercial",
+      "primary_moat": "Technical",
+      "moat_strength": "Strong",
+      "source_quality": "affiliated",
+      "risks": {
+        "valuation": "Low",
+        "competitive": "Moderate",
+        "market": "Moderate"
+      },
+      "red_flags": [],
+      "key_strengths": [
+        "Production customers: 1inch partnership, national infrastructure pilots",
+        "AI fraud detection is emerging high-growth market",
+        "Seed round raised August 2025",
+        "Real-world deployments (crypto breach investigations)"
+      ],
+      "customer_traction": "Production - 1inch, national infrastructure testing",
+      "notes": "Solid execution. Commercial traction with named customers. Cybersecurity tailwinds from AI fraud threats."
+    },
+    {
+      "name": "Biofire",
+      "category": "emerging",
+      "sector": "Firearms Technology / Consumer Hardware",
+      "entry_valuation": "$46.5M",
+      "current_valuation": "$150M",
+      "moic": 3.23,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Technical",
+      "moat_strength": "Moderate",
+      "source_quality": "affiliated",
+      "risks": {
+        "valuation": "Moderate",
+        "competitive": "Moderate",
+        "market": "Moderate"
+      },
+      "red_flags": [
+        "Production capacity constraints (12-16 month delivery backlog)",
+        "Gun owner skepticism of electronics remains significant",
+        "Unproven long-term reliability (no independent testing)"
+      ],
+      "key_strengths": [
+        "First shipments August 2024 (product delivered)",
+        "Thousands of preorders (demand validation)",
+        "Biometric smart gun addresses safety concerns",
+        "Series A extension Feb 2024 ($60M-$80M estimated)"
+      ],
+      "customer_traction": "Pilot - Thousands of preorders, early shipments",
+      "notes": "Product-market fit validated by demand. Execution challenge: scaling production to meet backlog."
+    },
+    {
+      "name": "Emerge",
+      "category": "emerging",
+      "sector": "Consumer XR Hardware / Haptics",
+      "entry_valuation": "$65M",
+      "current_valuation": "$80M",
+      "moic": 1.23,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Regulatory",
+      "moat_strength": "Moderate",
+      "source_quality": "affiliated",
+      "risks": {
+        "valuation": "Moderate",
+        "competitive": "High",
+        "market": "High"
+      },
+      "red_flags": [
+        "No public evidence of Apple/Meta acquisition interest (dataroom claim unverified)",
+        "VR/AR market headwinds (Meta losses, Apple Vision Pro slow adoption)",
+        "Product still in limited beta/early deployment"
+      ],
+      "key_strengths": [
+        "Disney and Sony partnerships verified",
+        "Ultrasound haptics is novel technology",
+        "Patents provide regulatory moat"
+      ],
+      "customer_traction": "Pilot - Beta customers, Disney/Sony partnerships",
+      "notes": "Combined 2 rounds: Jun-23 ($65M) + Jan-24 ($30M). Strategic exit thesis (Apple/Meta) unverified."
+    },
+    {
+      "name": "Dirac",
+      "category": "emerging",
+      "sector": "Manufacturing Software / AI",
+      "entry_valuation": "$15M",
+      "current_valuation": "$26.7M",
+      "moic": 1.78,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Technical",
+      "moat_strength": "Moderate",
+      "source_quality": "affiliated",
+      "risks": {
+        "valuation": "Moderate",
+        "competitive": "Moderate",
+        "market": "Moderate"
+      },
+      "red_flags": [
+        "Funding discrepancy: dataroom $6M vs. public $10.7M seed",
+        "Customer claims (Anduril, Stellantis, Lockheed) unverified",
+        "First-time founder with limited operating experience"
+      ],
+      "key_strengths": [
+        "Siemens partnership verified",
+        "Ancra case study demonstrates value proposition",
+        "AI for manufacturing optimization is growing segment"
+      ],
+      "customer_traction": "Pilot - Ancra verified, other pilots claimed",
+      "notes": "Siemens partnership provides credibility. Customer claims need independent verification."
+    },
+    {
+      "name": "Marathon Fusion",
+      "category": "other",
+      "sector": "Fusion Energy / Infrastructure",
+      "entry_valuation": "$13.9M",
+      "current_valuation": "$13.9M",
+      "moic": 1.0,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Technical",
+      "moat_strength": "Strong",
+      "source_quality": "affiliated",
+      "risks": {
+        "valuation": "High",
+        "competitive": "Moderate",
+        "market": "High"
+      },
+      "red_flags": [
+        "Extremely early stage (founded 2023, technology unproven at scale)",
+        "Dependent on fusion commercialization (5-10+ years minimum)",
+        "Gold transmutation dual revenue model is simulation-only, not validated"
+      ],
+      "key_strengths": [
+        "LOIs with Commonwealth Fusion, Helion",
+        "Addresses critical fusion infrastructure gap",
+        "Dual revenue model (tritium + gold transmutation)"
+      ],
+      "customer_traction": "No customers - Letters of Intent only",
+      "notes": "Very early stage. Long timeline to commercialization. Dependent on broader fusion industry success."
+    },
+    {
+      "name": "Normal Computing",
+      "category": "other",
+      "sector": "Semiconductors / AI Computing",
+      "entry_valuation": "Unknown",
+      "current_valuation": "Unknown",
+      "moic": null,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Technical",
+      "moat_strength": "Moderate",
+      "source_quality": "dataroom",
+      "risks": {
+        "valuation": "High",
+        "competitive": "High",
+        "market": "Moderate"
+      },
+      "red_flags": [
+        "Funding discrepancy: dataroom claims $17M Series A (April 2024) not found publicly",
+        "Fortune 500 customer claims unverified (no independent validation)",
+        "Thermodynamic computing is experimental technology (performance unproven)"
+      ],
+      "key_strengths": [
+        "Thermodynamic computing is novel approach to energy-efficient AI",
+        "If technology works, addresses critical AI power consumption problem"
+      ],
+      "customer_traction": "Pilot - F500 pilots claimed, unverified",
+      "notes": "Major data discrepancy: Series A designation vs. public seed round record. Requires verification."
+    },
+    {
+      "name": "Haiqu",
+      "category": "red_flag",
+      "sector": "Quantum Computing / Software",
+      "entry_valuation": "Unknown",
+      "current_valuation": "Unknown",
+      "moic": null,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Technical",
+      "moat_strength": "Moderate",
+      "source_quality": "dataroom",
+      "risks": {
+        "valuation": "High",
+        "competitive": "High",
+        "market": "Moderate"
+      },
+      "red_flags": [
+        "CRITICAL: 2-year timeline mismatch between dataroom (June 2025 $10M seed) and public sources (June 2023 $4M pre-seed)",
+        "Major data discrepancy requires immediate verification",
+        "Limited public evidence of customer traction"
+      ],
+      "key_strengths": [
+        "Quantum software is important market segment",
+        "Pilots with Airbus/BMW claimed"
+      ],
+      "customer_traction": "No customers - Pilots claimed but unverified",
+      "notes": "CRITICAL DATA ISSUE: 2-year timeline discrepancy between dataroom and public sources. Must verify."
+    },
+    {
+      "name": "Mesh Optical",
+      "category": "other",
+      "sector": "Optical Hardware / Data Center Optics",
+      "entry_valuation": "Unknown",
+      "current_valuation": "Unknown",
+      "moic": null,
+      "revenue_status": "Pre-revenue",
+      "primary_moat": "Technical",
+      "moat_strength": "Moderate",
+      "source_quality": "dataroom",
+      "risks": {
+        "valuation": "High",
+        "competitive": "High",
+        "market": "Moderate"
+      },
+      "red_flags": [
+        "Extremely early stage (only 9 months post-incorporation, Feb 2025)",
+        "No public funding disclosed despite capital-intensive business model",
+        "First-time founder with unproven commercial experience",
+        "Stealth mode limits ability to assess"
+      ],
+      "key_strengths": [
+        "Data center optics is high-growth market (AI infrastructure demand)",
+        "Factory buildout indicates serious execution"
+      ],
+      "customer_traction": "No customers - Stealth mode",
+      "notes": "Too early to assess. Stealth mode. Minimal public information. High uncertainty."
     }
   ],
   "portfolio_summary": {
-    "by_tier": {
-      "tier_1": 6,
-      "tier_2": 8,
-      "researched": 14,
-      "total_claimed": 24
+    "by_category": {
+      "winners": 2,
+      "emerging": 6,
+      "other": 3,
+      "red_flags": 2
     },
     "by_sector": {
-      "Fusion Energy": 3,
-      "AI Robotics": 1,
       "Quantum Computing": 2,
-      "Semiconductors/AI Hardware": 1,
-      "Manufacturing AI": 1,
-      "Sales/GTM AI": 2,
+      "AI Robotics": 1,
       "Cybersecurity": 1,
-      "Battery Tech": 1,
-      "Optics": 1,
-      "Haptics": 1,
-      "Smart Firearms": 1
+      "Battery Technology": 1,
+      "Fusion Energy": 2,
+      "Firearms Technology": 1,
+      "Consumer XR": 1,
+      "Manufacturing Software": 1,
+      "Sales SaaS": 1,
+      "Semiconductors": 1,
+      "Optical Hardware": 1
     },
-    "by_stage": {
-      "Seed/Pre-Seed": "64% (estimated)",
-      "Series A+": "36% (estimated)"
+    "by_moat": {
+      "Technical": 11,
+      "Network Effects": 1,
+      "Regulatory": 1
     },
-    "performance": {
-      "strong_performers": 4,
-      "steady_performers": 5,
-      "red_flags": 2,
-      "too_early": 3
+    "by_revenue_status": {
+      "Commercial": 3,
+      "Pre-revenue": 8,
+      "Pilot": 2
     },
-    "verification_status": {
-      "verified_winners": ["Figure AI", "Quantinuum"],
-      "funding_discrepancies": ["Normal Computing", "Dirac"],
-      "false_claims": ["Natrion", "Emerge"],
-      "unverified_investments": ["Zap Energy", "Hephaestus", "Marathon Fusion", "Biofire", "Scout/Scout AI"]
+    "by_source_quality": {
+      "independent": 2,
+      "affiliated": 6,
+      "dataroom": 5
     }
   },
-  "key_insights": [
-    "Portfolio driven by single exceptional outlier (Figure AI 94x, >50% of value)",
-    "Deeptech thesis coherence is major strength (AI + hard science convergence)",
-    "71% technical founders vs typical 40-50%",
-    "Tier-1 co-investor validation (Founders Fund, Coatue, Microsoft, NVIDIA, Bezos)",
-    "Extreme concentration risk (Figure represents >50% of portfolio value)",
-    "Mark-to-market / valuation risk (Figure $39B on minimal revenue)",
-    "GP value-add claims entirely unverified (100% from dataroom)",
-    "Henry Bellew zero involvement across all 14 companies",
-    "Dataroom credibility concerns (Natrion GM, Emerge Apple/Meta, funding discrepancies)"
-  ],
-  "critical_questions": [
-    "Can Figure AI justify $39B valuation on minimal revenue?",
-    "Why funding discrepancies for Dirac ($6M vs $10.7M) and Normal ($17M vs $35M)?",
-    "Did Dillon introduce Dirac CEO to Founders Fund (critical for GP value-add)?",
-    "When did Zap/Hephaestus/Marathon investments occur relative to fusion article?",
-    "Are Scout AI (T1) and Scout (T2) the same company?",
-    "What is Henry Bellew's actual role in the fund?"
-  ],
-  "notes": [
-    "18 of 24 portfolio companies not researched - limited visibility",
-    "Performance claims (6.7x TVPI) based on unrealized markups, not exits",
-    "Small sample size (~$1M deployed) with high concentration",
-    "Timeline shows most investments in 2023, shortly before 2024 mega-rounds"
+  "companies_without_research": [
+    {"name": "Puris", "entry": "Unsure", "current": "Unsure", "moic": 1.0},
+    {"name": "Mooala", "entry": "Unsure", "current": "Unsure", "moic": 1.0},
+    {"name": "ALL.SPACE (2 rounds)", "entry": "$286M", "current": "$300M", "moic": 1.8},
+    {"name": "KAYA", "entry": "$12.8M", "current": "$20M", "moic": 1.56},
+    {"name": "Pico", "entry": "$28M", "current": "$0M", "moic": 0.0},
+    {"name": "Pierisca (2 rounds)", "entry": "$29M", "current": "$80M", "moic": 2.8},
+    {"name": "Entendre Finance", "entry": "$12.5M", "current": "$20M", "moic": 1.6},
+    {"name": "Crowdz", "entry": "$60M", "current": "$60M", "moic": 1.0},
+    {"name": "Bleximo", "entry": "$22M", "current": "$0M", "moic": 0.0},
+    {"name": "TrueFoundry", "entry": "$40M", "current": "$40M", "moic": 1.0},
+    {"name": "Block Green", "entry": "$30M", "current": "$30M", "moic": 1.0},
+    {"name": "Veri Labs", "entry": "$20M", "current": "$0M", "moic": 0.0},
+    {"name": "Entheos Network", "entry": "$150M", "current": "$0M", "moic": 0.0},
+    {"name": "Smerf (2 rounds)", "entry": "$50M", "current": "$100M", "moic": 2.0},
+    {"name": "Eve Nexus", "entry": "$120M", "current": "$250M", "moic": 2.08},
+    {"name": "Ather Digital", "entry": "$56M", "current": "$56M", "moic": 1.0},
+    {"name": "Turion Space", "entry": "$55M", "current": "$55M", "moic": 1.0},
+    {"name": "RWA.xyz", "entry": "$18M", "current": "$18M", "moic": 1.0},
+    {"name": "Princeton NuEnergy", "entry": "$116.5M", "current": "$120M", "moic": 1.03}
   ]
 }

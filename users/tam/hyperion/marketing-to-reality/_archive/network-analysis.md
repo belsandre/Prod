@@ -45,9 +45,9 @@ This analysis maps Dillon's professional network to understand deal sourcing cap
 {% if hyperionNetwork.overall_statistics.top_categories %}
 | Category | Count | % of Identified | Notes |
 |----------|-------|-----------------|-------|
-{% for cat in hyperionNetwork.overall_statistics.top_categories %}
+{%- for cat in hyperionNetwork.overall_statistics.top_categories %}
 | {{ cat.category }} | {{ cat.count }} | {{ cat.percentage }} | |
-{% endfor %}
+{%- endfor %}
 {% endif %}
 
 ---
@@ -59,9 +59,9 @@ This analysis maps Dillon's professional network to understand deal sourcing cap
 {% if hyperionNetwork.top_firms %}
 | Rank | Firm | Connections | Category | Significance |
 |------|------|-------------|----------|--------------|
-{% for firm in hyperionNetwork.top_firms %}
+{%- for firm in hyperionNetwork.top_firms %}
 | {{ loop.index }} | {{ firm.firm }} | {{ firm.connections }} | {{ firm.category }} | {{ firm.significance }} |
-{% endfor %}
+{%- endfor %}
 {% endif %}
 
 ---
@@ -111,9 +111,9 @@ Dataroom claims strategic "Central Hub" relationships for filtering too-early de
 {% if hyperionNetwork.strategic_relationships.co_investors %}
 | Firm | Connections | Deals | Relationship |
 |------|-------------|-------|--------------|
-{% for inv in hyperionNetwork.strategic_relationships.co_investors %}
+{%- for inv in hyperionNetwork.strategic_relationships.co_investors %}
 | {{ inv.firm }} | {{ inv.connections }} | {{ inv.deals | formatArray }} | {{ inv.relationship }} |
-{% endfor %}
+{%- endfor %}
 {% endif %}
 
 ### Corporate Strategic Partners
@@ -121,9 +121,9 @@ Dataroom claims strategic "Central Hub" relationships for filtering too-early de
 {% if hyperionNetwork.strategic_relationships.corporate_strategic %}
 | Firm | Deals | Relationship |
 |------|-------|--------------|
-{% for corp in hyperionNetwork.strategic_relationships.corporate_strategic %}
+{%- for corp in hyperionNetwork.strategic_relationships.corporate_strategic %}
 | {{ corp.firm }} | {{ corp.deals | formatArray }} | {{ corp.relationship }} |
-{% endfor %}
+{%- endfor %}
 {% endif %}
 
 ---

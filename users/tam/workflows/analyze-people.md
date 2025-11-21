@@ -8,19 +8,91 @@ Validate GP-related marketing claims against independent evidence to assess: (1)
 
 - **Claims files**: `claims-analysis.md` and/or `_data/claims.json` (GP-related claims only)
 - **Dataroom folder**: GP bios, pitch decks, reference letters, case studies
-- **Research/people folders**: LinkedIn profiles, network CSVs, independent sources
-- **Research/network folders**: Connection analysis by category (if available)
+- **Research/people folders**: LinkedIn profiles, network CSVs (subset of connections), independent sources
+- **Research/network folders**: Partial connection data by category (methodology limitations mean not all connections captured)
 
 ## Outputs
 
-Create `marketing-to-reality/people/gp-analysis.md` with:
-- **Header**: Sources consulted, validation process, analysis goal
-- **Per-GP analysis**: Credentials, network, **personal attribution** (not portfolio performance), role clarity
-- **Team dynamics**: Economics, redundancy, structural risks
-- **Critical gaps**: Material **people-specific** omissions vs normal VC marketing
-- **Recommendations**: Required validations before investment
+### marketing-to-reality/_data/people.json
 
-**Note:** This workflow focuses on **GP-level concerns only**. Portfolio-level issues (company valuations, TVPI calculations, performance verification) belong in separate portfolio analysis workflows.
+Structured data containing all GP analysis findings:
+
+```json
+{
+  "entity_name": "string",
+  "fund_name": "string",
+  "analysis_date": "YYYY-MM-DD",
+  "general_partners": [
+    {
+      "name": "string",
+      "role": "string",
+      "verified_credentials": {...},
+      "key_attribution_claims": [
+        {
+          "claim_id": "VISTA_DEPLOYMENT|FIRMAMENT_EXITS|etc",
+          "claim": "string",
+          "verification_status": "verified|role_unclear|timing_issue|etc",
+          "verification_tier": "independent|affiliated|dataroom_only",
+          "concern": "string (if applicable)"
+        }
+      ],
+      "material_concerns": [...]
+    }
+  ],
+  "critical_people_gaps": [
+    {
+      "gap_type": "vista_role_ambiguity|co_gp_underrepresentation|etc",
+      "person": "string",
+      "description": "string",
+      "why_it_matters": "string",
+      "what_to_ask": "string",
+      "risk_severity": "red_flag|yellow_flag",
+      "priority": "critical|important"
+    }
+  ],
+  "team_structure_assessment": {...},
+  "risk_synthesis": {...},
+  "executive_summary": {...}
+}
+```
+
+### marketing-to-reality/people-analysis.md
+
+Template file that renders data from people.json using Nunjucks template syntax:
+
+**Data Separation Principle** (following claims-analysis.md pattern):
+
+- **people.json = ALL CONTENT**: Complete structured data with ALL substantive content including credentials, claims, evidence tiers, concerns, validations, analysis. Contains narrative text in fields like "description", "why_it_matters", "what_to_ask".
+- **people-analysis.md = PURE TEMPLATE**: Nunjucks template with NO substantive content. Only contains:
+  - Template variables: `{{ hyperionPeople.field }}`
+  - Loops: `{% for gp in hyperionPeople.general_partners %}...{% endfor %}`
+  - Conditionals: `{% if gp.thought_leadership %}...{% endif %}`
+  - Document structure (headings, sections)
+
+**Key Principle**: If you delete all JSON data, the markdown should be just empty template structure with no substance.
+
+**Markdown Template Example**:
+```markdown
+## GP Profiles
+
+{% for gp in hyperionPeople.general_partners %}
+### {{ gp.name }} ({{ gp.role }})
+
+**Key Claims vs Evidence:**
+
+| Claim | Evidence Source | Status |
+|-------|----------------|--------|
+{% for claim in gp.key_attribution_claims %}
+| {{ claim.claim }} | {{ claim.verification_tier }} | {{ claim.verification_status }} |
+{% endfor %}
+{% endfor %}
+```
+
+**Writing Approach**:
+- ALL substantive content (facts, analysis, paragraphs) goes in people.json
+- Markdown is ONLY template logic + structure
+- Use Nunjucks syntax for all data display
+- Updates modify JSON, not markdown
 
 ---
 
@@ -44,15 +116,15 @@ Create `marketing-to-reality/people/gp-analysis.md` with:
 
 3. **Inventory research sources** by GP:
    - LinkedIn profiles (education, employment history)
-   - Network CSVs (actual connections by category: industry, school, investor)
+   - Network data (partial connection captures—methodology limitations mean incomplete data; do not claim captured connections = total network size)
    - Independent sources (news articles, court filings, SEC documents)
    - Affiliated sources (founder references, co-investor testimonials)
    - Dataroom sources (pitch decks, bios, letters)
 
-4. **Categorize evidence** by objectivity tier:
-   - **Tier 3** (Independent): News, public records, third-party research
-   - **Tier 2** (Affiliated): Portfolio founders, co-investors, former colleagues
-   - **Tier 1** (Dataroom): Self-reported materials, GP-controlled narratives
+4. **Categorize evidence** by source type:
+   - **Independent**: News, public records, third-party research
+   - **Affiliated**: Portfolio founders, co-investors, former colleagues
+   - **Dataroom**: Self-reported materials, GP-controlled narratives
 
 ### Phase 3: Validate Claims
 
@@ -61,30 +133,19 @@ For each GP-related claim:
 5. **Credential verification**:
    - Education: Confirm degree, graduation date, thesis/specialization (LinkedIn, university records)
    - Professional experience: Verify employers, titles, dates, deal involvement (LinkedIn, press, SEC filings)
+   - Thought leadership: Assess substance (frequency, consistency, engagement) not just existence—sporadic posting ≠ credible expertise
    - Flag timing issues: Did credentials exist before claimed accomplishments?
 
-6. **Network validation**:
-   - Cross-reference claimed relationships with network CSV data
-   - Count actual connections vs claimed access (e.g., "deep Harvard network" → harvard.csv connection count)
-   - Assess depth vs breadth: Advisors/board seats vs passive connections
-   - Identify gaps: Claimed "close relationships" with zero/minimal connections
-
-7. **Track record attribution**:
+6. **Track record attribution**:
    - Individual vs institutional contribution: Was GP at the firm during the deal?
    - Role clarity: Sourced, led, supported, board seat, passive?
    - **Personal contribution attribution**: Which deals did each GP actually work on? What was their specific role?
    - Time at firm: Junior analyst or decision-maker during claimed wins?
    - **Note:** Focus on GP's role/attribution, NOT portfolio company performance (that's portfolio analysis)
 
-8. **Portfolio involvement**:
-   - Coverage metrics: How many portfolio companies does each GP support?
-   - Tier breakdown: Which companies get attention vs neglect?
-   - Board seats: Actual governance role vs claimed strategic support?
-   - Single point of failure: What happens if primary GP is unavailable?
-
 ### Phase 4: Identify Material Omissions (People-Specific Only)
 
-9. **Critical people gaps** (structural concerns requiring validation):
+7. **Critical people gaps** (structural concerns requiring validation):
    - **Co-GP underrepresentation**: Significant economic stake but minimal dataroom presence
    - **Attribution ambiguity**: Team vs individual contribution unclear (focus on GP's personal role, not deal outcomes)
    - **Role inflation**: Analyst-level experience presented as decision-maker track record
@@ -94,7 +155,7 @@ For each GP-related claim:
    - **Capacity misalignment**: GP count vs portfolio size creates impossible coverage
    - **Experience gaps**: Critical skills missing from team (e.g., non-technical partners in deeptech fund)
 
-10. **Normal gaps** (expected in VC marketing, not inherently concerning):
+8. **Normal gaps** (expected in VC marketing, not inherently concerning):
     - Selective disclosure of wins vs losses (this is portfolio-level, not people-level)
     - Limited independent sources: Most references from affiliated parties
     - Founder testimonials: Self-selected positive feedback
@@ -110,89 +171,33 @@ These belong in portfolio analysis workflows, NOT people analysis.
 
 ### Phase 5: Synthesize Findings
 
-11. **Per-GP assessment**:
-    - Background summary (verified credentials)
-    - Network quality (connection count/depth vs claims)
-    - Track record (attributed deals with evidence tier)
-    - Portfolio coverage (involvement metrics)
-    - Strengths (verified claims with Tier 2+ evidence)
-    - Concerns (unverified claims, contradictions, material omissions)
-    - Rating: Conditional on verification (e.g., "Strong if Harvard network verified")
+9. **Per-GP assessment**:
+    - Background summary (verified credentials, networks, track record)
+    - Key claims vs evidence (table showing claim → evidence source → status)
+    - Material concerns (unverified claims, contradictions, omissions)
+    - Rating: Conditional on verification (e.g., "Strong if Vista role verified")
 
-12. **Team dynamics**:
+10. **Team dynamics**:
     - GP economics vs contribution: Do carry allocations align with involvement?
     - Redundancy: What happens if one GP leaves?
     - Structural risks: Over-reliance on single individual?
     - Co-GP concerns: Underrepresented partners, passive vs active roles
 
-13. **Recommendations**:
+11. **Recommendations**:
     - Required validations: Specific follow-up investigations before investment
     - Priority: High (structural concerns), Medium (attribution clarity), Low (nice-to-have)
     - Method: Network calls, reference checks, portfolio deep dives, independent research
 
 ---
 
-## Output Format
-
-### Header (gp-analysis.md)
-
-```markdown
-# GP People Analysis: [Fund Name]
-
-**Entity:** [Entity Name]
-**General Partners:** [Names and titles]
-**Analysis Date:** [Date]
-
-**Analysis Goal:** Validate GP credentials, networks, personal attribution, and team structure against independent evidence.
-
-**Sources:** Dataroom (X files), research/people folders (LinkedIn, network CSVs, independent verification), claims files
-
-**Process:** Extracted GP claims → mapped evidence by tier (independent/affiliated/dataroom) → validated credentials/networks/attribution → identified people-specific gaps → synthesized team assessment
-
-**Note:** People-level analysis only. Portfolio performance verification in separate workflows.
-
----
-```
-
-### Main Sections
-
-1. **Executive Summary** (2-3 sentences, overall rating)
-
-2. **GP #1: [Name]**
-   - Background & Credentials (verified education/experience)
-   - Network Analysis (claimed vs actual connections)
-   - Track Record Attribution (deals with evidence tier)
-   - Portfolio Involvement (coverage metrics)
-   - Strengths (verified claims)
-   - Concerns (gaps, contradictions, omissions)
-   - Individual Rating (conditional on follow-up)
-
-3. **GP #2: [Name]** (same structure)
-
-4. **Team Dynamics**
-   - GP economics alignment
-   - Redundancy and structural risks
-   - Co-GP representation concerns
-   - Overall team assessment
-
-5. **Critical Gaps vs Normal Gaps**
-   - **Critical**: Material omissions requiring validation (bulleted list)
-   - **Normal**: Expected VC marketing practices (bulleted list)
-
-6. **Recommendations**
-   - High Priority (structural concerns, must validate before investment)
-   - Medium Priority (attribution clarity, role verification)
-   - Low Priority (nice-to-have confirmations)
-
----
-
 ## Key Principles
 
-- **Evidence-based**: Only confirm claims with Tier 2+ evidence (affiliated or independent)
+- **Evidence-based**: Only confirm claims with affiliated or independent sources (not just dataroom)
 - **Attribution clarity**: Distinguish individual vs institutional contribution
 - **Timing verification**: Flag retroactive narrative construction
 - **Materiality focus**: Separate concerning gaps from normal VC marketing
 - **Conditional ratings**: "Strong if verified" vs "Weak if unverified" scenarios
+- **Conciseness**: Eliminate redundancy—state insights once, clearly
 - **Generalizability**: Workflow applies to any GP/fund, not entity-specific
 
 ---
@@ -200,13 +205,12 @@ These belong in portfolio analysis workflows, NOT people analysis.
 ## Common Validation Questions
 
 - **Credentials**: Can we confirm education, employment, deal experience via independent sources?
-- **Network**: Do actual connections (LinkedIn CSVs) support claimed access?
-- **Track Record**: Was the GP at the firm during claimed deals? What was their role?
+- **Track Record**: Was the GP at the firm during claimed deals? What was their specific role?
 - **Attribution**: Individual contribution vs team effort? How do we know?
-- **Coverage**: Does each GP support their share of portfolio companies?
 - **Omissions**: Why is a co-GP absent from dataroom materials despite significant economics?
 - **Timing**: Did claimed expertise exist before or after the accomplishment?
 - **Structural**: What happens if the primary GP is unavailable? Single point of failure?
+- **Capacity**: Can the GP team realistically support the target portfolio size?
 
 ---
 
@@ -214,10 +218,10 @@ These belong in portfolio analysis workflows, NOT people analysis.
 
 This workflow is designed to be reusable across different funds and GPs:
 
-- **Adaptable inputs**: Works with whatever evidence is available (CSVs, LinkedIn, public records)
-- **Graceful degradation**: If network CSVs don't exist, use LinkedIn profiles or public sources
+- **Adaptable inputs**: Works with whatever evidence is available (network data, LinkedIn, public records)
+- **Graceful degradation**: If certain data sources don't exist, use available alternatives
 - **Clear gap taxonomy**: Distinguishes "can't verify" from "contradicts claims"
 - **Scalable**: Works for solo GPs, small teams, or large partnerships
 - **Prioritization framework**: Helps focus limited diligence time on material concerns
 
-The output should be concise (3-5 pages), evidence-focused, and actionable for investment decision-making.
+The output should be **concise and non-redundant** (aim for 200-400 lines), evidence-focused, and actionable for investment decision-making. Avoid repeating the same insight in multiple sections.
