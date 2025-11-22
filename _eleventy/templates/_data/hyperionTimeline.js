@@ -13,13 +13,10 @@ module.exports = function() {
   } catch (error) {
     console.warn(`Warning: Could not load timeline.json: ${error.message}`);
     return {
-      metadata: {},
+      metadata: { source_distribution: {} },
       timeline: [],
-      timeline_gaps: [],
-      timing_concerns: [],
-      key_patterns: [],
-      verification_priorities: [],
-      notes: []
+      findings: [],
+      verification_priorities: []
     };
   }
 };

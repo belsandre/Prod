@@ -1,7 +1,7 @@
 # Hyperion Ventures Claims Validation
 
 **Last Updated**: {{ hyperionClaims.metadata.extraction_date }}
-**Data Source**: [claims.json](/_data/claims.json)
+**Data Source**: [claims.json](../../_data/claims/)
 **Methodology**: {{ hyperionClaims.metadata.methodology }}
 
 ---

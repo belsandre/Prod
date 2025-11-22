@@ -1,506 +1,405 @@
 {
   "metadata": {
-    "extraction_date": "2025-11-17",
-    "source": "objective-timeline.md",
-    "coverage_period": "2015 to 2025-09",
-    "total_events": 47,
+    "entity": "Hyperion Ventures Fund I",
+    "gp": "Dillon Dunteman (Founder & GP), Henry Bellew (Co-GP)",
+    "extraction_date": "2025-11-22",
+    "coverage_period": "2019 to 2025",
+    "total_events": 36,
     "source_distribution": {
-      "tier_1_entity_controlled": 22,
-      "tier_2_affiliated": 2,
-      "tier_3_independent": 10,
-      "mixed": 2
-    }
+      "dataroom": 21,
+      "affiliated": 4,
+      "independent": 11
+    },
+    "claims_validated": ["TRACK_RECORD", "SOURCING_EDGE", "TECHNICAL_EXPERTISE", "COMPETITIVE_POSITIONING", "MARKET_TIMING"]
   },
   "timeline": [
     {
-      "date": "2015-2019",
-      "event": "Dillon Dunteman attends Harvard University, B.S. Mechanical Engineering",
-      "details": "Senior thesis on vision software for micro-robotic bees, quantum computing coursework",
-      "relevance": "Technical expertise foundation, thought leadership credentials",
-      "source": "LinkedIn, GP Bio",
-      "tier": 2,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 2: Technical expertise", "KEY Claim 4: Early positioning foundation"]
+      "date": "2019-05",
+      "event": "Dillon graduates Harvard with B.S. Mechanical Engineering",
+      "claim_linkage": ["TECHNICAL_EXPERTISE"],
+      "source": "Harvard athletic roster, GP Bio",
+      "source_type": "independent",
+      "verification": "verified"
     },
     {
-      "date": "2019-2021",
-      "event": "Dillon works as Investor at Firmament Group",
-      "details": "Venture arm buildout, enterprise SaaS buyouts",
-      "relevance": "Early positioning, Quantinuum investment context",
-      "source": "LinkedIn, GP Bio",
-      "tier": 2,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 4: Early positioning", "KEY Claim 5: Quantinuum investment"]
+      "date": "2019-01",
+      "event": "Dillon joins Firmament Group as Investor",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "PitchBook, LinkedIn",
+      "source_type": "independent",
+      "verification": "verified"
     },
     {
-      "date": "2019-late to 2020-early",
-      "event": "Dillon researches quantum computing at Firmament, cold-emails/calls 120+ founders",
-      "details": "Systematic quantum industry outreach",
-      "relevance": "Quantinuum sourcing story, thought leadership",
-      "source": "Dataroom case study",
-      "tier": 1,
+      "date": "2019-Q4",
+      "event": "Claims to research quantum computing at Firmament, cold-contacting 120+ founders",
+      "claim_linkage": ["SOURCING_EDGE", "MARKET_TIMING"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
       "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 4.2: Systematic research methodology", "KEY Claim 5.1: Quantinuum sourcing"]
+      "note": "Claimed 'since 2019' positioning based only on dataroom source"
     },
     {
-      "date": "2020-early",
-      "event": "Dillon connects with Cambridge Quantum Computing (CQC) CEO Ilyas Khan",
-      "details": "Initial relationship building",
-      "relevance": "Quantinuum sourcing",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "partial",
-      "key_claim_linkage": ["KEY Claim 5.1: Quantinuum sourcing"]
+      "date": "2020-01",
+      "event": "Connects with Cambridge Quantum Computing CEO Ilyas Khan",
+      "claim_linkage": ["SOURCING_EDGE"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
       "date": "2020-03",
-      "event": "Firmament invests ~$660K in Cambridge Quantum (CQC) convertible note",
-      "details": "~$20M round, Dillon's role described as 'personally sourced and underwrote'",
-      "relevance": "First venture investment claim, Quantinuum investment timing",
-      "source": "Dataroom case study, LP Letter",
-      "tier": 1,
+      "event": "Firmament invests ~$660K in CQC convertible note (~$170K personal + family)",
+      "claim_linkage": ["TRACK_RECORD", "MARKET_TIMING"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
       "verification": "partial",
-      "key_claim_linkage": ["KEY Claim 4.1: First venture investment", "KEY Claim 5.1: Quantinuum timing"]
+      "note": "Genuinely early (pre-pandemic quantum); investment terms unverified"
     },
     {
-      "date": "2021",
-      "event": "Dillon launches Substack 'Prescience' (tagline: 'Precursor to Hyperion')",
-      "details": "Thought leadership platform launch",
-      "relevance": "Thought leadership timing, narrative construction",
-      "source": "Substack archive",
-      "tier": 1,
+      "date": "2020-06",
+      "event": "Firmament invests in Profit Tools, launches Envase Technologies",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "Madison Park Group, PR Newswire",
+      "source_type": "independent",
+      "verification": "verified"
+    },
+    {
+      "date": "2021-01",
+      "event": "Dillon leaves Firmament Group",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "PitchBook",
+      "source_type": "independent",
       "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 4.4: Thought leadership", "Narrative Arc: Long-term planning"]
+      "note": "Both claimed Firmament exits occurred 14-22 months AFTER departure"
+    },
+    {
+      "date": "2021-07",
+      "event": "CQC note converts to equity at $244M entry valuation",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
       "date": "2021-09",
       "event": "Dillon joins Vista Equity Partners",
-      "details": "Growth equity role at $100B+ AUM firm",
-      "relevance": "Financial rigor claim, discipline phase",
-      "source": "LinkedIn, GP Bio",
-      "tier": 2,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 2.1: Financial rigor", "Narrative Arc: Discipline phase"]
+      "claim_linkage": ["TECHNICAL_EXPERTISE"],
+      "source": "PitchBook, LinkedIn",
+      "source_type": "independent",
+      "verification": "verified"
     },
     {
       "date": "2021-10",
-      "event": "Dillon publishes 'Anticipating Disruptive Innovation' on Substack (pinned post)",
-      "details": "First major Substack article",
-      "relevance": "Thought leadership timing - AFTER first investment",
-      "source": "Substack archive",
-      "tier": 1,
+      "event": "Launches Substack 'Prescience' - tagline 'Precursor to Hyperion'",
+      "claim_linkage": ["TECHNICAL_EXPERTISE", "MARKET_TIMING"],
+      "source": "Substack (presciencetech.substack.com)",
+      "source_type": "independent",
       "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 4.4: Thought leadership"],
-      "timing_concern": "Published 19 months AFTER Quantinuum investment (March 2020)"
-    },
-    {
-      "date": "2021",
-      "event": "Dillon 'originally started researching fusion energy' while at Firmament",
-      "details": "Fusion research initiation claim",
-      "relevance": "Fusion thought leadership timing",
-      "source": "Dataroom",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 4.2: Fusion thought leadership"],
-      "timing_concern": "Dillon joined Vista Sept 2021, so if 'late 2021' this is inaccurate"
-    },
-    {
-      "date": "2021-07",
-      "event": "CQC convertible note converts to equity at $244M valuation",
-      "details": "Dillon invests ~$76K pro-rata",
-      "relevance": "Quantinuum performance baseline",
-      "source": "Dataroom",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 5.1: Quantinuum conversion"]
+      "note": "First verifiable thought leadership is 2021, not 2019"
     },
     {
       "date": "2021-11",
-      "event": "CQC merges with Honeywell Quantum to form Quantinuum",
-      "details": "Major validation event, market leader emergence",
-      "relevance": "Quantinuum becomes market leader",
-      "source": "Public announcement",
-      "tier": 3,
+      "event": "CQC merges with Honeywell quantum unit to form Quantinuum",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "News",
+      "source_type": "independent",
+      "verification": "verified"
+    },
+    {
+      "date": "2022-03",
+      "event": "Logistyx sold to E2open for $185M (>3x MOIC claimed)",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "PE Professional, E2open announcement",
+      "source_type": "independent",
       "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 5.1: Market leader status"]
+      "note": "Exit 14 months after Dillon left Firmament; attribution ambiguous"
     },
     {
       "date": "2022-04",
-      "event": "Dillon publishes 'Deep-Dive #2: Nuclear Fusion' on Substack",
-      "details": "Comprehensive fusion article",
-      "relevance": "Fusion thought leadership, timing relative to investments",
-      "source": "Substack archive",
-      "tier": 1,
+      "event": "Publishes fusion deep-dive on Substack",
+      "claim_linkage": ["TECHNICAL_EXPERTISE", "MARKET_TIMING"],
+      "source": "Substack",
+      "source_type": "dataroom",
       "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 4.4: Thought leadership", "KEY Claim 4.2: Fusion expertise"],
-      "timing_concern": "Need to verify if fusion investments preceded or followed this article"
+      "note": "Need fusion investment dates to assess if thesis was predictive"
     },
     {
-      "date": "2022-mid",
-      "event": "Dillon 'began angel investing' per LP Letter",
-      "details": "Investing 'nearly all personal savings (~$300K)'",
-      "relevance": "Portfolio performance baseline, angel investing phase start",
-      "source": "LP Letter",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 3.1: Portfolio performance", "Narrative Arc: Angel investing phase"]
+      "date": "2022-08",
+      "event": "Invests $45K in Bleximo bridge round",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "Case Studies - Underperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
-      "date": "2022-06",
-      "event": "Dillon publishes 'Deep-Dive #3: Solid-State Batteries' on Substack",
-      "details": "Battery technology deep-dive",
-      "relevance": "Thought leadership breadth",
-      "source": "Substack archive",
-      "tier": 1,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 4.4: Thought leadership"]
+      "date": "2022-11",
+      "event": "ChatGPT released (GPT-3.5), sparking AI robotics hype",
+      "claim_linkage": ["MARKET_TIMING"],
+      "source": "Public knowledge",
+      "source_type": "independent",
+      "verification": "verified"
     },
     {
-      "date": "2022",
-      "event": "Brett Adcock founds Figure AI, self-funds with $100M",
-      "details": "Company founding and initial capitalization",
-      "relevance": "Figure AI context, early positioning claim",
-      "source": "Public sources",
-      "tier": 3,
+      "date": "2023-01",
+      "event": "Envase sold to WiseTech Global for $230M (>5x MOIC claimed)",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "WiseTech Global announcement",
+      "source_type": "independent",
       "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 5.2: Figure AI context", "KEY Claim 4.3: Early positioning"]
+      "note": "Exit 22 months after Dillon left Firmament; attribution ambiguous"
+    },
+    {
+      "date": "2023-01",
+      "event": "Invests $15K in Entheos seed round",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "Case Studies - Underperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
       "date": "2023-Q1",
-      "event": "Dillon 'began to dive deeper into humanoid robotics space'",
-      "details": "Robotics research initiation",
-      "relevance": "Figure AI early positioning claim, timing relative to investment",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 4.3: Figure AI early positioning"],
-      "timing_concern": "Vague timing, investment followed 1-3 months later (April 2023)"
+      "event": "Sources Figure AI via Tamarack Global relationship",
+      "claim_linkage": ["SOURCING_EDGE"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
       "date": "2023-04",
-      "event": "Dillon invests $40K in Figure AI Series A at $420M post-money",
-      "details": "Sourced through 'close relationship with partners at Tamarack Global'",
-      "relevance": "Major investment, early positioning claim, sourcing relationship",
-      "source": "Dataroom case study",
-      "tier": 1,
+      "event": "Invests $40K in Figure AI Series A at $420M post-money",
+      "claim_linkage": ["TRACK_RECORD", "MARKET_TIMING"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
       "verification": "partial",
-      "key_claim_linkage": ["KEY Claim 4.3: Early positioning", "KEY Claim 5.2: Figure investment"],
-      "timing_concern": "Series A announced May 2023, just 1 month later - suggests participation in institutional round"
+      "note": "5 months after ChatGPT = borderline 'early'; not prescient but not late"
     },
     {
       "date": "2023-05",
-      "event": "Dillon meets Normal Computing CEO Faris Sbahi at NYC networking event",
-      "details": "Initial relationship",
-      "relevance": "Normal sourcing story",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 5.3: Normal sourcing"]
-    },
-    {
-      "date": "2023-05",
-      "event": "Figure AI announces Series A ($70M) led by Parkway Venture Capital",
-      "details": "Public Series A announcement, 1 month after Dillon investment",
-      "relevance": "Consensus timing benchmark",
-      "source": "Public announcement",
-      "tier": 3,
+      "event": "Figure AI Series A publicly announced",
+      "claim_linkage": ["MARKET_TIMING"],
+      "source": "News",
+      "source_type": "independent",
       "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 5.2: Consensus timing"],
-      "timing_concern": "Only 1 month after Dillon investment - questions 'non-consensus' claim"
+      "note": "Only 1 month after Dillon invested"
     },
     {
-      "date": "2023-H2 to 2024-Q1",
-      "event": "Dillon assists Normal Computing with hiring, commercial strategy, financial modeling",
-      "details": "Referred 2 key early hires, commercial and financial support",
-      "relevance": "Value-add claims",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 2.3: Value-add to founders", "KEY Claim 5.3: Normal relationship"]
+      "date": "2023-05",
+      "event": "Meets Normal Computing CEO at NYC networking event",
+      "claim_linkage": ["SOURCING_EDGE"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
+    },
+    {
+      "date": "2023-07",
+      "event": "Invests in Hephaestus Pre-Seed round",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "Hyperion - Fund I",
+      "source_type": "dataroom",
+      "verification": "unverified"
+    },
+    {
+      "date": "2023-08",
+      "event": "Bleximo CEO commits suicide; company fails",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "Case Studies - Underperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
       "date": "2023-10",
-      "event": "Dillon introduced to Dirac CEO Fil Aronshtein by VC who passed on investment",
-      "details": "Initial sourcing from VC network",
-      "relevance": "VC deal flow claim, Dirac sourcing",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 1.3: VC deal flow", "KEY Claim 5.4: Dirac sourcing"]
+      "event": "Introduced to Dirac CEO by VC who passed on deal",
+      "claim_linkage": ["SOURCING_EDGE"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
       "date": "2023-11",
-      "event": "Dillon invests $20K in Dirac pre-seed SAFE at $15M valuation cap",
-      "details": "Pre-seed investment",
-      "relevance": "Dirac investment",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 5.4: Dirac investment"]
-    },
-    {
-      "date": "2023-11",
-      "event": "Dillon introduces Dirac CEO to 'friend at Founders Fund'",
-      "details": "Critical VC introduction claim",
-      "relevance": "Value-add claim, Founders Fund relationship",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 2.3: Value-add", "KEY Claim 5.4: Dirac outcome"],
-      "verification_priority": "CRITICAL - Key GP value-add validation"
-    },
-    {
-      "date": "2023-Q4",
-      "event": "Dillon introduces Dirac CEO to GTM advisors, hires, top VCs (Founders Fund, Thrive, DCVC)",
-      "details": "Multiple value-add activities",
-      "relevance": "Value-add claims, network leverage",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 2.3: Value-add", "KEY Claim 2.5: Making deeptech legible for VCs"]
-    },
-    {
-      "date": "2024-01",
-      "event": "Dillon advises Dirac CEO to pass on seed term sheet at <$20M valuation",
-      "details": "Strategic fundraising advice",
-      "relevance": "Value-add claim, strategic guidance",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 2.3: Value-add to founders"]
+      "event": "Invests $20K in Dirac Pre-Seed SAFE at $15M cap; introduces to Founders Fund",
+      "claim_linkage": ["TRACK_RECORD", "SOURCING_EDGE"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
       "date": "2024-02",
-      "event": "Figure AI raises $675M Series B at $2.6B post-money valuation",
-      "details": "Bezos ($100M), Microsoft ($95M), NVIDIA ($50M), OpenAI Startup Fund",
-      "relevance": "Major validation, consensus benchmark, 6.2x increase in 9 months",
-      "source": "Public announcement",
-      "tier": 3,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 4.3: Early positioning timing", "KEY Claim 5.2: Consensus benchmark"]
+      "event": "Quantinuum raises $300M at $5.3B; Figure AI raises $675M Series B at $2.6B",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "News",
+      "source_type": "independent",
+      "verification": "verified"
     },
     {
-      "date": "2024-02",
-      "event": "Quantinuum raises $300M at $5.3B post-money",
-      "details": "21.7x increase since July 2021 conversion",
-      "relevance": "Market leader validation, valuation growth",
-      "source": "Public announcement",
-      "tier": 3,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 3.6: Market leader", "KEY Claim 5.1: Valuation growth"]
+      "date": "2024-Q1",
+      "event": "Entheos folds after hardware partner delays",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "Case Studies - Underperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
       "date": "2024-04",
-      "event": "Dirac seed round closes",
-      "details": "$6M per dataroom OR $10.7M per public PR (Coatue & Founders Fund co-lead) - DISCREPANCY",
-      "relevance": "Validation of Dillon value-add if FF lead resulted from introduction",
-      "source": "Mixed (Dataroom + public PR)",
-      "tier": "Mixed",
-      "verification": "partial",
-      "key_claim_linkage": ["KEY Claim 5.4: Dirac outcome"],
-      "red_flag": "Funding discrepancy ($6M vs $10.7M, 78% gap)"
+      "event": "Normal Computing raises $17M Series A led by Drive Capital",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "Case Studies, news",
+      "source_type": "affiliated",
+      "verification": "partial"
     },
     {
       "date": "2024-04",
-      "event": "Normal Computing raises Series A",
-      "details": "$17M per dataroom (Drive Capital lead) OR $35M total seed per public sources - DISCREPANCY",
-      "relevance": "Validation of Dillon value-add",
-      "source": "Mixed (Dataroom + public sources)",
-      "tier": "Mixed",
+      "event": "Dirac raises $6M Seed co-led by Founders Fund and Coatue",
+      "claim_linkage": ["TRACK_RECORD", "SOURCING_EDGE"],
+      "source": "Case Studies, news",
+      "source_type": "affiliated",
       "verification": "partial",
-      "key_claim_linkage": ["KEY Claim 5.3: Normal outcome"],
-      "red_flag": "Funding discrepancy ($17M vs $35M)"
-    },
-    {
-      "date": "2024-H1",
-      "event": "Dillon helps Normal with Series A raise",
-      "details": "Financial model, diligence answers, term sheet negotiations",
-      "relevance": "Value-add claims",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 2.3: Value-add to founders"]
+      "note": "Dataroom says $6M; some sources say $10.7M"
     },
     {
       "date": "2024-07",
-      "event": "Normal CEO offers Dillon advisory role with ~$80K equity award",
-      "details": "Double the $40K committed investment",
-      "relevance": "Value-add recognition claim",
-      "source": "Dataroom case study",
-      "tier": 1,
-      "verification": "unverified",
-      "key_claim_linkage": ["KEY Claim 2.3: Value-add recognition by founder"]
+      "event": "Receives ~$80K equity award from Normal as advisor",
+      "claim_linkage": ["TRACK_RECORD", "SOURCING_EDGE"],
+      "source": "Case Studies - Outperforming",
+      "source_type": "dataroom",
+      "verification": "unverified"
     },
     {
-      "date": "2024-08",
-      "event": "Figure AI unveils Figure 02 humanoid robot with enhanced capabilities",
-      "details": "Product milestone",
-      "relevance": "Product progress",
-      "source": "Public announcement",
-      "tier": 3,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 5.2: Product progress"]
+      "date": "2025-04",
+      "event": "Figure AI completes $1.1B Series C at $39.5B valuation",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "GP Bio, news",
+      "source_type": "affiliated",
+      "verification": "partial"
+    },
+    {
+      "date": "2025-09",
+      "event": "Quantinuum raises $600M at $10.6B post-money ($10B pre + $600M)",
+      "claim_linkage": ["TRACK_RECORD"],
+      "source": "News, GP Bio",
+      "source_type": "independent",
+      "verification": "verified"
     },
     {
       "date": "2025-08",
-      "event": "Normal Computing's CN101 thermodynamic chip tapes out",
-      "details": "Claimed 'world's first'",
-      "relevance": "Technical milestone, but performance unproven",
-      "source": "Public announcement",
-      "tier": 3,
+      "event": "Hyperion raises ~$1.1M SPV for Valar Atomics Series A at $258M",
+      "claim_linkage": ["COMPETITIVE_POSITIONING"],
+      "source": "Hyperion - Fund I",
+      "source_type": "dataroom",
+      "verification": "unverified"
+    },
+    {
+      "date": "2023",
+      "event": "Henry Bellew graduates Harvard with A.B. cum laude",
+      "claim_linkage": ["TECHNICAL_EXPERTISE"],
+      "source": "Harvard records, research summary",
+      "source_type": "independent",
+      "verification": "verified"
+    },
+    {
+      "date": "Unknown",
+      "event": "Henry Bellew works as advisor at The Raine Group",
+      "claim_linkage": ["TECHNICAL_EXPERTISE"],
+      "source": "GP Bio, research summary",
+      "source_type": "affiliated",
       "verification": "partial",
-      "key_claim_linkage": ["KEY Claim 5.3: Normal technical milestone"]
+      "note": "Not found on Raine Group team page; role description is vague"
     },
     {
-      "date": "2025-09",
-      "event": "Figure AI raises Series C $1B+ at $39B valuation",
-      "details": "$2.6B → $39B = 15x increase in 19 months, Tamarack Global participates",
-      "relevance": "Major valuation outcome, Tamarack relationship continuity",
-      "source": "Public announcement",
-      "tier": 3,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 5.2: Valuation outcome", "KEY Claim 1.4: Tamarack relationship continuity"]
-    },
-    {
-      "date": "2025-09",
-      "event": "Quantinuum raises $600M at $10.6B post-money",
-      "details": "$5.3B → $10.6B = 2x increase in 18 months",
-      "relevance": "Market leader status, valuation outcome",
-      "source": "Public announcement",
-      "tier": 3,
-      "verification": "verified",
-      "key_claim_linkage": ["KEY Claim 3.6: Market leader status", "KEY Claim 5.1: Valuation outcome"]
-    },
-    {
-      "date": "2025-ongoing",
-      "event": "Dataroom claims Dirac has 'pilots with Anduril, Stellantis, Lockheed Martin'",
-      "details": "NO public verification found",
-      "relevance": "Value-add resulting in traction claim",
-      "source": "Dataroom",
-      "tier": 1,
-      "verification": "contradicted",
-      "key_claim_linkage": ["KEY Claim 2.3: Value-add resulting in traction"],
-      "red_flag": "Customer claims contradicted by absence of public evidence"
+      "date": "Unknown",
+      "event": "Henry Bellew claims 'Henley Royal Regatta Semi-Finalist'",
+      "claim_linkage": ["TECHNICAL_EXPERTISE"],
+      "source": "GP Bio",
+      "source_type": "dataroom",
+      "verification": "conflicting",
+      "note": "Harvard reached Henley semi-finals in 2024, but Henry graduated in 2023"
     }
   ],
-  "timeline_gaps": [
+  "findings": [
     {
-      "gap": "Fusion Energy Investments",
-      "companies": ["Zap Energy", "Avalanche Energy", "Hephaestus", "Marathon Fusion"],
-      "missing_data": [
-        "When Dillon met Zap CEO (claimed 'relationship from 2021 onward')",
-        "When Zap Energy Series D investment (~$140K) occurred",
-        "When Avalanche, Hephaestus, Marathon investments occurred",
-        "When Zap became 'consensus'"
-      ],
-      "significance": "Cannot validate 'early positioning' claim in fusion without investment timing"
+      "type": "verified",
+      "severity": "green",
+      "title": "Quantinuum timing genuinely early",
+      "description": "March 2020 investment predates quantum computing mainstream interest by >90 days.",
+      "implication": "Prescient call; validates MARKET_TIMING claim for quantum."
     },
     {
-      "gap": "Firmament Exits",
-      "companies": ["Envase", "Logistyx"],
-      "missing_data": [
-        "Envase exit (Jan 2023) occurred 16 months after Dillon left Firmament",
-        "Logistyx exit (Mar 2022) occurred 6 months after Dillon left",
-        "When Firmament acquired these companies (during Dillon's tenure)",
-        "Dillon's specific role vs institutional team"
-      ],
-      "significance": "Attribution unclear - exits occurred after departure"
+      "type": "verified",
+      "severity": "green",
+      "title": "Core credentials confirmed",
+      "description": "Harvard engineering degree, Vista and Firmament employment independently verified.",
+      "implication": "Educational and professional background is legitimate."
     },
     {
-      "gap": "Vista Deployments",
-      "claim": "Deployed >$1 billion across 15+ deals",
-      "missing_data": [
-        "Specific Vista deals Dillon worked on",
-        "Dates of Vista investments",
-        "Dillon's actual role vs team/institutional credit"
-      ],
-      "significance": "Cannot verify individual attribution at $100B+ AUM firm"
+      "type": "verified",
+      "severity": "green",
+      "title": "Firmament exits independently confirmed",
+      "description": "Envase ($230M) and Logistyx ($185M) exits verified via acquirer announcements.",
+      "implication": "Exit values are accurate; attribution to Dillon remains ambiguous."
     },
     {
-      "gap": "Thought Leadership Timing",
-      "missing_data": [
-        "Was quantum article published BEFORE or AFTER March 2020 Quantinuum investment?",
-        "Was fusion article (Apr 2022) BEFORE or AFTER Zap Energy investment?",
-        "Exact dates of Substack articles for timing analysis"
-      ],
-      "significance": "Critical for validating if thought leadership drove thesis or was retroactive"
+      "type": "concern",
+      "severity": "yellow",
+      "title": "Figure AI 'early' claim is borderline",
+      "description": "Investment (April 2023) was 5 months after ChatGPT. Series A announced 1 month later.",
+      "implication": "Not prescient but not late. 'Early positioning' claim is partial."
     },
     {
-      "gap": "Other Personal Investments",
-      "note": "24 total portfolio companies, but only 6 documented in timeline",
-      "missing_companies": 18,
-      "significance": "Cannot verify 6.7x TVPI portfolio performance without full visibility"
+      "type": "concern",
+      "severity": "red",
+      "title": "No pre-2021 thought leadership",
+      "description": "Substack launched October 2021. No public evidence of 'positioning since 2019'.",
+      "implication": "2-year gap between claimed early positioning and first verifiable thesis."
     },
     {
-      "gap": "Henry Bellew Events",
-      "note": "No timeline events for co-GP Henry Bellew",
-      "missing_data": [
-        "Any portfolio company involvement"
-      ],
-      "significance": "Zero documented involvement raises questions about team contribution"
+      "type": "concern",
+      "severity": "red",
+      "title": "Excluded investments not disclosed",
+      "description": "Digital assets and 'non-core investments' excluded per GP's subjective view.",
+      "implication": "Selective portfolio presentation may materially overstate track record."
     },
     {
-      "gap": "Failed Investments",
-      "note": "LP Letter mentions '3 of 4 investments in 2020-2021 were underperformers' and 'one fire-sold'",
-      "missing_data": [
-        "Company names",
-        "Investment dates",
-        "Exit dates and outcomes"
-      ],
-      "significance": "Cannot assess failure modes or lessons learned"
+      "type": "concern",
+      "severity": "red",
+      "title": "Stale portfolio data",
+      "description": "Portfolio Summary dated 10.26.25 contains 2024 data. ~1 year gap.",
+      "implication": "Cannot assess current performance or whether projections materialized."
+    },
+    {
+      "type": "concern",
+      "severity": "yellow",
+      "title": "Firmament exit attribution ambiguous",
+      "description": "Both exits occurred 14-22 months after Dillon's departure (Jan 2021).",
+      "implication": "Pitch deck language ('helped execute... culminated in') is technically accurate but potentially misleading."
+    },
+    {
+      "type": "concern",
+      "severity": "yellow",
+      "title": "Vista attribution unclear",
+      "description": "'>$1 billion deployed across 15+ deals' cannot be individually attributed.",
+      "implication": "Individual contribution at $100B+ AUM firm not disclosed."
+    },
+    {
+      "type": "concern",
+      "severity": "yellow",
+      "title": "Co-GP underrepresented",
+      "description": "Henry Bellew appears on 1 of 30 pitch deck pages. No case studies feature his involvement.",
+      "implication": "Questions whether this is true two-GP partnership or junior role."
+    },
+    {
+      "type": "concern",
+      "severity": "yellow",
+      "title": "Henry's Henley claim timing inconsistent",
+      "description": "Harvard reached Henley semi-finals in 2024, but Henry graduated 2023.",
+      "implication": "Athletic achievement claim doesn't align with timeline."
     }
-  ],
-  "timing_concerns": [
-    {
-      "concern": "Thought Leadership AFTER First Investment",
-      "details": "Substack launched ~2021, AFTER Quantinuum investment (March 2020)",
-      "implication": "Suggests retroactive narrative construction rather than prospective thesis development",
-      "timing": "19-month gap"
-    },
-    {
-      "concern": "Figure AI 'Non-Consensus' Claim",
-      "details": "Dillon invested April 2023, Series A announced May 2023",
-      "implication": "1-month gap suggests participation in institutional round, not ahead of consensus",
-      "timing": "1-month gap"
-    },
-    {
-      "concern": "'Since 2019' Early Positioning",
-      "details": "LP Letter claims 'early positioning since 2019', but first investment March 2020, Substack ~2021",
-      "implication": "No 2019 timeline events support claim",
-      "timing": "15-24 month gaps"
-    },
-    {
-      "concern": "Fusion Article vs Investment Timing",
-      "details": "Fusion article April 2022, but fusion investment dates unknown",
-      "implication": "Cannot verify if article preceded or followed investments",
-      "timing": "Unknown"
-    },
-    {
-      "concern": "'Began Angel Investing Mid-2022'",
-      "details": "LP Letter says mid-2022, but Quantinuum claimed as personal investment (March 2020)",
-      "implication": "Quantinuum may be institutional (Firmament), not personal angel investment",
-      "timing": "2+ year gap"
-    }
-  ],
-  "key_patterns": [
-    "Most portfolio investments occurred in 2023, shortly before 2024 mega-rounds",
-    "All major case studies have founder testimonials in dataroom, but ZERO public mentions found",
-    "Sourcing claims (cold outreach, networking, VC referrals) all from Tier 1 sources",
-    "Performance based on latest-round markups (often overvalued), not exits",
-    "Thought leadership appears to follow, not precede, major investment actions"
   ],
   "verification_priorities": [
-    "CRITICAL: Verify Dirac-Founders Fund introduction (Nov 2023) - key GP value-add claim",
-    "CRITICAL: Verify when fusion investments occurred relative to April 2022 article",
-    "HIGH: Verify Normal advisory role and equity award (July 2024)",
-    "HIGH: Verify Figure AI Tamarack relationship depth (primary sourcing claim)",
-    "MEDIUM: Verify exact Substack launch date and quantum article date vs Quantinuum investment",
-    "MEDIUM: Verify Vista deal attribution and specific role"
-  ],
-  "notes": [
-    "Timeline has 47 events, but only 6 of 24 portfolio companies represented",
-    "Source distribution: 59% Tier 1 (entity-controlled), 5% Tier 2 (affiliated), 27% Tier 3 (independent)",
-    "High-risk claims rely entirely on Tier 1 sources with no independent verification",
-    "Timing gaps and contradictions suggest potential retroactive narrative construction"
+    "Request independent verification of Quantinuum and Figure AI investment dates/amounts",
+    "Obtain disclosure of excluded 'digital assets' and 'non-core investments' with performance",
+    "Clarify Dillon's specific role in Firmament's Envase and Logistyx investments",
+    "Obtain updated portfolio data (2025) to replace stale 2024 snapshot",
+    "Find fusion investment dates to compare against April 2022 blog post",
+    "Request Vista reference to verify specific role in $1B+ deployments",
+    "Clarify Henry Bellew's Henley timing and Raine Group role"
   ]
 }

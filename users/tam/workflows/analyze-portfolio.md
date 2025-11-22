@@ -107,22 +107,30 @@ find {fund-name}/research/companies -name "independent-research.md"
 
 ### Step 0.2: Load Dataroom Valuations & Research Data
 
-**For each company**:
-1. Parse dataroom .xlsx for entry/current valuations
-2. Read `independent-research.md` for:
-   - Current valuation (prefer research over outdated dataroom)
-   - Performance metrics (revenue, traction, milestones)
-   - Lead investors
-   - Source quality (Independent/Affiliated/Dataroom)
-3. Calculate MOIC: Current ÷ Entry valuation
-4. Update `research/companies/portfolio-list.md` table and Status column
+**For ALL companies from xlsx**, extract:
+- Entry check size, current value, MOIC
+- Entry stage (Seed/A/B/C) and current stage
+- Sector/category (infer from company description if not explicit)
 
-**CRITICAL**: Use research valuations when more current than dataroom.
+This enables full-portfolio Stage Evolution and By Sector tables (not just researched companies).
 
-**Example**:
-- Dataroom: Figure AI $420M (Apr 2023)
-- Research: Figure AI $39.5B (Sept 2025)
-- **Use**: $39.5B
+**Then for researched companies**, read `independent-research.md` for:
+- More recent valuation (if research shows higher than dataroom's valuation date)
+- Performance metrics (revenue, traction, milestones)
+- Lead investors
+- Source quality (Independent/Affiliated/Dataroom)
+
+**Value Presentation**: Use dataroom values as baseline. If research shows newer valuation:
+- "Dataroom: ${check} at ${dataroom MOIC}x (based on ${old val}); research shows ${new val} - current value likely higher"
+- Do NOT calculate your own MOIC from valuations - use dataroom MOIC or note it cannot be calculated
+
+**Source Citation**: Cite specific documents with links (not generic "research"):
+- Dataroom: `[Source: Portfolio Summary ({date})]` (xlsx not linkable on static site)
+- Research: `[Source: [{company}](../../research/companies/{company}/independent-research/)]`
+- Specific source: `[Source: [{doc-name}](../../research/companies/{company}/sources/{doc}/)]`
+- Independent: `[Source: {Publication Name}, {URL}]`
+
+Note: Use clean URLs (no .md extension, trailing slash) since Eleventy converts markdown to HTML.
 
 ---
 
@@ -156,7 +164,7 @@ find {fund-name}/research/companies -name "independent-research.md"
 
 ### Step 1.2: Categorize & Validate Sources
 
-**Categorization**:
+**Categorization** (EXCLUSIVE - each company appears in only one category):
 
 **WINNERS**: Drive majority of portfolio value
 - Current valuation represents significant portion of total portfolio
@@ -169,15 +177,17 @@ find {fund-name}/research/companies -name "independent-research.md"
 - MOIC 2-8x with growth potential
 - Quality signals, execution TBD
 
+**RED FLAGS**: Warning signs (requires concrete evidence of misrepresentation) - TAKES PRIORITY
+- Valuation ahead of traction (with weak moat/competition)
+- False/misleading dataroom claims (material discrepancies: failed major deals, cancelled partnerships)
+- Nonstandard valuation methods
+- Intense competitive threats (existential, not normal competition)
+- **NOT red flags**: Timeline discrepancies from normal fundraising delays (companies often announce rounds late, sometimes don't announce, sometimes lump rounds together)
+- **If red flag identified**: Remove from Winners/Emerging/Other and place exclusively in Red Flags
+
 **OTHER**: Stable performers or too early to assess
 - Modest performance (1-3x) OR very early stage
 - Limited public information OR insufficient timeline
-
-**RED FLAGS**: Warning signs
-- Valuation ahead of traction
-- False/misleading dataroom claims
-- Nonstandard valuation methods
-- Intense competitive threats
 
 ---
 
@@ -196,6 +206,8 @@ find {fund-name}/research/companies -name "independent-research.md"
 - Unverified, requires independent validation
 
 **Flag for verification**: Customer claims, financial metrics, technical achievements, partnership claims, GP value-add claims
+
+**Timeline guidance**: Investment dates preceding public announcements are common (companies announce late, batch announcements, or skip them). Only flag with concrete evidence of misrepresentation vs. plausible normal explanation.
 
 **Document**:
 ```markdown
@@ -230,26 +242,80 @@ find {fund-name}/research/companies -name "independent-research.md"
 {
   "fund_name": "{Fund Name}",
   "analysis_date": "YYYY-MM-DD",
-  "total_companies": X,
-  "companies": [
-    {
+  "dataroom_source": "{xlsx filename}",
+  "overall_health": "STRONG" | "MODERATE" | "WEAK",
+  "health_descriptor": "{brief descriptor}",
+
+  "portfolio_overview": {
+    "total_companies": 34,
+    "researched": 13,
+    "research_coverage": "38%",
+    "writedowns": 4,
+    "by_category": { "winners": 2, "emerging": 5, "red_flags": 2, "other": 3, "unresearched": 21 }
+  },
+
+  "executive_summary": {
+    "strength": "{key strength with evidence}",
+    "primary_risk": "{primary risk}",
+    "thesis": "{investment thesis}"
+  },
+
+  "by_sector": [
+    { "sector": "{Sector}", "count": X, "notable": ["{Company} ⭐", "{Company} 🌱"] }
+  ],
+
+  "stage_evolution": {
+    "at_entry": { "pre_seed_seed": X, "series_a": X, "series_bc": X, "late_stage": X },
+    "current": { "pre_seed_seed": X, "series_a": X, "series_bc": X, "late_stage": X },
+    "analysis": "{brief analysis}"
+  },
+
+  "defensibility": {
+    "by_moat": [
+      { "type": "Technical", "count": X, "assessment": "Strong|Moderate|Weak", "notes": "{notes}" }
+    ],
+    "analysis": "{moat analysis}"
+  },
+
+  "companies": {
+    "winners": [{
       "name": "{Company}",
-      "category": "winner",
-      "entry_valuation": "{$XM}",
-      "current_valuation": "{$XB}",
-      "moic": X.Xx,
+      "icon": "⭐",
+      "sector": "{Sector}",
+      "dataroom": { "check": "${X}K", "moic": X.XX, "valuation_basis": "${X}B" },
+      "research": { "current_valuation": "${X}B", "valuation_note": "{if newer than dataroom}" },
+      "portfolio_contribution": "{majority/significant}",
       "revenue_status": "Pre-revenue" | "Commercial",
-      "primary_moat": "Technical" | "Network Effects" | "Brand" | "Regulatory" | "Data",
-      "moat_strength": "Strong" | "Moderate" | "Weak",
-      "source_quality": "independent" | "affiliated" | "dataroom",
-      "risks": {
-        "valuation": "High" | "Moderate" | "Low",
-        "competitive": "High" | "Moderate" | "Low",
-        "market": "High" | "Moderate" | "Low"
-      },
-      "red_flags": ["Flag 1", "Flag 2"]
-    }
-  ]
+      "status": "{current state}",
+      "strength": "{key strengths}",
+      "risk": { "level": "HIGH|MODERATE|LOW", "description": "{risk description}" },
+      "primary_moat": "Technical",
+      "moat_strength": "Strong",
+      "source_quality": "independent|affiliated|dataroom",
+      "sources": [{ "name": "{doc}", "path": "{relative path}", "type": "dataroom|research" }]
+    }],
+    "emerging": [{ "...similar structure, with opportunity instead of strength..." }],
+    "red_flags": [{ "...similar, with concern/evidence/pattern fields..." }],
+    "other": [{ "name": "{Company}", "sector": "{Sector}", "dataroom": {...}, "status": "{notes}" }],
+    "unresearched": [{ "name": "{Company}", "entry": "${X}M", "current": "${X}M", "moic": X.X, "note": "{optional}" }]
+  },
+
+  "key_risk": {
+    "title": "{Risk Title}",
+    "level": "HIGH|MODERATE|LOW",
+    "problem": "{1-2 sentences}",
+    "evidence": ["{evidence point 1}", "{evidence point 2}"],
+    "recommendation": "{action}"
+  },
+
+  "recommendations": {
+    "critical": [{ "action": "{action}", "details": "{details}" }],
+    "further_investigation": [{ "area": "{area}", "why": "{why}", "questions": ["{q1}", "{q2}"] }]
+  },
+
+  "source_tier_summary": { "independent": X, "affiliated": X, "dataroom": X },
+  "version": "2.0",
+  "last_updated": "YYYY-MM-DD"
 }
 ```
 
@@ -278,19 +344,13 @@ find {fund-name}/research/companies -name "independent-research.md"
 |--------|-------|-------------------|
 | {Sector} | {X} | {Companies} |
 
-**By Stage at Entry**:
-| Stage | Count |
-|-------|-------|
-| Pre-Seed/Seed | {X} |
-| Series A | {X} |
-| Series B+ | {X} |
-
-**By Current Stage**:
-| Stage | Count |
-|-------|-------|
-| Seed/Series A | {X} |
-| Series B/C | {X} |
-| Late Stage | {X} |
+**Stage Evolution**:
+| Stage | Count at Entry | Count Today |
+|-------|----------------|-------------|
+| Pre-Seed/Seed | {X} | {X} |
+| Series A | {X} | {X} |
+| Series B/C | {X} | {X} |
+| Late Stage (Series C+) | {X} | {X} |
 
 **Analysis**: Note concentration (sector, stage, single holdings)
 
@@ -309,11 +369,11 @@ find {fund-name}/research/companies -name "independent-research.md"
 
 ### Step 2.3: Risk Assessment
 
-**Concentration Risk**:
+**Portfolio Concentration** (VC Power Law):
 - Top holding: {Company} represents {X}% of value
 - Top 3: {Y}% of value
-- Assessment: ✅ Healthy (<20% top holding) / ⚠️ Moderate (20-40%) / 🚨 High (>40%)
-- Implication: Binary outcome vs diversified?
+- Note: Concentration is normal for VC portfolios due to power law returns. Focus on whether top holdings have defensible valuations and execution capability, not concentration percentage itself
+- Assessment: Are top holdings' valuations justified by performance and defensibility?
 
 **Valuation Methodology Risk**:
 - Basis: Latest-round pricing / External appraisal / Subjective marks
@@ -323,19 +383,21 @@ find {fund-name}/research/companies -name "independent-research.md"
 - Assessment: Low / Moderate / High
 - Implication: Will realized returns match paper returns?
 
-**Portfolio Transparency**:
+**Portfolio Coverage**:
 - Companies researched: {X} of {Y total} ({Z}%)
+- Focus: Winners and emerging companies are most important to analyze
+- Note: Analyzing winners + emerging = effective full portfolio analysis
 - Failed investments: Disclosed? Named? Analyzed?
-- Red flags: <80% documented, selective disclosure
-- Assessment: Good / Moderate / Poor
 
-**Evidence Quality**:
+**Evidence Quality** (Flag only if suggests overvaluation risk):
 - Independent sources: {X} companies ({Y}%)
 - Affiliated: {X} companies
 - Dataroom-only: {X} companies
-- Red flags found: {List companies with false/unverifiable claims}
-- Pattern: {Z}% of companies have credibility issues
-- Implication: If Z% have false claims, how many other claims are questionable?
+- **Critical assessment**: Flag only when weak evidence + reason to believe overvaluation
+  - Lower risk: Companies marked at 1x with weak evidence (limited downside)
+  - Higher risk: Companies marked significantly above entry with weak evidence + no clear traction
+- Red flags found: {List companies with concrete evidence of false/misleading claims}
+- Focus on: Material discrepancies between dataroom claims and reality (failed major deals, timeline mismatches with concrete evidence)
 
 ### Step 2.4: Portfolio Health Evaluation
 
@@ -349,14 +411,13 @@ find {fund-name}/research/companies -name "independent-research.md"
 - Balanced risk profile
 
 **Risky Indicators**:
-- Single leader concentration (>40% of value)
-- No clear leaders
-- Valuation ahead of traction
-- Nonstandard valuation methods
-- Weak moats, intense competition
-- Red flags in emerging companies
+- Valuation ahead of traction **in winners** (more concerning than in emerging)
+- Nonstandard valuation methods **in winners**
+- Weak moats, intense competition **in winners** (more concerning than in emerging)
+- Red flags in any category (but assess severity by stage: winners with red flags = critical, emerging with red flags = concerning)
+- Limited commercial traction **in winners** (expected in emerging, but problematic in companies driving majority of value)
 - Poor transparency, selective disclosure
-- Dataroom-only evidence
+- Dataroom-only evidence for high-value holdings
 
 **Write narrative assessment** (2-3 paragraphs):
 1. **Winners**: How many? What % of value? Backed by performance? Defensible? What if they compress?
@@ -386,7 +447,7 @@ find {fund-name}/research/companies -name "independent-research.md"
 
 ## Executive Summary
 
-{2-3 paragraphs: Overall health, major winners, key strengths, key risks}
+{2-3 paragraphs covering: Overall health assessment, major winners with brief validation, primary risk (typically execution in top holdings), thesis coherence. This IS the synthesis - do not repeat elsewhere.}
 
 **Investment Thesis**: {Brief description}
 **Stage Focus**: {Entry stage}
@@ -406,14 +467,19 @@ _See [portfolio.json](/_data/portfolio.json) for complete data_
 
 ### Stage Evolution
 
-**At Entry**:
-{table from Step 2.1}
-
-**Current Stage**:
-{table from Step 2.1}
+{Table from xlsx - ALL companies, not just researched}
 
 **Thesis Coherence**: ✅ Strong / ⚠️ Moderate / ❌ Weak
 {Brief analysis}
+
+---
+
+## Defensibility Assessment
+
+**Primary Moat Types**:
+{Table from Step 2.2 - researched companies only}
+
+**Analysis**: {What moat types does fund bet on? Why? Strength assessment}
 
 ---
 
@@ -423,88 +489,49 @@ _See [portfolio.json](/_data/portfolio.json) for complete data_
 
 {For each winner from portfolio.json}:
 #### {Company} ⭐
-- Entry: {Val} → Current: {Val} (**{X}x MOIC**)
-- Portfolio Contribution: Drives {majority/significant} portion of value
-- Status: {Revenue status, key traction}
-- Strength: {What's working}
-- Risk: {Primary concern}
+- **Dataroom**: ${check} at {X}x MOIC (based on ${dataroom val}); {if research shows newer: "research shows ${new val} - current value likely higher"}
+- **Portfolio Contribution**: Drives {majority/significant} portion of value
+- **Status**: {Revenue status, key traction}
+- **Strength**: {What's working}
+- **Risk**: {Primary concern} [Source: [{doc}](../research/companies/{company}/sources/{doc}.md)]
 
 ### Emerging (Featured Portfolio)
 
 {For each emerging from portfolio.json}:
 #### {Company} 🌱
-- Entry: {Val} → Current: {Val} ({X}x MOIC)
-- Status: {Brief summary}
-- Opportunity: {Growth potential}
-- Risk: {Concern}
-
-### Other (Stable/Early)
-
-{Brief summary of companies in "other" category}
+- **Dataroom**: ${check} at {X}x MOIC → ${current val}
+- **Status**: {Brief summary}
+- **Opportunity**: {Growth potential}
+- **Risk**: {Concern} [Source: [{doc}](../research/companies/{company}/independent-research.md)]
 
 ### Red Flags
 
 {For each red flag company}:
 #### {Company} ❌
-- Concern: {Issue}
-- Evidence: {Data}
-- Pattern: {If multiple, note commonality}
+- **Dataroom**: ${check} at {X}x MOIC → ${current val}
+- **Status**: {Current state, revenue/pre-revenue}
+- **Opportunity**: {What could work if issues resolve}
+- **Concern**: {Issue} [Source: [{doc}](../research/companies/{company}/sources/{doc}.md)]
+- **Evidence**: {Data}
+- **Pattern**: {If multiple, note commonality}
+
+### Other (Stable/Early)
+
+{Brief summary of companies in "other" category}
 
 ---
 
-## Key Strengths
+## Key Risk
 
-{3-5 strengths with specific evidence}:
+{Single consolidated risk if material - typically valuation/execution for top holdings}:
 
-### {Strength Title} ✅
-{Description}
+### {Risk Title} ⚠️
 
-**Evidence**: {Specific examples}
-**Implication**: {Why it matters}
-
----
-
-## Key Risks & Concerns
-
-{3-4 major risks - use data from Step 2.3}:
-
-### {Risk Title} ⚠️ {CRITICAL/HIGH/MODERATE}
-
-**Problem**: {Description}
-**Evidence**: {Data}
-**Impact**: {Scenarios: best/base/bear case}
+**Problem**: {1-2 sentences}
+**Evidence**: {Key data points}
 **Recommendation**: {Action}
 
----
-
-## Defensibility Assessment
-
-**Primary Moat Types**:
-{Table from Step 2.2}
-
-**Analysis**: {What moat types does fund bet on? Why? Strength assessment}
-
----
-
-## Portfolio Health
-
-**Overall Health**: **{Rating}**
-
-{Narrative from Step 2.4 - 2-3 paragraphs}
-
-**Key Metrics**:
-- Winners: {X} companies
-- Concentration: Top holding {X}%, top 3 {Y}%
-- Evidence Quality: {X}% independent sources
-- Transparency: {X} of {Y} companies documented
-
----
-
-## Key Findings
-
-{7-10 bullet points}:
-1. **{Finding}**: {Evidence} → {Implication}
-2. **{Finding}**: {Evidence} → {Implication}
+Note: Do NOT include separate "impact" or "scenarios" subsections - implications are self-evident. Do NOT flag "evidence quality concerns" - limited evidence is expected for early-stage companies in power-law portfolios. Do NOT flag "portfolio transparency" - research coverage reflects analyst process, not fund characteristics.
 
 ---
 
@@ -530,8 +557,7 @@ _See [portfolio.json](/_data/portfolio.json) for complete data_
 - [ ] All companies analyzed and categorized
 - [ ] Claims supported by specific data
 - [ ] Source quality documented (Independent/Affiliated/Dataroom)
-- [ ] No redundancy (info presented once, not repeated)
-- [ ] Balanced (strengths + risks)
+- [ ] **No redundancy** - each insight appears ONCE (Executive Summary synthesizes, sections provide detail, never repeat)
 - [ ] Actionable recommendations
 - [ ] portfolio.json valid and complete
 

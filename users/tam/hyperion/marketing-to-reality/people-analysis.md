@@ -1,7 +1,3 @@
----
-title: People Analysis
----
-
 # People Analysis: {{ hyperionPeople.fund_name }}
 
 **Entity:** {{ hyperionPeople.entity_name }}

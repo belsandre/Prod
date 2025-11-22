@@ -14,13 +14,15 @@ Systematically assess the quality and relevance of a GP's professional network b
 ## Inputs
 
 **Required:**
-- `research/people/[name]/network/*.csv` - LinkedIn connection exports by category
-- `marketing-to-reality/_data/claims.json` - Network-related claims to validate
-- `marketing-to-reality/claims-analysis.md` - Context on which claims matter
+- `research/people/{gp-name}/network/*.csv` - LinkedIn connection exports by category
 
 **Optional:**
+- `marketing-to-reality/_data/claims.json` - Network-related claims to validate
+- `marketing-to-reality/claims-analysis.md` - Context on which claims matter
 - Deal flow documentation (to verify introduction sources)
 - Portfolio documentation (to verify co-investor relationships)
+
+**Note:** LinkedIn exports have variable column structures. Minimum required columns: `Name`, `Title`. Optional but helpful: `Firm`, `Location`, `Profile`.
 
 ## Outputs
 
@@ -31,7 +33,8 @@ Systematically assess the quality and relevance of a GP's professional network b
   "metadata": {
     "analysis_date": "YYYY-MM-DD",
     "data_sources": ["harvard.csv", "vcpe.csv", "deeptech.csv"],
-    "methodology_note": "Analysis based on partial LinkedIn connection captures - not complete network representation"
+    "methodology_note": "Analysis based on partial LinkedIn connection captures - not complete network representation",
+    "distill_cache_path": "research/people/{gp-name}/network/distill_profiles.json (if low-confidence workflow run)"
   },
   "overall_statistics": {
     "total_connections_analyzed": 0,
@@ -44,25 +47,24 @@ Systematically assess the quality and relevance of a GP's professional network b
   "network_composition": {
     "by_firm_type": [
       {
-        "type": "tier1_vc|early_stage|growth_equity|pe|corporate_vc|lp|other",
+        "type": "tier1_vc|early_stage|growth_equity|pe|corporate_vc|lp|operator|academic|other",
         "count": 0,
-        "percentage": "0%",
-        "top_firms": ["Firm Name (X connections)", "..."]
+        "percentage": "0%"
       }
     ],
     "by_seniority": [
       {
-        "level": "partner|principal|vp|associate|founder|operator",
+        "level": "partner|principal|vp|associate|founder|c_suite|director|other",
         "count": 0,
         "percentage": "0%"
       }
     ],
     "by_ecosystem": [
       {
-        "ecosystem": "AI|quantum|fusion|biotech|robotics|infrastructure|other",
+        "ecosystem": "ai|quantum|fusion_energy|biotech|robotics_hardware|infrastructure|generalist|other",
         "count": 0,
         "percentage": "0%",
-        "relevance_to_thesis": "High|Medium|Low"
+        "relevance_to_thesis": "high|medium|low"
       }
     ]
   },
@@ -70,10 +72,8 @@ Systematically assess the quality and relevance of a GP's professional network b
     {
       "firm": "Firm Name",
       "connections": 0,
-      "firm_type": "tier1_vc|early_stage|growth_equity|pe",
-      "key_contacts": ["Name (Title)", "..."],
-      "significance": "Description of why this firm matters",
-      "claim_references": ["CLAIM_ID_1", "CLAIM_ID_2"]
+      "firm_type": "tier1_vc|early_stage|growth_equity|pe|corporate|other",
+      "key_contacts": ["Name (Title)", "..."]
     }
   ],
   "strategic_relationships": {
@@ -130,159 +130,349 @@ Systematically assess the quality and relevance of a GP's professional network b
 
 ### 2. Markdown Template: `marketing-to-reality/network-analysis.md`
 
-Pure Nunjucks/Liquid template that renders `network.json` data. No substantive content in markdown.
+Nunjucks/Liquid template that renders `network.json` data. Use `{{ network.field }}` syntax to reference JSON fields:
+
+```liquid
+Total: {{ network.overall_statistics.total_connections_analyzed }}
+
+{% for firm in network.top_firms %}
+- {{ firm.firm }}: {{ firm.connections }} connections
+{% endfor %}
+
+{% for gap in network.network_quality_assessment.gaps %}
+### {{ gap.gap_type | replace("_", " ") | capitalize }}
+{{ gap.description }}
+{% endfor %}
+```
+
+## Prerequisites
+
+**Python environment setup:**
+
+```bash
+cd {analysis-directory}
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install pandas
+```
+
+Alternatively, install system-wide (not recommended): `pip install pandas --user`
+
+## Script Templates
+
+Reusable Python scripts are available in `workflows/_py/`:
+
+- **`network_analysis.py`** - Phase 1-2: CSV enrichment & statistical analysis
+- **`network_validation.py`** - Phase 3-4: Strategic validation & gap analysis
+
+**Usage:**
+1. Copy scripts to your analysis directory
+2. Update `GP_NAME` and paths in the configuration section at top of each script
+3. Run `network_analysis.py` first, then `network_validation.py`
+
+These templates handle NaN values, variable CSV structures, and optional claims.json gracefully.
 
 ## Methodology
 
-### Phase 1: CSV Enrichment & Preparation
+### Phase 1-2: CSV Enrichment & Statistical Analysis (~5 minutes)
 
-**For each network CSV file:**
+**Combined script that loads, enriches, and analyzes all CSV files.**
 
-1. **Load and inspect** the CSV structure (columns vary by file)
-2. **Add characterization columns** to enable analysis:
-   - `Firm_Type`: Categorize as tier1_vc, early_stage, growth_equity, pe, corporate_vc, lp, operator, academic, other
-   - `Seniority`: Extract from title (partner, principal, vp, associate, founder, ceo, etc)
-   - `Ecosystem`: Identify technical domain (AI, quantum, fusion, biotech, robotics, infrastructure, generalist, other)
-   - `Relevance`: Rate relevance to fund thesis (high, medium, low) based on firm type + ecosystem + seniority
+#### Step 1: Load CSV files
 
-3. **Firm extraction**: If no explicit Firm column, extract from Title field (e.g., "Partner at Sequoia" → "Sequoia")
+```python
+import pandas as pd
 
-4. **Save enriched CSVs** for further analysis (optional, for reference)
+harvard_df = pd.read_csv('research/people/{gp-name}/network/harvard.csv')
+vcpe_df = pd.read_csv('research/people/{gp-name}/network/vcpe.csv')
+deeptech_df = pd.read_csv('research/people/{gp-name}/network/deeptech.csv')
+```
 
-**Key Principles for Enrichment:**
-- Use Title and LinkedIn profile context to infer missing data
-- Be conservative with categorization (use "other" when uncertain)
-- Focus on VC/PE relevant categorizations
-- Flag ambiguous cases in notes
+**Handle variable CSV structures:**
+- If `Firm` column missing: Extract from `Title` using patterns like "@ Firm" or "at Firm"
+- Handle NaN values gracefully: `pd.isna()`, `str()` conversion before `.lower()`
 
-### Phase 2: Quantitative Network Analysis
+#### Step 2: Add enrichment columns
 
-**Aggregate statistics:**
+**Column labeling:** Mark original columns `[O]`, inferred columns `[I]` in output CSV header comments.
 
-1. **Overall counts**: Total connections per category (harvard, vcpe, deeptech, etc)
-2. **Firm aggregation**: Group by firm, count connections per firm, rank by connection count
-3. **Composition analysis**:
-   - Distribution by firm_type (how many tier1_vc vs growth_equity vs PE?)
-   - Distribution by seniority (partner-level vs associate-level network?)
-   - Distribution by ecosystem (AI-heavy vs quantum vs fusion vs generalist?)
+| Column | Type | Values |
+|--------|------|--------|
+| Firm_Type | [I] | tier1_vc, early_stage, growth_equity, pe_lmm, pe_large, hedge_fund, lp, operator, academic, other |
+| Seniority | [I] | partner, founder, c_suite, principal, vp, associate, director, other |
+| Ecosystem | [I] | quantum, fusion_energy, ai, biotech, robotics_hardware, infrastructure, generalist |
+| Stage | [I] | **For VCPE:** seed, series_a, series_b, growth, pe_lmm, pe_large, hedge_fund. **For founders:** pre_seed, seed, series_a, series_b, growth, public, exited, unknown |
+| Relevance | [I] | high, medium, low |
+| Source_CSV | [I] | harvard, vcpe, deeptech |
 
-4. **Top firms analysis**: Identify top 20-30 firms by connection count, assess relevance to fund thesis
+**Stage classification for VCPE** - Use firm name + intrinsic knowledge of VC landscape:
+- `seed`: First Round, Precursor, Hustle Fund, etc.
+- `series_a`: a16z, Benchmark, Sequoia (early), etc.
+- `growth`: Tiger, Coatue, D1, etc.
+- `pe_lmm`: Vista, Thoma Bravo (lower-middle-market deals)
+- `pe_large`: KKR, Blackstone, Apollo
+- `hedge_fund`: Point72, Citadel, Two Sigma
 
-**Output**: Populate `overall_statistics`, `network_composition`, `top_firms` in JSON
+**Stage classification for founders** - Infer from company context, funding news, or title signals.
 
-### Phase 3: Strategic Relationship Validation
+**Ecosystem: Quantum validation** - Use comprehensive keyword search:
+- Keywords: quantum, qubit, ion trap, superconducting, photonic, error correction, NISQ, fault-tolerant, topological
+- **List all matches explicitly** in output with confidence note: "X titles reviewed, Y classified as quantum"
 
-**Map claims to connection evidence:**
+**Low-Confidence Categorization**: When title/company alone cannot determine ecosystem or category (e.g., "Founder at Stealth", generic titles) and accurate classification matters for claim validation:
 
-1. **Extract network claims** from `claims.json`:
-   - Central hub partners (claimed filtering/referral relationships)
+1. **Identify candidates for Distill enrichment:**
+   - Filter `combined_deduped.csv` for founders (`Is_Founder_I == 'yes'`)
+   - Prioritize records with ambiguous titles: "Stealth", "Building something new", "Founder & CEO" without company
+   - Extract LinkedIn Profile URLs (post-dedup to avoid duplicate API calls)
+
+2. **Use Distill MCP to fetch profile summaries:**
+   ```
+   # Batch lookup (up to 10 profiles at once)
+   mcp__distill__viewManyProfiles(urls=[
+     "https://www.linkedin.com/in/profile1/",
+     "https://www.linkedin.com/in/profile2/",
+     ...
+   ])
+
+   # Single detailed profile (when more context needed)
+   mcp__distill__viewProfile(url="https://www.linkedin.com/in/profile/")
+   ```
+
+3. **Save deeptech-focused classifications to `distill_profiles.json`:**
+   ```json
+   {
+     "metadata": {
+       "created_at": "YYYY-MM-DD",
+       "source": "Distill MCP viewManyProfiles",
+       "description": "Deeptech categorization for network connections"
+     },
+     "profiles": {
+       "https://www.linkedin.com/in/profile1/": {
+         "name": "Person Name",
+         "ecosystem": "quantum|fusion_energy|nuclear|ai|biotech|robotics_hardware|semiconductors|space|climate_tech|defense|generalist_vc|not_deeptech",
+         "deeptech_relevance": "high|medium|low|none",
+         "sector_specifics": "ion-trap computing|ML infrastructure|solid-state batteries|etc.",
+         "role_type": "founder|investor|operator|academic",
+         "deeptech_companies": ["Company1", "Company2"],
+         "investor_focus": ["quantum", "ai"]
+       }
+     }
+   }
+   ```
+
+   **Field definitions:**
+   - `ecosystem`: Primary deeptech sector classification
+   - `deeptech_relevance`: How central is deeptech to their work (high=core focus, low=tangential, none=not deeptech)
+   - `sector_specifics`: Granular sub-classification (e.g., "superconducting qubits", "nuclear fusion", "LLM infrastructure")
+   - `role_type`: founder/investor/operator/academic
+   - `deeptech_companies`: List of relevant deeptech companies they're associated with
+   - `investor_focus`: For VCs—which deeptech sectors they invest in (null for non-investors)
+
+4. **Add `_D` columns to `combined_deduped.csv`:**
+   - `Ecosystem_D`: Primary deeptech sector from Distill analysis
+   - `Relevance_D`: Deeptech relevance level (high/medium/low/none)
+   - `Sector_D`: Specific sub-sector classification
+   - `Role_D`: Role type (founder/investor/operator/academic)
+
+   Use `workflows/_py/add_distill_columns.py` to programmatically merge profiles:
+   ```bash
+   python add_distill_columns.py /path/to/network
+   ```
+
+5. **Re-categorize based on enriched data:**
+   - Update `Ecosystem_I` if `Ecosystem_D` provides better classification
+   - Flag discrepancies between `_I` and `_D` columns for review
+
+**Distill MCP Best Practices:**
+- Use `viewManyProfiles` for batches (max 10 URLs per call) - more efficient
+- Use `viewProfile` with `performResearch=true` for deep dives (takes ~60 seconds)
+- Cache all responses to `distill_profiles.json` to avoid duplicate API calls
+- Match profiles by LinkedIn URL (normalize with/without trailing slash)
+
+Flag categories with >20% unclassifiable records as "low confidence" in output.
+
+#### Step 3: Calculate statistics
+
+Aggregate:
+- Total connections per category
+- Distribution by firm_type, seniority, ecosystem (counts + percentages)
+- Top 20-30 firms by connection count (dedupe `key_contacts`—no name should appear twice per firm)
+- Group by firm, rank by relevance
+
+#### Step 4: Deduplicate and save enriched data
+
+```python
+# Combine all dataframes with source tracking
+harvard_df['Source_CSV'] = 'harvard'
+vcpe_df['Source_CSV'] = 'vcpe'
+deeptech_df['Source_CSV'] = 'deeptech'
+all_df = pd.concat([harvard_df, vcpe_df, deeptech_df], ignore_index=True)
+
+# Deduplicate by Profile URL (keep first occurrence, preserve Source_CSV)
+deduped_df = all_df.drop_duplicates(subset=['Profile'], keep='first')
+
+# Save deduplicated CSV (primary analysis file)
+deduped_df.to_csv('research/people/{gp-name}/network/combined_deduped.csv', index=False)
+```
+
+**Output files:**
+- `combined_deduped.csv` = primary analysis file (deduplicated, includes distill enrichment `_D` columns if low-confidence workflow run)
+- `distill_profiles.json` = full distill responses cached by LinkedIn URL (if low-confidence workflow run)
+
+**Quality check (Items 1-4):**
+- [ ] All CSV files loaded and enriched with characterization columns
+- [ ] Overall statistics calculated (total connections, category breakdown)
+- [ ] Top 20-30 firms identified by connection count
+- [ ] Network composition analyzed (firm_type, seniority, ecosystem distributions)
+
+---
+
+### Phase 3: Strategic Relationship Validation (~5-10 minutes)
+
+**Map claims to connection evidence (optional if no claims.json).**
+
+**Scope requirement:** Comprehensively validate ALL entities where a relationship is explicitly claimed in the dataroom/claims.json. Do not cherry-pick examples—include every firm, person, or organization mentioned as a relationship.
+
+**Section boundary:** `strategic_relationships` is for claim validation only. `top_firms` shows raw connection data ranked by count. If a firm appears in both, `top_firms` shows quantitative data (count, firm type, contacts); `strategic_relationships` assesses whether claimed relationship depth is supported by evidence. Avoid duplicating the same names/details across sections.
+
+#### Approach A: With claims.json
+
+1. **Extract ALL network claims** from `claims.json` and dataroom materials:
+   - Central hub partners (claimed VC partnerships, referral relationships)
    - Deal sources (claimed introductions to portfolio companies)
-   - Co-investors (claimed co-investment relationships)
-   - Mentors (claimed guidance relationships)
-   - High-value connections (unicorn founders, notable investors)
+   - Co-investors, mentors, high-value connections
+   - Any other explicitly claimed relationships
 
 2. **For each claimed relationship:**
-   - Search network CSVs for connections at that firm/person
+   - Search enriched CSV for connections at that firm/person
    - Count total connections (e.g., "8 connections at Sequoia")
-   - Identify key contacts (partners vs associates)
-   - Assess claim strength: Does "close relationship with Sequoia" align with 1 associate connection? Or 5 partner connections?
+   - Identify key contacts—apply firm-type-aware seniority (see Principle 6)
+   - Assess claim strength vs evidence
 
 3. **Categorize verification status:**
-   - ✅ **Verified**: Multiple senior connections support claimed relationship depth
-   - ⚠️ **Partial**: Some connections exist but fewer/more junior than claim suggests
-   - ❓ **Unverified**: No connections found (doesn't prove no relationship - partial capture limitation)
-   - ❌ **Conflicting**: Connection evidence contradicts claim (e.g., "close" but 0 connections)
+   - ✅ **Verified**: Multiple senior connections support claimed depth
+   - ⚠️ **Partial**: Some connections but fewer/junior than claimed
+   - ❓ **Unverified**: No connections (doesn't prove no relationship)
+   - ❌ **Conflicting**: Evidence contradicts claim
 
-**Output**: Populate `strategic_relationships` in JSON
+4. **Deduplicate:** Ensure no name appears twice within `connection_details` or `key_contacts` arrays.
 
-### Phase 4: Network Quality Assessment & Gap Identification
+#### Approach B: Without claims.json
 
-**Assess network across key dimensions:**
+1. List key firms/relationships mentioned in marketing materials
+2. For each: count connections, assess seniority (firm-type-aware), note verification needs
+3. Skip claim_id references, focus on top firm analysis
 
-1. **Breadth**: Overall network size and category diversity
-2. **Depth**: Quality of key relationships (partner-level vs junior connections)
+**Output:** Populate `strategic_relationships` in JSON
+
+**Quality check (Items 5-6):**
+- [ ] Network claims mapped to connection evidence (if claims.json exists)
+- [ ] Strategic relationships categorized by verification status
+
+---
+
+### Phase 4: Network Quality Assessment & Gap Identification (~10-15 minutes)
+
+**Assess network and identify critical gaps.**
+
+#### Step 1: Assess across dimensions
+
+1. **Breadth**: Network size and category diversity
+2. **Depth**: Quality of key relationships (partner-level vs junior)
 3. **Relevance**: Alignment between network composition and fund thesis
-4. **Recency**: When did key relationships form? (if data available)
+4. **Recency**: When relationships formed (if data available)
 
-**Identify critical gaps:**
+#### Step 2: Identify gaps
 
-1. **Shallow key relationships**: Claimed "close relationship" with 0-2 connections
-2. **Network mismatch**: Network composition doesn't match fund positioning (e.g., growth equity network for early-stage deeptech fund)
-3. **Missing ecosystems**: Fund focuses on quantum but 0 quantum scientist connections
-4. **LP network underdeveloped**: Few connections at LP firms despite fundraising claims
-5. **Founder network unverifiable**: Claimed founder referral network lacks connection evidence
+Common gap types:
+- **Shallow key relationships**: Claimed "close" with 0-2 connections
+- **Network mismatch**: Composition doesn't match positioning (e.g., generalist network for deeptech fund)
+- **Missing ecosystems**: Fund focuses on X but 0 connections in X
+- **LP network underdeveloped**: Few LP connections despite fundraising
+- **Founder network unverifiable**: Claimed referral network lacks evidence
 
-**Risk severity classification:**
-- 🚩 **Red Flag**: Material gap that undermines core fund strategy (e.g., no deeptech network for deeptech fund)
-- 🟡 **Yellow Flag**: Moderate concern that may indicate overstated claims (e.g., "close" relationship with 1 junior connection)
+#### Step 3: Risk severity classification
+
+- 🚩 **Red Flag**: Material gap undermining core strategy
+- 🟡 **Yellow Flag**: Moderate concern, possible overstated claims
 - **Minor**: Expected gap or limited significance
 
-**Identify verification priorities:**
-- Which claimed relationships are most critical to validate?
-- What verification approach would be most productive? (reference checks, portfolio company interviews, etc)
+#### Step 4: Verification priorities
 
-**Output**: Populate `network_quality_assessment` and `verification_priorities` in JSON
+Rank relationships by:
+- **Critical**: Core to fund thesis, material if disproven
+- **High**: Important but not make-or-break
+- **Medium/Low**: Nice to verify but not urgent
+
+**Output:** Populate `network_quality_assessment` and `verification_priorities` in JSON
+
+**Quality check (Items 7-11):**
+- [ ] Network quality assessed across breadth, depth, relevance
+- [ ] Critical gaps identified with risk severity classification
+- [ ] Verification priorities established with clear rationale
+- [ ] Methodology limitations stated (partial capture, LinkedIn-only)
+- [ ] JSON validates and markdown template renders correctly
+- [ ] Specific people mentioned in claims-analysis.md searched
+
+---
+
+## Workflow Flexibility
+
+**Minimum viable:** Phases 1-2 only (enrichment + stats) - for pure network research
+
+**Standard:** Phases 1-3 (add strategic validation) - when claims exist to verify
+
+**Comprehensive:** All phases including gap analysis - for due diligence context
+
+Skip Phase 3 if no claims to validate. Skip Phase 4 if no due diligence required.
 
 ## Key Principles
 
-1. **Evidence-Based Assessment**: Connection count is ONE signal, not definitive proof. No connection ≠ no relationship (LinkedIn usage varies). Focus on patterns, not individual data points.
+1. **Evidence-Based Assessment**: Connection count is ONE signal, not proof. No connection ≠ no relationship. Focus on patterns, not individual data points.
 
-2. **Methodology Transparency**: State clearly this is "partial connection capture" - not complete network inventory. Frame as "evidence of relationships" not "complete relationship census."
+2. **Connection Retention is Passive**: LinkedIn connections persist indefinitely—people rarely delete connections even when relationships lapse. Connection count shows *historical* touchpoints, not *active* relationships. Do not cite "maintained X connections post-departure" as evidence of ongoing relationship quality.
 
-3. **Claim-Agnostic Design**: Reference claim IDs from claims.json, not hardcoded claims. Workflow works for any GP/fund.
+3. **Methodology Transparency**: This is "partial connection capture" - not complete network inventory. Frame as "evidence of relationships" not "complete census."
 
-4. **Graceful Degradation**: If certain network CSVs don't exist, analyze what's available. If claim validation data is incomplete, note limitations.
+4. **Claim-Agnostic Design**: Workflow works with or without claims.json. Reference claim IDs when available.
 
-5. **Privacy-Conscious**: Aggregate patterns, don't expose individual connection names in final report (except key contacts at top firms). Focus on firm-level insights.
+5. **Graceful Degradation**: Analyze what's available. Note limitations if data incomplete.
 
-6. **Context-Aware Interpretation**:
-   - Institutional relationships (ex-colleagues) vs personal (alumni, co-investors)
-   - Timing matters: When formed vs when used
-   - Direction matters: Who introduced whom?
+6. **Privacy-Conscious**: Aggregate patterns, limit individual names (except key contacts at top firms).
 
-7. **Integration with Other Workflows**: Network analysis complements claims-analysis and people-analysis. Cross-reference claim IDs. Don't duplicate credential verification (that's in analyze-people).
+7. **Firm-Type-Aware Seniority**: Title hierarchies vary by firm type. For VCs: only "General Partner (GP)", "Managing Partner", "Managing Director" are definitively senior—"Partner", "Investing Partner", "Investment Partner" may be junior at tier-1 VCs. For PE: "VP", "Associate", "Senior Associate" are junior; "Principal", "Director", "MD", "Partner" are senior. When uncertain, classify conservatively as junior.
+
+8. **Context-Aware Interpretation**:
+   - Institutional relationships vs personal connections
+   - Timing: When formed vs when used
+   - Direction: Who introduced whom (if knowable)
+
+9. **Integration**: Complements claims-analysis and people-analysis. Cross-reference claim IDs. Don't duplicate credential verification.
+
+## Network Facets Framework
+
+Each CSV = one network facet. Analyze separately, then combine into `combined_deduped.csv`.
+
+| CSV | Facet | Key Breakdowns | Claim Validation |
+|-----|-------|----------------|------------------|
+| harvard.csv | Alumni network | Category_I: founder/investor/operator | Prod founders search |
+| vcpe.csv | VC/PE relationships | Seniority_I, Investment_Stage_I | Partnership depth, tier-1 |
+| deeptech.csv | Technical ecosystem | Ecosystem_I, Quantum_Confidence_I | Quantum validation |
+| **combined_deduped.csv** | **Aggregate stats** | Deduplicated by Profile URL | Top firms, total counts |
+
+**Key principle:** Use `combined_deduped.csv` for ALL aggregate stats (top firms, totals). Use individual CSVs only for facet-specific claim validation.
+
+**Output structure:**
+- Section 1: Facet Drilldowns (per-CSV, no aggregate stats)
+- Section 2: Deduplicated Overview (from combined_deduped.csv only)
+- Section 3+: Strategic validation, key findings
 
 ## Quality Checklist
 
-**Before completing analysis:**
-
-- [ ] All network CSV files processed and enriched with characterization columns
-- [ ] Overall statistics calculated (total connections, category breakdown)
-- [ ] Top 20-30 firms identified and assessed for relevance
-- [ ] Network composition analyzed (firm_type, seniority, ecosystem distributions)
-- [ ] All network claims from claims.json mapped to connection evidence
-- [ ] Strategic relationships categorized by verification status
-- [ ] Network quality assessed across breadth, depth, relevance dimensions
-- [ ] Critical gaps identified with risk severity classification
-- [ ] Verification priorities established with clear rationale
-- [ ] Methodology limitations clearly stated (partial capture, LinkedIn-only)
-- [ ] JSON validates and markdown template renders correctly
-- [ ] Specific people mentioned in claims-analysis.md searched in network data
-
-## Example Use Case: Hyperion Fund (Dillon Chen)
-
-**Inputs:**
-- `research/people/dillon-chen/network/harvard.csv` (604 connections)
-- `research/people/dillon-chen/network/vcpe.csv` (638 connections)
-- `research/people/dillon-chen/network/deeptech.csv` (if exists)
-- `marketing-to-reality/_data/claims.json` (network claims)
-
-**Key Questions to Answer:**
-1. **Deeptech network depth**: How many connections in quantum/fusion/advanced computing? What seniority? Any scientists/technical founders?
-2. **Harvard network strength**: 604 connections - but what's the composition? Investors, operators, academics? How many in relevant sectors?
-3. **VCPE network quality**: 638 connections - but tier1_vc vs growth equity vs PE? Partner-level vs associate-level?
-4. **Claimed relationships**: Search for specific people mentioned in claims-analysis.md (e.g., Mike Annunziata @ Also Capital, Tamarack team, Founders Fund contacts, Coatue partners)
-
-**Process:**
-1. Enrich CSVs with Firm_Type, Seniority, Ecosystem, Relevance columns
-2. Aggregate: "X deeptech founders, Y tier1_vc partners, Z quantum specialists"
-3. Validate claimed relationships: "Mike Annunziata (Also Capital)" - how many Also Capital connections? What titles?
-4. Identify gaps: "Claims 'deep quantum network' but 0 quantum physicist connections" (red flag)
-5. Output to `marketing-to-reality/_data/network.json` + template
-
-**Expected Insights:**
-- Network composition match/mismatch with "early-stage deeptech" positioning
-- Depth of claimed strategic relationships (Sequoia, Coatue, Founders Fund, etc)
-- Harvard network relevance (investors vs operators vs academics)
-- Critical missing ecosystems (quantum, fusion specialists if fund claims focus)
-- Verification priorities (which relationships most critical to confirm)
+- [ ] CSVs enriched with `_I` columns (Seniority_I, Category_I, Ecosystem_I, etc.)
+- [ ] Deduplicated by Profile URL → `combined_deduped.csv`
+- [ ] Top firms calculated from deduped data (unique people per firm)
+- [ ] Schools filtered from top_firms
+- [ ] Facet sections link to rendered CSV view (not raw .csv)
+- [ ] No duplicate stats between facet sections and overview

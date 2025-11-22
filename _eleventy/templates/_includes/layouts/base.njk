@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if title %}{{ title }} - {% endif %}{{ site.username | capitalize }}</title>
     <style>
+        :root {
+            --bg-primary: #f5f5f5;
+            --bg-secondary: #fff;
+            --bg-tertiary: #f9f9f9;
+            --bg-code: #f6f8fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #333;
+            --text-muted: #666;
+            --text-faint: #999;
+            --border-color: #e0e0e0;
+            --link-color: #0066cc;
+            --link-visited: #551a8b;
+            --link-hover: #004499;
+            --error-bg: #fff5f5;
+            --error-border: #dc3545;
+            --error-text: #721c24;
+            --shadow: rgba(0,0,0,0.1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #1a1a1a;
+                --bg-secondary: #2d2d2d;
+                --bg-tertiary: #333;
+                --bg-code: #3a3a3a;
+                --text-primary: #f0f0f0;
+                --text-secondary: #d0d0d0;
+                --text-muted: #a0a0a0;
+                --text-faint: #888;
+                --border-color: #444;
+                --link-color: #6db3f2;
+                --link-visited: #b39ddb;
+                --link-hover: #90caf9;
+                --error-bg: #3d2020;
+                --error-border: #f56565;
+                --error-text: #feb2b2;
+                --shadow: rgba(0,0,0,0.3);
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -19,8 +59,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
             margin-left: 280px; /* Account for fixed sidebar */
             overflow-x: hidden;
             max-width: 100%;
@@ -34,8 +74,8 @@
         }
 
         header {
-            background: #fff;
-            border-bottom: 1px solid #e0e0e0;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
             padding: 1rem 0;
             margin-bottom: 2rem;
         }
@@ -49,7 +89,7 @@
         .site-title {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--text-primary);
             text-decoration: none;
         }
 
@@ -60,18 +100,18 @@
         }
 
         header nav a {
-            color: #666;
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s;
         }
 
         header nav a:hover {
-            color: #000;
+            color: var(--text-primary);
         }
 
         .breadcrumb {
-            background: #fff;
+            background: var(--bg-secondary);
             padding: 0.75rem 1rem;
             border-radius: 6px;
             margin-bottom: 1.5rem;
@@ -79,7 +119,7 @@
         }
 
         .breadcrumb a {
-            color: #0066cc;
+            color: var(--link-color);
             text-decoration: none;
         }
 
@@ -88,15 +128,15 @@
         }
 
         .breadcrumb span {
-            color: #999;
+            color: var(--text-faint);
             margin: 0 0.5rem;
         }
 
         main {
-            background: #fff;
+            background: var(--bg-secondary);
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px var(--shadow);
             margin-bottom: 2rem;
             overflow-wrap: break-word;
             word-wrap: break-word;
@@ -106,19 +146,80 @@
         h1 {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
         }
 
         h2 {
             font-size: 1.5rem;
             margin: 2rem 0 1rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
         }
 
         h3 {
             font-size: 1.25rem;
             margin: 1.5rem 0 0.75rem;
-            color: #333;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--link-color);
+        }
+
+        a:visited {
+            color: var(--link-visited);
+        }
+
+        a:hover {
+            color: var(--link-hover);
+        }
+
+        /* Collapsible sections */
+        .collapsible-h2 {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .collapsible-caret {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s ease;
+            color: var(--text-muted);
+            font-size: 0.8em;
+            flex-shrink: 0;
+        }
+
+        .collapsible-caret:hover {
+            color: var(--text-primary);
+        }
+
+        .collapsible-caret.collapsed {
+            transform: rotate(0deg);
+        }
+
+        .collapsible-caret.expanded {
+            transform: rotate(90deg);
+        }
+
+        .collapsible-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .collapsible-content.collapsed {
+            max-height: 0;
+            visibility: hidden;
+        }
+
+        .collapsible-content.expanded {
+            max-height: none;
+            visibility: visible;
         }
 
         .content,
@@ -151,7 +252,7 @@
         }
 
         .content pre {
-            background: #f6f8fa;
+            background: var(--bg-code);
             padding: 1rem;
             border-radius: 6px;
             overflow-x: auto;
@@ -159,7 +260,7 @@
         }
 
         .content code {
-            background: #f6f8fa;
+            background: var(--bg-code);
             padding: 0.2rem 0.4rem;
             border-radius: 3px;
             font-family: 'Monaco', 'Courier New', monospace;
@@ -185,13 +286,13 @@
         .content td {
             padding: 0.75rem;
             text-align: left;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid var(--border-color);
             white-space: nowrap;
             min-width: 100px;
         }
 
         .content th {
-            background: #f6f8fa;
+            background: var(--bg-code);
             font-weight: 600;
         }
 
@@ -204,8 +305,8 @@
 
         .file-card,
         .folder-card {
-            background: #f9f9f9;
-            border: 1px solid #e0e0e0;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
             border-radius: 6px;
             padding: 1rem;
             transition: all 0.2s;
@@ -216,8 +317,8 @@
 
         .file-card:hover,
         .folder-card:hover {
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: var(--bg-secondary);
+            box-shadow: 0 2px 8px var(--shadow);
             transform: translateY(-2px);
         }
 
@@ -230,20 +331,20 @@
         .file-name,
         .folder-name {
             font-weight: 500;
-            color: #1a1a1a;
+            color: var(--text-primary);
             word-break: break-word;
         }
 
         .file-meta {
             font-size: 0.85rem;
-            color: #666;
+            color: var(--text-muted);
             margin-top: 0.5rem;
         }
 
         footer {
             text-align: center;
             padding: 2rem 0;
-            color: #666;
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
 
@@ -353,5 +454,145 @@
             <p>&copy; {{ site.year }} {{ site.username | capitalize }}'s Workspace</p>
         </div>
     </footer>
+
+    <script>
+        (function() {
+            // Only run on pages with markdown content
+            const mainContent = document.querySelector('main');
+            if (!mainContent) return;
+
+            // Get all h2 headings
+            const h2Elements = mainContent.querySelectorAll('h2');
+            if (h2Elements.length === 0) return;
+
+            // Get page path for localStorage key
+            const pagePath = window.location.pathname;
+            const storageKey = 'collapsible-sections-' + pagePath;
+
+            // Load saved state from localStorage
+            let savedState = {};
+            try {
+                const saved = localStorage.getItem(storageKey);
+                if (saved) {
+                    savedState = JSON.parse(saved);
+                }
+            } catch (e) {
+                console.error('Error loading collapsible state:', e);
+            }
+
+            // Process each h2 heading
+            h2Elements.forEach((h2, index) => {
+                // Generate unique ID for this heading
+                const headingId = h2.id || 'heading-' + index;
+                if (!h2.id) h2.id = headingId;
+
+                // Create wrapper div for the h2 with flex layout
+                const h2Wrapper = document.createElement('div');
+                h2Wrapper.className = 'collapsible-h2';
+                h2.parentNode.insertBefore(h2Wrapper, h2);
+
+                // Create caret icon
+                const caret = document.createElement('span');
+                caret.className = 'collapsible-caret';
+                caret.innerHTML = '▶';
+                caret.setAttribute('role', 'button');
+                caret.setAttribute('aria-label', 'Toggle section');
+
+                // Move h2 into wrapper and add caret before it
+                h2Wrapper.appendChild(caret);
+                h2Wrapper.appendChild(h2);
+
+                // Find all content between this h2 and the next h2 (or end of content)
+                const contentElements = [];
+                let nextElement = h2Wrapper.nextElementSibling;
+
+                while (nextElement && nextElement.tagName !== 'H2') {
+                    contentElements.push(nextElement);
+                    nextElement = nextElement.nextElementSibling;
+                }
+
+                // Only create collapsible container if there's content to collapse
+                if (contentElements.length === 0) {
+                    // No content to collapse, remove the caret
+                    caret.style.visibility = 'hidden';
+                    return;
+                }
+
+                // Create collapsible content wrapper
+                const contentWrapper = document.createElement('div');
+                contentWrapper.className = 'collapsible-content';
+
+                // Move content elements into wrapper
+                contentElements.forEach(el => {
+                    contentWrapper.appendChild(el);
+                });
+
+                // Insert content wrapper after h2 wrapper
+                h2Wrapper.parentNode.insertBefore(contentWrapper, h2Wrapper.nextElementSibling);
+
+                // Determine initial state (default to expanded if not in localStorage)
+                const isCollapsed = savedState[headingId] === false;
+
+                // Set initial state
+                if (isCollapsed) {
+                    caret.classList.add('collapsed');
+                    caret.classList.remove('expanded');
+                    contentWrapper.classList.add('collapsed');
+                    contentWrapper.classList.remove('expanded');
+                } else {
+                    caret.classList.add('expanded');
+                    caret.classList.remove('collapsed');
+                    contentWrapper.classList.add('expanded');
+                    contentWrapper.classList.remove('collapsed');
+                }
+
+                // Toggle function
+                function toggleSection() {
+                    const isCurrentlyCollapsed = contentWrapper.classList.contains('collapsed');
+
+                    if (isCurrentlyCollapsed) {
+                        // Expand
+                        caret.classList.remove('collapsed');
+                        caret.classList.add('expanded');
+                        contentWrapper.classList.remove('collapsed');
+                        contentWrapper.classList.add('expanded');
+                        savedState[headingId] = true;
+                    } else {
+                        // Collapse
+                        caret.classList.remove('expanded');
+                        caret.classList.add('collapsed');
+                        contentWrapper.classList.remove('expanded');
+                        contentWrapper.classList.add('collapsed');
+                        savedState[headingId] = false;
+                    }
+
+                    // Save state to localStorage
+                    try {
+                        localStorage.setItem(storageKey, JSON.stringify(savedState));
+                    } catch (e) {
+                        console.error('Error saving collapsible state:', e);
+                    }
+                }
+
+                // Add click handler only to the caret
+                caret.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleSection();
+                });
+
+                // Add keyboard support for accessibility
+                caret.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleSection();
+                    }
+                });
+
+                // Make caret focusable
+                caret.setAttribute('tabindex', '0');
+            });
+        })();
+    </script>
 </body>
 </html>

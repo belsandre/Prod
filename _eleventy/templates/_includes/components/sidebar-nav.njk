@@ -51,8 +51,8 @@
     top: 0;
     bottom: 0;
     width: 280px;
-    background: #f8f9fa;
-    border-right: 1px solid #dee2e6;
+    background: var(--bg-tertiary);
+    border-right: 1px solid var(--border-color);
     overflow-y: auto;
     z-index: 1000;
     padding: 1rem 0;
@@ -60,7 +60,7 @@
 
   .sidebar-header {
     padding: 0 1rem 1rem;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 1rem;
   }
 
@@ -68,7 +68,7 @@
     margin: 0;
     font-size: 1.1rem;
     font-weight: 600;
-    color: #212529;
+    color: var(--text-primary);
   }
 
   .nav-tree {
@@ -101,7 +101,7 @@
   }
 
   .folder-summary:hover {
-    background: #e9ecef;
+    background: var(--bg-code);
   }
 
   .folder-summary::marker,
@@ -115,7 +115,7 @@
     transition: transform 0.2s;
     display: inline-block;
     width: 1rem;
-    color: #6c757d;
+    color: var(--text-muted);
   }
 
   .folder-details[open] > .folder-summary::before {
@@ -129,12 +129,12 @@
   .folder-name {
     flex: 1;
     font-weight: 500;
-    color: #495057;
+    color: var(--text-secondary);
   }
 
   .folder-count {
     font-size: 0.75rem;
-    color: #6c757d;
+    color: var(--text-muted);
   }
 
   .folder-details[open] > .nav-list {
@@ -149,17 +149,17 @@
     padding: 0.4rem 0.5rem 0.4rem 1.5rem;
     border-radius: 4px;
     text-decoration: none;
-    color: #495057;
+    color: var(--text-secondary);
     transition: background-color 0.15s;
   }
 
   .file-link:hover {
-    background: #e9ecef;
+    background: var(--bg-code);
     text-decoration: none;
   }
 
   .file-link.active {
-    background: #0d6efd;
+    background: var(--link-color);
     color: #fff;
   }
 
@@ -181,16 +181,16 @@
   }
 
   .sidebar-nav::-webkit-scrollbar-track {
-    background: #f8f9fa;
+    background: var(--bg-tertiary);
   }
 
   .sidebar-nav::-webkit-scrollbar-thumb {
-    background: #dee2e6;
+    background: var(--border-color);
     border-radius: 3px;
   }
 
   .sidebar-nav::-webkit-scrollbar-thumb:hover {
-    background: #adb5bd;
+    background: var(--text-muted);
   }
 
   /* Responsive: hide sidebar on mobile */

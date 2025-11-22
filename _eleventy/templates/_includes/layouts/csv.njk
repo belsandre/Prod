@@ -63,20 +63,26 @@ layout: layouts/base.njk
         width: 100%;
         max-width: 300px;
         padding: 0.5rem 0.75rem;
-        border: 1px solid #e1e4e8;
+        border: 1px solid var(--border-color);
         border-radius: 4px;
         font-size: 0.9rem;
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+    }
+
+    .csv-controls .search::placeholder {
+        color: var(--text-muted);
     }
 
     .csv-controls .search:focus {
         outline: none;
-        border-color: #0066cc;
-        box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        border-color: var(--link-color);
+        box-shadow: 0 0 0 2px rgba(109, 179, 242, 0.2);
     }
 
     .csv-info {
-        background: #f6f8fa;
-        border-left: 4px solid #0066cc;
+        background: var(--bg-code);
+        border-left: 4px solid var(--link-color);
         padding: 1rem;
         margin-bottom: 1.5rem;
         border-radius: 4px;
@@ -84,24 +90,24 @@ layout: layouts/base.njk
 
     .csv-info p {
         margin: 0.25rem 0;
-        color: #586069;
+        color: var(--text-muted);
         font-size: 0.9rem;
     }
 
     .csv-error {
-        background: #fff5f5;
-        border-left: 4px solid #dc3545;
+        background: var(--error-bg);
+        border-left: 4px solid var(--error-border);
         padding: 1rem;
         margin-bottom: 1.5rem;
         border-radius: 4px;
     }
 
     .csv-error strong {
-        color: #721c24;
+        color: var(--error-text);
     }
 
     .csv-error .error-details {
-        color: #721c24;
+        color: var(--error-text);
         font-family: monospace;
         font-size: 0.85rem;
         margin-top: 0.5rem;
@@ -121,7 +127,7 @@ layout: layouts/base.njk
     }
 
     .csv-table thead {
-        background: #f6f8fa;
+        background: var(--bg-code);
         position: sticky;
         top: 0;
     }
@@ -130,15 +136,15 @@ layout: layouts/base.njk
         text-align: left;
         padding: 0.75rem;
         font-weight: 600;
-        color: #24292e;
-        border-bottom: 2px solid #e1e4e8;
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--border-color);
         white-space: nowrap;
         cursor: pointer;
         user-select: none;
     }
 
     .csv-table th.sort:hover {
-        background: #eaecef;
+        background: var(--bg-tertiary);
     }
 
     .csv-table th.sort::after {
@@ -159,11 +165,12 @@ layout: layouts/base.njk
 
     .csv-table td {
         padding: 0.75rem;
-        border-bottom: 1px solid #e1e4e8;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-secondary);
     }
 
     .csv-table tbody tr:hover {
-        background: #f6f8fa;
+        background: var(--bg-tertiary);
     }
 
     @media (max-width: 768px) {

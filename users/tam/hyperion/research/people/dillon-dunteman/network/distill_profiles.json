@@ -1,0 +1,1177 @@
+{
+  "metadata": {
+    "created_at": "2025-11-22",
+    "source": "Distill MCP viewManyProfiles",
+    "description": "Deeptech categorization for network connections"
+  },
+  "profiles": {
+    "https://www.linkedin.com/in/mjbiercuk/": {
+      "name": "Michael Biercuk",
+      "ecosystem": "quantum",
+      "deeptech_relevance": "high",
+      "sector_specifics": "quantum control software, ion-trap",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Q-CTRL"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/ilyas-khan-ksg-2a899453/": {
+      "name": "Ilyas Khan",
+      "ecosystem": "quantum",
+      "deeptech_relevance": "high",
+      "sector_specifics": "quantum computing, trapped-ion",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Quantinuum",
+        "Cambridge Quantum Computing"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/matthew-cimaglia-59a52514/": {
+      "name": "Matthew Cimaglia",
+      "ecosystem": "quantum",
+      "deeptech_relevance": "high",
+      "sector_specifics": "quantum computing investment",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Quantum Coast Capital"
+      ],
+      "investor_focus": [
+        "quantum"
+      ]
+    },
+    "https://www.linkedin.com/in/sarahlaughlin1/": {
+      "name": "Sarah Laughlin",
+      "ecosystem": "quantum",
+      "deeptech_relevance": "high",
+      "sector_specifics": "neutral atom quantum computing",
+      "role_type": "operator",
+      "deeptech_companies": [
+        "Atom Computing",
+        "Infleqtion",
+        "Cachai"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/julien-camirand-lemyre/": {
+      "name": "Julien Camirand Lemyre",
+      "ecosystem": "quantum",
+      "deeptech_relevance": "high",
+      "sector_specifics": "superconducting qubits, error correction",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Nord Quantique"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/benj-conway-8609b614/": {
+      "name": "Benj Conway",
+      "ecosystem": "fusion_energy",
+      "deeptech_relevance": "high",
+      "sector_specifics": "sheared-flow stabilized fusion",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Zap Energy"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/william-theron/": {
+      "name": "William Theron",
+      "ecosystem": "nuclear",
+      "deeptech_relevance": "high",
+      "sector_specifics": "compact nuclear reactors",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Deep Atomic"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/kevinkong91/": {
+      "name": "Kevin Kong",
+      "ecosystem": "nuclear",
+      "deeptech_relevance": "high",
+      "sector_specifics": "nuclear deployment AI",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Everstar"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/alex-kosyakov/": {
+      "name": "Alex Kosyakov",
+      "ecosystem": "robotics_hardware",
+      "deeptech_relevance": "high",
+      "sector_specifics": "solid-state batteries",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Natrion"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/mitchell-hsing/": {
+      "name": "Mitchell Hsing",
+      "ecosystem": "semiconductors",
+      "deeptech_relevance": "high",
+      "sector_specifics": "semiconductor manufacturing",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "InchFab"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/maximilian-liese/": {
+      "name": "Maximilian Liese",
+      "ecosystem": "robotics_hardware",
+      "deeptech_relevance": "high",
+      "sector_specifics": "wire arc additive manufacturing",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Vuecason"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/daynagrayson/": {
+      "name": "Dayna Grayson",
+      "ecosystem": "robotics_hardware",
+      "deeptech_relevance": "high",
+      "sector_specifics": "manufacturing, supply chain, hardware",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Construct Capital",
+        "Desktop Metal",
+        "Formlabs",
+        "Tulip"
+      ],
+      "investor_focus": [
+        "robotics_hardware",
+        "semiconductors",
+        "manufacturing"
+      ]
+    },
+    "https://www.linkedin.com/in/sophiepurdom/": {
+      "name": "Sophie Purdom",
+      "ecosystem": "climate_tech",
+      "deeptech_relevance": "high",
+      "sector_specifics": "climate tech, cleantech",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Planeteer Capital",
+        "Kula Bio"
+      ],
+      "investor_focus": [
+        "climate_tech"
+      ]
+    },
+    "https://www.linkedin.com/in/devvret-rishi-b0857684/": {
+      "name": "Devvret Rishi",
+      "ecosystem": "ai",
+      "deeptech_relevance": "high",
+      "sector_specifics": "ML infrastructure, open-source AI",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Predibase"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/sivulka/": {
+      "name": "George Sivulka",
+      "ecosystem": "ai",
+      "deeptech_relevance": "high",
+      "sector_specifics": "LLM infrastructure, enterprise AI",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Hebbia"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/luttig/": {
+      "name": "John Luttig",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "multi-sector (Scale AI, OpenAI, Figma)",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Founders Fund"
+      ],
+      "investor_focus": [
+        "ai",
+        "infrastructure"
+      ]
+    },
+    "https://www.linkedin.com/in/shangyan-li-3582456b/": {
+      "name": "Shangyan Li",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "applied AI, B2B",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Sylvan Labs",
+        "Butter Technologies"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/ali-dastjerdi/": {
+      "name": "Ali Dastjerdi",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "AI for private markets",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Raylu"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/ibby/": {
+      "name": "Ibby Syed",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "AI agents, automation",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Cotera"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/lily-clifford-7b34a6180/": {
+      "name": "Lily Clifford",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "AI voice models",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Rime Labs"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/nirajpant/": {
+      "name": "Niraj Pant",
+      "ecosystem": "infrastructure",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "decentralized compute, crypto infra",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Ritual"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/jairelan/": {
+      "name": "Jai Relan",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "AI automation",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Relling",
+        "Clara Labs"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/rahulvohra/": {
+      "name": "Rahul Vohra",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "AI productivity",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Superhuman",
+        "Rapportive"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/daniellemorrill/": {
+      "name": "Danielle Morrill",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "AI meetings, automation",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Groupthink",
+        "Mattermark"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/mcneilallo/": {
+      "name": "McNeil Allo",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "real estate AI",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Stealth (Real Estate AI)"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/rahul-naidoo-52210578/": {
+      "name": "Rahul Naidoo",
+      "ecosystem": "biotech",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "consumer healthcare",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Stealth (Consumer Healthcare)"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/wesleychan/": {
+      "name": "Wesley Chan",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "low",
+      "sector_specifics": "multi-sector (Canva, Google Analytics)",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "FPV Ventures"
+      ],
+      "investor_focus": [
+        "ai",
+        "consumer"
+      ]
+    },
+    "https://www.linkedin.com/in/hishamelhaddad/": {
+      "name": "Hisham Elhaddad",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "multi-stage (xAI, Anthropic, Databricks, Neuralink)",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "HOF Capital"
+      ],
+      "investor_focus": [
+        "ai",
+        "biotech",
+        "space"
+      ]
+    },
+    "https://www.linkedin.com/in/amirzadegan/": {
+      "name": "Amin Mirzadegan",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "low",
+      "sector_specifics": "multi-sector",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Founders Fund"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/davidbeisel/": {
+      "name": "David Beisel",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "none",
+      "sector_specifics": "everyday economy, consumer",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "NextView Ventures"
+      ],
+      "investor_focus": [
+        "consumer",
+        "saas"
+      ]
+    },
+    "https://www.linkedin.com/in/harrystebbings/": {
+      "name": "Harry Stebbings",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "low",
+      "sector_specifics": "multi-sector (Perplexity, Linear)",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "20VC"
+      ],
+      "investor_focus": [
+        "ai",
+        "saas"
+      ]
+    },
+    "https://www.linkedin.com/in/alexavontobel/": {
+      "name": "Alexa von Tobel",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "none",
+      "sector_specifics": "fintech, consumer",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Inspired Capital",
+        "LearnVest"
+      ],
+      "investor_focus": [
+        "fintech",
+        "consumer"
+      ]
+    },
+    "https://www.linkedin.com/in/rexwoodbury/": {
+      "name": "Rex Woodbury",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "none",
+      "sector_specifics": "consumer, digital native",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Daybreak"
+      ],
+      "investor_focus": [
+        "consumer"
+      ]
+    },
+    "https://www.linkedin.com/in/davis-wilkinson-38988a73/": {
+      "name": "Davis Wilkinson",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "data/martech",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Stealth",
+        "LiveRamp"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/christine-hong-28b144112/": {
+      "name": "Christine Hong",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "commerce, creator economy",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Tack"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/markgrozensmith/": {
+      "name": "Mark Grozen-Smith",
+      "ecosystem": "climate_tech",
+      "deeptech_relevance": "high",
+      "sector_specifics": "AI for solar/wind/battery optimization",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Thresh Power"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/stephen-dibartolomeo/": {
+      "name": "Stephen DiBartolomeo",
+      "ecosystem": "defense",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "semiconductors, frontier tech",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Chiplytics"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/darwinling/": {
+      "name": "Darwin Ling",
+      "ecosystem": "ai",
+      "deeptech_relevance": "high",
+      "sector_specifics": "healthcare AI, robotics, biotech investing",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Good AI Capital"
+      ],
+      "investor_focus": [
+        "ai",
+        "biotech",
+        "robotics"
+      ]
+    },
+    "https://www.linkedin.com/in/nickymontana/": {
+      "name": "Nicky Montana",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "low",
+      "sector_specifics": "web3, some space/climate angels",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Zero Knowledge Ventures"
+      ],
+      "investor_focus": [
+        "crypto",
+        "web3"
+      ]
+    },
+    "https://www.linkedin.com/in/aran-khanna/": {
+      "name": "Aran Khanna",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "cloud fintech, cost optimization",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Archera"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/bdhoffman/": {
+      "name": "Brandon Hoffman",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "low",
+      "sector_specifics": "consumer internet, mediatech, fintech",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Sunset Ventures"
+      ],
+      "investor_focus": [
+        "consumer",
+        "media",
+        "fintech"
+      ]
+    },
+    "https://www.linkedin.com/in/grozensmith/": {
+      "name": "Mark Grozen-Smith",
+      "ecosystem": "climate_tech",
+      "deeptech_relevance": "high",
+      "sector_specifics": "solar/wind/battery AI, energy infrastructure",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Thresh Power"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/lukeheine/": {
+      "name": "Luke Heine",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "generative AI, diffusion models, LLMs",
+      "role_type": "operator",
+      "deeptech_companies": [
+        "Microsoft",
+        "Pioneer Fund"
+      ],
+      "investor_focus": [
+        "ai"
+      ]
+    },
+    "https://www.linkedin.com/in/neel-a-mehta/": {
+      "name": "Neel Mehta",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "marketing automation, applied AI",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Fiber AI"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/eltonlossner/": {
+      "name": "Elton Lossner",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "gov-tech, procurement SaaS",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Hazel"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/benj-cohen/": {
+      "name": "Benjamin Cohen",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "B2B SaaS",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "proton.ai"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/nicholas-sleeper-209641179/": {
+      "name": "Nicholas Sleeper",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "sports tech, prediction markets",
+      "role_type": "operator",
+      "deeptech_companies": [
+        "PredictionStrike"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/rangel-milushev/": {
+      "name": "Rangel Milushev",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "applied AI, fitness tech, compliance",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Rex.fit",
+        "CuratedAI"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/stephendibart/": {
+      "name": "Stephen DiBartolomeo",
+      "ecosystem": "defense",
+      "deeptech_relevance": "high",
+      "sector_specifics": "semiconductors, frontier tech, NSA/Navy background",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Chiplytics",
+        "Scout Ventures",
+        "Roo Capital"
+      ],
+      "investor_focus": [
+        "defense",
+        "semiconductors",
+        "frontier_tech"
+      ]
+    },
+    "https://www.linkedin.com/in/devanshiagarwal/": {
+      "name": "Devanshi Agarwal",
+      "ecosystem": "biotech",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "biotech ecosystem, protein research, MedTech",
+      "role_type": "operator",
+      "deeptech_companies": [
+        "Nucleate",
+        "Cytokinetics"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/philip-chua/": {
+      "name": "Philip Chua",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "healthcare informatics",
+      "role_type": "operator",
+      "deeptech_companies": [],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/nick-montana/": {
+      "name": "Nicky Montana",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "low",
+      "sector_specifics": "web3, some space/climate angels (Trans Astronautica, Noya)",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Zero Knowledge Ventures"
+      ],
+      "investor_focus": [
+        "crypto",
+        "web3"
+      ]
+    },
+    "https://www.linkedin.com/in/bblinkedin/": {
+      "name": "Brian Bell",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "AI product, ML infrastructure, startup investing",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Team Ignite Ventures",
+        "Microsoft",
+        "AWS"
+      ],
+      "investor_focus": [
+        "ai",
+        "ml"
+      ]
+    },
+    "https://www.linkedin.com/in/frankgatecap/": {
+      "name": "Frank (GateCap)",
+      "ecosystem": "infrastructure",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "blockchain infrastructure, asset digitization",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "GateCap Ventures",
+        "Provenance Blockchain"
+      ],
+      "investor_focus": [
+        "blockchain",
+        "infrastructure"
+      ]
+    },
+    "https://www.linkedin.com/in/parolari/": {
+      "name": "Luca Parolari",
+      "ecosystem": "biotech",
+      "deeptech_relevance": "high",
+      "sector_specifics": "biotech/life science VC, therapeutics, synbio, ML drug discovery",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "DCVC Bio"
+      ],
+      "investor_focus": [
+        "biotech",
+        "synbio",
+        "therapeutics",
+        "ai_drug_discovery"
+      ]
+    },
+    "https://www.linkedin.com/in/lilyjclifford/": {
+      "name": "Lily Clifford",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "AI voice models, conversational AI",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Rime Labs"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/amit-prakash-50719a2/": {
+      "name": "Amit Prakash",
+      "ecosystem": "ai",
+      "deeptech_relevance": "high",
+      "sector_specifics": "ML infrastructure, data analytics, scalable systems",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "A79.ai",
+        "ThoughtSpot",
+        "Google"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/websun/": {
+      "name": "Web Sun",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "healthcare AI, data analytics, ML for life sciences",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Komodo Health"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/nikunj-bajaj-10476824/": {
+      "name": "Nikunj Bajaj",
+      "ecosystem": "ai",
+      "deeptech_relevance": "high",
+      "sector_specifics": "MLOps, GenAI platform, LLM infrastructure",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "TrueFoundry",
+        "Facebook"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/csevern/": {
+      "name": "Chris Severn",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "healthcare pricing transparency",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Turquoise Health"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/slylee/": {
+      "name": "Sly Spencer-Lee",
+      "ecosystem": "robotics_hardware",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "haptics, VR/AR, spatial computing",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Emerge"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/benjconway/": {
+      "name": "Benj Conway",
+      "ecosystem": "fusion_energy",
+      "deeptech_relevance": "high",
+      "sector_specifics": "sheared-flow stabilized fusion",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Zap Energy"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/sarahelaughlin/": {
+      "name": "Sarah Laughlin",
+      "ecosystem": "quantum",
+      "deeptech_relevance": "high",
+      "sector_specifics": "neutral atom quantum computing, autonomy",
+      "role_type": "operator",
+      "deeptech_companies": [
+        "Atom Computing",
+        "Infleqtion",
+        "Cachai"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/matthewcimaglia/": {
+      "name": "Matthew Cimaglia",
+      "ecosystem": "quantum",
+      "deeptech_relevance": "high",
+      "sector_specifics": "quantum computing VC, media/creative tech founder",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Quantum Coast Capital",
+        "Third Summit Capital"
+      ],
+      "investor_focus": [
+        "quantum",
+        "media tech"
+      ]
+    },
+    "https://www.linkedin.com/in/dipan-pal-91980054/": {
+      "name": "Dipan Pal",
+      "ecosystem": "ai",
+      "deeptech_relevance": "high",
+      "sector_specifics": "cognitive inference systems, robotics AI, physical intelligence",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Voaige"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/rdrod/": {
+      "name": "Robert Rodriguez",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "cybersecurity public-private partnerships, government relations",
+      "role_type": "investor",
+      "deeptech_companies": null,
+      "investor_focus": [
+        "cybersecurity"
+      ]
+    },
+    "https://www.linkedin.com/in/ondrejantos/": {
+      "name": "Andrew Antos",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "enterprise finance AI, SaaS, revenue operations",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Klarity"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/idovolff/": {
+      "name": "Ido Volff",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "B2B SaaS, fintech, crypto",
+      "role_type": "operator",
+      "deeptech_companies": null,
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/daniel-avital-6b82a0129/": {
+      "name": "Daniel Avital",
+      "ecosystem": "ai",
+      "deeptech_relevance": "low",
+      "sector_specifics": "enterprise security, AI code enforcement",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Pandorian",
+        "CHEQ"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/rohan-karthik-60a0b61b7/": {
+      "name": "Rohan Karthik",
+      "ecosystem": "robotics_hardware",
+      "deeptech_relevance": "high",
+      "sector_specifics": "semiconductors",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Inversion Semiconductor"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/ezhiln/": {
+      "name": "Ezhilarasan Natarajan",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "cloud governance, enterprise IT",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "CoreStack"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/williamtheron/": {
+      "name": "William Theron",
+      "ecosystem": "nuclear",
+      "deeptech_relevance": "high",
+      "sector_specifics": "compact nuclear reactors, fission",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Deep Atomic"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/deddy-lavid-19b8151b/": {
+      "name": "Deddy Lavid",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "crypto fraud prevention, fintech, AI security",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Cyvers"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/mlinse/": {
+      "name": "Michael Linse",
+      "ecosystem": "climate_tech",
+      "deeptech_relevance": "high",
+      "sector_specifics": "EVs, aerial mobility, clean energy infrastructure, transportation",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Linse Capital",
+        "Levitate Capital"
+      ],
+      "investor_focus": [
+        "transportation",
+        "energy",
+        "cleantech",
+        "aerial mobility"
+      ]
+    },
+    "https://www.linkedin.com/in/zachary-kastenhuber-106681136/": {
+      "name": "Zachary Kastenhuber",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "investment funds, finance",
+      "role_type": "founder",
+      "deeptech_companies": null,
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/faisal-younus/": {
+      "name": "Faisal Younus",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "consumer tech, YC founder",
+      "role_type": "founder",
+      "deeptech_companies": null,
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/manav-khandelwal/": {
+      "name": "Manav Khandelwal",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "healthcare AI, ML-driven products",
+      "role_type": "founder",
+      "deeptech_companies": null,
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/hansae-catlett-436a9b21/": {
+      "name": "Hansae Catlett",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "applied AI, B2B software, battery tech via Sila Nanotechnologies",
+      "role_type": "investor",
+      "deeptech_companies": null,
+      "investor_focus": [
+        "applied AI",
+        "B2B software"
+      ]
+    },
+    "https://www.linkedin.com/in/austin-king-61a9b8b9/": {
+      "name": "Austin King",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "blockchain, crypto, payments infrastructure",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Omni Network"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/lisalevo/": {
+      "name": "Lisa Le Vo",
+      "ecosystem": "ai",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "data-centric AI (Cleanlab), consumer tech",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Cleanlab",
+        "ChipBrain"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/payton-coutlis/": {
+      "name": "Payton Coutlis",
+      "ecosystem": "biotech",
+      "deeptech_relevance": "low",
+      "sector_specifics": "biotech startup founder (exited)",
+      "role_type": "operator",
+      "deeptech_companies": null,
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/cherylcampos/": {
+      "name": "Cheryl Campos",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "low",
+      "sector_specifics": "healthcare AI, fintech pre-seed investing",
+      "role_type": "investor",
+      "deeptech_companies": null,
+      "investor_focus": [
+        "healthcare AI",
+        "fintech"
+      ]
+    },
+    "https://www.linkedin.com/in/jasongzhang/": {
+      "name": "Jason Zhang",
+      "ecosystem": "infrastructure",
+      "deeptech_relevance": "high",
+      "sector_specifics": "AI infrastructure, data centers, HPC, GPU compute",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Applied Digital",
+        "Anyscale"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/nick-bunn-793244114/": {
+      "name": "Nick Bunn",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "consumer goods, D2C, SaaS",
+      "role_type": "operator",
+      "deeptech_companies": null,
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/ben-gusberg/": {
+      "name": "Ben Gusberg",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "fintech, crypto, networking platform",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Cape"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/ken-chenault-jr-697325b6/": {
+      "name": "Ken Chenault Jr",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "low",
+      "sector_specifics": "early-stage VC, B2B software",
+      "role_type": "investor",
+      "deeptech_companies": null,
+      "investor_focus": [
+        "early-stage",
+        "B2B"
+      ]
+    },
+    "https://www.linkedin.com/in/andrewartz/": {
+      "name": "Andrew Artz",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "high",
+      "sector_specifics": "deeptech commercialization, physics & chemistry research spinouts",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Dark Arts VC"
+      ],
+      "investor_focus": [
+        "physics",
+        "chemistry",
+        "deeptech",
+        "university spinouts"
+      ]
+    },
+    "https://www.linkedin.com/in/erosenblum/": {
+      "name": "Eric Rosenblum",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "early-stage tech, deep tech, life sciences",
+      "role_type": "investor",
+      "deeptech_companies": null,
+      "investor_focus": [
+        "deep tech",
+        "life sciences",
+        "software"
+      ]
+    },
+    "https://www.linkedin.com/in/weschan/": {
+      "name": "Wesley Chan",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "high",
+      "sector_specifics": "deeptech investor (PsiQuantum, Astranis, Zipline drones), mission-driven founders",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "FPV Ventures",
+        "Google Ventures"
+      ],
+      "investor_focus": [
+        "quantum",
+        "space",
+        "drones",
+        "biotech",
+        "mission-driven"
+      ]
+    },
+    "https://www.linkedin.com/in/ross-finman-a0618512/": {
+      "name": "Ross Finman",
+      "ecosystem": "robotics_hardware",
+      "deeptech_relevance": "high",
+      "sector_specifics": "spatial AI, AR/VR, computer vision, robotics",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Augmodo",
+        "Escher Reality",
+        "Niantic"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/stephenturban/": {
+      "name": "Stephen Turban",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "education, EdTech",
+      "role_type": "founder",
+      "deeptech_companies": [],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/angelalovesuniverse/": {
+      "name": "Angela Han",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "low",
+      "sector_specifics": "space travel agency, climate policy",
+      "role_type": "founder",
+      "deeptech_companies": [],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/elkingtonjoshua/": {
+      "name": "Joshua Elkington",
+      "ecosystem": "biotech",
+      "deeptech_relevance": "medium",
+      "sector_specifics": "life sciences VC, biotech investing",
+      "role_type": "investor",
+      "deeptech_companies": [
+        "Axial"
+      ],
+      "investor_focus": [
+        "biotech",
+        "life sciences"
+      ]
+    },
+    "https://www.linkedin.com/in/madhavdatt/": {
+      "name": "Madhav Datt",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "humanitarian housing, climate",
+      "role_type": "founder",
+      "deeptech_companies": [],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/angel-onuoha/": {
+      "name": "Angel Onuoha",
+      "ecosystem": "ai",
+      "deeptech_relevance": "low",
+      "sector_specifics": "healthcare AI, medical billing",
+      "role_type": "founder",
+      "deeptech_companies": [
+        "Avelis Health"
+      ],
+      "investor_focus": null
+    },
+    "https://www.linkedin.com/in/teddy-himler-84674719/": {
+      "name": "Teddy Himler",
+      "ecosystem": "generalist_vc",
+      "deeptech_relevance": "none",
+      "sector_specifics": "VC, insurance, healthcare automation",
+      "role_type": "investor",
+      "deeptech_companies": [],
+      "investor_focus": [
+        "insurance",
+        "healthcare",
+        "automation"
+      ]
+    },
+    "https://www.linkedin.com/in/afrazsiddiqui/": {
+      "name": "Afraz Siddiqui",
+      "ecosystem": "not_deeptech",
+      "deeptech_relevance": "none",
+      "sector_specifics": "iOS education, mobile development",
+      "role_type": "founder",
+      "deeptech_companies": [],
+      "investor_focus": null
+    }
+  }
+}
